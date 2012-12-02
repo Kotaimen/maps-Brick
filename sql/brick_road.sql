@@ -117,7 +117,6 @@ CREATE VIEW brick_road_z15 AS
 		FROM brick_road_rail
 		WHERE z15 IS NOT NULL
 	) AS FOO
-	WHERE ST_INTERSECTS(way, ST_MakeEnvelope(-20037508.343,-64811.256,-5824920.415,11612315.365, 900913))
 	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC, is_casing DESC, priority DESC;
 
 CREATE VIEW brick_road_z14 AS
@@ -142,7 +141,6 @@ CREATE VIEW brick_road_z14 AS
 		FROM brick_road_rail
 		WHERE z14 IS NOT NULL
 	) AS FOO
-	WHERE ST_INTERSECTS(way, ST_MakeEnvelope(-20037508.343,-64811.256,-5824920.415,11612315.365, 900913))
 	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC, is_casing DESC, priority DESC;
 
 CREATE VIEW brick_road_z13 AS
@@ -167,7 +165,6 @@ CREATE VIEW brick_road_z13 AS
 		FROM brick_road_rail
 		WHERE z13 IS NOT NULL
 	) AS FOO
-	WHERE ST_INTERSECTS(way, ST_MakeEnvelope(-20037508.343,-64811.256,-5824920.415,11612315.365, 900913))
 	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC, is_casing DESC, priority DESC;
 
 
@@ -189,7 +186,6 @@ CREATE VIEW brick_road_z12 AS
 		FROM brick_road_rail
 		WHERE z12 IS NOT NULL
 	) AS FOO
-	WHERE ST_INTERSECTS(way, ST_MakeEnvelope(-20037508.343,-64811.256,-5824920.415,11612315.365, 900913))
 	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC,priority DESC;
 
 
@@ -211,7 +207,6 @@ CREATE VIEW brick_road_z11 AS
 		FROM brick_road_rail
 		WHERE z11 IS NOT NULL
 	) AS FOO
-	WHERE ST_INTERSECTS(way, ST_MakeEnvelope(-20037508.343,-64811.256,-5824920.415,11612315.365, 900913))
 	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC,priority DESC;
 
 
@@ -233,7 +228,6 @@ CREATE VIEW brick_road_z10 AS
 		FROM brick_road_rail
 		WHERE z10 IS NOT NULL
 	) AS FOO
-	WHERE ST_INTERSECTS(way, ST_MakeEnvelope(-20037508.343,-64811.256,-5824920.415,11612315.365, 900913))
 	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC,priority DESC;
 
 	
