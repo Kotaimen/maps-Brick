@@ -17,5 +17,6 @@ CREATE OR REPLACE VIEW brick_places AS
         CASE
             WHEN planet_osm_point.population ~ '^\d+$'::text THEN planet_osm_point.population::integer
             ELSE 0 
-        END DESC NULLS LAST;
+        END DESC NULLS LAST,
+        planet_osm_point.osm_id DESC;
 END;
