@@ -1,4 +1,4 @@
-BEGIN;
+﻿BEGIN;
 CREATE OR REPLACE VIEW brick_places AS 
  SELECT planet_osm_point.way, 
         CASE
@@ -6,7 +6,9 @@ CREATE OR REPLACE VIEW brick_places AS
             WHEN planet_osm_point.place = 'town'::text THEN 1
             WHEN planet_osm_point.place = 'village'::text THEN 2
             ELSE 3
-        END AS type, planet_osm_point.name, 
+        END AS type, 
+        regexp_replace(planet_osm_point.name, '(.*)\(.*\)'::text, E'\\1') AS name, 
+        
         CASE
             WHEN planet_osm_point.population ~ '^\d+$'::text THEN planet_osm_point.population::integer
             ELSE 0
