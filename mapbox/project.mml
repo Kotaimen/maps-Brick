@@ -23,6 +23,24 @@
   ],
   "Layer": [
     {
+      "geometry": "polygon",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "bathymetry",
+      "class": "",
+      "Datasource": {
+        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/physical/10m-bathymetry.zip"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "bathymetry"
+    },
+    {
       "Datasource": {
         "file": "/Users/Kotaimen/proj/geodata/osm_landmass/processed_p.shp"
       },
@@ -264,7 +282,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_waterway_gen0",
+        "table": "brick_waterway_gen0_table",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "custom",
@@ -283,8 +301,7 @@
       "advanced": {
         "simplify_geometries": "yes"
       },
-      "name": "waterway_gen0",
-      "status": "off"
+      "name": "waterway_gen0"
     },
     {
       "geometry": "linestring",
@@ -1031,6 +1048,34 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "landusage-label"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "brick_road_label_gen1",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34 ",
+        "dbname": "planet_osm_1208",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "road-label-gen1",
+      "class": "label",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road-label-gen1"
     },
     {
       "geometry": "linestring",

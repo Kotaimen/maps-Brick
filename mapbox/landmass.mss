@@ -4,6 +4,13 @@
 // Landmass
 ///////////////////////////////////////////////////
 
+
+#bathymetry {
+  polygon-opacity: 0.1;
+  polygon-comp-op: multiply;
+  polygon-fill: @water-color;
+}
+
 #land[zoom>=0][zoom<5],
 #shoreline_300[zoom>=5][zoom<10],
 #processed_p[zoom>=10] {
@@ -195,4 +202,5 @@
   [zoom=17] { building-height:4; }
   [zoom>=18] { building-height:6; }
 }
+
 

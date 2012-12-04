@@ -51,15 +51,16 @@
 @rail-outline-color: @rail-color;
 
 // Font
+
 @label-color: #3e342e;
+@label-color-alt : #7c7575; 
 @label_halo-color: @land-color;
 @label-color-blue: @ferry-color;
 
 @label-font: 'American Typewriter Condensed';
 @label-font-alt: 'American Typewriter Regular';
-@label-font-heavy: 'American Typewriter Condensed Bold';
+@label-font-heavy: 'American Typewrit Condensed Bold';
 @road-font: 'Avenir Next Demi Bold';
-
 /*
 @label-font: 'Avenir Next Condensed Medium';
 @label-font-alt: 'Avenir Next Condensed Medium Italic';
@@ -69,14 +70,12 @@
 @label-font: 'Hiragino Maru Gothic ProN W4'; 
 @label-font-alt: 'Hiragino Kaku Gothic Pro W3';
 @label-font-heavy: 'Hiragino Kaku Gothic ProN W6';
-@label-roads-font: 'Avenir Next Demi Bold';
+@road-font: 'Avenir Next Demi Bold';
 */
 // Variable depth buffer
-@smart-halo-raidus: 2;
+@smart-halo-raidus: 0;
 
-Map {
-  background-color: @water-color;
-  //buffer-size: 200;
+
+Map { 
+  background-color: @water-color; 
 }
-
-

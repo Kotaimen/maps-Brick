@@ -1,4 +1,4 @@
-
+/*
 
 ///////////////////////////////////////////////////
 // Dymo pre-placed names
@@ -79,12 +79,13 @@
 // Road names
 ///////////////////////////////////////////////////
 
-#road-label[zoom>=10][is_link=0] {
+#road-label-gen1[zoom>=10][zoom<14][is_link=0],
+#road-label[zoom>=14][is_link=0] {
   text-clip: false;
   text-face-name: @road-font;
   text-allow-overlap: false;
   text-name: "";
-  text-fill: lighten(@label-color, 10%);
+  text-fill: @label-color;
   text-halo-fill: @land-color;
   text-halo-radius: 1.5;
   text-placement: line;
@@ -93,10 +94,10 @@
   text-label-position-tolerance: 16;
   text-max-char-angle-delta: 20;
 
-  [zoom>=17] { text-size: 11; text-min-distance:160; }
+  [zoom>=17] { text-size: 11; text-min-distance:120; }
 
   [priority<=3] { text-transform: uppercase; }
-  [priority>=3] { text-fill: lighten(@label-color, 20%); }
+  [priority>=3] { text-fill: @label-color-alt; }
 
   [zoom<14][priority<=1] { text-name: "[name_abbr]"; }
   [zoom=14][priority<=3] { text-name: "[name_abbr]"; }
@@ -111,9 +112,9 @@
   text-face-name: @label-font-alt;
   text-allow-overlap: false;
   text-name: "";
-  text-fill: lighten(@label-color, 10%);
+  text-fill: @label-color-alt;
   text-halo-fill: @land-color;
-  text-halo-radius: 0.6 + @smart-halo-raidus / 2;
+  text-halo-radius: 1 + @smart-halo-raidus / 2;
   text-wrap-width: 60;
 //  text-placement: point;
   text-size: 12;
@@ -122,7 +123,11 @@
   [type='aerodrome'],[type='railway'] {
     text-size: 14;
   }
+  
+  //// Render control
+  
   [type='nature_reserve'],
+  [type='park'],
   {
     [zoom=5][area>640000000],
     [zoom=6][area>400000000],
@@ -135,6 +140,7 @@
     }
   }
   [type='nature_reserve'],
+  [type='park'],    
   [type='aerodrome'],
   [type='railway'],
   {
@@ -159,21 +165,121 @@
     }
   }
   [zoom=16][area>1000],
-  [zoom>=17][area>500],
+  [zoom>=17],
   {
   	text-name: "[name]";
   }
+  
+  //// Color control
+  
   [type='forest'], [type='grass'], [type='wood'], [type='wetland'],
-  [type='park'],  [type='golf_course'], [type='cemetery'], [type='nature_reserve'] {
-   	text-fill: darken(@green-color, 40%);
+  [type='golf_course'], [type='cemetery'],   
+  [type='park'], [type='nature_reserve'] {
+   	text-fill: desaturate(darken(@green-color, 40%), 5%);
   }
 
   [type='hospital'] {
-  	text-fill: saturate(darken(@healthcare-color, 35%), 10%);
+  	text-fill: saturate(darken(@healthcare-color, 60%), 40%);
   }
 
   [type='reservoir'], [type='water'] {
     text-fill: @ferry-color;
   }
+  
+  [type='aerodrome'],  [type='university'], [type='railway'],
+  {
+    text-fill: @label-color;
+  }
+  
+  //// Marker
+
+  [type='aerodrome'] {
+    [zoom=9][area>20000000],
+    [zoom=10][area>4000000],
+  	[zoom=11][area>1000000],
+  	[zoom=12][area>100000],
+    [zoom=13][area>50000],
+    [zoom>=14]
+    {
+      ::marker {
+        marker-placement: point;
+        marker-width: 12;
+        marker-height: 12;           
+		marker-fill: @label-color;
+        marker-file: url("marker/airport.svg");
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 10;
+    }  
+  }
+  [type='railway'] {
+  	[zoom=11][area>1000000],
+  	[zoom=12][area>100000],
+    [zoom=13][area>50000],
+    [zoom=14][area>10000],
+    [zoom=15][area>3000],
+    [zoom>=16]
+    {
+      ::marker {
+        marker-placement: point;
+        marker-width: 8;
+        marker-height: 8;           
+		marker-fill: @label-color;
+        marker-file: url("marker/rail.svg");
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 7;
+    }  
+  }
+
+  [type='hospital'] {
+  	[zoom=12][area>100000],
+    [zoom=13][area>50000],
+    [zoom=14][area>10000],
+    [zoom=15][area>3000],
+    [zoom=16][area>1000],
+    [zoom>=17],      
+    {
+      ::marker {
+        marker-placement: point;
+        marker-width: 8;
+        marker-height: 8;        
+        marker-file: url("marker/hospital.svg");
+		marker-fill: saturate(darken(@healthcare-color, 60%), 40%);        
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 7;
+    }  
+  }
+  [type='nature_reserve'],[type='park'] {
+    [zoom=7][area>100000000],
+    [zoom=8][area>40000000],
+    [zoom=9][area>20000000],
+    [zoom=10][area>4000000],
+  	[zoom=11][area>1000000],
+  	[zoom=12][area>100000],
+    [zoom=13][area>50000],
+    [zoom=14][area>10000],
+    [zoom=15][area>3000],  
+    [zoom=16][area>1000],    
+    [zoom>=17]
+    {
+      ::marker {
+        marker-placement: point;
+        marker-file: url("marker/tree-1.svg");
+        marker-width: 8;
+        marker-height: 10;
+     	marker-fill: desaturate(darken(@green-color, 40%), 5%);
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 9;
+    }  
+  }
+  
 }
 
+*/
