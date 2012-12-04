@@ -1,0 +1,4793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#99aabb" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+
+<Parameters>
+  <Parameter name="bounds">-180,-80,180,80</Parameter>
+  <Parameter name="center">-122.389,37.8001,14</Parameter>
+  <Parameter name="format">png8</Parameter>
+  <Parameter name="minzoom">2</Parameter>
+  <Parameter name="maxzoom">18</Parameter>
+  <Parameter name="name"><![CDATA[Brick (take2)]]></Parameter>
+  <Parameter name="description"><![CDATA[Brick OSM RoadMap Theme]]></Parameter>
+</Parameters>
+
+
+<Style name="bathymetry" filter-mode="first" >
+  <Rule>
+    <PolygonSymbolizer fill-opacity="0.1" comp-op="multiply" fill="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="bathymetry"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>bathymetry</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/bathymetry/c22966e3-10m-bathymetry.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="processed_p" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#e3e3d8" gamma="0.75" />
+  </Rule>
+</Style>
+<Layer name="processed_p"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>processed_p</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/processed_p/processed_p.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="shoreline_300" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#e3e3d8" gamma="0.75" />
+  </Rule>
+</Style>
+<Layer name="shoreline_300"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>shoreline_300</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/shoreline_300/shoreline_300.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="land" filter-mode="first" >
+  <Rule>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#e3e3d8" gamma="0.75" />
+  </Rule>
+</Style>
+<Layer name="land"
+  srs="+proj=longlat +ellps=WGS84 +no_defs">
+    <StyleName>land</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/land/ne_10m_land.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="landusage_gen0" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'helipad')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'runway')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'harbor')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'railway')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'boundary')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'airport')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'aerodrome')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'nature_reserve')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'police')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'parking')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'common')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'stadium')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'pitch')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'hospital')</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'college')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'university')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'school')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'cemetery')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'park')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'grass') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'grass') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'grass') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'grass') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'grass') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 320000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'wetland')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 320000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 100000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 50000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 10000000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt; 5000000) and ([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+</Style>
+<Layer name="landusage_gen0"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>landusage_gen0</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_landusage_gen0_table]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="builtuparea" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+</Style>
+<Layer name="builtuparea"
+  srs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs">
+    <StyleName>builtuparea</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/builtuparea/builtup_area.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="landusage_gen1" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'apron') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'apron') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'apron') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'apron') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'apron') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'helipad')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'helipad')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'helipad')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'runway') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'runway')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'helipad') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'helipad')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'railway')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'railway')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'railway')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'harbor') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'harbor')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'railway') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'railway')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'station') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'boundary') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'boundary')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'airport') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'airport')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'aerodrome') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'aerodrome')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'nature_reserve') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'nature_reserve')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'police') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'police')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'industrial') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'parking') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'parking')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'common') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'common')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'commercial') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'stadium') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'stadium')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'pitch') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'pitch')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'hospital') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'hospital')</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'college') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'college')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'university') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'university')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'school') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'school')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'cemetery')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'park') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'park')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'forest') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt; 500000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 500000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'wetland') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'wetland')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'wood') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'wood') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'wood') and ([area] &gt; 1000000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'wood') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'wood') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt; 1000000) and ([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([area] &gt; 500000)</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 50000) and ([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+</Style>
+<Layer name="landusage_gen1"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>landusage_gen1</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_landusage_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="landusage" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'apron')</Filter>
+    <PolygonSymbolizer fill="#beb8a7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'helipad')</Filter>
+    <PolygonSymbolizer fill="#e0ded5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'boundary')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'aerodrome')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'railway')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'harbor')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'station')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'airport')</Filter>
+    <PolygonSymbolizer fill="#cfcbbe" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'nature_reserve')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'police')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#bec3c9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'parking')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'common')</Filter>
+    <PolygonSymbolizer fill="#c2c6cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'pitch')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'stadium')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#ccdec6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'hospital')</Filter>
+    <PolygonSymbolizer fill="#cfc3ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'university')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'college')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'school')</Filter>
+    <PolygonSymbolizer fill="#d5cfb9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'park')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'cemetery')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#bbccbb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'wetland')</Filter>
+    <PolygonSymbolizer fill="#adc0b3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#dadacf" />
+  </Rule>
+</Style>
+<Layer name="landusage"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>landusage</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_landusage]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="aeroway" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="5" smooth="0.7" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="4" smooth="0.5" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="0.2" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="0.2" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'taxiway')</Filter>
+    <LineSymbolizer stroke-width="0.2" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="23" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="19" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="15" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="11" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="7" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'runway')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#e0ded5" stroke-linecap="butt" stroke-linejoin="miter" />
+  </Rule>
+</Style>
+<Layer name="aeroway"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>aeroway</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_aeroway]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="10m_rivers" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 8)</Filter>
+    <LineSymbolizer stroke="#99aabb" stroke-width="0.5" />
+  </Rule>
+</Style>
+<Layer name="10m_rivers"
+  srs="+proj=longlat +ellps=WGS84 +no_defs">
+    <StyleName>10m_rivers</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_rivers/ne_10m_rivers_lake_centerlines.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="10m_lakes" filter-mode="first" >
+  <Rule>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="10m_lakes"
+  srs="+proj=longlat +ellps=WGS84 +no_defs">
+    <StyleName>10m_lakes</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_lakes/ne_10m_lakes.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[10m_lakes]]></Parameter>
+       <Parameter name="project"><![CDATA[Brick_take2_USA]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterway_gen0" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.8" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.6" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.4" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.2" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0.1" stroke="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="waterway_gen0"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway_gen0</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_waterway_gen0_table]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterway_gen1" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.4" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.2" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer stroke="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="waterway_gen1"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway_gen1</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_waterway_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterway" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.3" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.1" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.3" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.1" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.6" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#99aabb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="waterway"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_waterway]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterbody_gen0" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="waterbody_gen0"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterbody_gen0</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_waterbody_gen0_table]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterbody_gen1" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="waterbody_gen1"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterbody_gen1</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_waterbody_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterbody" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#99aabb" />
+  </Rule>
+</Style>
+<Layer name="waterbody"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterbody</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_waterbody]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="building" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+    <LineSymbolizer stroke="#a9a592" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+    <LineSymbolizer stroke="#c0bcae" stroke-width="0.2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <BuildingSymbolizer height="6" fill="#d6d4cb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <BuildingSymbolizer height="4" fill="#d6d4cb" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+  </Rule>
+</Style>
+<Layer name="building"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>building</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_building]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>
