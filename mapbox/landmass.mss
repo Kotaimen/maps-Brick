@@ -10,15 +10,29 @@
   polygon-fill: @land-color;
   polygon-gamma: 0.75;
 }
-/*
+
 ///////////////////////////////////////////////////
 // Waterbody
 ///////////////////////////////////////////////////
 
+#10m_lakes[zoom<=4],
 #waterbody_gen0[zoom>4][zoom<=9],
 #waterbody_gen1[zoom>9][zoom<=12],
 #waterbody[zoom>12] {
   polygon-fill: @water-color;
+}
+
+#10m_rivers[zoom<8] {
+  [zoom=2][scalerank<=3],
+  [zoom=3][scalerank<=4],
+  [zoom=4][scalerank<=5],
+  [zoom=5][scalerank<=6],
+  [zoom=6][scalerank<=7],    
+  [zoom=7][scalerank<=8],        
+  {
+  	line-color: @water-color;
+  	line-width: 0.5;  
+  }
 }
 
 #waterway_gen0[zoom>=8][zoom<=12] {
@@ -76,11 +90,10 @@
   }
 }
 
-
 ///////////////////////////////////////////////////
 // Unified landusage
 ///////////////////////////////////////////////////
-#landusage_gen0[zoom=4][area>640000000],
+//#landusage_gen0[zoom=4][area>640000000],
 #landusage_gen0[zoom=5][area>320000000],
 #landusage_gen0[zoom=6][area>100000000],
 #landusage_gen0[zoom=7][area>50000000],
@@ -111,13 +124,14 @@
   [type='commercial'], [type='common'], [type='parking'],
   { polygon-fill: @grey-color; }
 
-  [type='industrial'],
+  [type='industrial'], [type='police'],
   { polygon-fill: @grey-color-alt; }
 
   [type='nature_reserve'],
   { polygon-fill: @green-color-alt;}
 
-  [type='aerodrome'], [type='airport'], [type='boundary']
+  [type='aerodrome'], [type='airport'], [type='boundary'], [type='station'],
+  [type='harbor'], [type='railway']
   { polygon-fill: @airport-color; }
 
   [type='runway'], [type='helipad'],
@@ -177,7 +191,8 @@
 
 #building[zoom>=17] {
   building-fill:@building-color;
+//  building-fill-opacity: 0.7;
   [zoom=17] { building-height:4; }
   [zoom>=18] { building-height:6; }
 }
-*/
+

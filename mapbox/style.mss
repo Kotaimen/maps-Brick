@@ -12,7 +12,7 @@
 @residential-color: #dadacf;
 @green-color: #bbccbb;
 @green-color-alt: #adc0b3;
-@grey-color: #bbc2cc;
+@grey-color: #c2c6cc;
 @grey-color-alt: #bec3c9;
 
 @healthcare-color: #cfc3ba;
@@ -58,14 +58,25 @@
 @label-font: 'American Typewriter Condensed';
 @label-font-alt: 'American Typewriter Regular';
 @label-font-heavy: 'American Typewriter Condensed Bold';
-@label-roads-font: 'Avenir Next Demi Bold';
+@road-font: 'Avenir Next Demi Bold';
 
+/*
+@label-font: 'Avenir Next Condensed Medium';
+@label-font-alt: 'Avenir Next Condensed Medium Italic';
+@label-font-heavy: 'Avenir Next Condensed Medium Bold';
+@road-font: 'Avenir Next Demi Bold';
+
+@label-font: 'Hiragino Maru Gothic ProN W4'; 
+@label-font-alt: 'Hiragino Kaku Gothic Pro W3';
+@label-font-heavy: 'Hiragino Kaku Gothic ProN W6';
+@label-roads-font: 'Avenir Next Demi Bold';
+*/
 // Variable depth buffer
-@smart-halo-raidus: 1.6;
+@smart-halo-raidus: 2;
 
 Map {
   background-color: @water-color;
-  buffer-size: 512; 
+  //buffer-size: 200;
 }
 
 

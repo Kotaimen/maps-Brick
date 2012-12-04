@@ -1,7 +1,8 @@
-///////////////////////////////////////////////////
-// Placement names
-///////////////////////////////////////////////////
 
+
+///////////////////////////////////////////////////
+// Dymo pre-placed names
+///////////////////////////////////////////////////
 
 #labels-z4[zoom=4],
 #labels-z5[zoom=5],
@@ -13,7 +14,7 @@
 {
   //::DEBUG { polygon-opacity:0.5; polygon-fill: orange; }
   text-clip: false;
-  [capital="yes"] { text-face-name: @label-font-heavy; }
+  //[capital="yes"] { text-face-name: @label-font-heavy; }
   text-face-name: @label-font;
   text-allow-overlap: true;
   text-name: "[name]";
@@ -41,40 +42,138 @@
   marker-line-width: @smart-halo-raidus;
 }
 
-#places-all[zoom>=11] {  
+
+///////////////////////////////////////////////////
+// Normal place names
+///////////////////////////////////////////////////
+
+
+#places-all[zoom>=11] {
   text-clip: false;
   text-face-name: @label-font;
   text-allow-overlap: false;
-  text-name: "[name]";
+  text-name: "";
   text-fill: @label-color;
   text-halo-fill: @land-color;
   text-halo-radius: 0 + @smart-halo-raidus;
   text-placement: point;
   text-size: 16;
-  text-min-distance: 32;
-  [zoom>13] { text-transform: uppercase; }
-  //[population>1000] { text-size: 32; }
-
-  [type=3] { text-size: 16; }        
-  [type=2] { text-size: 18; }      
-  [type=1] { text-size: 24; }  
-  [type=0] { text-size: 32; }
-
-  /*
-  [zoom=11] {
-    [font_size=18] { text-size: 18; }
-    [font_size=24] { text-size: 24; }
-    [font_size=32] { text-size: 32; }
+  text-min-distance: 30;
+//  text-spacing: 16;
+  [type=0][zoom<17],
+  [type>=1] {
+	text-name: "[name]";
   }
-  [zoom=12] {
-    [font_size=18] { text-size: 20; }
-    [font_size=24] { text-size: 28; }
-    [font_size=32] { text-size: 36; }
-  }
-  [zoom>=13] {
-    [font_size=18] { text-size: 22; }
-    [font_size=24] { text-size: 28; }
-    [font_size=32] { text-size: 36; }
-  }
-  */
+  [type=3][zoom<15] { text-size: 16; text-wrap-width: 80; }
+  [type=3][zoom>=15] { text-size: 18; text-wrap-width: 0; }
+  [type=2] { text-size: 20; text-wrap-width: 120; }
+  [type=2][zoom>=15] { text-size: 22; text-wrap-width: 0; }
+  [type=1][zoom<16] { text-size: 24; }
+  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 4;}
+  [type=0][zoom<=13] { text-size: 32; }
+  [type=0][zoom>13][zoom<=15]{ text-size: 42; text-character-spacing: 4; }
 }
+
+
+///////////////////////////////////////////////////
+// Road names
+///////////////////////////////////////////////////
+
+#road-label[zoom>=10][is_link=0] {
+  text-clip: false;
+  text-face-name: @road-font;
+  text-allow-overlap: false;
+  text-name: "";
+  text-fill: lighten(@label-color, 10%);
+  text-halo-fill: @land-color;
+  text-halo-radius: 1.5;
+  text-placement: line;
+  text-min-distance: 50;
+//  text-spacing: 16;
+  text-label-position-tolerance: 16;
+  text-max-char-angle-delta: 20;
+
+  [zoom>=17] { text-size: 11; text-min-distance:160; }
+
+  [priority<=3] { text-transform: uppercase; }
+  [priority>=3] { text-fill: lighten(@label-color, 20%); }
+
+  [zoom<14][priority<=1] { text-name: "[name_abbr]"; }
+  [zoom=14][priority<=3] { text-name: "[name_abbr]"; }
+  [zoom=15][priority<=6] { text-name: "[name_abbr]"; }
+  [zoom=16][priority<=7] { text-name: "[name]"; }
+  [zoom>=17] { text-name: "[name]"; }
+}
+
+
+#landusage-label[zoom>5] {
+  text-clip: false;
+  text-face-name: @label-font-alt;
+  text-allow-overlap: false;
+  text-name: "";
+  text-fill: lighten(@label-color, 10%);
+  text-halo-fill: @land-color;
+  text-halo-radius: 0.6 + @smart-halo-raidus / 2;
+  text-wrap-width: 60;
+//  text-placement: point;
+  text-size: 12;
+  text-min-distance: 16;
+
+  [type='aerodrome'],[type='railway'] {
+    text-size: 14;
+  }
+  [type='nature_reserve'],
+  {
+    [zoom=5][area>640000000],
+    [zoom=6][area>400000000],
+    [zoom=7][area>100000000],
+    [zoom=8][area>40000000],
+    [zoom=9][area>20000000],
+    [zoom=10][area>4000000],
+    {
+  		text-name: "[name]";
+    }
+  }
+  [type='nature_reserve'],
+  [type='aerodrome'],
+  [type='railway'],
+  {
+  	[zoom=11][area>1000000],
+  	[zoom=12][area>100000],
+    [zoom=13][area>50000],
+    {
+  		text-name: "[name]";
+    }
+  }
+  [type='nature_reserve'],
+  [type='aerodrome'],
+  [type='park'],
+  [type='hospital'],
+  [type='university'],
+  [type='railway'],
+  {
+    [zoom=14][area>10000],
+    [zoom=15][area>3000],
+    {
+  		text-name: "[name]";
+    }
+  }
+  [zoom=16][area>1000],
+  [zoom>=17][area>500],
+  {
+  	text-name: "[name]";
+  }
+  [type='forest'], [type='grass'], [type='wood'], [type='wetland'],
+  [type='park'],  [type='golf_course'], [type='cemetery'], [type='nature_reserve'] {
+   	text-fill: darken(@green-color, 40%);
+  }
+
+  [type='hospital'] {
+  	text-fill: saturate(darken(@healthcare-color, 35%), 10%);
+  }
+
+  [type='reservoir'], [type='water'] {
+    text-fill: @ferry-color;
+  }
+}
+

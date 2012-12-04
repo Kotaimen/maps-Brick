@@ -1,4 +1,5 @@
-/*
+
+
 ///////////////////////////////////////////////////
 // Political boundary
 ///////////////////////////////////////////////////
@@ -192,14 +193,15 @@
     [category='path'][render='inline'] {
       line-color: @path-body-color;
     }
-    [kind!='rail'][render='casing'] {
+    [category!='rail'][render='casing'] {
       line-cap: butt;
     }
-	[kind='rail'] {
+	[category='rail'] {
       line-cap: butt;
-    }    
+    }
     [category='rail'][render='inline'][is_bridge=0] {
-      line-color: @rail-color;
+      [kind!='rail'] { line-color: darken(@rail-color, 25%); }
+      [kind='rail'] { line-color: @rail-color; }
     }
     [category='rail'][render='inline'][is_bridge=1] {
       line-color: darken(@rail-color, 7%);
@@ -222,7 +224,7 @@
   line-color: @ferry-color;
   [zoom<=11] { line-width: 0.75; }
   [zoom<15][zoom>11] { line-width: 1; }
-  [zoom>=15] { line-width: 1.6; line-smooth: 0.8; }  
+  [zoom>=15] { line-width: 1.6; line-smooth: 0.8; }
   line-dasharray: @road-dash;
   line-join: round;
   line-clip: false;
@@ -242,7 +244,7 @@
 }
 
 #road_z11[zoom=11] {
-  [category!='rail'] {  
+  [category!='rail'] {
     [render='outline'] {
       [category='highway'] {line-width: 5; }
       [category='major_road'] {line-width: 2.25; }
@@ -273,7 +275,7 @@
   }
 }
 
-#road_z13[zoom=13] {  
+#road_z13[zoom=13] {
   [category!='rail'] {
     [render='outline'] {
       [category='highway'][is_link=0] { line-width: 5; }
@@ -569,8 +571,8 @@
 
 #road_z12[zoom=12],
 #road_z13[zoom=13] {
-  [category='rail'] {
-    line-cap:butt;    
+  [category='rail'][ {
+    line-cap:butt;
     [render='casing'] {
       line-width: 1;
     }
@@ -582,13 +584,13 @@
 }
 
 
-#road_z15[zoom>=14] 
+#road_z15[zoom>=14]
 {
   [category='rail'] {
     line-cap:butt;
     [render='inline'][is_tunnel=1] { line-opacity: 0.5;}
     [render='casing'][is_tunnel=1] { line-opacity: 0.5;}
-  
+
     [zoom=14] {
       [render='casing'] { line-width: 1.5; }
       [render='inline'] {
@@ -631,4 +633,27 @@
     }
   }
 }
-*/
+
+
+#road_z15[zoom>=15] {
+  ::oneway_arrow[category!='rail'][oneway=1][render='casing'] {
+      [zoom=15][category!='highway'],
+      [zoom=16][category!='highway'],
+      [zoom=17][category!='highway'],
+      [zoom=17][category='highway'][is_link=1],
+      [zoom>=18]{
+      marker-fill: @highway-casing-color;
+      marker-line-width: 0;
+      marker-placement: line;
+      marker-type: arrow;
+      marker-clip: false;
+      //marker-allow-overlap: false;
+      marker-ignore-placement: true;
+      [zoom=15] { marker-height: 3; marker-spacing: 60; }
+      [zoom=16] { marker-height: 4; marker-spacing: 120; }
+      [zoom=17] { marker-height: 5; marker-spacing: 200; }
+      [zoom>=18] { marker-height: 7; marker-spacing: 300; }
+      }
+  }
+}
+
