@@ -1,6 +1,4 @@
-﻿BEGIN;
-
-
+BEGIN;
 
 DROP VIEW IF EXISTS brick_waterway_gen0;
 DROP VIEW IF EXISTS brick_waterway_gen1;
@@ -39,15 +37,15 @@ CREATE OR REPLACE VIEW brick_waterway AS
 
 -- waterbody
 CREATE OR REPLACE VIEW brick_waterbody_gen0 AS
-	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE ("natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')) AND way_area > 10000;
+	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE ("natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream') OR landuse IN ('basin', 'reservoir')) AND way_area > 10000;
 
 
 CREATE OR REPLACE VIEW brick_waterbody_gen1 AS
-	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE ("natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')) AND way_area > 1000;
+	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE ("natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream') OR landuse IN ('basin', 'reservoir')) AND way_area > 1000;
 
 
 CREATE OR REPLACE VIEW brick_waterbody AS
-	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE "natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream');
+	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE "natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream') OR landuse IN ('basin', 'reservoir');
 
 
 -- landusage
@@ -64,7 +62,8 @@ CREATE OR REPLACE VIEW brick_landusage AS
 
 
 CREATE OR REPLACE VIEW brick_landusage_label AS
-	SELECT osm_id, name, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, ST_PointOnSurface(way) AS way FROM planet_osm_polygon WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL AND name IS NOT NULL AND ST_ISVALID(way);
+	SELECT osm_id, name, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, ST_PointOnSurface(way) AS way FROM planet_osm_polygon WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL AND name IS NOT NULL AND ST_ISVALID(way) ORDER BY way_area DESC;
+
 
 -- building
 CREATE OR REPLACE VIEW brick_building AS
