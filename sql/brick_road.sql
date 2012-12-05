@@ -17,8 +17,8 @@ CREATE VIEW  brick_road_rail AS
 		SELECT  
 			(CASE	WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
 				WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'major_road'
-				WHEN highway IN ('residential', 'unclassified', 'road', 'service', 'minor') THEN 'minor_road'
-				WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'
+				WHEN highway IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor_road'
+				WHEN highway IN ('service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'
 				WHEN railway IN ('rail', 'tram', 'light_rail', 'narrow_guage', 'monorail') THEN 'rail'
 				ELSE NULL END
 			) AS z15,
