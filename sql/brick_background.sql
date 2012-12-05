@@ -61,10 +61,6 @@ CREATE OR REPLACE VIEW brick_landusage AS
 	SELECT osm_id, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, way FROM planet_osm_polygon WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL ORDER BY way_area DESC;
 
 
-CREATE OR REPLACE VIEW brick_landusage_label AS
-	SELECT osm_id, name, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, ST_PointOnSurface(way) AS way FROM planet_osm_polygon WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL AND name IS NOT NULL AND ST_ISVALID(way) ORDER BY way_area DESC;
-
-
 -- building
 CREATE OR REPLACE VIEW brick_building AS
 	SELECT osm_id, building AS type, way FROM planet_osm_polygon WHERE building NOT IN ('0','false', 'no') ORDER BY ST_YMin(ST_Envelope(way)) DESC;

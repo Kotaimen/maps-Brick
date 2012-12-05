@@ -1,4 +1,9 @@
 ﻿BEGIN;
+
+DROP VIEW IF EXISTS brick_places;
+DROP VIEW IF EXISTS brick_landusage_label;
+
+
 CREATE OR REPLACE VIEW brick_places AS 
  SELECT planet_osm_point.way, 
         CASE
@@ -21,4 +26,14 @@ CREATE OR REPLACE VIEW brick_places AS
             ELSE 0 
         END DESC NULLS LAST,
         planet_osm_point.osm_id DESC;
+
+
+CREATE OR REPLACE VIEW brick_landusage_label AS
+	SELECT 
+		osm_id, 
+		name, 
+		way_area AS area, 
+		COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, 
+		ST_PointOnSurface(way) AS way
+	FROM planet_osm_polygon WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL AND name IS NOT NULL AND ST_ISVALID(way) ORDER BY way_area DESC;        
 END;
