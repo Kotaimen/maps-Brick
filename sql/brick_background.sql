@@ -1,4 +1,4 @@
-BEGIN;
+﻿BEGIN;
 
 DROP VIEW IF EXISTS brick_waterway_gen0;
 DROP VIEW IF EXISTS brick_waterway_gen1;
@@ -8,8 +8,6 @@ DROP VIEW IF EXISTS brick_waterbody_gen0;
 DROP VIEW IF EXISTS brick_waterbody_gen1;
 DROP VIEW IF EXISTS brick_waterbody;
 
-DROP VIEW IF EXISTS brick_landusage_label;
-
 DROP VIEW IF EXISTS brick_landusage_gen0;
 DROP VIEW IF EXISTS brick_landusage_gen1;
 DROP VIEW IF EXISTS brick_landusage;
@@ -17,6 +15,8 @@ DROP VIEW IF EXISTS brick_landusage;
 DROP VIEW IF EXISTS brick_building;
 DROP VIEW IF EXISTS brick_aeroway;
 DROP VIEW IF EXISTS brick_ferry;
+
+DROP VIEW IF EXISTS brick_pier;
 
 -- ferry
 CREATE OR REPLACE VIEW brick_ferry AS
@@ -69,6 +69,12 @@ CREATE OR REPLACE VIEW brick_building AS
 -- aeroway
 CREATE OR REPLACE VIEW brick_aeroway AS
 	SELECT osm_id, aeroway AS type, way FROM planet_osm_line WHERE aeroway IN ('apron', 'runway', 'taxiway');
+
+-- breakwater
+CREATE OR REPLACE VIEW brick_pier AS 
+	 SELECT planet_osm_line.osm_id, planet_osm_line.man_made AS type, planet_osm_line.way
+	   FROM planet_osm_line
+	  WHERE planet_osm_line.man_made = ANY (ARRAY['pier'::text, 'breakwater'::text]);
 
 
 end;
