@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////
 
 
-#bathymetry {
+#bathymetry[zoom<7] {
   polygon-opacity: 0.1;
   polygon-comp-op: multiply;
   polygon-fill: @water-color;
@@ -17,6 +17,35 @@
   polygon-fill: @land-color;
   polygon-gamma: 0.75;
 }
+
+
+
+#pier[zoom>11][type='pier'] {
+  [zoom=12] { line-width: 1;}
+  [zoom=13] { line-width: 1;}
+  [zoom=14] { line-width: 2;}
+  [zoom=15] { line-width: 3;}
+  [zoom=16] { line-width: 4;}
+  [zoom=17] { line-width: 5;}
+  [zoom>=18] { line-width: 6;}
+  line-color:@land-color;
+  line-join: round;
+  line-cap: butt;
+}
+#pier[zoom>11][type='breakwater'] {
+  [zoom=12] { line-width: 1;}
+  [zoom=13] { line-width: 1;}
+  [zoom=14] { line-width: 1;}
+  [zoom=15] { line-width: 2;}
+  [zoom=16] { line-width: 3;}
+  [zoom=17] { line-width: 4;}
+  [zoom>=18] { line-width: 5;}
+  line-color:@ferry-color;
+  line-join: round;
+  line-cap: butt;
+}
+
+
 
 ///////////////////////////////////////////////////
 // Waterbody
@@ -113,19 +142,20 @@
   //polygon-opacity: 0.25; polygon-fill: yellow; line-color: black;
   [type='residential']   { polygon-fill: @residential-color; }
 
-  [type='forest'], [type='grass'], [type='wood'], [type='wetland']
+  [type='forest'], [type='grass'], [type='wood'], [type='wetland'], [type='scrub']
   { polygon-fill: @green-color-alt; }
 
-  [type='park'],  [type='golf_course'], [type='cemetery'],
+  [type='park'],  [type='golf_course'], [type='cemetery'] [type='garden'], [type='recreation_ground']
   { polygon-fill: @green-color; }
 
-  [type='school'], [type='university'], [type='college']
+  [type='school'], [type='university'], [type='college'], [type='highschool']
   { polygon-fill: @education-color; }
 
   [type='hospital']
   { polygon-fill: @healthcare-color; }
 
   [type='pitch'], [type='sports_center'], [type='stadium']
+  [type='arts_centre']
   { polygon-fill: @sports-color; }
 
   [type='commercial'], [type='common'], [type='parking'],
@@ -198,9 +228,7 @@
 
 #building[zoom>=17] {
   building-fill:@building-color;
-//  building-fill-opacity: 0.7;
   [zoom=17] { building-height:4; }
   [zoom>=18] { building-height:6; }
 }
-
 

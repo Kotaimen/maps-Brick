@@ -1,4 +1,3 @@
-/*
 
 ///////////////////////////////////////////////////
 // Dymo pre-placed names
@@ -120,7 +119,7 @@
   text-size: 12;
   text-min-distance: 16;
 
-  [type='aerodrome'],[type='railway'] {
+  [type='aerodrome'],[type='railway'],[type='university'] {
     text-size: 14;
   }
   
@@ -179,7 +178,7 @@
   }
 
   [type='hospital'] {
-  	text-fill: saturate(darken(@healthcare-color, 60%), 40%);
+  	text-fill: saturate(darken(@healthcare-color, 45%), 40%);
   }
 
   [type='reservoir'], [type='water'] {
@@ -230,10 +229,9 @@
       }
       text-placement: point;
       text-vertical-alignment: bottom;
-      text-dy: 7;
+      text-dy: 10;
     }  
   }
-
   [type='hospital'] {
   	[zoom=12][area>100000],
     [zoom=13][area>50000],
@@ -247,13 +245,50 @@
         marker-width: 8;
         marker-height: 8;        
         marker-file: url("marker/hospital.svg");
-		marker-fill: saturate(darken(@healthcare-color, 60%), 40%);        
+		marker-fill: saturate(darken(@healthcare-color, 40%), 40%);        
       }
       text-placement: point;
       text-vertical-alignment: bottom;
       text-dy: 7;
     }  
   }
+  [type='university'],[type='college'] {
+  	[zoom=12][area>100000],
+    [zoom=13][area>50000],
+    [zoom=14][area>10000],
+    [zoom=15][area>3000],
+    [zoom=16][area>1000],
+    [zoom>=17],      
+    {
+      ::marker {
+        marker-placement: point;
+        marker-width: 11;
+        marker-height: 11;        
+        marker-file: url("marker/college.svg");
+		marker-fill: @label-color;
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 12;
+    }  
+  }  
+ [type='school'],[type='highschool'] {
+    [zoom=15][area>3000],
+    [zoom=16][area>1000],
+    [zoom>=17],      
+    {
+      ::marker {
+        marker-placement: point;
+        marker-width: 10;
+        marker-height: 10;        
+        marker-file: url("marker/school.svg");
+		marker-fill: @label-color;
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 10;
+    }  
+  }    
   [type='nature_reserve'],[type='park'] {
     [zoom=7][area>100000000],
     [zoom=8][area>40000000],
@@ -281,5 +316,3 @@
   }
   
 }
-
-*/

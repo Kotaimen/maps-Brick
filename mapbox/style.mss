@@ -73,7 +73,7 @@
 @road-font: 'Avenir Next Demi Bold';
 */
 // Variable depth buffer
-@smart-halo-raidus: 0;
+@smart-halo-raidus: 2;
 
 
 Map { 
