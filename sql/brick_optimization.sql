@@ -17,6 +17,7 @@ CREATE INDEX ON planet_osm_line(tunnel);
 CREATE INDEX ON planet_osm_polygon(amenity);
 CREATE INDEX ON planet_osm_polygon(landuse);
 CREATE INDEX ON planet_osm_polygon(leisure);
+CREATE INDEX ON planet_osm_polygon(building);
 CREATE INDEX ON planet_osm_polygon(way_area);
 CREATE INDEX ON planet_osm_polygon(z_order);
 
