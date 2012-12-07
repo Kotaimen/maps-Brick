@@ -1,4 +1,4 @@
-
+/*
 
 ///////////////////////////////////////////////////
 // Political boundary
@@ -636,8 +636,8 @@
     }
   }
 }
-
-
+*/
+/*
 #road_z15[zoom>=15] {
   ::oneway_arrow[category!='rail'][oneway=1][render='casing'] {
     
@@ -671,3 +671,4 @@
   }
 }
 
+*/

@@ -20,8 +20,8 @@
 @sports-color: #ccdec6;
 
 @airport-color: #cfcbbe;
-@aeroway-color: lighten(@airport-color, 8);
-@terminal-color: darken(@airport-color, 8);
+@aeroway-color: lighten(@airport-color, 10);
+@terminal-color: darken(@airport-color, 10);
 
 @building-color: #d6d4cb;
 @boundary-color: #888888;
@@ -73,9 +73,9 @@
 @road-font: 'Avenir Next Demi Bold';
 */
 // Variable depth buffer
-@smart-halo-raidus: 2;
+@smart-halo-raidus: 0;
 
 
 Map { 
-  background-color: @water-color; 
+//  background-color: @water-color; 
 }

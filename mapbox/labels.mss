@@ -47,7 +47,7 @@
 ///////////////////////////////////////////////////
 
 
-#places-all[zoom>=11] {
+#places-all[zoom>=11][zoom<17] {
   text-clip: false;
   text-face-name: @label-font;
   text-allow-overlap: false;
@@ -59,52 +59,19 @@
   text-size: 16;
   text-min-distance: 30;
 //  text-spacing: 16;
-  [type=0][zoom<17],
+  [type=0][zoom<=15],
   [type>=1] {
 	text-name: "[name]";
   }
   [type=3][zoom<15] { text-size: 16; text-wrap-width: 80; }
-  [type=3][zoom>=15] { text-size: 18; text-wrap-width: 0; }
+  [type=3][zoom>=15] { text-size: 20; text-wrap-width: 100; text-character-spacing: 2; }
   [type=2] { text-size: 20; text-wrap-width: 120; }
-  [type=2][zoom>=15] { text-size: 22; text-wrap-width: 0; }
+  [type=2][zoom>=15] { text-size: 22; text-wrap-width: 100; text-character-spacing: 2;}
   [type=1][zoom<16] { text-size: 24; }
-  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 4;}
+  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 4; text-transform: uppercase;}
   [type=0][zoom<=13] { text-size: 32; }
   [type=0][zoom>13][zoom<=15]{ text-size: 42; text-character-spacing: 4; }
 }
-
-
-///////////////////////////////////////////////////
-// Road names
-///////////////////////////////////////////////////
-
-#road-label-gen1[zoom>=10][zoom<14][is_link=0],
-#road-label[zoom>=14][is_link=0] {
-  text-clip: false;
-  text-face-name: @road-font;
-  text-allow-overlap: false;
-  text-name: "";
-  text-fill: @label-color;
-  text-halo-fill: @land-color;
-  text-halo-radius: 1.5;
-  text-placement: line;
-  text-min-distance: 50;
-//  text-spacing: 16;
-  text-label-position-tolerance: 16;
-  text-max-char-angle-delta: 20;
-
-  [zoom>=17] { text-size: 11; text-min-distance:120; }
-
-  [priority<=3] { text-transform: uppercase; }
-  [priority>=3] { text-fill: @label-color-alt; }
-
-  [zoom<14][priority<=1] { text-name: "[name_abbr]"; }
-  [zoom=14][priority<=3] { text-name: "[name_abbr]"; }
-  [zoom=15][priority<=6] { text-name: "[name_abbr]"; }
-  [zoom=16][priority<=7] { text-name: "[name]"; }
-  [zoom>=17] { text-name: "[name]"; }
-}
-
 
 #landusage-label[zoom>5] {
   text-clip: false;
@@ -120,17 +87,18 @@
   text-min-distance: 16;
 
   [type='aerodrome'],[type='railway'],[type='university'] {
-    text-size: 14;
+    text-size: 13;
   }
   
   //// Render control
   
   [type='nature_reserve'],
-  [type='park'],
+  [type='park'], 
+  [type='conservation'],
+  [type='military'],     
   {
-    [zoom=5][area>640000000],
-    [zoom=6][area>400000000],
-    [zoom=7][area>100000000],
+    [zoom=6][area>2000000000],
+    [zoom=7][area>1000000000],
     [zoom=8][area>40000000],
     [zoom=9][area>20000000],
     [zoom=10][area>4000000],
@@ -140,6 +108,8 @@
   }
   [type='nature_reserve'],
   [type='park'],    
+  [type='conservation'],
+  [type='military'],    
   [type='aerodrome'],
   [type='railway'],
   {
@@ -153,12 +123,15 @@
   [type='nature_reserve'],
   [type='aerodrome'],
   [type='park'],
+  [type='conservation'],
+  [type='military'],    
   [type='hospital'],
   [type='university'],
   [type='railway'],
+  [type='cemetery'],
   {
     [zoom=14][area>10000],
-    [zoom=15][area>3000],
+    [zoom=15][area>5000],
     {
   		text-name: "[name]";
     }
@@ -172,7 +145,7 @@
   //// Color control
   
   [type='forest'], [type='grass'], [type='wood'], [type='wetland'],
-  [type='golf_course'], [type='cemetery'],   
+  [type='golf_course'], [type='conservation'],
   [type='park'], [type='nature_reserve'] {
    	text-fill: desaturate(darken(@green-color, 40%), 5%);
   }
@@ -217,7 +190,7 @@
   	[zoom=12][area>100000],
     [zoom=13][area>50000],
     [zoom=14][area>10000],
-    [zoom=15][area>3000],
+    [zoom=15][area>5000],
     [zoom>=16]
     {
       ::marker {
@@ -236,7 +209,7 @@
   	[zoom=12][area>100000],
     [zoom=13][area>50000],
     [zoom=14][area>10000],
-    [zoom=15][area>3000],
+    [zoom=15][area>5000],
     [zoom=16][area>1000],
     [zoom>=17],      
     {
@@ -253,10 +226,8 @@
     }  
   }
   [type='university'],[type='college'] {
-  	[zoom=12][area>100000],
-    [zoom=13][area>50000],
     [zoom=14][area>10000],
-    [zoom=15][area>3000],
+    [zoom=15][area>5000],
     [zoom=16][area>1000],
     [zoom>=17],      
     {
@@ -273,14 +244,14 @@
     }  
   }  
  [type='school'],[type='highschool'] {
-    [zoom=15][area>3000],
+    [zoom=15][area>5000],
     [zoom=16][area>1000],
     [zoom>=17],      
     {
       ::marker {
         marker-placement: point;
-        marker-width: 10;
-        marker-height: 10;        
+        marker-width: 11;
+        marker-height: 11;        
         marker-file: url("marker/school.svg");
 		marker-fill: @label-color;
       }
@@ -288,17 +259,18 @@
       text-vertical-alignment: bottom;
       text-dy: 10;
     }  
-  }    
-  [type='nature_reserve'],[type='park'] {
-    [zoom=7][area>100000000],
-    [zoom=8][area>40000000],
-    [zoom=9][area>20000000],
-    [zoom=10][area>4000000],
-  	[zoom=11][area>1000000],
-  	[zoom=12][area>100000],
-    [zoom=13][area>50000],
-    [zoom=14][area>10000],
-    [zoom=15][area>3000],  
+  } 
+  [type='nature_reserve'],[type='conservation'],[type='park'] {
+    [zoom=6][area>2000000000],
+    [zoom=7][area>1000000000],
+    [zoom=8][area>90000000],
+    [zoom=9][area>50000000],
+    [zoom=10][area>10000000],
+  	[zoom=11][area>5000000],
+  	[zoom=12][area>1000000],
+    [zoom=13][area>500000],
+    [zoom=14][area>100000],
+    [zoom=15][area>5000],  
     [zoom=16][area>1000],    
     [zoom>=17]
     {
@@ -314,5 +286,21 @@
       text-dy: 9;
     }  
   }
-  
+  [type='cemetery'] {
+    [zoom=14][area>100000],
+    [zoom=15][area>5000],  
+    [zoom=16][area>1000],    
+    [zoom>=17]
+    {
+      ::marker {
+        marker-placement: point;
+        marker-file: url("marker/cemetery.svg");
+        marker-width: 8;
+        marker-height: 10;
+      }
+      text-placement: point;
+      text-vertical-alignment: bottom;
+      text-dy: 9;
+    }  
+  }  
 }
