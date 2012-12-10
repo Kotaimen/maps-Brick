@@ -1,4 +1,24 @@
 /*
+#building[zoom>12][zoom<=16] {
+  polygon-fill:@building-color;
+  [zoom>=14] {
+    line-color:darken(@building-color,10);
+    line-width:0.2;
+    
+  }
+  [zoom>=16] {
+    line-color:darken(@building-color,20);
+    line-width:0.4;
+  }
+}
+
+#building_3d[zoom>=17] {
+  building-fill:@building-color;
+  building-fill-opacity: 0.7;
+  [zoom=17] { building-height:4; }
+  [zoom>=18] { building-height:8; }
+}
+
 
 ///////////////////////////////////////////////////
 // Political boundary
@@ -6,12 +26,14 @@
 
 .boundary {
   ::casing {
+    line-width: 0;
   	line-color: @land-color;
     line-opacity: 0.5;
   	line-join: round;
   	line-cap: round;
   }
   ::body {
+    line-width: 0;    
   	line-color: @boundary-color;
   	line-join: round;
   	line-cap: round;
@@ -20,7 +42,6 @@
 
 #10m_admin0 {
   ::casing {
-  	[zoom=2] { line-width: 0; }
   	[zoom=3] { line-width: 2; }
   	[zoom=4] { line-width: 3; }
   	[zoom=5] { line-width: 3.5; }
@@ -36,20 +57,24 @@
 }
 
 #10m_admin1 {
+  [zoom=3][scalerank<=3],  
+  [zoom=4][scalerank<=4],
+  [zoom=5][scalerank<=5],
+  [zoom=6][scalerank<=6],    
+  [zoom>=7],    
+  {
   ::casing {
-  	[zoom=2] { line-width: 0; }
-  	[zoom=3] { line-width: 0; }
   	[zoom=4] { line-width: 2; }
   	[zoom=5] { line-width: 2; }
   	[zoom>5] { line-width: 3; }
   }
   ::body {
     line-dasharray: 8, 4,1,4;
-  	[zoom=2] { line-width: 0; }
-  	[zoom=3] { line-width: 0; }
+  	[zoom=3] { line-width: 0.7; }      
   	[zoom=4] { line-width: 1; }
   	[zoom=5] { line-width: 1; }
   	[zoom>5] { line-width: 1.5; }
+  }
   }
 }
 
@@ -57,8 +82,9 @@
 // Road skeleton
 ///////////////////////////////////////////////////
 
-#10m_roads[zoom>=4][zoom<10] {
-  [class="State"][zoom>6]
+
+#10m_roads[zoom>4][zoom<10][roadType!='Ferry Route'] {
+  [ScaleRank>=8]
   {
   	::casing {
       line-color: @major_road-casing-color;
@@ -71,8 +97,8 @@
       [zoom=9] { line-width: 1;}
   	}
   }
-  [class="Federal"] {
-  	::casing[zoom>=9] {
+  [ScaleRank>5][ScaleRank<8] {
+  ::casing[zoom>=9] {
       line-color: @major_road-casing-color;
 //      [zoom=9] { line-width: 2.;}
   	}
@@ -85,9 +111,7 @@
       [zoom=9] { line-width: 2;}
   	}
   }
-
-  [class="Interstate"][country="United States"],
-  [scalerank<=4][country!="United States"]
+  [ScaleRank<=5]
   {
   	::casing[zoom>=7] {
       line-color: @highway-casing-color;
@@ -222,8 +246,8 @@
 }
 
 ///// Ferry
-
-#ferry[zoom>=8] {
+#10m_roads[roadType='Ferry Route'][zoom>4][zoom<10],
+#ferry[zoom>=10] {
   line-color: @ferry-color;
   [zoom<=11] { line-width: 0.75; }
   [zoom<15][zoom>11] { line-width: 1; }
@@ -636,8 +660,7 @@
     }
   }
 }
-*/
-/*
+
 #road_z15[zoom>=15] {
   ::oneway_arrow[category!='rail'][oneway=1][render='casing'] {
     
@@ -671,4 +694,57 @@
   }
 }
 
+#admin1-label[zoom>=3][zoom<=9] {
+  [zoom=3] { 
+    text-face-name: @label-font-heavy;    
+    text-name: "[label_z4]"; 
+    text-size: 10;
+  	text-transform: uppercase;    
+  }
+  [zoom=4] { 
+    text-name: "[label_z4]"; 
+    text-size: 16;
+    text-spacing: 1;
+  	text-opacity: 0.6;
+  	text-transform: uppercase;    
+  }
+  [zoom=5] { 
+    text-name: "[label_z5]"; 
+    text-size: 20;
+    text-spacing: 2;
+  	text-opacity: 0.5;
+  	text-transform: uppercase;    
+  }
+  [zoom=6] { 
+    text-name: "[label_z6]"; 
+    text-opacity: 0.4;
+    text-size: 20;
+    text-spacing: 2;
+  	text-transform: uppercase;    
+	text-wrap-width: 160;         
+  }
+  [zoom=7] { 
+    text-name: "[label_z7]"; 
+    text-opacity: 0.3;
+    text-size: 32;
+    text-spacing: 4;
+  	text-transform: uppercase;    
+	text-wrap-width: 200;        
+  }
+  [zoom>=8] { 
+    text-name: "[name]"; 
+    text-opacity: 0.2;
+    text-size: 48;
+    text-spacing: 6;
+	text-wrap-width: 250;    
+  	text-transform: uppercase;    
+  }
+  text-name: "[name]";
+  text-face-name: @label-font-heavy;
+  text-allow-overlap: true;
+  //text-transform: uppercase;
+  text-fill: @boundary-color;
+  text-comp-op: multiply;
+  text-placement: interior;
+}
 */

@@ -37,7 +37,7 @@ CREATE OR REPLACE VIEW brick_waterway AS
 
 -- waterbody
 CREATE OR REPLACE VIEW brick_waterbody_gen0 AS
-	SELECT osm_id, way_area AS area, "natural" AS type, way FROM planet_osm_polygon WHERE ("natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream') OR landuse IN ('basin', 'reservoir')) AND way_area > 10000;
+	SELECT osm_id, way_area AS area, "natural" AS type, ST_SIMPLIFY(way, 152.874) AS way FROM planet_osm_polygon WHERE ("natural" IN ('water', 'pond') OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream') OR landuse IN ('basin', 'reservoir')) AND way_area > 10000;
 
 
 CREATE OR REPLACE VIEW brick_waterbody_gen1 AS

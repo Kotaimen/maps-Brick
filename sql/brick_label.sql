@@ -28,12 +28,15 @@ CREATE OR REPLACE VIEW brick_places AS
         planet_osm_point.osm_id DESC;
 
 
-CREATE OR REPLACE VIEW brick_landusage_label AS
-	SELECT 
-		osm_id, 
-		name, 
-		way_area AS area, 
-		COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, 
-		ST_PointOnSurface(way) AS way
-	FROM planet_osm_polygon WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL AND name IS NOT NULL AND ST_ISVALID(way) ORDER BY way_area DESC;        
+CREATE OR REPLACE VIEW brick_landusage_label AS SELECT  
+	name,  
+	COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) AS type, 
+	ST_AREA(ST_COLLECT(way)) as area,
+	ST_PointOnSurface(ST_COLLECT(way)) AS way
+	FROM planet_osm_polygon 
+	WHERE COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway) is not NULL 
+		AND name IS NOT NULL 
+		AND ST_ISVALID(way) 
+	GROUP BY COALESCE(landuse, leisure, "natural", highway, amenity, tourism, aeroway), name
+	ORDER BY ST_AREA(ST_COLLECT(way)) DESC;
 END;

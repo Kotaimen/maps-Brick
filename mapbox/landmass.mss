@@ -52,7 +52,7 @@
 ///////////////////////////////////////////////////
 
 #10m_lakes[zoom<=4],
-#waterbody_gen0[zoom>4][zoom<=9],
+#waterbody_gen0[zoom>5][zoom<=9],
 #waterbody_gen1[zoom>9][zoom<=12],
 #waterbody[zoom>12] {
   polygon-fill: @water-color;
@@ -130,7 +130,6 @@
 // Unified landusage
 ///////////////////////////////////////////////////
 //#landusage_gen0[zoom=4][area>640000000],
-#landusage_gen0[zoom=5][area>320000000],
 #landusage_gen0[zoom=6][area>100000000],
 #landusage_gen0[zoom=7][area>50000000],
 #landusage_gen0[zoom=8][area>10000000],
@@ -159,15 +158,16 @@
     line-dasharray: 5,3;
 	line-width: 1.5;    
   }
-
+ 
   [type='school'], [type='university'], [type='college'], 
-  [type='highschool']
+  [type='highschool'], 
+  [type='place_of_worship'], [type='chruch']
   { polygon-fill: @education-color; }
 
   [type='hospital']
   { polygon-fill: @healthcare-color; }
 
-  [type='pitch'], [type='pedestian'], 
+  [type='pitch'], [type='pedestrian'], 
   [type='sports_centre'], [type='stadium'], [type='track'],
   [type='arts_centre'], [type='theatre'], [type='beach'], 
   [type='museum'], [type='library'], [type='restaurant'], 
@@ -179,7 +179,7 @@
   { polygon-fill: @grey-color; }
 
   [type='industrial'], [type='police'], [type='construction'],
-  [type='landfill'], [type='quary'], [type='mine'], 
+  [type='landfill'], [type='quarry'], [type='mine'], 
   { polygon-fill: @grey-color-alt; }
 
   [type='nature_reserve'], [type='conservation'], 
@@ -234,30 +234,8 @@
   }
 }
 
-///////////////////////////////////////////////////
-// Building
-///////////////////////////////////////////////////
-
 #builtuparea[zoom>=4][zoom<10] {
   polygon-fill: @residential-color;
-}
-
-#building[zoom>12][zoom<=16] {
-  polygon-fill:@building-color;
-  [zoom>=14] {
-    line-color:darken(@building-color,10);
-    line-width:0.2;
-  }
-  [zoom>=16] {
-    line-color:darken(@building-color,20);
-    line-width:0.4;
-  }
-}
-
-#building[zoom>=17] {
-  building-fill:@building-color;
-  [zoom=17] { building-height:4; }
-  [zoom>=18] { building-height:6; }
 }
 
 */

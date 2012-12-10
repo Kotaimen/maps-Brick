@@ -13,6 +13,44 @@
 </Parameters>
 
 
+<Style name="building" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+    <LineSymbolizer stroke="#a9a592" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+    <LineSymbolizer stroke="#c0bcae" stroke-width="0.2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+  </Rule>
+</Style>
+<Layer name="building"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>building</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_building]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
+    </Datasource>
+  </Layer>
+
 <Style name="ferry" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -24,7 +62,7 @@
     <LineSymbolizer stroke-width="1.6" smooth="0.8" stroke="#6b849c" stroke-dasharray="4, 2" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <LineSymbolizer stroke-width="0.75" stroke="#6b849c" stroke-dasharray="4, 2" stroke-linejoin="round" clip="false" />
   </Rule>
@@ -39,8 +77,8 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
@@ -125,6 +163,7 @@
   </Rule>
 </Style>
 <Layer name="10m_rail"
+  status="off"
   srs="+proj=longlat +ellps=WGS84 +no_defs">
     <StyleName>10m_rail-dash</StyleName>
     <StyleName>10m_rail-body</StyleName>
@@ -139,294 +178,138 @@
   </Layer>
 
 <Style name="10m_roads" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([roadType] = 'Ferry Route')</Filter>
+    <LineSymbolizer stroke="#6b849c" stroke-dasharray="4, 2" stroke-linejoin="round" clip="false" />
+  </Rule>
 </Style>
 <Style name="10m_roads-body" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="1.25" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="0.75" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
-    <LineSymbolizer stroke-width="1.25" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
-    <LineSymbolizer stroke-width="0.75" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="1.25" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="0.75" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="1.25" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="0.75" stroke="#cc9988" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#d9cdc4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="0.75" stroke="#d9cdc4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke="#d9cdc4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt; 5) and ([ScaleRank] &lt; 8)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#d9cdc4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt; 5) and ([ScaleRank] &lt; 8)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#d9cdc4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt; 5) and ([ScaleRank] &lt; 8)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#d9cdc4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt; 5) and ([ScaleRank] &lt; 8)</Filter>
     <LineSymbolizer stroke-width="1" stroke="#d9cdc4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt; 5) and ([ScaleRank] &lt; 8)</Filter>
     <LineSymbolizer stroke-width="0.5" stroke="#d9cdc4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#cc9988" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#cc9988" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="1.25" stroke="#cc9988" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt;= 8)</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#d9cdc4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt;= 8)</Filter>
+    <LineSymbolizer stroke-width="0.75" stroke="#d9cdc4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt;= 8)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#d9cdc4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt;= 8)</Filter>
+    <LineSymbolizer stroke="#d9cdc4" />
   </Rule>
 </Style>
 <Style name="10m_roads-casing" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#776666" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
     <LineSymbolizer stroke-width="3" stroke="#776666" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &lt;= 5)</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#776666" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States') and ([class] = 'State')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4) and ([country] != 'United States')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([class] = 'Interstate') and ([country] = 'United States')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke="#776666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([class] = 'Federal')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt; 5) and ([ScaleRank] &lt; 8)</Filter>
     <LineSymbolizer stroke="#776666" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([class] = 'State')</Filter>
+    <Filter>([roadType] != 'Ferry Route') and ([ScaleRank] &gt;= 8)</Filter>
     <LineSymbolizer stroke="#776666" stroke-width="0" />
   </Rule>
 </Style>
 <Layer name="10m_roads"
-  srs="+proj=longlat +ellps=WGS84 +no_defs">
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>10m_roads-casing</StyleName>
     <StyleName>10m_roads-body</StyleName>
     <StyleName>10m_roads</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_roads/ne_10m_roads_north_america.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_roads/ne_10m_roads_1d5b2.shp]]></Parameter>
        <Parameter name="id"><![CDATA[10m_roads]]></Parameter>
        <Parameter name="project"><![CDATA[Brick_take2_USA]]></Parameter>
        <Parameter name="srs"><![CDATA[]]></Parameter>
@@ -810,8 +693,8 @@
 </Style>
 <Layer name="road_z10"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  maxzoom="750000"
-  minzoom="400000"      
+maxzoom="750000"
+  minzoom="400000"
 >
     <StyleName>road_z10</StyleName>
     <Datasource>
@@ -821,8 +704,8 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
@@ -1241,8 +1124,8 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
@@ -1722,9 +1605,10 @@
 </Style>
 <Layer name="road_z12"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  maxzoom="200000"
+ maxzoom="200000"
   minzoom="100000"
- >
+ 
+>
     <StyleName>road_z12</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -1733,8 +1617,8 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
@@ -2214,9 +2098,9 @@
 </Style>
 <Layer name="road_z13"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-  maxzoom="100000"
-  minzoom="50000"    
-  >
+maxzoom="100000"
+  minzoom="50000"
+>
     <StyleName>road_z13</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
@@ -2225,8 +2109,8 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
@@ -5895,7 +5779,6 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="50000"
   cache-features="yes" 
-
 >
     <StyleName>road_z15</StyleName>
     <StyleName>road_z15-oneway_arrow</StyleName>
@@ -5906,11 +5789,41 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1208]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="building_3d" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <BuildingSymbolizer height="8" fill="#d6d4cb" fill-opacity="0.7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <BuildingSymbolizer height="4" fill="#d6d4cb" fill-opacity="0.7" />
+  </Rule>
+</Style>
+<Layer name="building_3d"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>building_3d</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[brick_building]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -5919,70 +5832,227 @@
 <Style name="10m_admin1-body" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
     <LineSymbolizer stroke-width="1" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
     <LineSymbolizer stroke-width="1" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
     <MinScaleDenominator>100000000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <LineSymbolizer stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke-width="1" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke-width="1" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="1" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="8, 4, 1, 4" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
 </Style>
 <Style name="10m_admin1-casing" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
     <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
     <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
     <LineSymbolizer stroke-width="0" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
     <LineSymbolizer stroke-width="0" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <LineSymbolizer stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="3" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="0" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
 </Style>
 <Layer name="10m_admin1"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  srs="+proj=longlat +ellps=WGS84 +no_defs">
     <StyleName>10m_admin1-casing</StyleName>
     <StyleName>10m_admin1-body</StyleName>
     <StyleName>10m_admin1</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_admin1/10m-admin-1-states-provinces-lines-usa.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_admin1/ne_10m_admin_1_states_provinces_lines_shp.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[10m_admin1]]></Parameter>
+       <Parameter name="project"><![CDATA[Brick_take2_USA]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -6016,7 +6086,7 @@
   </Rule>
   <Rule>
     <MinScaleDenominator>200000000</MinScaleDenominator>
-    <LineSymbolizer stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0" stroke="#888888" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
 </Style>
 <Style name="10m_admin0-casing" filter-mode="first" >
@@ -6040,13 +6110,8 @@
     <LineSymbolizer stroke-width="2" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <LineSymbolizer stroke-width="0" stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>200000000</MinScaleDenominator>
-    <LineSymbolizer stroke="#e3e3d8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round" />
   </Rule>
 </Style>
 <Layer name="10m_admin0"
@@ -6056,6 +6121,50 @@
     <StyleName>10m_admin0</StyleName>
     <Datasource>
        <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/10m_admin0/ne_10m_admin_0_boundary_lines_land.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="admin1-label" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <TextSymbolizer opacity="0.2" size="48" spacing="6" wrap-width="250" text-transform="uppercase" face-name="American Typewriter Bold" allow-overlap="true" fill="#888888" comp-op="multiply" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <TextSymbolizer opacity="0.3" size="32" spacing="4" text-transform="uppercase" wrap-width="200" face-name="American Typewriter Bold" allow-overlap="true" fill="#888888" comp-op="multiply" placement="interior" ><![CDATA[[label_z7]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <TextSymbolizer opacity="0.4" size="20" spacing="2" text-transform="uppercase" wrap-width="160" face-name="American Typewriter Bold" allow-overlap="true" fill="#888888" comp-op="multiply" placement="interior" ><![CDATA[[label_z6]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <TextSymbolizer size="20" spacing="2" opacity="0.5" text-transform="uppercase" face-name="American Typewriter Bold" allow-overlap="true" fill="#888888" comp-op="multiply" placement="interior" ><![CDATA[[label_z5]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <TextSymbolizer size="16" spacing="1" opacity="0.6" text-transform="uppercase" face-name="American Typewriter Bold" allow-overlap="true" fill="#888888" comp-op="multiply" placement="interior" ><![CDATA[[label_z4]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <TextSymbolizer face-name="American Typewriter Bold" size="10" text-transform="uppercase" allow-overlap="true" fill="#888888" comp-op="multiply" placement="interior" ><![CDATA[[label_z4]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="admin1-label"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>admin1-label</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/Documents/MapBox/project/Brick_take2_USA/layers/admin1-label/admin-1-labels-z4.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[admin1-label]]></Parameter>
+       <Parameter name="project"><![CDATA[Brick_take2_USA]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>

@@ -59,7 +59,7 @@
 
 @label-font: 'American Typewriter Condensed';
 @label-font-alt: 'American Typewriter Regular';
-@label-font-heavy: 'American Typewrit Condensed Bold';
+@label-font-heavy: 'American Typewriter Bold';
 @road-font: 'Avenir Next Demi Bold';
 /*
 @label-font: 'Avenir Next Condensed Medium';
@@ -77,5 +77,6 @@
 
 
 Map { 
-//  background-color: @water-color; 
+  //background-color: @water-color; 
+  //buffer-size: 512;
 }

@@ -561,20 +561,21 @@
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "10m_rail"
+      "name": "10m_rail",
+      "status": "off"
     },
     {
       "geometry": "linestring",
       "extent": [
-        -176.7640084731439,
-        14.590750676565,
-        -52.64725244187383,
-        70.2966838677457
+        -166.53248758787802,
+        -55.11212400026875,
+        178.37210805555551,
+        71.17768427804648
       ],
       "id": "10m_roads",
       "class": "skeletion",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0b3/natural_earth_vector/10m_cultural/ne_10m_roads_north_america.shp",
+        "file": "/Users/Kotaimen/proj/geodata/Brick/Overview/roads/ne_10m_roads_1d5b2.shp",
         "id": "10m_roads",
         "project": "Brick_take2_USA",
         "srs": ""
@@ -725,17 +726,51 @@
       "name": "road_z15"
     },
     {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "brick_building",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "dbname": "planet_osm_1210",
+        "simplify_geometries": "no"
+      },
+      "id": "building_3d",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "no"
+      },
+      "name": "building_3d"
+    },
+    {
       "geometry": "linestring",
       "extent": [
-        -124.21925663462177,
-        29.9902384628725,
-        -70.74401249399672,
-        48.99304608006001
+        -139.0602066219999,
+        -49.25087001999992,
+        178.448622268,
+        81.12853131600008
       ],
       "id": "10m_admin1",
       "class": "boundary",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Brick/Overview/states/10m-admin-1-states-provinces-lines-usa.shp"
+        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0b3/natural_earth_vector/10m_cultural/ne_10m_admin_1_states_provinces_lines_shp.shp",
+        "id": "10m_admin1",
+        "project": "Brick_take2_USA",
+        "srs": ""
       },
       "srs-name": "autodetect",
       "srs": "",
@@ -759,6 +794,27 @@
       "srs": "",
       "advanced": {},
       "name": "10m_admin0"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -160.02031243845204,
+        19.435559661429483,
+        -57.826074250000005,
+        64.8156432406998
+      ],
+      "id": "admin1-label",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Brick/Overview/admin/admin-1-labels-z4.shp",
+        "id": "admin1-label",
+        "project": "Brick_take2_USA",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "admin1-label"
     },
     {
       "geometry": "polygon",
@@ -1079,6 +1135,37 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "landusage-label"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "brick_skeleton",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
+        "dbname": "planet_osm_1210",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "yes"
+      },
+      "id": "road_skeleton",
+      "class": "skeletion",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
+      "name": "road_skeleton"
     },
     {
       "geometry": "linestring",

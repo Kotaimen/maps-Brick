@@ -1,4 +1,5 @@
 
+
 ///////////////////////////////////////////////////
 // Dymo pre-placed names
 ///////////////////////////////////////////////////
@@ -64,16 +65,23 @@
 	text-name: "[name]";
   }
   [type=3][zoom<15] { text-size: 16; text-wrap-width: 80; }
-  [type=3][zoom>=15] { text-size: 20; text-wrap-width: 100; text-character-spacing: 2; }
+  [type=3][zoom>=15] { text-size: 20; text-wrap-width: 90;}
   [type=2] { text-size: 20; text-wrap-width: 120; }
-  [type=2][zoom>=15] { text-size: 22; text-wrap-width: 100; text-character-spacing: 2;}
+  [type=2][zoom>=15] { text-size: 22; text-wrap-width: 100; text-character-spacing: 1;}
   [type=1][zoom<16] { text-size: 24; }
-  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 4; text-transform: uppercase;}
+  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 2; text-transform: uppercase;}
   [type=0][zoom<=13] { text-size: 32; }
   [type=0][zoom>13][zoom<=15]{ text-size: 42; text-character-spacing: 4; }
 }
 
-#landusage-label[zoom>5] {
+
+
+///////////////////////////////////////////////////
+// Landusage
+///////////////////////////////////////////////////
+
+
+#landusage-label[zoom>6] {
   text-clip: false;
   text-face-name: @label-font-alt;
   text-allow-overlap: false;
@@ -89,7 +97,7 @@
   [type='aerodrome'],[type='railway'],[type='university'] {
     text-size: 13;
   }
-  
+
   //// Render control
   
   [type='nature_reserve'],
@@ -288,19 +296,92 @@
   }
   [type='cemetery'] {
     [zoom=14][area>100000],
-    [zoom=15][area>5000],  
-    [zoom=16][area>1000],    
+    [zoom=15][area>10000],  
+    [zoom=16][area>5000],    
     [zoom>=17]
     {
       ::marker {
         marker-placement: point;
         marker-file: url("marker/cemetery.svg");
-        marker-width: 8;
+        marker-width: 10;
         marker-height: 10;
+		marker-fill: @label-color-alt;
       }
       text-placement: point;
       text-vertical-alignment: bottom;
       text-dy: 9;
     }  
   }  
+}
+
+
+///////////////////////////////////////////////////
+// Road names
+///////////////////////////////////////////////////
+
+
+#road_skeleton [zoom>9] {
+  [category='US/I'] {
+    shield-file: url('shield/US-I-25.png');
+	shield-clip: false;    
+    shield-face-name: @road-font;
+    shield-name: '[ref]';
+    shield-fill: white;
+    shield-dy: 1;
+    shield-size: 10;    
+    [zoom<=13] { shield-min-distance: 40; } //50    
+    [zoom>10][zoom<=15] { shield-min-distance: 70; } //50
+    [zoom>15] { shield-min-distance: 100; } //50    
+  }
+  [category='US/US'] {
+    shield-file: url('shield/US-US-25.png');
+    shield-clip: false;
+    shield-face-name: @road-font;
+    shield-name: '[ref]';
+    shield-fill: black;
+    shield-dy: 2;
+    shield-size: 9;
+    [zoom<=13] { shield-min-distance: 40; }     
+    [zoom>10][zoom<=15] { shield-min-distance: 70; } 
+    [zoom>15] { shield-min-distance: 100; } 
+  }
+  [category='US/STATE'][ref!=''][zoom>11] {
+    shield-file: url('shield/state-25.png');
+    shield-clip: false;
+    shield-face-name: @road-font;
+    shield-name: '[ref]';
+    shield-fill: black;
+    shield-size: 8;
+    [zoom<=13] { shield-min-distance: 50; } 
+    [zoom>13][zoom<=15] { shield-min-distance: 70; } 
+    [zoom>15] { shield-min-distance: 100; } 
+  }
+
+}
+
+#road-label-gen1[zoom>=10][zoom<14][is_link=0],
+#road-label[zoom>=14][is_link=0] {
+  text-clip: false;
+  text-face-name: @road-font;
+  text-allow-overlap: false;
+  text-name: "";
+  text-fill: @label-color;
+  text-halo-fill: @land-color;
+  text-halo-radius: 1.5;
+  text-placement: line;
+  text-min-distance: 50;
+//  text-spacing: 16;
+  text-label-position-tolerance: 16;
+  text-max-char-angle-delta: 20;
+
+  [zoom>=17] { text-size: 11; text-min-distance:120; }
+
+  [priority<=3] { text-transform: uppercase; }
+  [priority>=3] { text-fill: @label-color-alt; }
+
+  [zoom<14][priority<=1] { text-name: "[name_abbr]"; }
+  [zoom=14][priority<=3] { text-name: "[name_abbr]"; }
+  [zoom=15][priority<=6] { text-name: "[name_abbr]"; }
+  [zoom=16][priority<=7] { text-name: "[name]"; }
+  [zoom>=17] { text-name: "[name]"; }
 }

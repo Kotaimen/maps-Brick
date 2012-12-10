@@ -482,7 +482,7 @@
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 1)</Filter>
-    <TextSymbolizer size="32" character-spacing="4" text-transform="uppercase" clip="false" face-name="American Typewriter Condensed" allow-overlap="false" fill="#3e342e" halo-fill="#e3e3d8" halo-radius="2" placement="point" minimum-distance="30" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="32" character-spacing="2" text-transform="uppercase" clip="false" face-name="American Typewriter Condensed" allow-overlap="false" fill="#3e342e" halo-fill="#e3e3d8" halo-radius="2" placement="point" minimum-distance="30" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
@@ -494,7 +494,7 @@
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 2)</Filter>
-    <TextSymbolizer size="22" wrap-width="100" character-spacing="2" clip="false" face-name="American Typewriter Condensed" allow-overlap="false" fill="#3e342e" halo-fill="#e3e3d8" halo-radius="2" placement="point" minimum-distance="30" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="22" wrap-width="100" character-spacing="1" clip="false" face-name="American Typewriter Condensed" allow-overlap="false" fill="#3e342e" halo-fill="#e3e3d8" halo-radius="2" placement="point" minimum-distance="30" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
@@ -506,7 +506,7 @@
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 3)</Filter>
-    <TextSymbolizer size="20" wrap-width="100" character-spacing="2" clip="false" face-name="American Typewriter Condensed" allow-overlap="false" fill="#3e342e" halo-fill="#e3e3d8" halo-radius="2" placement="point" minimum-distance="30" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="20" wrap-width="90" clip="false" face-name="American Typewriter Condensed" allow-overlap="false" fill="#3e342e" halo-fill="#e3e3d8" halo-radius="2" placement="point" minimum-distance="30" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
@@ -537,7 +537,7 @@
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
        <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
@@ -549,52 +549,52 @@
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 100000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 100000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 100000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 100000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <Filter>([type] = 'cemetery') and ([area] &gt; 10000)</Filter>
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <Filter>([type] = 'cemetery') and ([area] &gt; 10000)</Filter>
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <Filter>([type] = 'cemetery') and ([area] &gt; 10000)</Filter>
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -641,12 +641,6 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'park') and ([area] &gt; 2000000000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/tree-1.svg" width="8" height="10" fill="#556655" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 2000000000)</Filter>
     <MarkersSymbolizer placement="point" file="marker/tree-1.svg" width="8" height="10" fill="#556655" />
   </Rule>
@@ -1102,12 +1096,6 @@
     <MarkersSymbolizer placement="point" file="marker/tree-1.svg" width="8" height="10" fill="#556655" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'nature_reserve') and ([area] &gt; 2000000000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/tree-1.svg" width="8" height="10" fill="#556655" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 2000000000)</Filter>
@@ -1422,12 +1410,6 @@
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'conservation') and ([area] &gt; 2000000000)</Filter>
-    <MarkersSymbolizer placement="point" file="marker/tree-1.svg" width="8" height="10" fill="#556655" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 2000000000)</Filter>
     <MarkersSymbolizer placement="point" file="marker/tree-1.svg" width="8" height="10" fill="#556655" />
   </Rule>
@@ -2455,7 +2437,7 @@
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <Filter>([type] = 'cemetery')</Filter>
-    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="8" height="10" />
+    <MarkersSymbolizer placement="point" file="marker/cemetery.svg" width="10" height="10" fill="#7c7575" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -2533,7 +2515,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -2562,7 +2544,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -2577,7 +2559,7 @@
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
-    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -2585,26 +2567,9 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'cemetery') and ([area] &gt; 5000)</Filter>
-    <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
-    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
-    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -2656,12 +2621,6 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'park') and ([area] &gt; 2000000000)</Filter>
-    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 2000000000)</Filter>
@@ -2744,12 +2703,6 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'park') and ([area] &gt; 1000000000)</Filter>
-    <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 90000000)</Filter>
@@ -2809,7 +2762,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 90000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -2874,7 +2827,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 50000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -2939,7 +2892,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 40000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -2998,7 +2951,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 20000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3051,7 +3004,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 10000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3113,12 +3066,6 @@
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'conservation') and ([area] &gt; 2000000000)</Filter>
-    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 2000000000)</Filter>
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -3193,12 +3140,6 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'conservation') and ([area] &gt; 1000000000)</Filter>
-    <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 90000000)</Filter>
@@ -3258,7 +3199,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 90000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3323,7 +3264,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 50000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3388,7 +3329,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 40000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3447,7 +3388,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 20000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3500,7 +3441,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 10000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3553,7 +3494,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 5000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3606,7 +3547,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 4000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3653,7 +3594,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 1000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3694,7 +3635,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 500000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3750,12 +3691,6 @@
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'nature_reserve') and ([area] &gt; 2000000000)</Filter>
-    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 2000000000)</Filter>
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -3836,12 +3771,6 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'nature_reserve') and ([area] &gt; 1000000000)</Filter>
-    <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 90000000)</Filter>
@@ -3901,7 +3830,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 90000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -3966,7 +3895,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 50000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4031,7 +3960,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 40000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4090,7 +4019,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 20000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4143,7 +4072,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 10000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4196,7 +4125,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 5000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4249,7 +4178,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 4000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4296,7 +4225,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 1000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4337,7 +4266,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 500000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4390,7 +4319,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 5000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4443,7 +4372,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 4000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4490,7 +4419,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 1000000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4531,7 +4460,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4566,7 +4495,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4595,7 +4524,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4618,7 +4547,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4635,7 +4564,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'conservation') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4676,7 +4605,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4711,7 +4640,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4740,7 +4669,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4763,7 +4692,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4804,7 +4733,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 500000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4845,7 +4774,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4880,7 +4809,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4909,7 +4838,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4932,7 +4861,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4949,7 +4878,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4966,7 +4895,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'park') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -4989,7 +4918,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'school') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5006,7 +4935,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'school') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5029,7 +4958,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'highschool') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5046,7 +4975,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'highschool') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5075,7 +5004,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'university') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5098,7 +5027,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'university') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5127,7 +5056,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'college') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5150,7 +5079,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'college') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5167,7 +5096,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'university') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5184,7 +5113,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'college') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5225,7 +5154,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="7" fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'hospital') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5260,7 +5189,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="7" fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'hospital') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5289,7 +5218,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="7" fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'hospital') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5312,7 +5241,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="7" fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'hospital') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5329,7 +5258,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="7" fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'hospital') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5376,7 +5305,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'railway') and ([area] &gt; 1000000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5417,7 +5346,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'railway') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5452,7 +5381,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'railway') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5481,7 +5410,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'railway') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5504,7 +5433,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'railway') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5563,7 +5492,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 20000000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5616,7 +5545,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 4000000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5663,7 +5592,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 1000000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5704,7 +5633,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5739,7 +5668,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -5799,12 +5728,6 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'military') and ([area] &gt; 2000000000)</Filter>
-    <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 2000000000)</Filter>
@@ -5881,12 +5804,6 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([type] = 'military') and ([area] &gt; 1000000000)</Filter>
-    <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 40000000)</Filter>
@@ -5946,7 +5863,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 40000000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6005,7 +5922,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 20000000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6058,7 +5975,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 4000000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6105,7 +6022,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 1000000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6146,7 +6063,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 100000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6181,7 +6098,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 50000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6210,7 +6127,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6233,7 +6150,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'military') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6262,7 +6179,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 10000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6291,10 +6208,27 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 5000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
+    <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
+    <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'cemetery') and ([area] &gt; 1000)</Filter>
+    <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -6302,7 +6236,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'cemetery')</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6313,7 +6247,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'park')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6324,7 +6258,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'conservation')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6335,7 +6269,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="9" fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'nature_reserve')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6346,7 +6280,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'school')</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6357,7 +6291,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'highschool')</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6368,7 +6302,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'university')</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6379,7 +6313,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="12" clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'college')</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6390,7 +6324,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="7" fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'hospital')</Filter>
     <TextSymbolizer fill="#814b22" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6407,7 +6341,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'railway') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6424,7 +6358,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'railway')</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6447,7 +6381,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome') and ([area] &gt; 1000)</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6464,7 +6398,7 @@
     <TextSymbolizer placement="point" vertical-alignment="bottom" dy="10" fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'aerodrome')</Filter>
     <TextSymbolizer fill="#3e342e" size="13" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6481,7 +6415,7 @@
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'water')</Filter>
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6498,7 +6432,7 @@
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'reservoir')</Filter>
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6515,7 +6449,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'golf_course')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6532,7 +6466,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'wetland')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6549,7 +6483,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'wood')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6566,7 +6500,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'grass')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6583,7 +6517,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000) and ([type] = 'forest')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6600,7 +6534,7 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 1000)</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6611,7 +6545,7 @@
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'water')</Filter>
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6622,7 +6556,7 @@
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'reservoir')</Filter>
     <TextSymbolizer fill="#6b849c" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6633,7 +6567,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'golf_course')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6644,7 +6578,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'wetland')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6655,7 +6589,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'wood')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6666,7 +6600,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'grass')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6677,7 +6611,7 @@
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'forest')</Filter>
     <TextSymbolizer fill="#556655" clip="false" face-name="American Typewriter Regular" allow-overlap="false" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
@@ -6687,12 +6621,12 @@
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <Filter>([type] = 'military')</Filter>
     <TextSymbolizer clip="false" face-name="American Typewriter Regular" allow-overlap="false" fill="#7c7575" halo-fill="#e3e3d8" halo-radius="2" wrap-width="60" size="12" minimum-distance="16" ><![CDATA[]]></TextSymbolizer>
   </Rule>
@@ -6709,7 +6643,7 @@
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34 ]]></Parameter>
        <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="host"><![CDATA[192.168.1.13]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
