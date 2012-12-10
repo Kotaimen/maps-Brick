@@ -14,8 +14,14 @@ These are not included:
 
 Borrowed ideas from Highroad and OSMBright project.
 
-![Preview 1](https://github.com/Kotaimen/maps-Brick/raw/master/preview1.png)
+Sample renders:
 
-![Preview 2](https://github.com/Kotaimen/maps-Brick/raw/master/preview2.png)
+![Preview 1](https://github.com/Kotaimen/maps-Brick/raw/master/preview-0.jpg)
 
-![Preview 3](https://github.com/Kotaimen/maps-Brick/raw/master/preview3.png)
+![Preview 2](https://github.com/Kotaimen/maps-Brick/raw/master/preview-1.jpg)
+
+![Preview 3](https://github.com/Kotaimen/maps-Brick/raw/master/preview-2.jpg)
+
+![Preview 4](https://github.com/Kotaimen/maps-Brick/raw/master/preview-3.jpg)
+
+![Preview 5](https://github.com/Kotaimen/maps-Brick/raw/master/preview-4.jpg)
