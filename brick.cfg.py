@@ -8,17 +8,17 @@ themedir= './themes/Brick'
 cachedir= os.path.join(themedir, 'cache')
 tag = 'Brick'
 tile_size = 256
-format = 'jpg'
+format = 'png'
 
 
 elevation = dict(\
     prototype='datasource.dataset',
     # 2-7
-   dataset_path=os.path.join(datadir, 'srtm30_new/world_tiled.tif'), # (2-7)
+  dataset_path=os.path.join(datadir, 'srtm30_new/world_tiled.tif'), # (2-7)
     # 8-11
 #    dataset_path=os.path.join(datadir, '/home/pset/proj/geodata/SRTM_30_org/world/fill/world.900913.vrt'),
     # 12-16
-#    dataset_path=os.path.join(datadir, 'sf_10m/sf.vrt'),
+#     dataset_path=os.path.join(datadir, 'sf_10m/sf.vrt'),
     cache=dict(prototype='metacache',
         root=os.path.join(cachedir, 'elevation'),
         compress=True,
@@ -56,10 +56,6 @@ specular = dict(\
 
 terrain = dict(\
     prototype='composite.imagemagick',
-#    cache=dict(prototype='metacache',
-#               root=os.path.join(cachedir, '%s' % tag),
-#               data_format='png',
-#               ),                  
     sources=['diffuse', 'detail', 'specular'],
     format='jpg',
     command='''   
@@ -111,18 +107,18 @@ label_halo = dict(\
 
 composer=dict(\
     prototype='composite.imagemagick',   
-    sources=['landcover', 'roads', 'labels', 'label_halo',  'terrain'
+    sources=['landcover', 'roads', 'labels', 'label_halo', # 'terrain'
              ],
-    format='png',
+    format=format,
     command='''   
     $1 
-    ( $5 ) -compose softlight -composite
+#    ( $5 ) -compose softlight -composite
     ( 
      $2
      $4 -compose dst-out -composite
     ) -compose over -composite
     ( $3 ) -compose over -composite    
-    -quality 90
+#     -quality 80
     '''
     )
 
@@ -135,14 +131,9 @@ ROOT = dict(\
                   ),
     cache=dict(prototype='filesystem',
                root=os.path.join(cachedir, 'export', '%s' % tag),
-               data_format='jpg',
+               data_format=format,
                simple=False
               ),
-#    cache=dict(prototype='mbtiles',
-#               database=os.path.join(cachedir, 'export', '%s.mbtiles' % tag),
-#               data_format='png',
-#               ),
-    
 #     cache=dict(prototype='cascade',
 #                violate=['memcache', {'servers': ['localhost:11211',] }],
 #                presistent=['filesystem', {'root': os.path.join(cachedir, 'export', '%s' % tag), 'simple': False, }],              
@@ -150,6 +141,7 @@ ROOT = dict(\
 #                ),
     pyramid=dict(levels=range(2, 19),
 #                  envelope=(-180,-0.582078122168095,-52.3231981114464,71.6048216388151),                 
+#                   envelope=(-124,34,-70,48),                 
 #                 envelope=( -123.401, 36.444, -118.65, 39.89),
                  zoom=9,
                  center=(-122.4321,37.7702),
