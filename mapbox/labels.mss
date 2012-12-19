@@ -1,5 +1,4 @@
 
-
 ///////////////////////////////////////////////////
 // Dymo pre-placed names
 ///////////////////////////////////////////////////
@@ -48,7 +47,7 @@
 ///////////////////////////////////////////////////
 
 
-#places-all[zoom>=11][zoom<17] {
+#places-all[zoom>10][zoom<17] {
   text-clip: false;
   text-face-name: @label-font;
   text-allow-overlap: false;
@@ -58,7 +57,7 @@
   text-halo-radius: 0 + @smart-halo-raidus;
   text-placement: point;
   text-size: 16;
-  text-min-distance: 30;
+  text-min-distance: 45;
 //  text-spacing: 16;
   [type=0][zoom<=15],
   [type>=1] {
@@ -80,7 +79,6 @@
 // Landusage
 ///////////////////////////////////////////////////
 
-
 #landusage-label[zoom>6] {
   text-clip: false;
   text-face-name: @label-font-alt;
@@ -90,14 +88,14 @@
   text-halo-fill: @land-color;
   text-halo-radius: 1 + @smart-halo-raidus / 2;
   text-wrap-width: 60;
-//  text-placement: point;
-  text-size: 12;
-  text-min-distance: 16;
+  text-placement: point;
+  text-size: 11;
+  text-min-distance: 8;
 
-  [type='aerodrome'],[type='railway'],[type='university'] {
-    text-size: 13;
+  [type='aerodrome'], [type='railway'], [type='university'], {
+    text-size: 12;
   }
-
+  
   //// Render control
   
   [type='nature_reserve'],
@@ -109,7 +107,7 @@
     [zoom=7][area>1000000000],
     [zoom=8][area>40000000],
     [zoom=9][area>20000000],
-    [zoom=10][area>4000000],
+    [zoom=10][area>10000000],   
     {
   		text-name: "[name]";
     }
@@ -120,10 +118,12 @@
   [type='military'],    
   [type='aerodrome'],
   [type='railway'],
+  [type='water'],    
+  [type='salt_pond'],
   {
-  	[zoom=11][area>1000000],
-  	[zoom=12][area>100000],
-    [zoom=13][area>50000],
+	[zoom=11][area>5000000],
+  	[zoom=12][area>200000],
+    [zoom=13][area>100000],
     {
   		text-name: "[name]";
     }
@@ -137,6 +137,8 @@
   [type='university'],
   [type='railway'],
   [type='cemetery'],
+  [type='water'],
+  [type='pond'],
   {
     [zoom=14][area>10000],
     [zoom=15][area>5000],
@@ -162,11 +164,11 @@
   	text-fill: saturate(darken(@healthcare-color, 45%), 40%);
   }
 
-  [type='reservoir'], [type='water'] {
+  [type='reservoir'], [type='water'], [type='pond'], [type='salt_water'] {
     text-fill: @ferry-color;
   }
   
-  [type='aerodrome'],  [type='university'], [type='railway'],
+  [type='aerodrome'], [type='university'], [type='railway'],
   {
     text-fill: @label-color;
   }
@@ -188,9 +190,10 @@
 		marker-fill: @label-color;
         marker-file: url("marker/airport.svg");
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
-      text-dy: 10;
+	  text-placement-type: simple;
+      text-dx: 12;
+      text-dy: 12;
+      text-placements: 'S,E,W,N';
     }  
   }
   [type='railway'] {
@@ -208,10 +211,9 @@
 		marker-fill: @label-color;
         marker-file: url("marker/rail.svg");
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
-      text-dy: 10;
-    }  
+      text-dy: 8;
+    }
+
   }
   [type='hospital'] {
   	[zoom=12][area>100000],
@@ -228,8 +230,6 @@
         marker-file: url("marker/hospital.svg");
 		marker-fill: saturate(darken(@healthcare-color, 40%), 40%);        
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
       text-dy: 7;
     }  
   }
@@ -246,8 +246,6 @@
         marker-file: url("marker/college.svg");
 		marker-fill: @label-color;
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
       text-dy: 12;
     }  
   }  
@@ -263,35 +261,35 @@
         marker-file: url("marker/school.svg");
 		marker-fill: @label-color;
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
       text-dy: 10;
     }  
   } 
+  
   [type='nature_reserve'],[type='conservation'],[type='park'] {
     [zoom=6][area>2000000000],
     [zoom=7][area>1000000000],
-    [zoom=8][area>90000000],
-    [zoom=9][area>50000000],
+    [zoom=8][area>40000000],
+    [zoom=9][area>20000000],
     [zoom=10][area>10000000],
   	[zoom=11][area>5000000],
   	[zoom=12][area>1000000],
-    [zoom=13][area>500000],
-    [zoom=14][area>100000],
-    [zoom=15][area>5000],  
+    [zoom=13][area>100000],
+    [zoom=14][area>10000],
+    [zoom=15][area>5000],
     [zoom=16][area>1000],    
     [zoom>=17]
     {
       ::marker {
         marker-placement: point;
         marker-file: url("marker/tree-1.svg");
-        marker-width: 8;
+        marker-width: 9;
         marker-height: 10;
      	marker-fill: desaturate(darken(@green-color, 40%), 5%);
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
+	  text-placement-type: simple;
+      text-dx: 7;
       text-dy: 9;
+      text-placements: 'S,E,W,N';
     }  
   }
   [type='cemetery'] {
@@ -307,8 +305,6 @@
         marker-height: 10;
 		marker-fill: @label-color-alt;
       }
-      text-placement: point;
-      text-vertical-alignment: bottom;
       text-dy: 9;
     }  
   }  
@@ -320,45 +316,62 @@
 ///////////////////////////////////////////////////
 
 
-#road_skeleton [zoom>9] {
+#road_skeleton [zoom>9][zoom<=17] {
   [category='US/I'] {
-    shield-file: url('shield/US-I-25.png');
+    shield-file: url('shield/us-0.svg');
+    shield-placement: line;    
 	shield-clip: false;    
     shield-face-name: @road-font;
     shield-name: '[ref]';
     shield-fill: white;
-    shield-dy: 1;
-    shield-size: 10;    
-    [zoom<=13] { shield-min-distance: 40; } //50    
-    [zoom>10][zoom<=15] { shield-min-distance: 70; } //50
-    [zoom>15] { shield-min-distance: 100; } //50    
+    shield-text-dy: 1;
+    shield-size: 10;
+    shield-allow-overlap: false;
+//    shield-spacing: 200;
+    [zoom<13] { shield-min-distance: 60; }
+    [zoom=13] { shield-min-distance: 80; }
+    [zoom=14] { shield-min-distance: 100; }    
+    [zoom=15] { shield-min-distance: 200; }
+    [zoom=16] { shield-min-distance: 250; }    
+    [zoom>=17] { shield-min-distance: 300; }    
   }
   [category='US/US'] {
-    shield-file: url('shield/US-US-25.png');
+    shield-file: url('shield/us-1.svg');
+    shield-placement: line;    
     shield-clip: false;
     shield-face-name: @road-font;
     shield-name: '[ref]';
     shield-fill: black;
-    shield-dy: 2;
+    shield-text-dy: 1;
     shield-size: 9;
-    [zoom<=13] { shield-min-distance: 40; }     
-    [zoom>10][zoom<=15] { shield-min-distance: 70; } 
-    [zoom>15] { shield-min-distance: 100; } 
+    shield-allow-overlap: false;
+//    shield-spacing: 200;
+    [zoom<13] { shield-min-distance: 60; }
+    [zoom=13] { shield-min-distance: 80; }
+    [zoom=14] { shield-min-distance: 100; }    
+    [zoom=15] { shield-min-distance: 160; }
+    [zoom=16] { shield-min-distance: 220; }    
+    [zoom>=17] { shield-min-distance: 250; }    
   }
-  [category='US/STATE'][ref!=''][zoom>11] {
-    shield-file: url('shield/state-25.png');
+  [category='US/STATE'][ref!=''][zoom>11]  {
+    shield-file: url('shield/us-2.svg');
+    shield-placement: line;    
     shield-clip: false;
     shield-face-name: @road-font;
     shield-name: '[ref]';
     shield-fill: black;
     shield-size: 8;
-    [zoom<=13] { shield-min-distance: 50; } 
-    [zoom>13][zoom<=15] { shield-min-distance: 70; } 
-    [zoom>15] { shield-min-distance: 100; } 
+    shield-allow-overlap: false;
+//    shield-spacing: 200;
+    [zoom<13] { shield-min-distance: 60; }
+    [zoom=13] { shield-min-distance: 80; }
+    [zoom=14] { shield-min-distance: 100; }    
+    [zoom=15] { shield-min-distance: 160; }
+    [zoom=16] { shield-min-distance: 220; }    
+    [zoom>=17] { shield-min-distance: 250; }    
   }
-
 }
-
+/*
 #road-label-gen1[zoom>=10][zoom<14][is_link=0],
 #road-label[zoom>=14][is_link=0] {
   text-clip: false;
@@ -385,3 +398,4 @@
   [zoom=16][priority<=7] { text-name: "[name]"; }
   [zoom>=17] { text-name: "[name]"; }
 }
+*/

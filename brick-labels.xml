@@ -560,109 +560,109 @@
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([category] = 'US/STATE') and ([ref] != '')</Filter>
-    <ShieldSymbolizer minimum-distance="250" file="shield/state-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="250" file="shield/us-2.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([category] = 'US/STATE') and ([ref] != '')</Filter>
-    <ShieldSymbolizer minimum-distance="220" file="shield/state-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="220" file="shield/us-2.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([category] = 'US/STATE') and ([ref] != '')</Filter>
-    <ShieldSymbolizer minimum-distance="160" file="shield/state-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="160" file="shield/us-2.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([category] = 'US/STATE') and ([ref] != '')</Filter>
-    <ShieldSymbolizer minimum-distance="100" file="shield/state-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="100" file="shield/us-2.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([category] = 'US/STATE') and ([ref] != '')</Filter>
-    <ShieldSymbolizer minimum-distance="80" file="shield/state-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="80" file="shield/us-2.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([category] = 'US/STATE') and ([ref] != '')</Filter>
-    <ShieldSymbolizer minimum-distance="60" file="shield/state-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="60" file="shield/us-2.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" size="8" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([category] = 'US/US')</Filter>
-    <ShieldSymbolizer minimum-distance="250" file="shield/US-US-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" shield-dy="2" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="250" file="shield/us-1.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" dy="1" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([category] = 'US/US')</Filter>
-    <ShieldSymbolizer minimum-distance="220" file="shield/US-US-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" shield-dy="2" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="220" file="shield/us-1.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" dy="1" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([category] = 'US/US')</Filter>
-    <ShieldSymbolizer minimum-distance="160" file="shield/US-US-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" shield-dy="2" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="160" file="shield/us-1.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" dy="1" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([category] = 'US/US')</Filter>
-    <ShieldSymbolizer minimum-distance="100" file="shield/US-US-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" shield-dy="2" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="100" file="shield/us-1.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" dy="1" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([category] = 'US/US')</Filter>
-    <ShieldSymbolizer minimum-distance="80" file="shield/US-US-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" shield-dy="2" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="80" file="shield/us-1.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" dy="1" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([category] = 'US/US')</Filter>
-    <ShieldSymbolizer minimum-distance="60" file="shield/US-US-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" shield-dy="2" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="60" file="shield/us-1.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#000000" dy="1" size="9" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([category] = 'US/I')</Filter>
-    <ShieldSymbolizer minimum-distance="300" file="shield/US-I-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" shield-dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" file="shield/us-0.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([category] = 'US/I')</Filter>
-    <ShieldSymbolizer minimum-distance="250" file="shield/US-I-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" shield-dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="250" file="shield/us-0.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([category] = 'US/I')</Filter>
-    <ShieldSymbolizer minimum-distance="200" file="shield/US-I-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" shield-dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="200" file="shield/us-0.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([category] = 'US/I')</Filter>
-    <ShieldSymbolizer minimum-distance="100" file="shield/US-I-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" shield-dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="100" file="shield/us-0.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([category] = 'US/I')</Filter>
-    <ShieldSymbolizer minimum-distance="80" file="shield/US-I-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" shield-dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="80" file="shield/us-0.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([category] = 'US/I')</Filter>
-    <ShieldSymbolizer minimum-distance="60" file="shield/US-I-25.png" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" shield-dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="60" file="shield/us-0.svg" placement="line" clip="false" fontset-name="fontset-1" fill="#ffffff" dy="1" size="10" allow-overlap="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
 </Style>
 <Layer name="road_skeleton"

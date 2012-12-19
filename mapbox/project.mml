@@ -1109,6 +1109,37 @@
       "name": "places-all"
     },
     {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "brick_skeleton",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "custom",
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
+        "dbname": "planet_osm_1210",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "no"
+      },
+      "id": "road_skeleton",
+      "class": "skeletion",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "no"
+      },
+      "name": "road_skeleton"
+    },
+    {
       "geometry": "point",
       "extent": [
         -179.9999999749438,
@@ -1135,37 +1166,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "landusage-label"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_skeleton",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "custom",
-        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1210",
-        "host": "172.26.183.198",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456",
-        "simplify_geometries": "yes"
-      },
-      "id": "road_skeleton",
-      "class": "skeletion",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "yes"
-      },
-      "name": "road_skeleton"
     },
     {
       "geometry": "linestring",
