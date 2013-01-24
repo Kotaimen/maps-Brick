@@ -33,6 +33,33 @@
 @highway-casing-color: #776666;
 
 @major_road-body-color: #d9cdc4;
+@major_road-casing-color: lighten(@highway-casing-color, 15%);
+@major_road-casing-color-alt: lighten(@highway-casing-color, 30%);
+
+@minor_road-body-color: #f6f3f0;
+@minor_road-casing-color: lighten(@highway-casing-color, 20%);
+@minor_road-casing-color-alt: lighten(@highway-casing-color, 30%);
+
+@path-body-color: #f6f3f0;
+@path-casing-color: lighten(@highway-casing-color, 25%);
+@path-casing-color-alt: lighten(@path-casing-color, 25%);
+
+@highway-link-color: lighten(desaturate(@highway-body-color, 10%), 8%);
+@road-dash: 5,2;
+
+@ferry-color: #53789a;
+@rail-color: #aaa197;
+@rail-casing-color: @land-color;
+@rail-outline-color: @rail-color;
+
+/*
+@land-color: #b8b0a1;
+
+
+@highway-body-color: #cdcdcd;
+@highway-casing-color: #666666;
+
+@major_road-body-color: #d9d9d9;
 @major_road-casing-color: @highway-casing-color;
 @major_road-casing-color-alt: lighten(@highway-casing-color, 30%);
 
@@ -50,7 +77,7 @@
 @rail-color: #aaa197;
 @rail-casing-color: @land-color;
 @rail-outline-color: @rail-color;
-
+*/
 ///// Font
 
 @label-color: #3e342e;
@@ -59,10 +86,21 @@
 @label-color-blue: @ferry-color;
 
 @label-font: 'American Typewriter Condensed', 'Arial Unicode MS Regular';
-@label-font-alt: 'American Typewriter Regular', 'Arial Unicode MS Regular';
+@label-font-alt: 'Avenir Next Demi Bold', 'Arial Unicode MS Regular';
 @label-font-heavy: 'American Typewriter Bold', 'Arial Unicode MS Regular';
 @road-font: 'Avenir Next Demi Bold', 'Arial Unicode MS Regular';
+/*
 
+@label-color: #101010;
+@label-color-alt : #3c3c3c; 
+@label_halo-color: @land-color;
+@label-color-blue: @ferry-color;
+
+@label-font: 'Avenir Next Condensed Medium', 'Arial Unicode MS Regular';
+@label-font-alt: 'Avenir Next Condensed Regular', 'Arial Unicode MS Regular';
+@label-font-heavy: 'Avenir Next Demi Bold', 'Arial Unicode MS Regular';
+@road-font: 'Avenir Next Demi Bold', 'Arial Unicode MS Regular';
+*/
 ///// Variable depth buffer
 @smart-halo-raidus: 2;
 

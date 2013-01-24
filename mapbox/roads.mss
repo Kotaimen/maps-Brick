@@ -1,4 +1,4 @@
-/*
+
 #building[zoom>12][zoom<=16] {
   polygon-fill:@building-color;
   [zoom>=14] {
@@ -158,7 +158,20 @@
   	line-join: round;
   	line-clip: false;
     line-width: 0;
-
+    
+    [render='casing'] {
+	  line-gamma: 1.5;
+    }
+    [render='outline'] {
+      line-gamma: 1;
+    }
+    [render='inline'] {
+      line-gamma: 1.2;
+	}
+//    [zoom=16] { line-smooth: 0.3; }
+//    [zoom=17] { line-smooth: 0.4; }
+//    [zoom>=18] { line-smooth: 0.6; }    
+    
     [category='highway'][render='casing'] {
       line-color: @highway-casing-color;
     }
@@ -340,9 +353,9 @@
   [category='highway'], [category='trunk'] {
 
     [zoom=14] {
-      [is_link=0] { line-width: 6; }
-      [is_link=0][is_bridge=1] { line-width: 7; }
-      [is_link=1] { line-width: 4; }
+      [is_link=0] { line-width: 6.5; }
+      [is_link=0][is_bridge=1] { line-width: 7.5; }
+      [is_link=1] { line-width: 4.5; }
       [render='outline'] {
         [is_tunnel=1] { line-opacity:0; }
       }
@@ -355,10 +368,10 @@
       }
     }
     [zoom=15] {
-      [is_link=0] { line-width: 9; }
-      [is_link=0][is_bridge=1] { line-width: 10; }
-      [is_link=1] { line-width: 4; }
-      [is_link=1][is_bridge=1] { line-width: 5; }
+      [is_link=0] { line-width: 10; }
+      [is_link=0][is_bridge=1] { line-width: 11; }
+      [is_link=1] { line-width: 5; }
+      [is_link=1][is_bridge=1] { line-width: 6; }
       [render='outline'] {
         [is_tunnel=1] { line-opacity:0; }
       }
@@ -431,7 +444,7 @@
         [is_tunnel=1] { line-dasharray: @road-dash; }
       }
       [render='inline'] {
-        line-width: 3;
+        line-width: 2.5;
       }
     }
     [zoom=15] {
@@ -503,15 +516,15 @@
   ////////// Minor Road
   [category='minor_road'] {
     [zoom=14] {
-      line-width: 2;
-      [render='casing'] { line-width: 0;}
+      line-width: 3;
+      [render='casing'][is_tunnel=1] { line-width: 3;}
       [render='inline'] {
-        [is_link=0] { line-width: 1.4; }
+        line-width: 1.5;
       }
     }
     [zoom=15] {
-      line-width: 4;
-      [is_bridge=1] { line-width: 5; }
+      line-width: 5;
+      [is_bridge=1] { line-width: 6; }
       [render='outline'] {
         [is_tunnel=1] { line-opacity:0; }
       }
@@ -523,8 +536,8 @@
       }
     }
     [zoom=16] {
-      line-width: 5;
-      [is_bridge=1] { line-width: 6.5; }
+      line-width: 6;
+      [is_bridge=1] { line-width: 7; }
       [render='casing'] {
         [is_tunnel=1] { line-dasharray: @road-dash; }
       }
@@ -568,13 +581,13 @@
       }
     }
     [zoom=15] {
-      line-width: 2;
-      [is_bridge=1] { line-width: 3; }
+      line-width: 2.5;
+      [is_bridge=1] { line-width: 4; }
       [render='casing'] {
         [is_tunnel=1] { line-dasharray: @road-dash; }
       }
       [render='inline'] {
-        [is_link=0] { line-width: 1; }
+        [is_link=0] { line-width: 1.5; }
       }
     }
     [zoom=16] {
@@ -587,7 +600,7 @@
         [is_tunnel=1] { line-dasharray: @road-dash; }
       }
       [render='inline'] {
-        [is_link=0] { line-width: 2; }
+        [is_link=0] { line-width: 1.5; }
       }
     }
     [zoom>=17] {
@@ -699,24 +712,22 @@
 
 }
 
-#road_z15[zoom>=15][category!='rail'][oneway=1][render='marker'] {
-
-    
-      [zoom=15][category='major_road'],
-      [zoom=16][category!='highway'][category!='path'],
-      [zoom=17][category!='highway'],
-      [zoom=17][category='highway'][is_link=1],
-      [zoom>=18]
-      {
-        marker-fill: @highway-casing-color;
-        marker-line-width: 0;
-        marker-placement: line;
-        marker-type: arrow;
-        marker-clip: false;
-	    marker-height: 6;
-        marker-spacing: 200; 
-        marker-ignore-placement: true;
-    }
+#road_z15[zoom>=15][category!='rail'][oneway=1][render='marker'] {    
+  [zoom=15][category='major_road'],
+  [zoom=16][category!='highway'][category!='path'],
+  [zoom=17][category!='highway'],
+  [zoom=17][category='highway'][is_link=1],
+  [zoom>=18]
+  {
+    marker-fill: @highway-casing-color;
+    marker-line-width: 0;
+    marker-placement: line;
+    marker-type: arrow;
+    marker-clip: false;
+    marker-height: 6;
+    marker-spacing: 200; 
+    marker-ignore-placement: true;
+  }
 }
 
 #admin1-label[zoom>=3][zoom<=9] {
@@ -772,4 +783,3 @@
   text-comp-op: multiply;
   text-placement: interior;
 }
-*/

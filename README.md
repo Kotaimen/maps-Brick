@@ -14,6 +14,8 @@ These are not included:
 
 Borrowed ideas from Highroad and OSMBright project.
 
+Requires mason 0.9.3.
+
 Sample renders:
 
 ![Preview 1](https://github.com/Kotaimen/maps-Brick/raw/master/preview-0.jpg)
@@ -25,3 +27,5 @@ Sample renders:
 ![Preview 4](https://github.com/Kotaimen/maps-Brick/raw/master/preview-3.jpg)
 
 ![Preview 5](https://github.com/Kotaimen/maps-Brick/raw/master/preview-4.jpg)
+
+![Preview 6](https://github.com/Kotaimen/maps-Brick/raw/master/preview-6.jpg)
