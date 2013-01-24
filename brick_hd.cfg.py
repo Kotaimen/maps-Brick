@@ -8,8 +8,8 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'Brick'
-tile_size = 256
+tag = 'BrickHD'
+tile_size = 512
 
 fmt = 'png'
 
@@ -46,8 +46,7 @@ label_halo = dict(\
     )
 
 composer=dict(\
-    prototype='composite.imagemagick',   
-  
+    prototype='composite.imagemagick',    
     sources=['landcover', 'roads', 'labels', 'label_halo',
              ],
     format=fmt,
@@ -70,13 +69,13 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth',
                   ),
     cache=dict(prototype='cluster',
-               stride=16,
+               stride=8,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
     pyramid=dict(levels=range(2, 19),
 #                   envelope=(-180,-0.58,-52.32,71.60),                 
-#                 envelope=(-124,34,-70,48),                 
+                 envelope=(-124,34,-70,48),                 
 #                envelope=( -123.40/1, 36.444, -118.65, 39.89),
                  zoom=9,
                  center=(-122.4321,37.7702),

@@ -10,7 +10,7 @@
     37.8001,
     14
   ],
-  "format": "png8",
+  "format": "png",
   "interactivity": false,
   "minzoom": 2,
   "maxzoom": 18,
@@ -1226,7 +1226,7 @@
   ],
   "scale": 1,
   "metatile": 2,
-  "_basemap": "http://a.tiles.mapbox.com/v3/mapbox.mapbox-streets.jsonp",
+  "_basemap": "http://172.26.183.192:8081/tile/Terrain/metadata.jsonp",
   "name": "Brick (take2)",
   "description": "Brick OSM RoadMap Theme",
   "attribution": ""

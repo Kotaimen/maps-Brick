@@ -1,4 +1,4 @@
-
+/*
 ///////////////////////////////////////////////////
 // Dymo pre-placed names
 ///////////////////////////////////////////////////
@@ -68,7 +68,7 @@
   [type=2] { text-size: 20; text-wrap-width: 120; }
   [type=2][zoom>=15] { text-size: 22; text-wrap-width: 100; text-character-spacing: 1;}
   [type=1][zoom<16] { text-size: 24; }
-  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 2; text-transform: uppercase;}
+  [type=1][zoom>=15] { text-size: 32; text-character-spacing: 2; }
   [type=0][zoom<=13] { text-size: 32; }
   [type=0][zoom>13][zoom<=15]{ text-size: 42; text-character-spacing: 4; }
 }
@@ -86,7 +86,7 @@
   text-name: "";
   text-fill: @label-color-alt;
   text-halo-fill: @land-color;
-  text-halo-radius: 1 + @smart-halo-raidus / 2;
+  text-halo-radius: @smart-halo-raidus; //1 + @smart-halo-raidus / 2;
   text-wrap-width: 60;
   text-placement: point;
   text-size: 11;
@@ -371,7 +371,11 @@
     [zoom>=17] { shield-min-distance: 250; }    
   }
 }
-/*
+
+
+
+
+
 #road-label-gen1[zoom>=10][zoom<14][is_link=0],
 #road-label[zoom>=14][is_link=0] {
   text-clip: false;
@@ -379,13 +383,14 @@
   text-allow-overlap: false;
   text-name: "";
   text-fill: @label-color;
-  text-halo-fill: @land-color;
+  text-halo-fill: @path-body-color;
   text-halo-radius: 1.5;
   text-placement: line;
   text-min-distance: 50;
 //  text-spacing: 16;
   text-label-position-tolerance: 16;
   text-max-char-angle-delta: 20;
+  
 
   [zoom>=17] { text-size: 11; text-min-distance:120; }
 
