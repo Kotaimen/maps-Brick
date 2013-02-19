@@ -46,6 +46,7 @@ CREATE VIEW brick_road_label AS
 
 	SELECT 	
 	    regexp_replace(name, '(.*)\(.*\)'::text, '\1'::text) AS name, 
+		brick_road_rail.z15 as category,
 		brick_kind AS kind,
 		CASE
 		    WHEN highway ~~ '%_link'::text THEN 1

@@ -1,4 +1,4 @@
-/*
+
 ///////////////////////////////////////////////////
 // Landmass
 ///////////////////////////////////////////////////
@@ -40,7 +40,7 @@
 // Waterbody
 ///////////////////////////////////////////////////
 
-#bathymetry[zoom<7] {
+#bathymetry[zoom<=7] {
   polygon-opacity: 0.1;
   polygon-comp-op: multiply;
   polygon-fill: @water-color;
@@ -56,6 +56,11 @@
 #10m_rivers[zoom<8] {
   [zoom=2][scalerank<=3],
   [zoom=3][scalerank<=4],
+  {
+  	line-color: @water-color;
+  	line-width: 0.25;
+  }
+
   [zoom=4][scalerank<=5],
   [zoom=5][scalerank<=6],
   [zoom=6][scalerank<=7],
@@ -156,8 +161,8 @@
   ///// Manmade green
   [type='park'], [type='garden'], [type='recreation_ground'],
   [type='village_green'], [type='zoo'], [type='dog_park'], [type='theme_park'],
-  [type='theme_park'], [type='golf_course'], [type='miniature_golf'], 
-  [type='funfair'], [type='water_park'],  
+  [type='theme_park'], [type='golf_course'], [type='miniature_golf'],
+  [type='funfair'], [type='water_park'],
   [type='farm'], [type='farm_land'], [type='farmland'],
   [type='orchard'], [type='vineyard']
   { polygon-fill: @green-color; }
@@ -260,4 +265,3 @@
     [zoom>17]{ line-width:5; line-smooth: 0.7; }
   }
 }
-*/
