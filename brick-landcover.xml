@@ -8,14 +8,14 @@
   <Parameter name="format">png</Parameter>
   <Parameter name="minzoom">2</Parameter>
   <Parameter name="maxzoom">18</Parameter>
-  <Parameter name="name"><![CDATA[Brick (take2)]]></Parameter>
+  <Parameter name="name"><![CDATA[Brick]]></Parameter>
   <Parameter name="description"><![CDATA[Brick OSM RoadMap Theme]]></Parameter>
 </Parameters>
 
-
+<!--
 <Style name="bathymetry" filter-mode="first" >
   <Rule>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
     <PolygonSymbolizer fill-opacity="0.1" comp-op="multiply" fill="#859db6" />
   </Rule>
 </Style>
@@ -27,7 +27,7 @@
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
-
+-->
 <Style name="processed_p" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -78,43 +78,43 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="5" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="4" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="3" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="2" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="1" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="1" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'breakwater')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#53789a" stroke-linejoin="round" stroke-linecap="butt" />
+    <LineSymbolizer stroke-width="1" stroke="#5980a8" stroke-linejoin="round" stroke-linecap="butt" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -8862,18 +8862,6 @@
     <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 3)</Filter>
-    <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 3)</Filter>
-    <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 3)</Filter>
@@ -8890,6 +8878,18 @@
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 3)</Filter>
     <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#859db6" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#859db6" stroke-width="0.25" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
@@ -8898,12 +8898,6 @@
     <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 4)</Filter>
-    <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 4)</Filter>
@@ -8920,6 +8914,12 @@
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([scalerank] &lt;= 4)</Filter>
     <LineSymbolizer stroke="#859db6" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#859db6" stroke-width="0.25" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>

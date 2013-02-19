@@ -4,7 +4,7 @@
   [zoom>=14] {
     line-color:darken(@building-color,10);
     line-width:0.2;
-    
+
   }
   [zoom>=16] {
     line-color:darken(@building-color,20);
@@ -19,7 +19,6 @@
   [zoom>=18] { building-height:8; }
 }
 
-
 ///////////////////////////////////////////////////
 // Political boundary
 ///////////////////////////////////////////////////
@@ -30,53 +29,77 @@
   	line-color: @land-color;
     line-opacity: 0.5;
   	line-join: round;
-  	line-cap: round;
   }
   ::body {
-    line-width: 0;    
+    line-width: 0;
   	line-color: @boundary-color;
   	line-join: round;
-  	line-cap: round;
   }
 }
 
-#10m_admin0 {
+#boundary_admin0,
+#boundary_disupted  {
   ::casing {
-  	[zoom=3] { line-width: 2; }
-  	[zoom=4] { line-width: 3; }
-  	[zoom=5] { line-width: 3.5; }
-  	[zoom>5] { line-width: 4; }
-  }
-  ::body {
-  	[zoom=2] { line-width: 1; }
   	[zoom=3] { line-width: 1; }
   	[zoom=4] { line-width: 2; }
-  	[zoom=5] { line-width: 2.5; }
-  	[zoom>5] { line-width: 3; }
+  	[zoom=5] { line-width: 3; }
+  	[zoom=6] { line-width: 3; }
+  	[zoom>6] { line-width: 4; }
+  }
+  ::body {
+  	[zoom=2] { line-width: 0.25; }
+  	[zoom=3] { line-width: 0.75; }
+  	[zoom=4] { line-width: 1; }
+  	[zoom=5] { line-width: 1.5; }
+  	[zoom=6] { line-width: 2; }
+  	[zoom>6] { line-width: 3; }
+    [featurecla='Disputed (please verify)'] {
+      [zoom=3] { line-dasharray:4,1; }
+      [zoom=4] { line-dasharray:5,2; }
+      [zoom=5] { line-dasharray:6,2; }
+      [zoom=6] { line-dasharray:8,3; }
+      [zoom>6] { line-dasharray:10,3; }
+    }
+    [featurecla='Breakaway'] {
+      [zoom=3] { line-dasharray: 3,2; }
+      [zoom=4] { line-dasharray: 4,4; }
+      [zoom=5] { line-dasharray: 5,5; }
+      [zoom=6] { line-dasharray: 6,6; }
+      [zoom>6] { line-dasharray: 8,8; }
+    }
+    [featurecla='Claim boundary'] {
+      line-dasharray: 1,3;
+      [zoom>6] { line-dasharray: 2,4; }
+    }
+    [featurecla='Indefinite (please verify)'] {
+      line-dasharray: 6,1;
+    }
   }
 }
 
-#10m_admin1 {
-  [zoom=3][scalerank<=3],  
-  [zoom=4][scalerank<=4],
-  [zoom=5][scalerank<=5],
-  [zoom=6][scalerank<=6],    
-  [zoom>=7],    
+#boundary_admin1 {
+  [zoom=3][scalerank<=2],
+  [zoom=4][scalerank<=3],
+  [zoom=5][scalerank<=4],
+  [zoom=6][scalerank<=5],
+  [zoom>6],
   {
-  ::casing {
-  	[zoom=4] { line-width: 2; }
-  	[zoom=5] { line-width: 2; }
-  	[zoom>5] { line-width: 3; }
-  }
-  ::body {
-    line-dasharray: 8, 4,1,4;
-  	[zoom=3] { line-width: 0.7; }      
-  	[zoom=4] { line-width: 1; }
-  	[zoom=5] { line-width: 1; }
-  	[zoom>5] { line-width: 1.5; }
-  }
+    ::casing {
+      [zoom=4] { line-width: 1; }
+      [zoom=5] { line-width: 1; }
+      [zoom>=6] { line-width: 2; }
+    }
+    ::body {
+      line-dasharray: 1,1;
+      [zoom=3] { line-width: 0.25; }
+      [zoom=4] { line-width: 0.5; }
+      [zoom=5] { line-width: 0.75; }
+      [zoom=6] { line-width: 1; }
+      [zoom>6] { line-width: 1.5; }
+    }
   }
 }
+
 
 ///////////////////////////////////////////////////
 // Road skeleton
@@ -84,7 +107,7 @@
 
 
 #10m_roads[zoom>4][zoom<10][roadType!='Ferry Route'] {
-  [ScaleRank>=8]
+  ::a[ScaleRank>=8]
   {
   	::casing {
       line-color: @major_road-casing-color;
@@ -97,7 +120,7 @@
       [zoom=9] { line-width: 1;}
   	}
   }
-  [ScaleRank>5][ScaleRank<8] {
+  ::b[ScaleRank>5][ScaleRank<8] {
   ::casing[zoom>=9] {
       line-color: @major_road-casing-color;
 //      [zoom=9] { line-width: 2.;}
@@ -111,7 +134,7 @@
       [zoom=9] { line-width: 2;}
   	}
   }
-  [ScaleRank<=5]
+  ::c[ScaleRank<=5]
   {
   	::casing[zoom>=7] {
       line-color: @highway-casing-color;
@@ -158,7 +181,7 @@
   	line-join: round;
   	line-clip: false;
     line-width: 0;
-    
+
     [render='casing'] {
 	  line-gamma: 1.5;
     }
@@ -170,8 +193,8 @@
 	}
 //    [zoom=16] { line-smooth: 0.3; }
 //    [zoom=17] { line-smooth: 0.4; }
-//    [zoom>=18] { line-smooth: 0.6; }    
-    
+//    [zoom>=18] { line-smooth: 0.6; }
+
     [category='highway'][render='casing'] {
       line-color: @highway-casing-color;
     }
@@ -183,10 +206,10 @@
     }
     [category='highway'][render='inline'][is_tunnel=1][zoom>=15] {
       line-color: lighten(@highway-body-color, 12%);
-    }    
+    }
     [category='highway'][render='inline'][is_link=1][zoom>=15] {
       line-color: @highway-link-color;
-    }    
+    }
     [category='trunk'][render='casing'] {
       line-color: @highway-casing-color;
     }
@@ -198,10 +221,10 @@
     }
     [category='trunk'][render='inline'][is_tunnel=1][zoom>=14] {
       line-color: lighten(@highway-body-color, 12%);
-    }        
+    }
     [category='trunk'][render='inline'][is_link=1][zoom>=14] {
       line-color: @highway-link-color;
-    }    
+    }
     [category='major_road'][render='outline'] {
       line-color: @major_road-casing-color;
       [zoom<11] { line-color: @major_road-casing-color-alt; }
@@ -381,7 +404,7 @@
       [render='inline'] {
         [is_link=0] { line-width: 7; }
         [is_link=1] { line-width: 3; }
-      }      
+      }
     }
     [zoom=16] {
       [is_link=0] { line-width: 12; }
@@ -664,7 +687,7 @@
         dash/line-width: 1.5;
         dash/line-dasharray: 1, 8;
         dash/line-color: @rail-color;
-      }        
+      }
     }
     [zoom=16] {
       [render='outline'][is_bridge=1] { line-width: 6;}
@@ -678,7 +701,7 @@
         dash/line-width: 2.5;
         dash/line-dasharray: 1, 8;
         dash/line-color: @rail-color;
-      }            
+      }
     }
     [zoom=17] {
       [render='outline'][is_bridge=1] { line-width: 9;}
@@ -692,7 +715,7 @@
         dash/line-width: 3;
         dash/line-dasharray: 1, 10;
         dash/line-color: @rail-color;
-      }      
+      }
     }
     [zoom>=18] {
       [render='outline'][is_bridge=1] { line-width: 11; }
@@ -712,7 +735,7 @@
 
 }
 
-#road_z15[zoom>=15][category!='rail'][oneway=1][render='marker'] {    
+#road_z15[zoom>=15][category!='rail'][oneway=1][render='marker'] {
   [zoom=15][category='major_road'],
   [zoom=16][category!='highway'][category!='path'],
   [zoom=17][category!='highway'],
@@ -725,61 +748,7 @@
     marker-type: arrow;
     marker-clip: false;
     marker-height: 6;
-    marker-spacing: 200; 
+    marker-spacing: 200;
     marker-ignore-placement: true;
   }
-}
-
-#admin1-label[zoom>=3][zoom<=9] {
-  [zoom=3] { 
-    text-face-name: @label-font-heavy;    
-    text-name: "[label_z4]"; 
-    text-size: 10;
-  	text-transform: uppercase;    
-  }
-  [zoom=4] { 
-    text-name: "[label_z4]"; 
-    text-size: 16;
-    text-spacing: 1;
-  	text-opacity: 0.6;
-  	text-transform: uppercase;    
-  }
-  [zoom=5] { 
-    text-name: "[label_z5]"; 
-    text-size: 20;
-    text-spacing: 2;
-  	text-opacity: 0.5;
-  	text-transform: uppercase;    
-  }
-  [zoom=6] { 
-    text-name: "[label_z6]"; 
-    text-opacity: 0.4;
-    text-size: 20;
-    text-spacing: 2;
-  	text-transform: uppercase;    
-	text-wrap-width: 160;         
-  }
-  [zoom=7] { 
-    text-name: "[label_z7]"; 
-    text-opacity: 0.3;
-    text-size: 32;
-    text-spacing: 4;
-  	text-transform: uppercase;    
-	text-wrap-width: 200;        
-  }
-  [zoom>=8] { 
-    text-name: "[name]"; 
-    text-opacity: 0.2;
-    text-size: 48;
-    text-spacing: 6;
-	text-wrap-width: 250;    
-  	text-transform: uppercase;    
-  }
-  text-name: "[name]";
-  text-face-name: @label-font-heavy;
-  text-allow-overlap: true;
-  //text-transform: uppercase;
-  text-fill: @boundary-color;
-  text-comp-op: multiply;
-  text-placement: interior;
 }
