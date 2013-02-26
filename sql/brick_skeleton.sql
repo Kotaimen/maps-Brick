@@ -3,30 +3,36 @@ BEGIN;
 
 DROP TABLE IF EXISTS "brick_skeleton";
 
-
 CREATE TABLE brick_skeleton AS 
 	SELECT 
 		( CASE 
-			WHEN ref ~ E'^I ?[[:digit:]]+' THEN regexp_replace(ref, '^I ?([[:digit:]]+).*', E'\\1')
-			WHEN ref ~ E'^US ?[[:digit:]]+' THEN regexp_replace(ref, '^US ?([[:digit:]]+).*', E'\\1')
-			WHEN ref ~ E'^[[:alpha:]]+ ?[[:alpha:]]?[[:digit:]]+' THEN regexp_replace(ref, '^([[:alpha:]]+) ?([[:alnum:]]+).*', E'\\1\\2')
-			ELSE NULL
+			WHEN planet_osm_line.ref ~ E'^I ?\\d+' THEN regexp_replace(planet_osm_line.ref, E'^I ?(\\d+).*', E'\\1')
+			WHEN planet_osm_line.ref ~ E'^US ?\\d+' THEN regexp_replace(planet_osm_line.ref, E'^US ?(\\d+).*', E'\\1')
+			WHEN planet_osm_line.ref ~ E'^[[:alpha:]]+ ?\\d+' THEN regexp_replace(planet_osm_line.ref, E'^([[:alpha:]]+) ?(\\d+).*', E'\\1\\2')
+			WHEN planet_osm_line.ref ~ E'^[[:alpha:]]+-\\d+' THEN regexp_replace(planet_osm_line.ref, E'^([[:alpha:]]+)-(\\d+).*', E'\\1\\2')
+			WHEN planet_osm_line.ref ~ E'^\\d+$' THEN planet_osm_line.ref
+			ELSE ''
 		END ) AS ref,
+		planet_osm_line.ref as org_ref,
 		( CASE 
-			WHEN ref ~ E'^I ?[[:digit:]]+' THEN 'US/I'
-			WHEN ref ~ E'^US ?[[:digit:]]+' THEN 'US/US'
-			WHEN CHAR_LENGTH(ref) <=5 THEN 'US/STATE'
-			ELSE NULL
+			WHEN planet_osm_line.ref ~ E'^I ?\\d+' THEN 'US/I'
+			WHEN planet_osm_line.ref ~ E'^US ?\\d+' THEN 'US/US'
+			WHEN ref != '' THEN 'INTL/ALL'
+			ELSE ''
 		END) AS category, 
-		--st_simplify(way, 6) as way
-		ST_Segmentize(ST_SimplifyPreserveTopology(ST_LineMerge(st_collect(way)), 6), 5000) AS way
+		length(ref) AS strlen,
+		ST_Multi((ST_Dump(ST_Multi(ST_LineMerge(
+			ST_CollectionExtract(ST_Collect(ST_SimplifyPreserveTopology(planet_osm_line.way, 10)), 2)))))
+			.geom) AS way
 	FROM planet_osm_line
-		WHERE highway IN ('motorway', 'trunk')
-	GROUP BY ref
-	--ORDER BY z_order
+		WHERE planet_osm_line.ref IS NOT NULL
+		and planet_osm_line.highway IN ('motorway', 'trunk', 'primary', 'secondary' )
+	GROUP BY planet_osm_line.ref
 ;
 
 CREATE INDEX ON brick_skeleton USING gist(way);
+CREATE INDEX ON brick_skeleton(ref);
+CREATE INDEX ON brick_skeleton(category);
 
 END;
 

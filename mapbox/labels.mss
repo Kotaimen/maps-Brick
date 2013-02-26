@@ -410,7 +410,8 @@
 
 
 #road_skeleton[zoom>9][zoom<=17] {
-  [category='US/I'][ref!=''] {
+  ::DEBUG { line-color: orange; line-comp-op: multiply; line-opacity: 0.5; line-width: 6; line-cap: round;}
+  [category='US/I'] {
     shield-file: url('shield/us-0.svg');
     shield-placement: line;    
 	shield-clip: false;    
@@ -420,15 +421,15 @@
     shield-text-dy: 1;
     shield-size: 10;
     shield-allow-overlap: false;
-//    shield-spacing: 200;
+    shield-spacing: 200;
     [zoom<13] { shield-min-distance: 60; }
     [zoom=13] { shield-min-distance: 80; }
     [zoom=14] { shield-min-distance: 100; }    
-    [zoom=15] { shield-min-distance: 200; }
-    [zoom=16] { shield-min-distance: 250; }    
-    [zoom>=17] { shield-min-distance: 300; }    
+    [zoom=15] { shield-min-distance: 120; }
+    [zoom=16] { shield-min-distance: 140; }    
+    [zoom>=17] { shield-min-distance: 160; } 
   }
-  [category='US/US'][ref!=''] {
+  [category='US/US'] {
     shield-file: url('shield/us-1.svg');
     shield-placement: line;    
     shield-clip: false;
@@ -438,15 +439,15 @@
     shield-text-dy: 1;
     shield-size: 9;
     shield-allow-overlap: false;
-//    shield-spacing: 200;
+    shield-spacing: 200;
     [zoom<13] { shield-min-distance: 60; }
     [zoom=13] { shield-min-distance: 80; }
     [zoom=14] { shield-min-distance: 100; }    
-    [zoom=15] { shield-min-distance: 160; }
-    [zoom=16] { shield-min-distance: 220; }    
-    [zoom>=17] { shield-min-distance: 250; }    
+    [zoom=15] { shield-min-distance: 120; }
+    [zoom=16] { shield-min-distance: 140; }    
+    [zoom>=17] { shield-min-distance: 160; }    
   }
-  [category='US/STATE'][ref!=''][zoom>11]  {
+  [category='INTL/ALL'][zoom>11][ref!='']  {
     shield-file: url('shield/us-2.svg');
     shield-placement: line;    
     shield-clip: false;
@@ -455,13 +456,13 @@
     shield-fill: black;
     shield-size: 8;
     shield-allow-overlap: false;
-//    shield-spacing: 200;
+    shield-spacing: 200;
     [zoom<13] { shield-min-distance: 60; }
     [zoom=13] { shield-min-distance: 80; }
     [zoom=14] { shield-min-distance: 100; }    
-    [zoom=15] { shield-min-distance: 160; }
-    [zoom=16] { shield-min-distance: 220; }    
-    [zoom>=17] { shield-min-distance: 250; }    
+    [zoom=15] { shield-min-distance: 120; }
+    [zoom=16] { shield-min-distance: 140; }    
+    [zoom>=17] { shield-min-distance: 160; }    
   }
 }
 
@@ -472,20 +473,22 @@
   text-allow-overlap: false;
   text-name: "";
   text-fill: @label-color;
-  [category='highway'],[category='trunk'] {  text-halo-fill: @highway-body-color;}
+  [category='highway'], [category='trunk'] {  text-halo-fill: @highway-body-color;}
   [category='major_road'] {  text-halo-fill: @major_road-body-color;}
   [category='minor_road'] {  text-halo-fill: @minor_road-body-color;}  
   text-halo-fill: @path-body-color;
   
   text-halo-radius: 1;
   text-placement: line;
-  text-min-distance: 50;
-//  text-spacing: 16;
+  text-min-distance: 16;
+  [zoom<16] { text-spacing: 100; }
+  [zoom=16] { text-spacing: 100; }  
+  [zoom=17] { text-spacing: 150; }
+  [zoom=18] { text-spacing: 200; }  
   text-label-position-tolerance: 16;
   text-max-char-angle-delta: 20;
   
-
-  [zoom>=17] { text-size: 11; text-min-distance:120; }
+  [zoom>=17] { text-size: 11;  }
 
   [priority<=3] { text-transform: uppercase; }
   [priority>=3] { text-fill: @label-color-alt; }

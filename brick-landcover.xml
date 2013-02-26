@@ -168,7 +168,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34 ]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -5223,7 +5223,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
     </Datasource>
   </Layer>
@@ -8278,7 +8278,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
     </Datasource>
   </Layer>
@@ -8719,7 +8719,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
     </Datasource>
   </Layer>
@@ -8846,7 +8846,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -9046,7 +9046,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -9108,7 +9108,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -9301,7 +9301,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -9326,7 +9326,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -9352,7 +9352,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -9377,7 +9377,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1210]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>

@@ -91,7 +91,7 @@
 @label-font-heavy: 'Avenir Next Bold', 'Arial Unicode MS Regular';
 @label-font-alt: 'Avenir Next Demi Bold', 'Arial Unicode MS Regular';
 @label-font-italic: 'Avenir Next Demi Bold Italic', 'Arial Unicode MS Regular';
-@road-font: 'Avenir Next Demi Bold', 'Arial Unicode MS Regular';
+@road-font: 'Arial Bold', 'Arial Unicode MS Regular';
 
 ///////////////////////////////////////////////////
 // Terrain Font
@@ -112,6 +112,6 @@
 @smart-halo-raidus: 1;
 
 Map {
-  background-color: @water-color;
-//  buffer-size: 300;
+//  background-color: @water-color;
+//  buffer-size: 256;
 }

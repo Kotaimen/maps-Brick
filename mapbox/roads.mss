@@ -1,4 +1,4 @@
-
+/*
 #building[zoom>12][zoom<=16] {
   polygon-fill:@building-color;
   [zoom>=14] {
@@ -752,3 +752,4 @@
     marker-ignore-placement: true;
   }
 }
+*/
