@@ -15,6 +15,11 @@
 
 <Style name="building" filter-mode="first" >
   <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#d6d4cb" />
+    <LineSymbolizer stroke="#a9a592" stroke-width="0.6" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <PolygonSymbolizer fill="#d6d4cb" />
@@ -856,8 +861,8 @@
 <Layer name="road_z11"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="400000"
-  minzoom="200000"      
-  
+  minzoom="200000"
+
   >
     <StyleName>road_z11</StyleName>
     <Datasource>
@@ -1340,8 +1345,8 @@
 <Layer name="road_z12"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="200000"
-  minzoom="100000"  
-  
+  minzoom="100000"
+
   >
     <StyleName>road_z12</StyleName>
     <Datasource>
@@ -1825,7 +1830,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="100000"
   minzoom="50000"
-  
+
   >
     <StyleName>road_z13</StyleName>
     <Datasource>
@@ -7091,8 +7096,8 @@
 <Layer name="road_z15"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="50000"
-  cache-features="yes"   
-  
+  cache-features="yes"
+
   >
     <StyleName>road_z15</StyleName>
     <Datasource>
@@ -7816,36 +7821,6 @@
        <Parameter name="project"><![CDATA[HighAtlas]]></Parameter>
        <Parameter name="srs"><![CDATA[]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="building_3d" filter-mode="first" >
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <BuildingSymbolizer height="8" fill="#d6d4cb" fill-opacity="0.7" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <BuildingSymbolizer height="4" fill="#d6d4cb" fill-opacity="0.7" />
-  </Rule>
-</Style>
-<Layer name="building_3d"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>building_3d</StyleName>
-    <Datasource>
-       <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[brick_building]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
-       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
-       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
-       <Parameter name="port"><![CDATA[5432]]></Parameter>
-       <Parameter name="user"><![CDATA[postgres]]></Parameter>
-       <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1301]]></Parameter>
-       <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
     </Datasource>
   </Layer>
 
