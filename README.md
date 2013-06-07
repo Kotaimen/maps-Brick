@@ -4,7 +4,7 @@ Brick Map Theme
 Global general road map using OSM data, including:
 - MapBox project files
 - Patched mapnik XML themes
-- PGSQL scripts for processing OSM data 
+- PGSQL scripts for processing OSM data
 - Mason map configuration file
 - Shields and markers
 
@@ -31,14 +31,14 @@ Note2: these samples are already outdated, will update them after mason-0.9.5 is
 
 Sample renders:
 
-![Preview 1](https://github.com/Kotaimen/maps-Brick/raw/master/preview-0.jpg)
+![Preview 1](https://github.com/Kotaimen/maps-Brick/raw/master/sample-0.jpg)
 
-![Preview 2](https://github.com/Kotaimen/maps-Brick/raw/master/preview-1.jpg)
+![Preview 2](https://github.com/Kotaimen/maps-Brick/raw/master/sample-1.jpg)
 
-![Preview 3](https://github.com/Kotaimen/maps-Brick/raw/master/preview-2.jpg)
+![Preview 3](https://github.com/Kotaimen/maps-Brick/raw/master/sample-2.jpg)
 
-![Preview 4](https://github.com/Kotaimen/maps-Brick/raw/master/preview-3.jpg)
+![Preview 4](https://github.com/Kotaimen/maps-Brick/raw/master/sample-3.jpg)
 
-![Preview 5](https://github.com/Kotaimen/maps-Brick/raw/master/preview-4.jpg)
+![Preview 5](https://github.com/Kotaimen/maps-Brick/raw/master/sample-4.jpg)
 
-![Preview 6](https://github.com/Kotaimen/maps-Brick/raw/master/preview-6.jpg)
+![Preview 6](https://github.com/Kotaimen/maps-Brick/raw/master/sample-5.jpg)
