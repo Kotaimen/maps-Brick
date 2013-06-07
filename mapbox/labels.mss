@@ -3,18 +3,40 @@
 // Highlevel country/state names
 ///////////////////////////////////////////////////
 
-#label_continents[zoom<4] {
+#labels_continents[zoom<4] {
   ::text {
     text-face-name: @label-font-italic;
     text-name: '[name]';    
 	text-size: 14;
-    text-transform: uppercase;
+//    text-transform: uppercase;
     text-placement: point;
     text-fill: @label-color;
     text-halo-fill: @land-color;
     text-halo-radius: @smart-halo-raidus;    
   }
 }
+
+#labels_oceans
+{
+  ::text
+    [zoom<4][scalerank<1],
+    [zoom>3][zoom<6][scalerank<3],
+    [zoom>=6][zoom<9][scalerank<4],
+    [zoom>=9][scalerank<8],    
+  {
+    text-face-name: @label-font-italic;
+    text-name: '[name]';    
+	[scalerank<2] { text-size: 14; }
+	[scalerank>=2] { text-size: 12; }    
+    text-transform: capitalize;
+    text-placement: interior;
+    text-fill: darken(@ferry-color, 10%);
+    text-halo-fill: @land-color;
+    text-halo-radius: @smart-halo-raidus;    
+    text-wrap-width: 60;
+  }
+}
+
 
 #labels_admin0[zoom<9] {
 //  ::DEBUG { polygon-opacity:0.5; polygon-fill: lightgreen; }  
@@ -59,7 +81,7 @@
   }
 }
 
-#labels_places_z6 {
+#labels_places_gen0 {
   ::marker
     ['zoom_start'<=4][zoom=4], 
     ['zoom_start'<=5][zoom=5],
@@ -96,7 +118,7 @@
 // Dymo static placed names
 ///////////////////////////////////////////////////
 
-#labels_placenames
+#labels_places_gen1_names
 {
   ::text
   [zoom=7][layer=7], 
@@ -119,7 +141,7 @@
   }  
 }
 
-#labels_placepoints
+#labels_places_gen1_points
 {
   ::marker
   [zoom=7][layer=7],
@@ -139,7 +161,7 @@
 ///////////////////////////////////////////////////
 
 
-#places-all[zoom>9][zoom<17] {
+#labels_places_full[zoom>9][zoom<17] {
   text-clip: false;
   text-face-name: @label-font;
   text-allow-overlap: false;
@@ -171,7 +193,7 @@
 // Landusage labels
 ///////////////////////////////////////////////////
 
-#landusage-label[zoom>6] {
+#labels_landusage[zoom>6] {
   text-clip: false;
   text-face-name: @label-font-alt;
   text-allow-overlap: false;
@@ -409,8 +431,8 @@
 ///////////////////////////////////////////////////
 
 
-#road_skeleton[zoom>9][zoom<=17] {
-  ::DEBUG { line-color: orange; line-comp-op: multiply; line-opacity: 0.5; line-width: 6; line-cap: round;}
+#road_shields[zoom>9][zoom<=17] {
+//  ::DEBUG { line-color: orange; line-comp-op: multiply; line-opacity: 0.5; line-width: 6; line-cap: round;}
   [category='US/I'] {
     shield-file: url('shield/us-0.svg');
     shield-placement: line;    
@@ -466,8 +488,8 @@
   }
 }
 
-#road-label-gen1[zoom>=10][zoom<14][is_link=0],
-#road-label[zoom>=14][is_link=0] {
+#labels_roads_gen1[zoom>=10][zoom<14][is_link=0],
+#labels_roads[zoom>=14][is_link=0] {
   text-clip: false;
   text-face-name: @road-font;
   text-allow-overlap: false;

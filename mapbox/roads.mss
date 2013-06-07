@@ -1,5 +1,5 @@
-/*
-#building[zoom>12][zoom<=16] {
+
+#building[zoom>12] {
   polygon-fill:@building-color;
   [zoom>=14] {
     line-color:darken(@building-color,10);
@@ -11,14 +11,6 @@
     line-width:0.4;
   }
 }
-
-#building_3d[zoom>=17] {
-  building-fill:@building-color;
-  building-fill-opacity: 0.7;
-  [zoom=17] { building-height:4; }
-  [zoom>=18] { building-height:8; }
-}
-
 ///////////////////////////////////////////////////
 // Political boundary
 ///////////////////////////////////////////////////
@@ -101,13 +93,28 @@
 }
 
 
+#ne10mgeographiclines[zoom<7] {
+  ::text
+    [name='Equator'],
+    [name='International Date Line'],
+    [name='Arctic Circle'],
+    [name='Antarctic Circle'],
+    {
+  line-width:1;
+  line-color:@highway-casing-color;
+  line-dasharray: 4,2;
+  }
+}
+
+
+
 ///////////////////////////////////////////////////
 // Road skeleton
 ///////////////////////////////////////////////////
 
 
-#10m_roads[zoom>4][zoom<10][roadType!='Ferry Route'] {
-  ::a[ScaleRank>=8]
+#10m_roads[zoom>=4][zoom<=8][roadType!='Ferry Route'] {
+  ::major[ScaleRank>=8]
   {
   	::casing {
       line-color: @major_road-casing-color;
@@ -120,7 +127,7 @@
       [zoom=9] { line-width: 1;}
   	}
   }
-  ::b[ScaleRank>5][ScaleRank<8] {
+  ::major_hi[ScaleRank>5][ScaleRank<8] {
   ::casing[zoom>=9] {
       line-color: @major_road-casing-color;
 //      [zoom=9] { line-width: 2.;}
@@ -134,7 +141,7 @@
       [zoom=9] { line-width: 2;}
   	}
   }
-  ::c[ScaleRank<=5]
+  ::highway[ScaleRank<=5]
   {
   	::casing[zoom>=7] {
       line-color: @highway-casing-color;
@@ -154,7 +161,7 @@
   }
 }
 
-#10m_rail[zoom>=7][zoom<11] {
+#10m_rail[zoom>=6][zoom<=8] {
   ::dash {
 	[scalerank<=8][zoom=6] {line-width: 2; line-color: @rail-color; line-dasharray: 1,4;}
 	[scalerank<=8][zoom=7] {line-width: 2.4; line-color: @rail-color; line-dasharray: 1,6;}
@@ -176,7 +183,7 @@
 // TODO: Need turn generated xml layer range manually
 
 .roads {
-  [zoom>=10] {
+  [zoom>=9] {
   	line-cap: round;
   	line-join: round;
   	line-clip: false;
@@ -192,9 +199,16 @@
       line-gamma: 1.2;
 	}
 //    [zoom=16] { line-smooth: 0.3; }
-//    [zoom=17] { line-smooth: 0.4; }
-//    [zoom>=18] { line-smooth: 0.6; }
-
+    [zoom=17][category='highway'],
+    { line-smooth: 0.4; }
+    [zoom=17][category!='highway'],
+    { line-smooth: 0.2; }
+    [zoom>=18][category='highway'],
+    { line-smooth: 0.6; }
+    [zoom>=18][category!='highway'],
+    { line-smooth: 0.4; }
+    
+    
     [category='highway'][render='casing'] {
       line-color: @highway-casing-color;
     }
@@ -303,10 +317,23 @@
     [render='outline'] {
       [category='highway'], [category='trunk'], { line-width: 4; }
       [category='major_road'] { line-width: 2; }
+      [category='minor_road'] { line-width: 0.2; }
     }
     [render='inline'] {
       [category='highway'], [category='trunk'] { line-width: 2; }
       [category='major_road'] { line-width: 1; }
+    }
+  }
+}
+
+#road_z10[zoom=9] {
+  [category!='rail'] {
+    [render='outline'] {
+      [category='highway'], [category='trunk'], { line-width: 3; }
+      [category='major_road'] { line-width: 1; }
+    }
+    [render='inline'] {
+      [category='highway'], [category='trunk'] { line-width: 1; }
     }
   }
 }
@@ -316,7 +343,7 @@
     [render='outline'] {
       [category='highway'], [category='trunk'] {line-width: 5; }
       [category='major_road'] {line-width: 2.25; }
-      [category='minor_road'] {line-width: 0.2; }
+      [category='minor_road'] {line-width: 0.4; }
     }
     [render='inline'] {
       [category='highway'], [category='trunk'] {line-width: 3; }
@@ -599,7 +626,7 @@
   [category='path'] {
     [zoom=14] {
       line-width: 0;
-      [render='outline'] {
+      [render='casing'] {
         [is_link=0] { line-width: 1; }
       }
     }
@@ -645,21 +672,19 @@
 ///////////////////////////////////////////////////
 // High Rails
 ///////////////////////////////////////////////////
-
+#road_z10[zoom>8][zoom<=10],
+#road_z11[zoom=11],
 #road_z12[zoom=12],
 #road_z13[zoom=13] {
   [category='rail'][ {
     line-cap:butt;
-    [render='casing'] {
-      line-width: 1;
-    }
+    [render='casing'] { line-width: 1; }    
     [render='inline'] {
       line-width: 1;
-      line-dasharray: 1,2;
+      line-dasharray: 1,1;      
     }
   }
 }
-
 
 #road_z15[zoom>=14]
 {
@@ -752,4 +777,3 @@
     marker-ignore-placement: true;
   }
 }
-*/

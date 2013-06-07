@@ -27,14 +27,14 @@ CREATE VIEW  brick_road_rail AS
 			       WHEN highway IN ('trunk', 'trunk_link') THEN 'trunk'
 			       WHEN highway IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'major_road'
 			       WHEN highway IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor_road'
-			       WHEN railway IN ('rail') THEN 'rail'
+			       WHEN railway IN ('rail', 'tram', 'light_rail', 'narrow_guage', 'monorail') THEN 'rail'
 			       ELSE NULL END
 			) AS z14,
 			(CASE  WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
 			       WHEN highway IN ('trunk', 'trunk_link') THEN 'trunk'
 			       WHEN highway IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary') THEN 'major_road'
 			       WHEN highway IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor_road'
-			       WHEN railway IN ('rail') THEN 'rail'
+			       WHEN railway IN ('rail', 'tram', 'light_rail', 'narrow_guage', 'monorail') THEN 'rail'
 			       ELSE NULL END
 			) AS z13,
 			(CASE  WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
@@ -48,12 +48,14 @@ CREATE VIEW  brick_road_rail AS
 			       WHEN highway IN ('trunk') THEN 'trunk'
 			       WHEN highway IN ('primary') THEN 'major_road'
 			       WHEN highway IN ('secondary', 'tertiary') THEN 'minor_road'
+			       WHEN railway IN ('rail') THEN 'rail'
 			       ELSE NULL END
 			) AS z11,
 			(CASE  WHEN highway IN ('motorway') THEN 'highway'
 			       WHEN highway IN ('trunk') THEN 'trunk'
 			       WHEN highway IN ('primary') THEN 'major_road'
 			       WHEN highway IN ('secondary') THEN 'minor_road'
+			       WHEN railway IN ('rail') THEN 'rail'
 			       ELSE NULL END
 			) AS z10,
 		
