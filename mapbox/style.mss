@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////
 // Colors
 ///////////////////////////////////////////////////
@@ -23,11 +24,11 @@
 @terminal-color: darken(@airport-color, 10);
 
 @building-color: #d6d4cb;
-@boundary-color: #888888;
+@boundary-color: #888899;
 
 ///// Road
 
-@highway-body-color: #cc9988;
+@highway-body-color: #cc8e7e;
 @highway-casing-color: #776666;
 
 @major_road-body-color: #d9cdc4;
@@ -78,6 +79,7 @@
 @rail-casing-color: @land-color;
 @rail-outline-color: @rail-color;
 */
+
 ///////////////////////////////////////////////////
 // Colors
 ///////////////////////////////////////////////////
@@ -99,7 +101,7 @@
 /*
 @label-color: #23120b;
 @label-color-alt : #3c3c3c;
-@label_halo-color: #a09f83;
+@label_halo-color: white;
 @label-color-blue: @ferry-color;
 
 @label-font: 'Avenir Next Condensed Demi Bold', 'Arial Unicode MS Regular';
@@ -108,10 +110,11 @@
 @label-font-italic: 'Avenir Next Demi Bold Italic', 'Arial Unicode MS Regular';
 @road-font: 'Arial Bold', 'Arial Unicode MS Regular';
 */
+
 ///// Variable depth buffer
 @smart-halo-raidus: 1;
 
 Map {
-//  background-color: @water-color;
+  background-color: @water-color;
 //  buffer-size: 256;
 }

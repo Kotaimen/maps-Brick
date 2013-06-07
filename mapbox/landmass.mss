@@ -1,55 +1,30 @@
-/*
+
 ///////////////////////////////////////////////////
 // Landmass
 ///////////////////////////////////////////////////
 
-#land[zoom>=0][zoom<5],
-#shoreline_300[zoom>=5][zoom<10],
-#processed_p[zoom>=10] {
+#land_gen0[zoom>=0][zoom<7],
+#land_gen1[zoom>=7][zoom<10],
+#land_full[zoom>=10] {
   polygon-fill: @land-color;
-  polygon-gamma: 0.75;
-}
-
-#pier[zoom>11][type='pier'] {
-  [zoom=12] { line-width: 1;}
-  [zoom=13] { line-width: 1;}
-  [zoom=14] { line-width: 2;}
-  [zoom=15] { line-width: 3;}
-  [zoom=16] { line-width: 4;}
-  [zoom=17] { line-width: 5;}
-  [zoom>=18] { line-width: 6;}
-  line-color:@land-color;
-  line-join: round;
-  line-cap: butt;
-}
-
-#pier[zoom>11][type='breakwater'] {
-  [zoom=12] { line-width: 1;}
-  [zoom=13] { line-width: 1;}
-  [zoom=14] { line-width: 1;}
-  [zoom=15] { line-width: 2;}
-  [zoom=16] { line-width: 3;}
-  [zoom=17] { line-width: 4;}
-  [zoom>=18] { line-width: 5;}
-  line-color:@ferry-color;
-  line-join: round;
-  line-cap: butt;
+  polygon-gamma: 0.8;
+  
 }
 
 ///////////////////////////////////////////////////
 // Waterbody
 ///////////////////////////////////////////////////
 
-#bathymetry[zoom<=7] {
+#bathymetry[zoom<=10] {
   polygon-opacity: 0.1;
   polygon-comp-op: multiply;
   polygon-fill: @water-color;
 }
 
-#10m_lakes[zoom<=4],
-#waterbody_gen0[zoom>5][zoom<=9],
-#waterbody_gen1[zoom>9][zoom<=12],
-#waterbody[zoom>12] {
+#10m_lakes[zoom<=6],
+#waterbody_gen0[zoom>6][zoom<10],
+#waterbody_gen1[zoom>=10][zoom<=12],
+#waterbody_full[zoom>12] {
   polygon-fill: @water-color;
 }
 
@@ -95,7 +70,7 @@
   }
 }
 
-#waterway[zoom>=15] {
+#waterway_full[zoom>=15] {
   line-color: @water-color;
   [type='river'],
   [type='canal'] {
@@ -126,6 +101,33 @@
   }
 }
 
+
+#pier[zoom>11][type='pier'] {
+  [zoom=12] { line-width: 1;}
+  [zoom=13] { line-width: 1;}
+  [zoom=14] { line-width: 2;}
+  [zoom=15] { line-width: 3;}
+  [zoom=16] { line-width: 4;}
+  [zoom=17] { line-width: 5;}
+  [zoom>=18] { line-width: 6;}
+  line-color:@land-color;
+  line-join: round;
+  line-cap: butt;
+}
+
+#pier[zoom>11][type='breakwater'] {
+  [zoom=12] { line-width: 1;}
+  [zoom=13] { line-width: 1;}
+  [zoom=14] { line-width: 1;}
+  [zoom=15] { line-width: 2;}
+  [zoom=16] { line-width: 3;}
+  [zoom=17] { line-width: 4;}
+  [zoom>=18] { line-width: 5;}
+  line-color:@ferry-color;
+  line-join: round;
+  line-cap: butt;
+}
+
 ///////////////////////////////////////////////////
 // Unified landusage
 ///////////////////////////////////////////////////
@@ -142,7 +144,7 @@
 #landusage_gen1[zoom=10][area>1000000],
 #landusage_gen1[zoom=11][area>500000],
 #landusage_gen1[zoom=12][area>50000],
-#landusage[zoom>12] {
+#landusage_full[zoom>12] {
   //polygon-opacity: 0.4; polygon-fill: cyan; line-color: red;
   //::type { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-size: 16; }
 
@@ -265,4 +267,3 @@
     [zoom>17]{ line-width:5; line-smooth: 0.7; }
   }
 }
-*/
