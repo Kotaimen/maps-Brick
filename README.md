@@ -31,14 +31,17 @@ Note2: these samples are already outdated, will update them after mason-0.9.5 is
 
 Sample renders:
 
-![Preview 1](https://github.com/Kotaimen/maps-Brick/raw/master/sample-0.jpg)
+![Preview 1](https://raw.github.com/Kotaimen/maps-Brick/master/sample-0.jpg)
 
-![Preview 2](https://github.com/Kotaimen/maps-Brick/raw/master/sample-1.jpg)
+![Preview 2](https://raw.github.com/Kotaimen/maps-Brick/master/sample-1.jpg)
 
-![Preview 3](https://github.com/Kotaimen/maps-Brick/raw/master/sample-2.jpg)
+![Preview 3](https://raw.github.com/Kotaimen/maps-Brick/master/sample-2.jpg)
 
-![Preview 4](https://github.com/Kotaimen/maps-Brick/raw/master/sample-3.jpg)
+![Preview 4](https://raw.github.com/Kotaimen/maps-Brick/master/sample-3.jpg)
 
-![Preview 5](https://github.com/Kotaimen/maps-Brick/raw/master/sample-4.jpg)
+![Preview 5](https://raw.github.com/Kotaimen/maps-Brick/master/sample-4.jpg)
 
-![Preview 6](https://github.com/Kotaimen/maps-Brick/raw/master/sample-5.jpg)
+![Preview 6](https://raw.github.com/Kotaimen/maps-Brick/master/sample-5.jpg)
+
+For a demo map, check [here](http://tiles.mason.s3-website-us-east-1.amazonaws.com/).
+
