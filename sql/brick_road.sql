@@ -10,7 +10,10 @@ DROP VIEW IF EXISTS brick_road_z15;
 DROP VIEW IF EXISTS brick_road_rail;
 
 
-
+CREATE VIEW brick_road_overview AS
+       SELECT * FROM planet_osm_roads
+       WHERE highway IN ('motorway', 'trunk', 'primary');
+       	      
 
 CREATE VIEW  brick_road_rail AS
 	SELECT * FROM (
