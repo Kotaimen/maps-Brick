@@ -20,7 +20,7 @@ DROP VIEW IF EXISTS brick_pier;
 
 -- ferry
 CREATE OR REPLACE VIEW brick_ferry AS
-	SELECT osm_id, route AS type, way FROM planet_osm_line WHERE route IN ('ferry');
+	SELECT osm_id, name, route AS type, way FROM planet_osm_line WHERE route IN ('ferry');
 
 -- waterway
 CREATE OR REPLACE VIEW brick_waterway_gen0 AS
