@@ -1,255 +1,196 @@
-﻿BEGIN;
+BEGIN;
 
--- reversed order required
-DROP VIEW IF EXISTS brick_road_z10;
-DROP VIEW IF EXISTS brick_road_z11;
-DROP VIEW IF EXISTS brick_road_z12;
-DROP VIEW IF EXISTS brick_road_z13;
-DROP VIEW IF EXISTS brick_road_z14;
-DROP VIEW IF EXISTS brick_road_z15;
-DROP VIEW IF EXISTS brick_road_rail;
+CREATE INDEX ON planet_osm_line("highway");
+CREATE INDEX ON planet_osm_line("railway");
 
 
-CREATE VIEW brick_road_overview AS
-       SELECT * FROM planet_osm_roads
-       WHERE highway IN ('motorway', 'trunk', 'primary');
-       	      
-
-CREATE VIEW  brick_road_rail AS
-	SELECT * FROM (
-		SELECT  
-			(CASE	WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
-				WHEN highway IN ('trunk', 'trunk_link') THEN 'trunk'
-				WHEN highway IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'major_road'
-				WHEN highway IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor_road'
-				WHEN highway IN ('service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'
-				WHEN railway IS NOT NULL THEN 'rail'
-				ELSE NULL END
-			) AS z15,
-			(CASE  WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
-			       WHEN highway IN ('trunk', 'trunk_link') THEN 'trunk'
-			       WHEN highway IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'major_road'
-			       WHEN highway IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor_road'
-			       WHEN railway IS NOT NULL THEN 'rail'
-			       ELSE NULL END
-			) AS z14,
-			(CASE  WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
-			       WHEN highway IN ('trunk', 'trunk_link') THEN 'trunk'
-			       WHEN highway IN ('primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary') THEN 'major_road'
-			       WHEN highway IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor_road'
-			       WHEN railway IS NOT NULL THEN 'rail'
-			       ELSE NULL END
-			) AS z13,
-			(CASE  WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
-			       WHEN highway IN ('trunk', 'trunk_link') THEN 'trunk'
-			       WHEN highway IN ('secondary', 'primary') THEN 'major_road'
-			       WHEN highway IN ('tertiary', 'residential', 'unclassified', 'road') THEN 'minor_road'
-			       WHEN railway IN ('rail', 'subway') THEN 'rail'
-			       ELSE NULL END
-			) AS z12,
-			(CASE  WHEN highway IN ('motorway') THEN 'highway'
-			       WHEN highway IN ('trunk') THEN 'trunk'
-			       WHEN highway IN ('primary') THEN 'major_road'
-			       WHEN highway IN ('secondary', 'tertiary') THEN 'minor_road'
-			       ELSE NULL END
-			) AS z11,
-			(CASE  WHEN highway IN ('motorway') THEN 'highway'
-			       WHEN highway IN ('trunk') THEN 'trunk'
-			       WHEN highway IN ('primary') THEN 'major_road'
-			       WHEN highway IN ('secondary') THEN 'minor_road'
-			       ELSE NULL END
-			) AS z10,
-		
-			(CASE   WHEN oneway IN ('yes', 'true') THEN 1
-				WHEN oneway IN ('no', 'false') THEN 0
-				WHEN oneway = '-1' THEN -1
-				ELSE 0 END
-			) AS brick_oneway,			
-			(CASE 	WHEN highway LIKE '%_link' THEN 1
-				ELSE 0 END
-			) AS is_link,
-			(CASE 	WHEN tunnel IN ('yes', 'true') THEN 1
-				ELSE 0 END
-			) AS is_tunnel,
-			(CASE	WHEN bridge IN ('yes', 'true') THEN 1
-			       ELSE 0 END
-			) AS is_bridge,
-
-			-- explicit layer is the physical layering of under- and overpasses
-			(CASE WHEN layer ~ E'^-?[[:digit:]]+(\\.[[:digit:]]+)?$' THEN CAST (layer AS FLOAT)
-			      ELSE 0
-			      END) AS explicit_layer,
-
-			-- implied layer is guessed based on bridges and tunnels
-			(CASE WHEN tunnel in ('yes', 'true') THEN -1
-			      WHEN bridge in ('yes', 'true') THEN 1
-			      ELSE 0
-			      END) AS implied_layer,
-			
-			COALESCE("highway", "railway") AS brick_kind,
-			(CASE
-				WHEN highway IN ('motorway') THEN 0
-			        WHEN railway IS NOT NULL THEN .5
-				WHEN highway IN ('trunk') THEN 1
-				WHEN highway IN ('primary') THEN 2
-				WHEN highway IN ('secondary') THEN 3
-				WHEN highway IN ('tertiary') THEN 4
-				WHEN highway LIKE '%_link' THEN 5
-				WHEN highway IN ('residential', 'unclassified', 'road') THEN 6
-				WHEN highway IN ('service', 'minor') THEN 7
-				ELSE 99 END
-			) AS priority,
-			* 
+CREATE OR REPLACE VIEW brick_road AS 
+SELECT
+	*,
+	regexp_replace(foo.name, '(.*)\(.*\)' , '\1' ) AS road_name, 
+	CASE
+		WHEN foo.name ~* '\mavenue$'  THEN regexp_replace(foo.name, '\m(ave)nue$' , '\1' , 'i' )
+		WHEN foo.name ~* '\mboulevard$'  THEN regexp_replace(foo.name, '\m(b)oulevard$' , '\1lvd' , 'i' )
+		WHEN foo.name ~* '\mexpressway$'  THEN regexp_replace(foo.name, '\m(E)xpressway$' , '\1xpwy' , 'i' )
+		WHEN foo.name ~* '\mhighway$'  THEN regexp_replace(foo.name, '\m(h)ighway$' , '\1wy' , 'i' )
+		WHEN foo.name ~* '\mparkway$'  THEN regexp_replace(foo.name, '\m(p)arkway$' , '\1kwy' , 'i' )
+		WHEN foo.name ~* '\mcourt$'  THEN regexp_replace(foo.name, '\m(c)ourt$' , '\1t' , 'i' )
+		WHEN foo.name ~* '\mdrive$'  THEN regexp_replace(foo.name, '\m(dr)ive$' , '\1' , 'i' )
+		WHEN foo.name ~* '\mplace$'  THEN regexp_replace(foo.name, '\m(pl)ace$' , '\1' , 'i' )
+		WHEN foo.name ~* '\mlane$'  THEN regexp_replace(foo.name, '\m(l)ane$' , '\1n' , 'i' )
+		WHEN foo.name ~* '\mroad$'  THEN regexp_replace(foo.name, '\m(r)oad$' , '\1d' , 'i' )
+		WHEN foo.name ~* '\mstreet$'  THEN regexp_replace(foo.name, '\m(st)reet$' , '\1' , 'i' )
+		WHEN foo.name ~* '\mtrail$'  THEN regexp_replace(foo.name, '\m(tr)ail$' , '\1' , 'i' )
+		WHEN foo.name ~* '\mway$'  THEN regexp_replace(foo.name, '\m(w)ay$' , '\1y' , 'i' )
+		ELSE foo.name
+	END AS road_name_abbr, 
+	CASE
+		WHEN foo.oneway = ANY (ARRAY['yes' , 'true' ]) THEN 1
+		WHEN foo.oneway = ANY (ARRAY['no' , 'false' ]) THEN 0
+		WHEN foo.oneway = '-1'  THEN (-1)
+		ELSE 0
+	END AS is_oneway, 
+	CASE
+		WHEN foo.highway ~~ '%_link'  THEN 1
+		ELSE 0
+	END AS is_link, 
+	CASE
+		WHEN foo.tunnel = ANY (ARRAY['yes' , 'true' ]) THEN 1
+		ELSE 0
+	END AS is_tunnel, 
+	CASE
+		WHEN foo.bridge = ANY (ARRAY['yes' , 'true' ]) THEN 1
+		ELSE 0
+	END AS is_bridge, 
+	CASE
+		WHEN foo.layer ~ '^-?[[:digit:]]+(\.[[:digit:]]+)?$'  THEN foo.layer::double precision
+		ELSE 0::double precision
+	END AS explicit_layer, 
+	CASE
+		WHEN foo.tunnel = ANY (ARRAY['yes' , 'true' ]) THEN (-1)
+		WHEN foo.bridge = ANY (ARRAY['yes' , 'true' ]) THEN 1
+		ELSE 0
+	END AS implied_layer, 
+	CASE
+		WHEN foo.highway = 'motorway'  THEN 0::numeric
+		WHEN foo.railway IS NOT NULL THEN 0.5
+		WHEN foo.highway = 'trunk'  THEN 1::numeric
+		WHEN foo.highway = 'primary'  THEN 2::numeric
+		WHEN foo.highway = 'secondary'  THEN 3::numeric
+		WHEN foo.highway = 'tertiary'  THEN 4::numeric
+		WHEN foo.highway ~~ '%_link'  THEN 5::numeric
+		WHEN foo.highway = ANY (ARRAY['residential' , 'unclassified' , 'road' ]) THEN 6::numeric
+		WHEN foo.highway = ANY (ARRAY['service' , 'minor' ]) THEN 7::numeric
+		ELSE 99::numeric
+	END AS priority
+FROM 
+	(         
+	SELECT 
+		CASE
+			WHEN highway = ANY (ARRAY['motorway', 'motorway_link']) THEN 'highway'
+			WHEN highway = ANY (ARRAY['trunk', 'trunk_link']) THEN 'trunk'
+			WHEN highway = ANY (ARRAY['primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link']) THEN 'major_road'
+			WHEN highway = ANY (ARRAY['residential', 'unclassified', 'road', 'minor']) THEN 'minor_road'
+			WHEN highway = ANY (ARRAY['service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway']) THEN 'path'
+			ELSE NULL
+		END AS road_class, highway AS road_type, *
 		FROM planet_osm_line
-	) AS foo;
-
-
-CREATE VIEW brick_road_z15 AS
-	SELECT  render, 
-		z15 as category, 
-		brick_kind as kind, 
-		brick_oneway as oneway, 
-		is_link,
-		is_tunnel,
-		is_bridge,
-		way
-	FROM (
-		SELECT *, 'outline' AS render, 1 AS is_outline, 1 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail
-		WHERE z15 IS NOT NULL
-		UNION ALL
-		SELECT *, 'casing' AS render, 0 AS is_outline, 1 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail	
-		WHERE z15 IS NOT NULL
-		UNION ALL
-		SELECT *, 'inline' AS render, 0 AS is_outline, 0 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail
-		WHERE z15 IS NOT NULL
-		UNION ALL
-		SELECT *, 'marker' AS render, 0 AS is_outline, 0 AS is_casing, 1 AS is_marker
-		FROM brick_road_rail
-		WHERE z15 IS NOT NULL
-	) AS FOO
-	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC, is_casing DESC, is_marker ASC, priority DESC;
-
-CREATE VIEW brick_road_z14 AS
-	SELECT  render, 
-		z14 as category, 
-		brick_kind as kind, 
-		brick_oneway as oneway, 
-		is_link,
-		is_tunnel,
-		is_bridge,
-		way
-	FROM (
-		SELECT *, 'outline' AS render, 1 AS is_outline, 1 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail
-		WHERE z14 IS NOT NULL
-		UNION ALL
-		SELECT *, 'casing' AS render, 0 AS is_outline, 1 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail	
-		WHERE z14 IS NOT NULL
-		UNION ALL
-		SELECT *, 'inline' AS render, 0 AS is_outline, 0 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail
-		WHERE z14 IS NOT NULL
-		UNION ALL
-		SELECT *, 'marker' AS render, 0 AS is_outline, 0 AS is_casing, 1 AS is_marker
-		FROM brick_road_rail
-		WHERE z14 IS NOT NULL
-	) AS FOO
-	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC, is_casing DESC, is_marker ASC, priority DESC;
-
-CREATE VIEW brick_road_z13 AS
-	SELECT  render, 
-		z13 as category, 
-		brick_kind as kind, 
-		brick_oneway as oneway, 
-		is_link,
-		is_tunnel,
-		is_bridge,
-		way
-	FROM (
-		SELECT *, 'outline' AS render, 1 AS is_outline, 1 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail
-		WHERE z13 IS NOT NULL
-		UNION ALL
-		SELECT *, 'casing' AS render, 0 AS is_outline, 1 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail	
-		WHERE z13 IS NOT NULL
-		UNION ALL
-		SELECT *, 'inline' AS render, 0 AS is_outline, 0 AS is_casing, 0 AS is_marker
-		FROM brick_road_rail
-		WHERE z13 IS NOT NULL
-		UNION ALL
-		SELECT *, 'marker' AS render, 0 AS is_outline, 0 AS is_casing, 1 AS is_marker
-		FROM brick_road_rail
-		WHERE z13 IS NOT NULL
-	) AS FOO
-	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC, is_casing DESC, is_marker ASC, priority DESC;
-
-
-CREATE VIEW brick_road_z12 AS
-	SELECT  render, 
-		z12 as category, 
-		brick_kind as kind, 
-		brick_oneway as oneway, 
-		is_link,
-		is_tunnel,
-		is_bridge,
-		way
-	FROM (
-		SELECT *, 'outline' AS render, 1 AS is_outline
-		FROM brick_road_rail
-		WHERE z12 IS NOT NULL
-		UNION ALL
-		SELECT *, 'inline' AS render, 0 AS is_outline
-		FROM brick_road_rail
-		WHERE z12 IS NOT NULL
-	) AS FOO
-	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC,priority DESC;
-
-
-CREATE VIEW brick_road_z11 AS
-	SELECT  render, 
-		z11 as category, 
-		brick_kind as kind, 
-		brick_oneway as oneway, 
-		is_link,
-		is_tunnel,
-		is_bridge,
-		way
-	FROM (
-		SELECT *, 'outline' AS render, 1 AS is_outline
-		FROM brick_road_rail
-		WHERE z11 IS NOT NULL
-		UNION ALL
-		SELECT *, 'inline' AS render, 0 AS is_outline
-		FROM brick_road_rail
-		WHERE z11 IS NOT NULL
-	) AS FOO
-	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC,priority DESC;
-
-
-CREATE VIEW brick_road_z10 AS
-	SELECT  render, 
-		z10 as category, 
-		brick_kind as kind, 
-		brick_oneway as oneway, 
-		is_link,
-		is_tunnel,
-		is_bridge,
-		way
-	FROM (
-		SELECT *, 'outline' AS render, 1 AS is_outline
-		FROM brick_road_rail
-		WHERE z10 IS NOT NULL
-		UNION ALL
-		SELECT *, 'inline' AS render, 0 AS is_outline
-		FROM brick_road_rail
-		WHERE z10 IS NOT NULL
-	) AS FOO
-	ORDER BY is_outline DESC, explicit_layer ASC, implied_layer ASC,priority DESC;
-
+		WHERE highway IS NOT NULL
+	UNION ALL 
+		SELECT 'rail' AS road_class, railway AS road_type, *
+		FROM planet_osm_line
+		WHERE railway IS NOT NULL
+	) foo;
 	
+
+CREATE OR REPLACE VIEW brick_road_gen0 AS 
+	SELECT * FROM brick_road;
+	
+CREATE OR REPLACE VIEW brick_road_gen1 AS 
+	SELECT * FROM brick_road
+	WHERE road_class = 'highway' OR road_class = 'trunk' OR road_class = 'major_road' OR (brick_road.road_class = 'minor_road' AND brick_road.road_type IN ('residential'::text, 'unclassified'::text, 'road'::text, 'minor'::text)) OR road_class = 'rail';
+
+CREATE OR REPLACE VIEW brick_road_gen2 AS 
+	SELECT *
+	FROM brick_road
+	WHERE road_class = 'highway' AND road_type = 'motorway' OR road_class = 'trunk' AND road_type = 'trunk' OR road_class = 'major_road' AND (road_type = ANY (ARRAY['primary', 'secondary'])) OR road_class = 'rail' AND (road_type = ANY (ARRAY['rail', 'subway']));
+
+
+CREATE OR REPLACE VIEW brick_road_z15 AS 
+	SELECT *
+	FROM (
+		SELECT 'outline'  AS render, 0 AS render_order, *
+		FROM brick_road_gen0
+		
+		UNION ALL 
+		
+		SELECT 'casing'  AS render, 1 AS render_order, *
+		FROM brick_road_gen0
+		
+		UNION ALL 
+		
+		SELECT 'inline'  AS render, 2 AS render_order, *
+		FROM brick_road_gen0
+	
+		UNION ALL 
+
+		SELECT 'marker'  AS render, 3 AS render_order, *
+		FROM brick_road_gen0
+		) foo
+	ORDER BY 
+		CASE	WHEN foo.render_order = 0 THEN 0
+				ELSE 1
+		END, 
+		explicit_layer ASC, 
+		implied_layer ASC, 
+		render_order ASC, 
+		priority DESC;
+
+
+CREATE OR REPLACE VIEW brick_road_z13 AS 
+	SELECT *
+	FROM (
+		SELECT 'outline'  AS render, 0 AS render_order, *
+		FROM brick_road_gen1
+		
+		UNION ALL 
+		
+		SELECT 'casing'  AS render, 1 AS render_order, *
+		FROM brick_road_gen1
+		
+		UNION ALL 
+		
+		SELECT 'inline'  AS render, 2 AS render_order, *
+		FROM brick_road_gen1
+	
+		UNION ALL 
+
+		SELECT 'marker'  AS render, 3 AS render_order, *
+		FROM brick_road_gen1
+		) foo
+	ORDER BY 
+		CASE	WHEN foo.render_order = 0 THEN 0
+				ELSE 1
+		END, 
+		explicit_layer ASC, 
+		implied_layer ASC, 
+		render_order ASC, 
+		priority DESC;
+		
+		
+CREATE OR REPLACE VIEW brick_road_z10 AS
+	SELECT *
+	FROM (
+		SELECT 'outline'  AS render, 0 AS render_order, *
+		FROM brick_road_gen2
+		
+		UNION ALL 
+		
+		SELECT 'casing'  AS render, 1 AS render_order, *
+		FROM brick_road_gen2
+		
+		UNION ALL 
+		
+		SELECT 'inline'  AS render, 2 AS render_order, *
+		FROM brick_road_gen2
+	
+		UNION ALL 
+
+		SELECT 'marker'  AS render, 3 AS render_order, *
+		FROM brick_road_gen2
+		) foo
+	ORDER BY 
+		CASE	WHEN foo.render_order = 0 THEN 0
+				ELSE 1
+		END, 
+		explicit_layer ASC, 
+		implied_layer ASC, 
+		render_order ASC, 
+		priority DESC;
+		
+CREATE OR REPLACE VIEW brick_road_overview AS 
+SELECT * FROM planet_osm_roads
+WHERE planet_osm_roads.highway = ANY (ARRAY['motorway'::text, 'trunk'::text, 'primary'::text]);
+
+
 END;
