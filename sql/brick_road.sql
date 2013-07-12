@@ -71,11 +71,11 @@ FROM
 			WHEN highway = ANY (ARRAY['trunk', 'trunk_link']) THEN 'trunk'
 			WHEN highway = ANY (ARRAY['primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link']) THEN 'major_road'
 			WHEN highway = ANY (ARRAY['residential', 'unclassified', 'road', 'minor']) THEN 'minor_road'
-			WHEN highway = ANY (ARRAY['service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway']) THEN 'path'
+			WHEN highway = ANY (ARRAY['service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway', 'living_street']) THEN 'path'
 			ELSE NULL
 		END AS road_class, highway AS road_type, *
 		FROM planet_osm_line
-		WHERE highway IS NOT NULL
+		WHERE highway = ANY (ARRAY['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'minor', 'service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway', 'living_street'])
 	UNION ALL 
 		SELECT 'rail' AS road_class, railway AS road_type, *
 		FROM planet_osm_line
