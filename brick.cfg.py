@@ -7,7 +7,7 @@ cachedir= os.path.join(themedir, 'cache')
 tag = 'Brick'
 tile_size = 256
 
-fmt = 'jpg'
+fmt = 'png'
 
 landcover = dict(\
     prototype='node.mapnik',
@@ -49,6 +49,7 @@ composer=dict(\
     format=fmt,
     command='''
     {{landcover}}
+    -ordered-dither o4x4,8,12,6
     (
         {{roads}}
         ( {{label_halo}}
@@ -57,7 +58,9 @@ composer=dict(\
     ) -compose over -composite
     ( {{labels}} ) -compose over -composite
 #    -colorspace gray -fill wheat -tint 90
-    -quality 90
+#    -quality 90
+    -dither none
+    -colors 256
     ''' % dict(scale=tile_size//256)
     )
 

@@ -27,8 +27,6 @@ Requires mason-0.9.3.
 
 Note1: Although mason is designed for poorman, OSM-planet-dump database import, data conversion and cache render requires a lot of processing power (or time).  (We cached all cities down to level 18 (see TileBitmap project) using two Intel i5 PCs with 16GB memory in 4 weeks, generating 100GB database file and 500GB tile cache.)
 
-Note2: these samples are already outdated, will update them after mason-0.9.5 is released
-
 Sample renders:
 
 ![Preview 1](https://raw.github.com/Kotaimen/maps-Brick/master/sample-0.jpg)

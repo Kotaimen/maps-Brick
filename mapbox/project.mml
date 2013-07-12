@@ -6,9 +6,9 @@
     80
   ],
   "center": [
-    -74.0222,
-    40.7664,
-    14
+    -122.4011,
+    37.6123,
+    15
   ],
   "format": "png",
   "interactivity": false,
@@ -38,8 +38,7 @@
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "bathymetry",
-      "status": "off"
+      "name": "bathymetry"
     },
     {
       "Datasource": {
@@ -78,24 +77,6 @@
       "advanced": {}
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.99999999999994,
-        -85.051,
-        180,
-        83.6341006530001
-      ],
-      "id": "land_gen0",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0/10m_physical/ne_10m_land.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "land_gen0"
-    },
-    {
       "geometry": "linestring",
       "extent": [
         -179.9999999749438,
@@ -105,13 +86,13 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_pier_table",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_pier",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34 ",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -136,24 +117,26 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_landusage",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_landusage_area",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "host": "172.26.183.226",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "dbname": "planet_osm_1303",
-        "simplify_geometries": "no"
+        "dbname": "planet_osm_1305_new",
+        "simplify_geometries": "no",
+        "srid": "900913"
       },
       "id": "landusage_full",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "no"
+        "simplify_geometries": "no",
+        "srid": "900913"
       },
       "name": "landusage_full"
     },
@@ -167,24 +150,26 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_landusage_gen1",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_landusage_area_gen1",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "host": "172.26.183.226",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "dbname": "planet_osm_1303",
-        "simplify_geometries": "yes"
+        "dbname": "planet_osm_1305_new",
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "landusage_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "landusage_gen1"
     },
@@ -198,24 +183,26 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_landusage_gen0_table",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_landusage_area_gen0",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "host": "172.26.183.226",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "dbname": "planet_osm_1303",
-        "simplify_geometries": "yes"
+        "dbname": "planet_osm_1305_new",
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "landusage_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "landusage_gen0"
     },
@@ -230,7 +217,10 @@
       "id": "builtuparea",
       "class": "",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0/10m_cultural/ne_10m_urban_areas.shp"
+        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0/10m_cultural/ne_10m_urban_areas.shp",
+        "id": "builtuparea",
+        "project": "Brick_take3",
+        "srs": ""
       },
       "srs-name": "autodetect",
       "srs": "",
@@ -248,23 +238,25 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_aeroway",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "aeroway",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "aeroway"
     },
@@ -296,24 +288,26 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_waterway_gen0_table",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_waterway_gen0",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "waterway_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "waterway_gen0"
     },
@@ -328,23 +322,25 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_waterway_gen1",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "waterway_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "waterway_gen1"
     },
@@ -359,21 +355,24 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_waterway",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913"
       },
       "id": "waterway_full",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "900913"
+      },
       "name": "waterway_full"
     },
     {
@@ -407,24 +406,26 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_waterbody_gen0_table",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_waterbody_gen0",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "waterbody_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "waterbody_gen0"
     },
@@ -439,23 +440,25 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_waterbody_gen1",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "waterbody_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "waterbody_gen1"
     },
@@ -470,21 +473,24 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_waterbody",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913"
       },
       "id": "waterbody_full",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "900913"
+      },
       "name": "waterbody_full"
     },
     {
@@ -498,23 +504,25 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_building",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "host": "172.26.183.226",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "dbname": "planet_osm_1303",
-        "simplify_geometries": "no"
+        "dbname": "planet_osm_1305_new",
+        "simplify_geometries": "no",
+        "srid": "900913"
       },
       "id": "building",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "no"
+        "simplify_geometries": "no",
+        "srid": "900913"
       },
       "name": "building"
     },
@@ -529,46 +537,60 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_ferry",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "ferry",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "ferry"
     },
     {
       "geometry": "linestring",
       "extent": [
-        -166.53248758787802,
-        -55.11212400026875,
-        178.37210805555551,
-        71.17768427804648
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
       ],
-      "id": "10m_roads",
-      "class": "",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Brick/Overview/roads/ne_10m_roads_1d5b2.shp",
-        "id": "10m_roads",
-        "project": "Brick",
-        "srs": ""
+        "type": "postgis",
+        "table": "brick_road_overview",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "custom",
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_roads"
+      "id": "roads_overview",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "900913"
+      },
+      "name": "roads_overview"
     },
     {
       "geometry": "linestring",
@@ -585,77 +607,23 @@
         "geometry_field": "",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "id": "road_z10",
       "class": "roads",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "900913"
       },
       "name": "road_z10"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_road_z11",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "custom",
-        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456"
-      },
-      "id": "road_z11",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "road_z11"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_road_z12",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "custom",
-        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456"
-      },
-      "id": "road_z12",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "road_z12"
     },
     {
       "geometry": "linestring",
@@ -672,18 +640,22 @@
         "geometry_field": "",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913"
       },
       "id": "road_z13",
       "class": "roads",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "road_z13"
+      "advanced": {
+        "srid": "900913"
+      },
+      "name": "road_z13",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -696,22 +668,26 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_road_z15",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913"
       },
       "id": "road_z15",
       "class": "roads",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "road_z15"
+      "advanced": {
+        "srid": "900913"
+      },
+      "name": "road_z15",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -721,7 +697,7 @@
         180,
         85.051
       ],
-      "id": "ne10mgeographiclines",
+      "id": "geographic_lines",
       "class": "",
       "Datasource": {
         "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0/10m_physical/ne_10m_geographic_lines.shp",
@@ -732,7 +708,7 @@
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "ne10mgeographiclines"
+      "name": "geographic_lines"
     },
     {
       "geometry": "linestring",
@@ -795,38 +771,6 @@
       "name": "boundary_admin0"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_building",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "custom",
-        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "host": "172.26.183.226",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "planet_osm_1303",
-        "simplify_geometries": "no"
-      },
-      "id": "building_3d",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "no"
-      },
-      "name": "building_3d",
-      "status": "off"
-    },
-    {
       "geometry": "point",
       "extent": [
         -99.6754881921606,
@@ -885,6 +829,27 @@
       "srs": "",
       "advanced": {},
       "name": "labels_places_gen1_points"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999999999,
+        -85.051,
+        180,
+        83.63410065300015
+      ],
+      "id": "10m_countries",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0/10m_cultural/ne_10m_admin_0_countries.shp",
+        "encoding": "windows-1252"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {
+        "encoding": "windows-1252"
+      },
+      "name": "10m_countries"
     },
     {
       "geometry": "polygon",
@@ -984,22 +949,25 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_places",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913"
       },
-      "id": "labels_places_full",
+      "id": "labels_places",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "labels_places_full"
+      "advanced": {
+        "srid": "900913"
+      },
+      "name": "labels_places"
     },
     {
       "geometry": "linestring",
@@ -1011,24 +979,26 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_skeleton",
+        "table": "brick_shield_table",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "no"
+        "simplify_geometries": "no",
+        "srid": "900913"
       },
       "id": "road_shields",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "no"
+        "simplify_geometries": "no",
+        "srid": "900913"
       },
       "name": "road_shields"
     },
@@ -1042,22 +1012,28 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_landusage_label_table",
+        "table": "brick_landusage_area_label_table",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34 ",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "id": "labels_landusage",
+        "project": "Brick",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "srid": "900913"
       },
       "id": "labels_landusage",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "900913"
+      },
       "name": "labels_landusage"
     },
     {
@@ -1070,22 +1046,27 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "brick_road_label_gen1",
-        "key_field": "",
-        "geometry_field": "",
+        "table": "brick_road_label_overview",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34 ",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913",
+        "simplify_geometries": "yes"
       },
       "id": "labels_roads_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "900913",
+        "simplify_geometries": "yes"
+      },
       "name": "labels_roads_gen1"
     },
     {
@@ -1099,22 +1080,56 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_road_label",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34 ",
-        "dbname": "planet_osm_1303",
-        "host": "172.26.183.226",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "900913"
       },
       "id": "labels_roads",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "900913"
+      },
       "name": "labels_roads"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "brick_poi",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "custom",
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34 ",
+        "dbname": "planet_osm_1305_new",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "srid": "900913"
+      },
+      "id": "labels_poi",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "srid": "900913"
+      },
+      "name": "labels_poi"
     }
   ],
   "scale": 1,
