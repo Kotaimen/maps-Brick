@@ -9,6 +9,7 @@ SELECT
 	road_class,
 	road_type,
 	regexp_replace(foo.name, '(.*)\(.*\)' , '\1' ) AS road_name, 
+	ref,
 	CASE
 		WHEN foo.name ~* '\mavenue$'  THEN regexp_replace(foo.name, '\m(ave)nue$' , '\1' , 'i' )
 		WHEN foo.name ~* '\mboulevard$'  THEN regexp_replace(foo.name, '\m(b)oulevard$' , '\1lvd' , 'i' )
@@ -77,11 +78,11 @@ FROM
 			ELSE NULL
 		END AS road_class, 
 		highway AS road_type,
-		osm_id, name, highway, railway, oneway, bridge, tunnel, layer, way
+		osm_id, name, ref, highway, railway, oneway, bridge, tunnel, layer, way
 		FROM planet_osm_line
 		WHERE highway = ANY (ARRAY['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'minor', 'service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway', 'living_street'])
 	UNION ALL 
-		SELECT 'rail' AS road_class, railway AS road_type, osm_id, name, highway, railway, oneway, bridge, tunnel, layer, way
+		SELECT 'rail' AS road_class, railway AS road_type, osm_id, name, ref, highway, railway, oneway, bridge, tunnel, layer, way
 		FROM planet_osm_line
 		WHERE railway IS NOT NULL
 	) foo;
