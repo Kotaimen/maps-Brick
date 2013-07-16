@@ -1,12 +1,13 @@
 BEGIN;
 
-CREATE INDEX ON planet_osm_line("highway");
-CREATE INDEX ON planet_osm_line("railway");
+
 
 
 CREATE OR REPLACE VIEW brick_road AS 
 SELECT
-	*,
+    osm_id,
+	road_class,
+	road_type,
 	regexp_replace(foo.name, '(.*)\(.*\)' , '\1' ) AS road_name, 
 	CASE
 		WHEN foo.name ~* '\mavenue$'  THEN regexp_replace(foo.name, '\m(ave)nue$' , '\1' , 'i' )
@@ -62,7 +63,8 @@ SELECT
 		WHEN foo.highway = ANY (ARRAY['residential' , 'unclassified' , 'road' ]) THEN 6::numeric
 		WHEN foo.highway = ANY (ARRAY['service' , 'minor' ]) THEN 7::numeric
 		ELSE 99::numeric
-	END AS priority
+	END AS priority,
+    way
 FROM 
 	(         
 	SELECT 
@@ -73,11 +75,13 @@ FROM
 			WHEN highway = ANY (ARRAY['residential', 'unclassified', 'road', 'minor']) THEN 'minor_road'
 			WHEN highway = ANY (ARRAY['service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway', 'living_street']) THEN 'path'
 			ELSE NULL
-		END AS road_class, highway AS road_type, *
+		END AS road_class, 
+		highway AS road_type,
+		osm_id, name, highway, railway, oneway, bridge, tunnel, layer, way
 		FROM planet_osm_line
 		WHERE highway = ANY (ARRAY['motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'minor', 'service', 'footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway', 'living_street'])
 	UNION ALL 
-		SELECT 'rail' AS road_class, railway AS road_type, *
+		SELECT 'rail' AS road_class, railway AS road_type, osm_id, name, highway, railway, oneway, bridge, tunnel, layer, way
 		FROM planet_osm_line
 		WHERE railway IS NOT NULL
 	) foo;
