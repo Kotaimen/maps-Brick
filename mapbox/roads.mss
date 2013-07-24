@@ -1,4 +1,4 @@
-/*
+
 ///////////////////////////////////////////////////
 // Political boundary
 ///////////////////////////////////////////////////
@@ -219,7 +219,7 @@
 }
 
 ///// Ferry
-#ferry[zoom>5] {
+#ferry[zoom>6] {
   line-color: @ferry-color;
   [zoom<10] { line-width: 0.5; }
   [zoom<=12] { line-width: 0.5; }
@@ -657,7 +657,9 @@
         fill/line-width: 4;
       }
       [render='inline'] {
-        [road_type='monorail'], [road_type='tram'], [road_type='narrow_gauage'] {
+        [road_type='monorail'], [road_type='tram'], [road_type='narrow_gauage'],
+        [road_type='miniature'],
+        {
           line-color: @rail-color;
           line-width: 0.75;
           dash/line-color: @rail-color;
@@ -671,7 +673,7 @@
           dash/line-width: 1.5;
           dash/line-dasharray: 1.5, 1;
         }
-        [road_type!='monorail'][road_type!='tram'][road_type!='narrow_gauge']
+        [road_type!='monorail'][road_type!='tram'][road_type!='narrow_gauge'][road_type!='miniature'],
         [road_type!='subway'][road_type!='lightrail'] {
           line-color: @rail-color;
           line-width: 2.5;
@@ -775,4 +777,3 @@
     marker-ignore-placement: true;
   }
 }
-*/
