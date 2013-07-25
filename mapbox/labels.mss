@@ -1,4 +1,4 @@
-/*
+
 ///////////////////////////////////////////////////
 // Highlevel country/state names
 ///////////////////////////////////////////////////
@@ -210,7 +210,7 @@
 		text-wrap-width: 120;
     }
   }
-  [zoom>=12][zoom<15] {
+  [zoom>=12][zoom<14] {
   	[place_priority=0] {
     	text-name: "[place_name]";
       	text-size: 36;
@@ -228,13 +228,13 @@
 		text-wrap-width: 120;
     }
   }
-  [zoom>=15] {
-//  	[place_priority=0] {
-//    	text-name: "[place_name]";
-//      	text-size: 42;
-//		text-character-spacing: 4;
-//		text-wrap-width: 120;
-//    }
+  [zoom>=14] {
+  	[zoom=14][place_priority=0] {
+    	text-name: "[place_name]";
+      	text-size: 42;
+		text-character-spacing: 4;
+		text-wrap-width: 120;
+    }
   	[place_priority=1] {
     	text-name: "[place_name]";
       	text-size: 32;
@@ -528,29 +528,32 @@
   }
 }
 
-#labels_roads_gen1[zoom>=10][zoom<14][is_link=0],
+#labels_roads_gen1[zoom>9][zoom<14][is_link=0],
 #labels_roads[zoom>=14][is_link=0] {
   text-face-name: @road-font;
   text-size: 12;
-  text-halo-radius: 0.5;
+  [is_tunnel=0] {  text-halo-radius: 1; }
+  [is_tunnel=1] {  text-halo-radius: 0; }
+
   text-clip: false;
   text-allow-overlap: false;
   text-name: "";
   text-placement: line;
   text-min-distance: 16;
-  [zoom<16] { text-spacing: 100; }
-  [zoom=16] { text-spacing: 100; }
-  [zoom=17] { text-spacing: 150; }
-  [zoom=18] { text-spacing: 200; }
   text-label-position-tolerance: 16;
   text-max-char-angle-delta: 20;
+
+  [zoom<=16] { text-spacing: 100; }
+  [zoom=17] { text-spacing: 150; }
+  [zoom=18] { text-spacing: 200; }
   // font&size
-  [zoom<17] { text-size: 12; text-halo-radius: 1;}
-  [zoom=17] { text-size: 14; text-face-name: @road-font-alt; text-halo-radius: 1.4; }
-  [zoom>=18] { text-size: 16; text-face-name: @road-font-alt; text-halo-radius: 1.4; }
+  [zoom<17] { text-size: 12; }
+  [zoom=17] { text-size: 14; text-face-name: @road-font-alt; }
+  [zoom>=18] { text-size: 16; text-face-name: @road-font-alt; }
   [road_class!='rail'][priority<3] { text-fill: @label-color; }
   [road_class!='rail'][priority>=3] { text-fill: @label-color-alt; }
-  [road_class='rail'] { text-fill: @label-color-alt; }  
+  [road_class='rail'] { text-fill: @label-color-alt; }
+
   // halo color by road class
   [road_class='highway'], [road_class='trunk'] { text-halo-fill: @highway-body-color;}
   [road_class='major_road'] {  text-halo-fill: @major_road-body-color;}
@@ -558,9 +561,9 @@
   text-halo-fill: @path-body-color;
 
   // name select by zoom and priority
-  [zoom<14][priority<=1] { text-name: "[road_name_abbr]"; }
+  [zoom<14][road_class!='rail'][priority<=2] { text-name: "[road_name_abbr]"; }
   [zoom=14][priority<=3] { text-name: "[road_name_abbr]"; }
-  [zoom=15][priority<=6] { text-name: "[road_name_abbr]"; }
+  [zoom=15][priority<=5] { text-name: "[road_name_abbr]"; }
   [zoom=16][priority<=7] { text-name: "[road_name]"; }
   [zoom>=17] { text-name: "[road_name]"; }
 }
@@ -609,4 +612,3 @@
   marker-fill: lighten(@label-color-alt, 10%);
 
 }
-*/

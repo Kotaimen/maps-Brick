@@ -19,6 +19,18 @@
   polygon-fill: @water-color;
 }
 
+
+#10m_reefs[zoom>3] {
+  line-cap: round;
+  line-join: round;
+  [zoom<7] { line-width:0.4; }
+  [zoom>=7] { line-width:0.7; }
+  line-color: @ferry-color;
+  line-comp-op: multiply;
+  [zoom>=9] { line-smooth: 0.6; }
+}
+
+
 #10m_lakes[zoom<=6],
 #waterbody_gen0[zoom>6][zoom<10],
 #waterbody_gen1[zoom>=10][zoom<=12],

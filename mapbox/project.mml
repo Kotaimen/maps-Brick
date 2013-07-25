@@ -41,6 +41,24 @@
       "name": "bathymetry"
     },
     {
+      "geometry": "linestring",
+      "extent": [
+        -180,
+        -29.984060967734536,
+        179.99999999999994,
+        28.445189113879394
+      ],
+      "id": "10m_reefs",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/natural-earth-2.0/10m_physical/ne_10m_reefs.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_reefs"
+    },
+    {
       "Datasource": {
         "file": "/Users/Kotaimen/proj/geodata/osm_landmass/processed_p.shp"
       },
@@ -603,8 +621,8 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_road_z10",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
         "dbname": "planet_osm_1305_new",
@@ -636,8 +654,8 @@
       "Datasource": {
         "type": "postgis",
         "table": "brick_road_z13",
-        "key_field": "",
-        "geometry_field": "",
+        "key_field": "osm_id",
+        "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
         "dbname": "planet_osm_1305_new",
@@ -654,8 +672,7 @@
       "advanced": {
         "srid": "900913"
       },
-      "name": "road_z13",
-      "status": "off"
+      "name": "road_z13"
     },
     {
       "geometry": "linestring",
@@ -686,8 +703,7 @@
       "advanced": {
         "srid": "900913"
       },
-      "name": "road_z15",
-      "status": "off"
+      "name": "road_z15"
     },
     {
       "geometry": "linestring",

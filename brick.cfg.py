@@ -1,10 +1,10 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick'
+themedir= './themes/Brick.mk5'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'Brick'
+tag = 'Brick.mk5'
 tile_size = 256
 
 fmt = 'png'
@@ -52,16 +52,17 @@ composer=dict(\
     -ordered-dither o4x4,8,12,6
     (
         {{roads}}
-        ( {{label_halo}}
-        #-channel RGBA -blur %(scale)d +channel
-        ) -compose dst-out -composite
+        ( 
+            {{label_halo}} 
+#       -channel RGBA -blur %(scale)d +channel
+        ) -compose dst-out  -composite
     ) -compose over -composite
     ( {{labels}} ) -compose over -composite
 #    -colorspace gray -fill wheat -tint 90
 #    -quality 90
     -dither none
     -colors 256
-    ''' % dict(scale=tile_size//256)
+    ''' % dict(scale=tile_size//256),
     )
 
 ROOT = dict(\
@@ -71,15 +72,15 @@ ROOT = dict(\
                   description='Brick - OSM North America Road Map',
                   attribution='Open Street Map, Natural Earth',
                   ),
-#     storage=dict(prototype='cluster',
-#                stride=16,
-#                servers=['localhost:11211',],
-#                root=os.path.join(cachedir, 'export', '%s_1305' % tag),
-#               ),
+     storage=dict(prototype='cluster',
+                stride=16,
+                servers=['localhost:11211',],
+                root=os.path.join(cachedir, 'export', '%s' % tag),
+               ),
     pyramid=dict(levels=range(2, 19),
 #                 envelope=[-127,27,-67,50], # US mainland
 #                envelope=(-124,34,-70,48),
-#                envelope=( -123.40/1, 36.444, -118.65, 39.89),
+#                envelope=( -123.40.1, 36.444, -118.65, 39.89),
                  zoom=9,
                  center=(-122.4321,37.7702),
                  format=fmt,
