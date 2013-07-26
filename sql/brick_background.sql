@@ -22,6 +22,7 @@ CREATE OR REPLACE VIEW brick_waterway_gen0 AS
 -- waterbody
 CREATE INDEX ON planet_osm_polygon("waterway");
 CREATE INDEX ON planet_osm_polygon("way_area");
+CREATE INDEX ON planet_osm_polygon("natural");
 
 CREATE OR REPLACE VIEW brick_waterbody AS 
        SELECT * FROM
