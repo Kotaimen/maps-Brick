@@ -31,6 +31,7 @@ CREATE OR REPLACE VIEW brick_road AS
             WHEN planet_osm_line.name ~* '\mway$'::text THEN regexp_replace(planet_osm_line.name, '\m(w)ay$'::text, '\1y'::text, 'i'::text)
             ELSE planet_osm_line.name
         END AS road_name_abbr, 
+	ref,
         CASE
             WHEN planet_osm_line.oneway = ANY (ARRAY['yes'::text, 'true'::text]) THEN 1
             WHEN planet_osm_line.oneway = ANY (ARRAY['no'::text, 'false'::text]) THEN 0
