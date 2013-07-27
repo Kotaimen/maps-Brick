@@ -69,7 +69,7 @@ CREATE TABLE brick_shield_table AS
 			ST_CollectionExtract(ST_Collect(ST_SimplifyPreserveTopology(way, 10)), 2)))))
 			.geom) AS way
 	FROM brick_road
-	WHERE ref IS NOT NULL AND road_class IN ('motorway', 'trunk', 'primary', 'secondary' )
+	WHERE ref IS NOT NULL AND road_type IN ('motorway', 'trunk', 'primary', 'secondary' )
 	GROUP BY ref;
 
 
