@@ -39,7 +39,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -186,7 +186,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -308,6 +308,47 @@
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
@@ -326,70 +367,29 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
@@ -408,7 +408,7 @@
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -460,19 +460,19 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -501,19 +501,19 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -542,7 +542,7 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -1259,7 +1259,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -1331,19 +1331,19 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -1366,7 +1366,7 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -1389,6 +1389,41 @@
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_link] = 0)</Filter>
+    <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
@@ -1406,23 +1441,23 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 1)</Filter>
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
@@ -1441,7 +1476,7 @@
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -1773,19 +1808,19 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -1796,41 +1831,18 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'trunk') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([render] = 'inline') and ([road_class] = 'highway') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -2274,8 +2286,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="200000"
   minzoom="50000"
-  cache-features="yes"
-  
+  cache-features="yes"  
   >
     <StyleName>road_z13</StyleName>
     <Datasource>
@@ -2285,7 +2296,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -5133,31 +5144,31 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="11" stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="11" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="3" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="2" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -5167,32 +5178,67 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="11" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1) and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="11" stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="11" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="3" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="2" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -5203,25 +5249,25 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="20" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="20" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="13" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="13" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="9" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="9" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -5273,31 +5319,31 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="20" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="20" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="13" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="13" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="9" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="9" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_link] = 0) and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -6042,72 +6088,72 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="16" stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="16" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="16" stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
+    <LineSymbolizer stroke-width="16" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="11" stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="6" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
+    <Filter>([road_class] = 'highway') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
@@ -6218,31 +6264,31 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="16" stroke="#d8b1a4" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="16" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#d8b1a4" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="3" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d8b1a4" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="2" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -6253,31 +6299,31 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="16" stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="16" stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="11" stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="11" stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="6" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="6" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 1) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="4.5" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -6393,25 +6439,25 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'highway') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="26" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="26" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="13" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="13" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="9" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="9" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'highway') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -6568,31 +6614,31 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="26" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="26" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="13" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="13" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="9" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="9" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="7" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="7" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([is_link] = 0) and ([is_bridge] = 1) and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
+    <LineSymbolizer stroke-width="4" stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -8362,19 +8408,19 @@
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -8385,7 +8431,7 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([road_class] = 'trunk') and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -8399,32 +8445,9 @@
     <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.5" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" smooth="0.3" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_tunnel] = 1) and ([is_link] = 1)</Filter>
-    <LineSymbolizer stroke="#d4957f" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([road_class] = 'highway') and ([render] = 'inline') and ([is_tunnel] = 1)</Filter>
-    <LineSymbolizer stroke="#e3bbad" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
+    <LineSymbolizer stroke="#deae9e" stroke-gamma="1.2" stroke-linecap="round" stroke-linejoin="round" clip="false" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
@@ -9360,6 +9383,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
   maxzoom="50000"
   cache-features="yes"
+  
   >
     <StyleName>road_z15</StyleName>
     <Datasource>
@@ -9369,7 +9393,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>

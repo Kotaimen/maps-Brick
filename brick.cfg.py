@@ -1,10 +1,10 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick.mk5'
+themedir= './themes/Brick.mk6'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'Brick.mk5'
+tag = 'Brick.mk6'
 tile_size = 256
 
 fmt = 'png'
@@ -14,7 +14,7 @@ landcover = dict(\
     theme=os.path.join(themedir, 'brick-landcover.xml'),
     image_type='png',
     buffer_size=0,
-    scale_factor=tile_size//256
+    scale_factor=1.5
     )
 
 roads = dict(\
@@ -22,7 +22,7 @@ roads = dict(\
     theme=os.path.join(themedir, 'brick-roads.xml'),
     image_type='png',
     buffer_size=0,
-    scale_factor=tile_size//256
+    scale_factor=1.75
     )
 
 labels = dict(\
@@ -30,7 +30,7 @@ labels = dict(\
     theme=os.path.join(themedir, 'brick-labels.xml'),
     image_type='png',
     buffer_size=tile_size*2,
-    scale_factor=tile_size//256
+    scale_factor=2
     )
 
 label_halo = dict(\
@@ -38,7 +38,7 @@ label_halo = dict(\
     theme=os.path.join(themedir, 'brick-labels_halo.xml'),
     image_type='png',
     buffer_size=tile_size* 2,
-    scale_factor=tile_size//256
+    scale_factor=2
     )
 
 composer=dict(\
@@ -49,7 +49,7 @@ composer=dict(\
     format=fmt,
     command='''
     {{landcover}}
-    -ordered-dither o4x4,8,12,6
+    -ordered-dither o8x8,8,8,8
     (
         {{roads}}
         ( 
@@ -77,7 +77,7 @@ ROOT = dict(\
                 servers=['localhost:11211',],
                 root=os.path.join(cachedir, 'export', '%s' % tag),
                ),
-    pyramid=dict(levels=range(2, 19),
+    pyramid=dict(levels=range(2, 20),
 #                 envelope=[-127,27,-67,50], # US mainland
 #                envelope=(-124,34,-70,48),
 #                envelope=( -123.40.1, 36.444, -118.65, 39.89),

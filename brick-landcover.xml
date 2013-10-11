@@ -31,17 +31,17 @@
 <Style name="10m_reefs" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <LineSymbolizer smooth="0.6" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke="#536872" comp-op="multiply" />
+    <LineSymbolizer smooth="0.6" stroke-width="0.7" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="1, 1" stroke="#435b66" comp-op="multiply" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" stroke="#536872" comp-op="multiply" />
+    <LineSymbolizer stroke-width="0.7" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="1, 1" stroke="#435b66" comp-op="multiply" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.4" stroke-linecap="round" stroke-linejoin="round" stroke="#536872" comp-op="multiply" />
+    <LineSymbolizer stroke-width="0.4" stroke-linecap="butt" stroke-linejoin="round" stroke-dasharray="1, 1" stroke="#435b66" comp-op="multiply" />
   </Rule>
 </Style>
 <Layer name="10m_reefs"
@@ -177,7 +177,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34 ]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -757,7 +757,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
        <Parameter name="srid"><![CDATA[900913]]></Parameter>
     </Datasource>
@@ -4104,7 +4104,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
        <Parameter name="srid"><![CDATA[900913]]></Parameter>
     </Datasource>
@@ -8116,7 +8116,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[yes]]></Parameter>
        <Parameter name="srid"><![CDATA[900913]]></Parameter>
     </Datasource>
@@ -8263,7 +8263,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8447,7 +8447,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8510,7 +8510,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8705,7 +8705,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8749,7 +8749,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_imposm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8776,7 +8776,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_imposm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8807,7 +8807,7 @@
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_imposm_1308]]></Parameter>
        <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
@@ -8855,7 +8855,7 @@
        <Parameter name="port"><![CDATA[5432]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="password"><![CDATA[123456]]></Parameter>
-       <Parameter name="dbname"><![CDATA[planet_osm_1305_new]]></Parameter>
+       <Parameter name="dbname"><![CDATA[planet_osm_1308]]></Parameter>
        <Parameter name="simplify_geometries"><![CDATA[no]]></Parameter>
        <Parameter name="srid"><![CDATA[900913]]></Parameter>
     </Datasource>

@@ -21,8 +21,9 @@
 
 
 #10m_reefs[zoom>3] {
-  line-cap: round;
+  line-cap: butt;
   line-join: round;
+  line-dasharray: 1,1;
   [zoom<7] { line-width:0.4; }
   [zoom>=7] { line-width:0.7; }
   line-color: @ferry-color;

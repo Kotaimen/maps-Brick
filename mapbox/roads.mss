@@ -28,6 +28,7 @@
   	[zoom>6] { line-width: 5; }
   }
   ::body {
+    line-cap: round;
   	[zoom=2] { line-width: 0.25; }
   	[zoom=3] { line-width: 0.75; }
   	[zoom=4] { line-width: 1; }
@@ -88,12 +89,11 @@
     [name='Arctic Circle'],
     [name='Antarctic Circle'],
     {
-  line-width:1;
-  line-color:@highway-casing-color;
+  line-width: 0.5;
+  line-color: @geographic-lines-color;
   line-dasharray: 4,2;
   }
 }
-
 
 
 ///////////////////////////////////////////////////
@@ -153,9 +153,9 @@
       line-color: @highway-body-color;
     }
     [road_class='highway'][render='inline'][is_tunnel=1][zoom>=15] {
-      line-color: lighten(@highway-body-color, 12%);
+      line-color: @highway-link-color;
     }
-    [road_class='highway'][render='inline'][is_link=1][zoom>=15] {
+    [road_class='highway'][render='inline'][is_link=1][zoom>=14] {
       line-color: @highway-link-color;
     }
     [road_class='trunk'][render='casing'] {
@@ -168,7 +168,7 @@
       line-color: @highway-body-color;
     }
     [road_class='trunk'][render='inline'][is_tunnel=1][zoom>=14] {
-      line-color: lighten(@highway-body-color, 12%);
+      line-color: lighten(@highway-body-color, 8%);
     }
     [road_class='trunk'][render='inline'][is_link=1][zoom>=14] {
       line-color: @highway-link-color;
