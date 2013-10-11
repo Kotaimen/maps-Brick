@@ -1,20 +1,20 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick'
+themedir= './themes/Brick.mk6'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'Brick'
+tag = 'Brick.mk6'
 tile_size = 256
 
-fmt = 'jpg'
+fmt = 'png'
 
 landcover = dict(\
     prototype='node.mapnik',
     theme=os.path.join(themedir, 'brick-landcover.xml'),
     image_type='png',
     buffer_size=0,
-    scale_factor=tile_size//256
+    scale_factor=1.5
     )
 
 roads = dict(\
@@ -22,7 +22,7 @@ roads = dict(\
     theme=os.path.join(themedir, 'brick-roads.xml'),
     image_type='png',
     buffer_size=0,
-    scale_factor=tile_size//256
+    scale_factor=1.75
     )
 
 labels = dict(\
@@ -30,7 +30,7 @@ labels = dict(\
     theme=os.path.join(themedir, 'brick-labels.xml'),
     image_type='png',
     buffer_size=tile_size*2,
-    scale_factor=tile_size//256
+    scale_factor=2
     )
 
 label_halo = dict(\
@@ -38,7 +38,7 @@ label_halo = dict(\
     theme=os.path.join(themedir, 'brick-labels_halo.xml'),
     image_type='png',
     buffer_size=tile_size* 2,
-    scale_factor=tile_size//256
+    scale_factor=2
     )
 
 composer=dict(\
@@ -49,16 +49,20 @@ composer=dict(\
     format=fmt,
     command='''
     {{landcover}}
+    -ordered-dither o8x8,8,8,8
     (
         {{roads}}
-        ( {{label_halo}}
-        #-channel RGBA -blur %(scale)d +channel
-        ) -compose dst-out -composite
+        ( 
+            {{label_halo}} 
+#       -channel RGBA -blur %(scale)d +channel
+        ) -compose dst-out  -composite
     ) -compose over -composite
     ( {{labels}} ) -compose over -composite
 #    -colorspace gray -fill wheat -tint 90
-    -quality 90
-    ''' % dict(scale=tile_size//256)
+#    -quality 90
+    -dither none
+    -colors 256
+    ''' % dict(scale=tile_size//256),
     )
 
 ROOT = dict(\
@@ -68,15 +72,15 @@ ROOT = dict(\
                   description='Brick - OSM North America Road Map',
                   attribution='Open Street Map, Natural Earth',
                   ),
-#     storage=dict(prototype='cluster',
-#                stride=16,
-#                servers=['localhost:11211',],
-#                root=os.path.join(cachedir, 'export', '%s_1305' % tag),
-#               ),
-    pyramid=dict(levels=range(2, 19),
+     storage=dict(prototype='cluster',
+                stride=16,
+                servers=['localhost:11211',],
+                root=os.path.join(cachedir, 'export', '%s' % tag),
+               ),
+    pyramid=dict(levels=range(2, 20),
 #                 envelope=[-127,27,-67,50], # US mainland
 #                envelope=(-124,34,-70,48),
-#                envelope=( -123.40/1, 36.444, -118.65, 39.89),
+#                envelope=( -123.40.1, 36.444, -118.65, 39.89),
                  zoom=9,
                  center=(-122.4321,37.7702),
                  format=fmt,
