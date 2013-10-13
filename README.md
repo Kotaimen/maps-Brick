@@ -41,5 +41,5 @@ Sample renders:
 
 ![Preview 6](https://raw.github.com/Kotaimen/maps-Brick/master/sample-5.jpg)
 
-For a demo map, check [here](http://tiles.mason.s3-website-us-east-1.amazonaws.com/).
+For a demo map, check [here](http://maps.masonmaps.me/index.html).
 
