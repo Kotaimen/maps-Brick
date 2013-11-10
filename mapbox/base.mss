@@ -18,7 +18,11 @@ Map {
   line-color: darken(@water, 35%) ;
 }
 
-#10m_snow[zoom<=8] {
+#10m_urbanareas[zoom<=10] {
+  polygon-fill: @industrial;
+}
+
+#10m_snow[zoom<=10] {
   polygon-fill: lighten(@land, 7%);
 }  
 

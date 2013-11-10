@@ -1,4 +1,4 @@
-
+// natural earth boundary
 #10m_admin0, #10m_disurpted
 {
   ::casing {
@@ -47,7 +47,7 @@
   }
 }
 
-#10m_admin1 {
+#10m_admin1[zoom<=10] {
   [zoom=3][scalerank<=1],
   [zoom=4][scalerank<=2],
   [zoom=5][scalerank<=3],
@@ -62,45 +62,20 @@
       line-cap: round;
       [zoom=4] { line-width: 1; }
       [zoom=5] { line-width: 1; }
-      [zoom>=6] { line-width: 2; }
+      [zoom>=6] { line-width: 3; }
     }
     ::body {
       line-width: 0;
   	  line-color: @boundary-line;
       line-opacity: 0.5;
       line-join: round;
-      line-dasharray: @boundary-dash;
+//      line-dasharray: @boundary-dash;
       [zoom=3] { line-width: 0.25; }
       [zoom=4] { line-width: 0.4; }
       [zoom=5] { line-width: 0.5; }
       [zoom=6] { line-width: 0.6; }
       [zoom>6] { line-width: 1; }
     }
-  }
-}
-
-#osm_admin[admin_level>=4][admin_level<=6]{
-  ::casing {
-    line-width: 0;
-    line-color: @boundary-casing;
-    line-opacity: 0.25;
-    line-join: round;
-    line-cap: round;
-    [zoom=4] { line-width: 1; }
-    [zoom=5] { line-width: 1; }
-    [zoom>=6] { line-width: 2; }
-  }
-  ::body {
-    line-width: 0;
-    line-color: @boundary-line;
-    line-opacity: 0.5;
-    line-join: round;
-    line-dasharray: @boundary-dash;
-    [zoom=3] { line-width: 0.25; }
-    [zoom=4] { line-width: 0.4; }
-    [zoom=5] { line-width: 0.5; }
-    [zoom=6] { line-width: 0.6; }
-    [zoom>6] { line-width: 1; }
   }
 }
 
@@ -115,4 +90,22 @@
   line-color: @boundary-line;
   line-dasharray: 5,2;
    }
+}
+
+
+// osm admin areas
+#osm_admin[zoom>=11] {
+  [admin_level=4] {
+    ::casing {
+      line-color: @boundary-casing;
+      line-join: round;
+      line-cap: round;
+      line-width: 3;
+    }
+    ::body {
+      line-color: @boundary-line;
+      line-join: round;
+      line-width: 1.5;
+    }
+  }
 }

@@ -10,16 +10,16 @@
     37.7642,
     10
   ],
-  "format": "png",
+  "format": "png8",
   "interactivity": false,
   "minzoom": 0,
-  "maxzoom": 22,
+  "maxzoom": 20,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "palette.mss",
     "base.mss",
-    "boundary.mss",
     "road.mss",
+    "boundary.mss",
     "label.mss"
   ],
   "Layer": [
@@ -76,6 +76,24 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "processed_p"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -157.99118261729797,
+        -51.05303741160215,
+        178.0338339830011,
+        69.76985509228818
+      ],
+      "id": "10m_urbanareas",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_urban_areas.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_urbanareas"
     },
     {
       "geometry": "polygon",
@@ -605,6 +623,37 @@
       "name": "building"
     },
     {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_admin",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "192.168.1.5",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "yes"
+      },
+      "id": "osm_admin",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
+      "name": "osm_admin"
+    },
+    {
       "geometry": "linestring",
       "extent": [
         -141.00554863899987,
@@ -671,7 +720,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.osm_admin",
+        "table": "import.brick_roads_gen1",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -682,13 +731,40 @@
         "user": "postgres",
         "password": "123456"
       },
-      "id": "osm_admin",
+      "id": "roads_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "osm_admin",
-      "status": "off"
+      "name": "roads_gen1"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_roads_gen0",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "192.168.1.5",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "roads_gen0",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roads_gen0"
     },
     {
       "geometry": "linestring",
@@ -711,8 +787,8 @@
   ],
   "scale": 1,
   "metatile": 2,
-  "_basemap": "http://a.tiles.mapbox.com/v3/mapbox.mapbox-streets.jsonp",
+  "_basemap": "",
   "name": "Brick - imposm3",
-  "description": "",
+  "description": "Brick 2.0 using imposm3 as data source",
   "attribution": ""
 }
