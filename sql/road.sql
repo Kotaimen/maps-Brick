@@ -90,7 +90,7 @@ CREATE OR REPLACE VIEW import.brick_roads_gen1 AS
 	   brick_roads.rank, 
 	   brick_roads.geometry
    FROM import.brick_roads
-   WHERE (brick_roads.type::text = ANY (ARRAY['motorway'::character varying, 'motorway_link'::character varying, 'trunk'::character varying, 'trunk_link'::character varying, 'primary'::character varying, 'primary_link'::character varying, 'secondary'::character varying, 'secondary_link'::character varying, 'tertiary'::character varying, 'tertiary_link'::character varying]::text[])) OR brick_roads.class::text = 'railway'::text;
+   WHERE (brick_roads.type::text = ANY (ARRAY['motorway'::character varying, 'motorway_link'::character varying, 'trunk'::character varying, 'trunk_link'::character varying, 'primary'::character varying, 'primary_link'::character varying, 'secondary'::character varying, 'secondary_link'::character varying, 'tertiary'::character varying, 'tertiary_link'::character varying, 'rail'::character varying]::text[])) AND render IN ('casing'::character varying, 'inline'::character varying) ;
 
 
 COMMIT;
