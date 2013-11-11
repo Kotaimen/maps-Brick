@@ -33,7 +33,7 @@
 @boundary-dash:     10,5;
 
 //// road
-@ferry-line:        #435b66;
+@ferry-line:        #547280;
 
 @motorway-fill:     #d4957f;
 @motorway-line:     darken(@motorway-fill, 2%);
@@ -45,20 +45,20 @@
 @primary-casing: 	lighten(@motorway-casing, 15%);
 
 @secondary-line:    lighten(@motorway-casing, 15%);
-@secondary-fill:    #d9cbbd;
-@secondary-casing:  lighten(@motorway-casing, 20%);
+@secondary-fill:    @primary-fill;
+@secondary-casing:  lighten(@motorway-casing, 15%);
 
-@minor-line:        lighten(@motorway-casing, 15%);
+@minor-line:        lighten(@motorway-casing, 20%);
 @minor-fill:		#f1eee8;
 @minor-casing: 		lighten(@motorway-casing, 20%);
 
-@path-line:         @secondary-line;
-@path-fill:	        @secondary-line;
-@path-casing:       lighten(@highway-casing, 25%);
+@path-line:         lighten(@motorway-casing, 20%);
+@path-fill:	        @minor-fill;
+@path-casing:       lighten(@motorway-casing, 20%);
 
 @rail-line: 		@primary-casing;
-@rail-fill: 		@land;
-
+@rail-casing: 		@land;
+@rail-fill:         @minor-casing;
 @road-dash:         5,2;
 
 //// labels

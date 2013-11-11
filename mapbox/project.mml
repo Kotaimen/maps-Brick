@@ -195,8 +195,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "landuse",
-      "status": "off"
+      "name": "landuse"
     },
     {
       "geometry": "linestring",
@@ -224,8 +223,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "landuse_line",
-      "status": "off"
+      "name": "landuse_line"
     },
     {
       "geometry": "polygon",
@@ -253,8 +251,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "transport",
-      "status": "off"
+      "name": "transport"
     },
     {
       "geometry": "linestring",
@@ -282,8 +279,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "aeroway",
-      "status": "off"
+      "name": "aeroway"
     },
     {
       "geometry": "polygon",
@@ -367,8 +363,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "waterbody",
-      "status": "off"
+      "name": "waterbody"
     },
     {
       "geometry": "polygon",
@@ -456,8 +451,7 @@
       "advanced": {
         "": "imposm3"
       },
-      "name": "waterway_gen0",
-      "status": "off"
+      "name": "waterway_gen0"
     },
     {
       "geometry": "linestring",
@@ -485,8 +479,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "waterway_gen1",
-      "status": "off"
+      "name": "waterway_gen1"
     },
     {
       "geometry": "linestring",
@@ -514,8 +507,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "waterway",
-      "status": "off"
+      "name": "waterway"
     },
     {
       "geometry": "linestring",
@@ -600,8 +592,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "barrier",
-      "status": "off"
+      "name": "barrier"
     },
     {
       "geometry": "polygon",
@@ -629,8 +620,100 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "building",
-      "status": "off"
+      "name": "building"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_roads_gen1",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "yes"
+      },
+      "id": "roads_gen1",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
+      "name": "roads_gen1"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_roads_gen0",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "yes"
+      },
+      "id": "roads_gen0",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
+      "name": "roads_gen0"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_roads",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "simplify_geometries": "yes"
+      },
+      "id": "roads",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "simplify_geometries": "no"
+      },
+      "name": "roads"
     },
     {
       "geometry": "polygon",
@@ -719,68 +802,6 @@
       "srs": "",
       "advanced": {},
       "name": "10m_admin1"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "import.brick_roads_gen1",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "172.26.183.193",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456",
-        "simplify_geometries": "yes"
-      },
-      "id": "roads_gen1",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "yes"
-      },
-      "name": "roads_gen1"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "import.brick_roads_gen0",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "172.26.183.193",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456",
-        "simplify_geometries": "yes"
-      },
-      "id": "roads_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "yes"
-      },
-      "name": "roads_gen0"
     },
     {
       "geometry": "linestring",
