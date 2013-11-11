@@ -101,21 +101,27 @@ Map {
   // areas
   [type='nature_reserve'], [type='conservation'],
   { 
-    line-color: darken(@park, 20%); 
-    line-width: 1;
-   	line-dasharray: 4, 2; 
+    [zoom>=8] {    
+      line-color: darken(@park, 20%); 
+      line-width: 1;
+      line-dasharray: 4, 2; 
+    }
 	polygon-fill: @park;  
+    polygon-opacity: 0.5;
+    
   }
   [type='military']
   { 
-    line-color: darken(@military, 20%); 
-    line-width: 1;
-   	line-dasharray: 4, 2;     
+    [zoom>=8] {
+      line-color: darken(@military, 20%); 
+      line-width: 1;
+   	  line-dasharray: 4, 2;     
+    }
 	polygon-fill: @military;  
+    polygon-opacity: 0.25;
   }  
 
   // transport 
-  // TODO: these should be moved to transport_area table...
   [type='aerodrome'], [type='airport'], [type='boundary'],
   [type='harbor'], [type='railway'],
   { polygon-fill: @airport; }
@@ -126,6 +132,7 @@ Map {
   [type='terminal'], [type='apron'], [type='hangar'], [type='fire_station'],
   { polygon-fill: @terminal; }
 
+  // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
 //  ::landusage_type_text[zoom>13] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
 }
@@ -260,18 +267,8 @@ Map {
 
 #transport[zoom>=8]
 {
-  [type='aerodrome'], [type='airport'], [type='boundary'],
-  [type='harbor'], [type='railway'],
-  { polygon-fill: @airport; }
-  
   [type='station'], [type='bus_station'],
   { polygon-fill: @airport; }
-
-  [type='runway'], [type='helipad'], [type='track'],
-  { polygon-fill: @aeroway; }
-
-  [type='terminal'], [type='apron'], [type='hangar'], [type='fire_station'],
-  { polygon-fill: @terminal; }
 }
 
 #aeroway[zoom>=10] {

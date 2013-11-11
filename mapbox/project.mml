@@ -10,7 +10,7 @@
     37.7642,
     10
   ],
-  "format": "png8",
+  "format": "png",
   "interactivity": false,
   "minzoom": 0,
   "maxzoom": 20,
@@ -128,7 +128,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -156,7 +156,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -184,7 +184,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -195,7 +195,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "landuse"
+      "name": "landuse",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -213,7 +214,7 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456"
@@ -223,7 +224,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "landuse_line"
+      "name": "landuse_line",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -240,7 +242,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -251,7 +253,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "transport"
+      "name": "transport",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -268,7 +271,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -279,7 +282,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "aeroway"
+      "name": "aeroway",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -296,7 +300,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -324,7 +328,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -352,7 +356,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -363,7 +367,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "waterbody"
+      "name": "waterbody",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -437,7 +442,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -451,7 +456,8 @@
       "advanced": {
         "": "imposm3"
       },
-      "name": "waterway_gen0"
+      "name": "waterway_gen0",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -469,7 +475,7 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456"
@@ -479,7 +485,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "waterway_gen1"
+      "name": "waterway_gen1",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -497,7 +504,7 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456"
@@ -507,7 +514,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "waterway"
+      "name": "waterway",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -582,7 +590,7 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456"
@@ -592,7 +600,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "barrier"
+      "name": "barrier",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -609,7 +618,7 @@
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -620,7 +629,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "building"
+      "name": "building",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -638,7 +648,7 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
         "password": "123456",
@@ -711,7 +721,7 @@
       "name": "10m_admin1"
     },
     {
-      "geometry": "polygon",
+      "geometry": "linestring",
       "extent": [
         -179.9999999749438,
         -85.051,
@@ -726,20 +736,23 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "simplify_geometries": "yes"
       },
       "id": "roads_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
       "name": "roads_gen1"
     },
     {
-      "geometry": "polygon",
+      "geometry": "linestring",
       "extent": [
         -179.9999999749438,
         -85.051,
@@ -754,16 +767,19 @@
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "192.168.1.5",
+        "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "simplify_geometries": "yes"
       },
       "id": "roads_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
       "name": "roads_gen0"
     },
     {

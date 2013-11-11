@@ -1,11 +1,10 @@
-
-// base
+//// base
 @land:              #d4d1c5;
 @water:             #8fb1bf;
 @river:             darken(@water, 15%);
 @beach:             #c9c5ab;
 
-// landuse
+//// landuse
 @park:              #bdc4ac;
 @wooded:            #b3c7b6;
 @agriculture:       #adc7b2;
@@ -15,50 +14,69 @@
 @sports:            #b2b88f;
 @building:          #dbd9d0;
 
-// zone
+//// zone
 @residential:       darken(@building, 5%);
 @pedestrian:        desaturate(@sports, 16%);
 @commercial:        darken(@building, 9%);
 @industrial:        #cecab9;
 @military:          #c4c2bb;
 
-// transport
+//// transport
 @parking:           #ceccc2;
 @airport:           @beach;
 @aeroway:           lighten(@beach, 10%);
 @terminal:          darken(@beach, 7%);
 
-// boundary
+//// boundary
 @boundary-line:     #676d73;
 @boundary-casing:   desaturate(lighten(@boundary-line, 40%), 50%);
 @boundary-dash:     10,5;
 
-// road
+//// road
 @ferry-line:        #435b66;
 
-@highway-line:      #d4957f;
-@highway-fill:      @highway-line;
-@highway-casing:    #8a776e;
-@highway-link:      lighten(@highway-fill, 8%);
+@motorway-fill:     #d4957f;
+@motorway-line:     darken(@motorway-fill, 2%);
+@motorway-casing:   #8a776e;
+@motorway-link:     lighten(@motorway-fill, 8%);
 
-@major_road-line:   lighten(@highway-casing, 10%);
-@major_road-fill:   #d9cbbd;
-@major_road-casing: lighten(@highway-casing, 15%);
+@primary-line:      lighten(@motorway-casing, 10%);
+@primary-fill:   	#d9cbbd;
+@primary-casing: 	lighten(@motorway-casing, 15%);
 
-@minor_road-line:   lighten(@highway-casing, 36%);
-@minor_road-fill:   #f1eee8;
-@minor_road-casing: lighten(@highway-casing, 20%);
+@secondary-line:    lighten(@motorway-casing, 15%);
+@secondary-fill:    #d9cbbd;
+@secondary-casing:  lighten(@motorway-casing, 20%);
 
-@path-line:         @minor_road-line;
-@path-body:			@minor_road-line;
-@path-casing: 		lighten(@highway-casing, 25%);
+@minor-line:        lighten(@motorway-casing, 15%);
+@minor-fill:		#f1eee8;
+@minor-casing: 		lighten(@motorway-casing, 20%);
+
+@path-line:         @secondary-line;
+@path-fill:	        @secondary-line;
+@path-casing:       lighten(@highway-casing, 25%);
+
+@rail-line: 		@primary-casing;
+@rail-fill: 		@land;
 
 @road-dash:         5,2;
 
-@rail-line: 		@major_road-casing;
-@rail-body: 		@land;
+//// labels
+@label-country:     #23120b;
+@label-province:    @label-country;
+@label-places:      @label-country;
+@label-poi:         #3c3c3c;
 
+@label-halo:        @land;
 
-// labels
+@label-water:       @ferry;
+@label-park:        #1a3c11;
 
-//
+//// text font
+@font-label: 		'Avenir Next Condensed Regular',  'Arial Unicode MS Regular';
+@font-label2:       'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-physical:     'Avenir Next Condensed Medium Italic',  'Arial Unicode MS Regular';
+@font-road:         'Avenir Book', 'Arial Unicode MS Regular';
+@font-road2:        'Avenir Book', 'Arial Unicode MS Regular';
+@font-shield:       'Arial Regular';
+
