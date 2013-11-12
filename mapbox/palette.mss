@@ -16,7 +16,7 @@
 
 //// zone
 @residential:       darken(@building, 5%);
-@pedestrian:        desaturate(@sports, 16%);
+@pedestrian:        desaturate(@sports, 11%);
 @commercial:        darken(@building, 9%);
 @industrial:        #cecab9;
 @military:          #c4c2bb;
@@ -49,7 +49,7 @@
 @secondary-casing:  lighten(@motorway-casing, 15%);
 
 @minor-line:        lighten(@motorway-casing, 20%);
-@minor-fill:		#f1eee8;
+@minor-fill:		#ebe8e2;
 @minor-casing: 		lighten(@motorway-casing, 20%);
 
 @path-line:         lighten(@motorway-casing, 20%);
