@@ -1,3 +1,4 @@
+
 //// base
 @land:              #d4d1c5;
 @water:             #8fb1bf;
@@ -62,21 +63,32 @@
 @road-dash:         5,2;
 
 //// labels
-@label-country:     #23120b;
-@label-province:    @label-country;
-@label-places:      @label-country;
+@label-xtra:        #ab421b;
+@label-admin0:      #6e5f57;
+@label-admin1:      @boundary-line;
+@label-place:       #2e180e;
 @label-poi:         #3c3c3c;
 
-@label-halo:        @land;
+@label-halo:        fadeout(@land, 25%);
 
-@label-water:       @ferry;
+@label-water:       darken(@ferry-line, 10%);
 @label-park:        #1a3c11;
+@label-physical:    @motorway-casing;
+
+@smart-halo:        1;
+@scale-factor:      1;
 
 //// text font
-@font-label: 		'Avenir Next Condensed Regular',  'Arial Unicode MS Regular';
-@font-label2:       'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-regular:      'Avenir Next Condensed Regular',  'Arial Unicode MS Regular';
+@font-heavy:        'Avenir Next Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Avenir Next Condensed Medium Italic',  'Arial Unicode MS Regular';
 @font-road:         'Avenir Book', 'Arial Unicode MS Regular';
-@font-road2:        'Avenir Book', 'Arial Unicode MS Regular';
+
 @font-shield:       'Arial Regular';
 
+//// map
+
+Map {
+  background-color: @water;
+//  buffer-size: 256;
+}

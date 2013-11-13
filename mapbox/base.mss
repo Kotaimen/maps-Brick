@@ -1,8 +1,5 @@
-////// Land 
 
-Map {
-  background-color: @water;
-}
+////// Land 
 
 #shoreline_300[zoom<=9],
 #processed_p[zoom>=10] 
@@ -81,9 +78,10 @@ Map {
   [type='prison'], [type='barracks']
   { polygon-fill: @commercial; }  
   
-  [type='industrial'],  [type='construction'], [type='recycling'],
+  [type='industrial'], [type='construction'], [type='recycling'],
   [type='landfill'], [type='quarry'], [type='mine'],
-  [type='brownfield'],   [type='greenfield'], [type='special_use'],
+  [type='brownfield'], [type='greenfield'], [type='special_use'],
+
   { polygon-fill: @industrial; }
   
   [type='residential'], [type='allotments'] 
@@ -99,8 +97,8 @@ Map {
   { polygon-fill: @water; }  
        
   // areas
-  [type='nature_reserve'], [type='conservation'],
-  { 
+  [type='nature_reserve'], [type='conservation'], 
+  [type='national_park'] { 
     [zoom>=8] {    
       line-color: darken(@park, 20%); 
       line-width: 1;
@@ -110,8 +108,7 @@ Map {
     polygon-opacity: 0.5;
     
   }
-  [type='military']
-  { 
+  [type='military'], [type='range'] { 
     [zoom>=8] {
       line-color: darken(@military, 20%); 
       line-width: 1;
@@ -134,7 +131,7 @@ Map {
 
   // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
-//  ::landusage_type_text[zoom>13] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
+//  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
 }
 
 #landuse_line {

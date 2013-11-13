@@ -565,7 +565,10 @@
       "id": "10m_river_us",
       "class": "",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_north_america.shp"
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_north_america.shp",
+        "id": "10m_river_us",
+        "project": "Brick_imposm3",
+        "srs": ""
       },
       "srs-name": "autodetect",
       "srs": "",
@@ -670,15 +673,14 @@
         "password": "123456",
         "simplify_geometries": "yes"
       },
-      "id": "roads_gen1",
+      "id": "road_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "srid": "3857",
         "simplify_geometries": "yes"
       },
-      "name": "roads_gen1"
+      "name": "road_gen1"
     },
     {
       "geometry": "linestring",
@@ -702,15 +704,14 @@
         "password": "123456",
         "simplify_geometries": "yes"
       },
-      "id": "roads_gen0",
+      "id": "road_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "srid": "3857",
         "simplify_geometries": "yes"
       },
-      "name": "roads_gen0"
+      "name": "road_gen0"
     },
     {
       "geometry": "linestring",
@@ -734,15 +735,14 @@
         "password": "123456",
         "simplify_geometries": "yes"
       },
-      "id": "roads",
+      "id": "road_all",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "srid": "3857",
         "simplify_geometries": "yes"
       },
-      "name": "roads"
+      "name": "road_all"
     },
     {
       "geometry": "polygon",
@@ -774,7 +774,8 @@
         "srid": "3857",
         "simplify_geometries": "yes"
       },
-      "name": "osm_admin"
+      "name": "osm_admin",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -818,6 +819,27 @@
     {
       "geometry": "linestring",
       "extent": [
+        -180,
+        -58.37588254937078,
+        178.74932072512505,
+        82.21688470654527
+      ],
+      "id": "10m_marine_indicator",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_maritime_indicator.shp",
+        "id": "10m_marine_indicator",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_marine_indicator"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
         -139.0602066219999,
         -49.25087001999992,
         178.448622268,
@@ -850,6 +872,210 @@
       "srs": "",
       "advanced": {},
       "name": "10m_geographicline"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -102.90068436639604,
+        -78.60693899999998,
+        178.0308332721056,
+        79.04721407579228
+      ],
+      "id": "label_admin0",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/admin-0-labels-z6.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "label_admin0"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -156.24532937499998,
+        20.249832999999974,
+        -54.77481032998548,
+        71.1110301058789
+      ],
+      "id": "label_admin1",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/admin-1-labels-z7.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "label_admin1"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -157.85833,
+        -53.15,
+        176.16667,
+        68.97167
+      ],
+      "id": "place_z6",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/places-z6.shp",
+        "id": "place_z6",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "place_z6"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -159.36719,
+        -54.8,
+        178.00417,
+        69.65362
+      ],
+      "id": "place_z8",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/places-z8.shp",
+        "id": "place_z8",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "place_z8"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999999999,
+        -85.051,
+        180,
+        83.63410065300015
+      ],
+      "id": "10m_country",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_countries.shp",
+        "id": "10m_country",
+        "project": "Brick_imposm3",
+        "srs": "",
+        "encoding": "windows1252"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "name": "10m_country"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -99.6754881921606,
+        -81.78992209909535,
+        134.1784941447303,
+        49.32165488322707
+      ],
+      "id": "label_continent",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/continents.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "label_continent"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -180,
+        -85.051,
+        179.9998970889459,
+        85.051
+      ],
+      "id": "10m_marine",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_marine_polys.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_marine"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -165.96558168829336,
+        -50.66966651748362,
+        176.09377623426627,
+        81.95520786930868
+      ],
+      "id": "10m_lake_label",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp",
+        "encoding": "windows1252"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "name": "10m_lake_label"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -178.31920325429127,
+        -78.63811614375592,
+        179.49756920664623,
+        83.62628815311908
+      ],
+      "id": "10m_georegion",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_points.shp",
+        "encoding": "windows1252",
+        "id": "10m_geoegion",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "name": "10m_georegion"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -178.1552017894475,
+        -85.051,
+        179.20362451966955,
+        83.32740297860224
+      ],
+      "id": "10m_elevation",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_elevation_points.shp",
+        "id": "10m_elevation",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_elevation"
     }
   ],
   "scale": 1,

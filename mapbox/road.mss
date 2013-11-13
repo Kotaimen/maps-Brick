@@ -1,5 +1,6 @@
+
 //// road overview
-#roads_gen0[zoom>=5][zoom<=8] {
+#road_gen0[zoom>=5][zoom<=8] {
   line-cap: round;
   line-join: round;
   line-clip: false;
@@ -34,7 +35,7 @@
 
 //// high level roads
 
-#roads_gen1[zoom>=9][zoom<=11][class='highway'] {
+#road_gen1[zoom>=9][zoom<=11][class='highway'] {
   [render='casing'] {
     line-cap: butt;
     line-join: round;
@@ -97,7 +98,7 @@
   }
 }
 
-#roads_gen1[zoom>=9][zoom<=11][class='railway'] {
+#road_gen1[zoom>=9][zoom<=11][class='railway'] {
   [render='inline'] {
     line-width: 0.5;
     line-color: @rail-line;
@@ -118,7 +119,7 @@
 //   living_street, raceway -> path
 // every link is rendered three times: outline=>casing=>inline
 
-#roads[zoom>=12][class='highway'][render!='marker'] {
+#road_all[zoom>=12][class='highway'][render!='marker'] {
 
   // line render options
   line-clip: false;
@@ -200,7 +201,7 @@
 @rdz17_maj: 12;  @rdz17_med: 8;   @rdz17_min: 6;
 @rdz18_maj: 22;  @rdz18_med: 14;  @rdz18_min: 10;
 
-#roads[zoom>=12][class='highway'][render!='marker'] {
+#road_all[zoom>=12][class='highway'][render!='marker'] {
 
   line-width: 0;
 //  [render='inline']  { [tunnel=1] { line-comp-op: dst-out; line-opacity: 0.95; } }
@@ -764,7 +765,7 @@
 
 // overview
 
-#roads[zoom>=12][zoom<=13][class='railway'][render!='marker'] {
+#road_all[zoom>=12][zoom<=13][class='railway'][render!='marker'] {
   [type='rail'], [type='subway'], [type='lightrail'] {
     line-cap: butt;
     line-join: round;
@@ -786,7 +787,7 @@
 // class: railway
 // every link is rendered four times: casing, casing fill=>inline, inline dash
 
-#roads[zoom>=14][class='railway'][render!='marker'] {
+#road_all[zoom>=14][class='railway'][render!='marker'] {
   line-cap: butt;
   line-join: round;
   line-width: 0;
@@ -910,7 +911,7 @@
 
 /// oneway makers
 
-#roads[zoom>=15][oneway=1][class!='railway'][render='marker'] {
+#road_all[zoom>=15][oneway=1][class!='railway'][render='marker'] {
   // TODO: How to render oneway=-1?
   [zoom=17][link=0]  { marker-smooth: 0.2; }
   [zoom=17][link=1]  { marker-smooth: 0.4; }
@@ -938,3 +939,4 @@
   }
 }
 
+*/
