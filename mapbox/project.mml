@@ -1070,12 +1070,43 @@
         "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_elevation_points.shp",
         "id": "10m_elevation",
         "project": "Brick_imposm3",
-        "srs": ""
+        "srs": "",
+        "encoding": "windows-1252"
       },
       "srs-name": "autodetect",
       "srs": "",
-      "advanced": {},
+      "advanced": {
+        "encoding": "windows-1252"
+      },
       "name": "10m_elevation"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_places",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "place",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "place"
     }
   ],
   "scale": 1,

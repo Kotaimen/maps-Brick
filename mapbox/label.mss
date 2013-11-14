@@ -91,10 +91,11 @@
     [zoom=8][scalerank<=8],
     [zoom=9][scalerank<=9],    
     [zoom>=10] {
+    marker-file: url("marker/poi_peak.svg");    
 	marker-fill: @label-physical;
 	marker-line-color: @label-halo;
     marker-line-width: @smart-halo / @scale-factor;    
-    marker-height: 4 + @smart-halo;
+    marker-height: 5 + @smart-halo;
   }
   ::text
     [zoom=6][scalerank<=6],
@@ -103,7 +104,7 @@
     [zoom=9][scalerank<=9],    
     [zoom>=10] {
     text-face-name: @font-physical;
-    text-name: '[name]+"\n"+[elevation]';
+    text-name: '[name]+"\n"+[elevation].replace("\.0","m")';
     text-size: 12;
 	text-placement-type: simple;
     text-placement: point;
@@ -178,7 +179,7 @@
   }
 }
 
-//// places
+//// static places
 
 #place_z6[zoom>=4][zoom<=6] {
  ::marker
@@ -213,8 +214,7 @@
   }
 }
 
-
-#place_z8[zoom>=7][zoom<=9] {
+#place_z8[zoom=7] {
  ::marker
   ['zoom_start'<=6][zoom=7],
   ['zoom_start'<=7][zoom=8],
@@ -248,3 +248,48 @@
 
   }
 }
+
+#place[zoom>=8] {
+  text-name: "";
+  text-face-name: @font-regular;
+  text-fill: @label-place;
+  text-halo-fill: @label-halo;
+  text-halo-radius: @smart-halo / @scale-factor;
+  text-placement: point;
+  text-wrap-width: 100 * @scale-factor;
+  text-label-position-tolerance: 16;
+  text-min-distance: 16;
+  [type='city'][population>=10000][zoom>=8][zoom<=15] {
+    text-name: "[name]";    
+	[zoom<=12] { text-size: 24; text-character-spacing: 1;}    
+    [zoom=13] { text-size: 24; text-character-spacing: 2; }    
+    [zoom=14] { text-size: 24; text-character-spacing: 3; }    
+    [zoom>=15] { text-size: 26; text-character-spacing: 4; } 
+//    text-fill: green;
+  }
+  [type='city'][population<10000][zoom>=9][zoom<=15] {
+    text-name: "[name]";    
+	[zoom<=12] { text-size: 20; }    
+    [zoom=14] { text-size: 20; text-character-spacing: 2; }    
+    [zoom>=15] { text-size: 20; text-character-spacing: 3; }        
+//    text-fill: cyan;    
+  }
+  [type='town'][zoom>=10][zoom<=17] {
+    text-name: "[name]";    
+	[zoom<=12] { text-size: 18; }    
+    [zoom>=13] { text-size: 18; text-character-spacing: 2; }  
+//    text-fill: blue;    
+  }
+  [type='suburb'][zoom>=13][zoom<=18],
+  [type='village'][zoom>=13][zoom<=18]{
+    text-name: "[name]";    
+    text-size: 16; text-character-spacing: 1;
+//    text-fill: red;    
+  }
+  [rank>=8][zoom>=14][zoom<=18] {
+    text-name: "[name].replace('\(.*\)', '')";    
+    text-size: 16; text-character-spacing: 1;
+//    text-fill: orange;    
+  }
+
+}  

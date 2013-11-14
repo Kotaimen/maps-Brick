@@ -924,7 +924,7 @@
   [zoom>=16]
   {
     [type='motorway'], [type='motorway_link'],
-    [type='trunk'][type='trunk_link'], {  
+    [type='trunk'], [type='trunk_link'], {  
       marker-fill: @motorway-casing; 
     }
     marker-fill: @primary-casing;
@@ -939,4 +939,3 @@
   }
 }
 
-*/

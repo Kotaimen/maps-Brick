@@ -99,21 +99,10 @@
   // areas
   [type='nature_reserve'], [type='conservation'], 
   [type='national_park'] { 
-    [zoom>=8] {    
-      line-color: darken(@park, 20%); 
-      line-width: 1;
-      line-dasharray: 4, 2; 
-    }
 	polygon-fill: @park;  
     polygon-opacity: 0.5;
-    
   }
   [type='military'], [type='range'] { 
-    [zoom>=8] {
-      line-color: darken(@military, 20%); 
-      line-width: 1;
-   	  line-dasharray: 4, 2;     
-    }
 	polygon-fill: @military;  
     polygon-opacity: 0.25;
   }  

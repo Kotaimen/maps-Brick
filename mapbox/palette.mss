@@ -73,7 +73,7 @@
 
 @label-water:       darken(@ferry-line, 10%);
 @label-park:        #1a3c11;
-@label-physical:    @motorway-casing;
+@label-physical:    darken(@motorway-casing, 10%);
 
 @smart-halo:        1;
 @scale-factor:      1;
@@ -81,14 +81,13 @@
 //// text font
 @font-regular:      'Avenir Next Condensed Regular',  'Arial Unicode MS Regular';
 @font-heavy:        'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Avenir Next Condensed Medium Italic',  'Arial Unicode MS Regular';
-@font-road:         'Avenir Book', 'Arial Unicode MS Regular';
+@font-physical:     'Avenir Next Condensed Italic',  'Arial Unicode MS Regular';
+@font-road:         'Avenir Next Regular', 'Arial Unicode MS Regular';
 
 @font-shield:       'Arial Regular';
 
 //// map
-
 Map {
   background-color: @water;
-//  buffer-size: 256;
+  buffer-size: 256;
 }
