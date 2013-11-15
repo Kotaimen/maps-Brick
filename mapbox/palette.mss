@@ -67,15 +67,18 @@
 @label-admin0:      #6e5f57;
 @label-admin1:      @boundary-line;
 @label-place:       #2e180e;
-@label-poi:         #3c3c3c;
+@label-poi:         #4d4441;
+@label-hospital:    #593a2d;
+
+
 
 @label-halo:        fadeout(@land, 25%);
 
 @label-water:       darken(@ferry-line, 10%);
-@label-park:        #1a3c11;
+@label-park:        #426638;
 @label-physical:    darken(@motorway-casing, 10%);
 
-@smart-halo:        1;
+@smart-halo:        1.5;
 @scale-factor:      1;
 
 //// text font
@@ -83,7 +86,7 @@
 @font-heavy:        'Avenir Next Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Avenir Next Condensed Italic',  'Arial Unicode MS Regular';
 @font-road:         'Avenir Next Regular', 'Arial Unicode MS Regular';
-
+@font-poi:          'Avenir Next Medium',  'Arial Unicode MS Regular';
 @font-shield:       'Arial Regular';
 
 //// map

@@ -501,7 +501,8 @@
       "advanced": {
         "srid": "3857"
       },
-      "name": "waterway_gen1"
+      "name": "waterway_gen1",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -531,7 +532,8 @@
       "advanced": {
         "srid": "3857"
       },
-      "name": "waterway"
+      "name": "waterway",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -912,44 +914,23 @@
     {
       "geometry": "point",
       "extent": [
-        -157.85833,
-        -53.15,
-        176.16667,
-        68.97167
-      ],
-      "id": "place_z6",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/places-z6.shp",
-        "id": "place_z6",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "place_z6"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -159.36719,
+        -176.53333,
         -54.8,
         178.00417,
-        69.65362
+        71.68722
       ],
-      "id": "place_z8",
+      "id": "place_static",
       "class": "",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/places-z8.shp",
-        "id": "place_z8",
+        "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/place-points.shp",
+        "id": "placepoints",
         "project": "Brick_imposm3",
         "srs": ""
       },
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "place_z8"
+      "name": "place_static"
     },
     {
       "geometry": "polygon",
@@ -992,6 +973,118 @@
       "srs": "",
       "advanced": {},
       "name": "label_continent"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_places",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "place_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "place_label"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_landusage_area_labels_gen0",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "landuse_label_gen0",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_label_gen0"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_landusage_area_labels_gen1",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "landuse_label_gen1",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_label_gen1"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_landusage_area_labels",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "landuse_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_label"
     },
     {
       "geometry": "polygon",
@@ -1079,34 +1172,6 @@
         "encoding": "windows-1252"
       },
       "name": "10m_elevation"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "import.brick_places",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "172.26.183.193",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456"
-      },
-      "id": "place",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "place"
     }
   ],
   "scale": 1,

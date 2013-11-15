@@ -34,7 +34,7 @@
   
   // manmade green
   [type='park'], [type='garden'], [type='recreation_ground'],
-  [type='village_green'], [type='zoo'], [type='dog_park'], [type='theme_park'],
+  [type='village_green'], [type='zoo'], [type='dog_park'], 
   [type='theme_park'], [type='golf_range'], [type='golf_course'], [type='miniature_golf'],
   [type='funfair'], [type='water_park'], [type='greenspace'],
   { polygon-fill: @park; }  
