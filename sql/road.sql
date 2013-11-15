@@ -35,15 +35,19 @@ CREATE OR REPLACE VIEW import.brick_roads_stage AS
             ELSE osm_roads.layer::smallint
         END AS layer, 
         CASE
-            WHEN osm_roads.class::text = 'highway'::text AND osm_roads.type::text = 'motorway'::text THEN 0::smallint
-            WHEN osm_roads.class::text = 'highway'::text AND osm_roads.type::text = 'trunk'::text THEN 1::smallint
-            WHEN osm_roads.class::text = 'railway'::text THEN 2::smallint
-            WHEN osm_roads.class::text = 'highway'::text AND osm_roads.type::text = 'primary'::text THEN 3::smallint
-            WHEN osm_roads.class::text = 'highway'::text AND osm_roads.type::text = 'secondary'::text THEN 4::smallint
-            WHEN osm_roads.class::text = 'highway'::text AND osm_roads.type::text = 'tertiary'::text THEN 5::smallint
-            WHEN osm_roads.class::text = 'highway'::text AND osm_roads.type::text ~~ '%_link'::text THEN 6::smallint
-            WHEN osm_roads.class::text = 'highway'::text AND (osm_roads.type::text = ANY (ARRAY['residential'::character varying, 'unclassified'::character varying, 'road'::character varying, 'minor'::character varying]::text[])) THEN 7::smallint
-            ELSE 8::smallint
+            WHEN type::text = 'motorway'::text THEN 0::smallint
+	    WHEN type::text = 'motorway_link'::text THEN 1::smallint
+            WHEN type::text = 'trunk'::text THEN 2::smallint
+            WHEN type::text = 'trunk_link'::text THEN 3::smallint
+            WHEN class::text = 'railway'::text THEN 4::smallint
+            WHEN type::text = 'primary'::text THEN 5::smallint
+            WHEN type::text = 'primary_link'::text THEN 6::smallint 
+            WHEN type::text = 'secondary'::text THEN 7::smallint
+            WHEN type::text = 'secondary_link'::text THEN 8::smallint
+            WHEN type::text = 'tertiary'::text THEN 9::smallint
+            WHEN type::text = 'tertiary_link'::text THEN 10::smallint
+            WHEN type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
+            ELSE 99::smallint
         END AS rank, osm_roads.geometry
     FROM import.osm_roads;
 
@@ -59,16 +63,20 @@ CREATE OR REPLACE VIEW import.brick_roads_stage_gen0 AS
             ELSE osm_roads_gen0.layer::smallint
         END AS layer, 
         CASE
-            WHEN osm_roads_gen0.type::text = 'motorway'::text THEN 0::smallint
-            WHEN osm_roads_gen0.type::text = 'trunk'::text THEN 1::smallint
-            WHEN osm_roads_gen0.class::text = 'railway'::text THEN 2::smallint
-            WHEN osm_roads_gen0.type::text = 'primary'::text THEN 3::smallint
-            WHEN osm_roads_gen0.type::text = 'secondary'::text THEN 4::smallint
-            WHEN osm_roads_gen0.type::text = 'tertiary'::text THEN 5::smallint
-            WHEN osm_roads_gen0.type::text ~~ '%_link'::text THEN 6::smallint
-            WHEN osm_roads_gen0.type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 7::smallint
-            ELSE 8::smallint
-        END AS rank, osm_roads_gen0.geometry
+            WHEN type::text = 'motorway'::text THEN 0::smallint
+	    WHEN type::text = 'motorway_link'::text THEN 1::smallint
+            WHEN type::text = 'trunk'::text THEN 2::smallint
+            WHEN type::text = 'trunk_link'::text THEN 3::smallint
+            WHEN class::text = 'railway'::text THEN 4::smallint
+            WHEN type::text = 'primary'::text THEN 5::smallint
+            WHEN type::text = 'primary_link'::text THEN 6::smallint 
+            WHEN type::text = 'secondary'::text THEN 7::smallint
+            WHEN type::text = 'secondary_link'::text THEN 8::smallint
+            WHEN type::text = 'tertiary'::text THEN 9::smallint
+            WHEN type::text = 'tertiary_link'::text THEN 10::smallint
+            WHEN type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
+            ELSE 99::smallint
+        END  AS rank, osm_roads_gen0.geometry
    FROM import.osm_roads_gen0;
 
 
@@ -83,16 +91,20 @@ CREATE OR REPLACE VIEW import.brick_roads_stage_gen1 AS
             ELSE osm_roads_gen1.layer::smallint
         END AS layer, 
         CASE
-            WHEN osm_roads_gen1.type::text = 'motorway'::text THEN 0::smallint
-            WHEN osm_roads_gen1.type::text = 'trunk'::text THEN 1::smallint
-            WHEN osm_roads_gen1.class::text = 'railway'::text THEN 2::smallint
-            WHEN osm_roads_gen1.type::text = 'primary'::text THEN 3::smallint
-            WHEN osm_roads_gen1.type::text = 'secondary'::text THEN 4::smallint
-            WHEN osm_roads_gen1.type::text = 'tertiary'::text THEN 5::smallint
-            WHEN osm_roads_gen1.type::text ~~ '%_link'::text THEN 6::smallint
-            WHEN osm_roads_gen1.type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 7::smallint
-            ELSE 8::smallint
-        END AS rank, osm_roads_gen1.geometry
+            WHEN type::text = 'motorway'::text THEN 0::smallint
+	    WHEN type::text = 'motorway_link'::text THEN 1::smallint
+            WHEN type::text = 'trunk'::text THEN 2::smallint
+            WHEN type::text = 'trunk_link'::text THEN 3::smallint
+            WHEN class::text = 'railway'::text THEN 4::smallint
+            WHEN type::text = 'primary'::text THEN 5::smallint
+            WHEN type::text = 'primary_link'::text THEN 6::smallint 
+            WHEN type::text = 'secondary'::text THEN 7::smallint
+            WHEN type::text = 'secondary_link'::text THEN 8::smallint
+            WHEN type::text = 'tertiary'::text THEN 9::smallint
+            WHEN type::text = 'tertiary_link'::text THEN 10::smallint
+            WHEN type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
+            ELSE 99::smallint
+        END  AS rank, osm_roads_gen1.geometry
    FROM import.osm_roads_gen1;
 
 
@@ -132,7 +144,6 @@ CREATE OR REPLACE VIEW import.brick_roads_gen0 AS
 	   brick_roads_stage_gen0.rank, 
 	   brick_roads_stage_gen0.geometry
     FROM import.brick_roads_stage_gen0
-    WHERE brick_roads_stage_gen0.type::text = ANY (ARRAY['motorway'::character varying::text, 'trunk'::character varying::text, 'primary'::character varying::text])
     ORDER BY brick_roads_stage_gen0.rank DESC;
 
 
@@ -144,7 +155,6 @@ CREATE OR REPLACE VIEW import.brick_roads_gen1 AS
         UNION ALL 
         SELECT 'inline'::text AS render, 0 AS outline, 1 AS render_order, * FROM import.brick_roads_stage_gen1
     ) foo
-    WHERE foo.type::text = ANY (ARRAY['motorway'::character varying::text, 'motorway_link'::character varying::text, 'trunk'::character varying::text, 'trunk_link'::character varying::text, 'primary'::character varying::text, 'primary_link'::character varying::text, 'secondary'::character varying::text, 'secondary_link'::character varying::text, 'tertiary'::character varying::text, 'tertiary_link'::character varying::text, 'rail'::character varying::text])
     ORDER BY foo.outline DESC, 
     	     foo.layer ASC, 
 	     foo.tunnel DESC NULLS LAST, 
