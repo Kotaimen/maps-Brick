@@ -24,16 +24,43 @@ CREATE OR REPLACE VIEW import.brick_places AS
 
 
 
+
 CREATE OR REPLACE VIEW import.brick_landusage_area_labels AS 
     SELECT brick_landusage_areas.id, 
-    	   brick_landusage_areas.osm_id, 
-	   brick_landusage_areas.name, 
-	   brick_landusage_areas.class, 
-	   brick_landusage_areas.type, 
-	   brick_landusage_areas.area, 
-	   st_pointonsurface(brick_landusage_areas.geometry) AS geometry
+	brick_landusage_areas.osm_id, 
+	brick_landusage_areas.name, 
+	brick_landusage_areas.class, 
+	brick_landusage_areas.type, 
+	brick_landusage_areas.area, 
+	st_pointonsurface(brick_landusage_areas.geometry)::geometry(Point,3857) AS geometry
     FROM import.brick_landusage_areas
-    WHERE brick_landusage_areas.name IS NOT NULL AND brick_landusage_areas.name::text <> ''::text
+    WHERE brick_landusage_areas.area > 1024::double precision AND brick_landusage_areas.name IS NOT NULL AND brick_landusage_areas.name::text <> ''::text AND st_isvalid(brick_landusage_areas.geometry)
+    ORDER BY brick_landusage_areas.area DESC;
+
+
+CREATE OR REPLACE VIEW import.brick_landusage_area_labels_gen0 AS 
+    SELECT brick_landusage_areas.id, 
+	brick_landusage_areas.osm_id, 
+	brick_landusage_areas.name, 
+	brick_landusage_areas.class, 
+	brick_landusage_areas.type, 
+	brick_landusage_areas.area, 
+	st_pointonsurface(brick_landusage_areas.geometry)::geometry(Point,3857) AS geometry
+    FROM import.brick_landusage_areas
+    WHERE brick_landusage_areas.area > 1024000000::double precision AND brick_landusage_areas.name IS NOT NULL AND brick_landusage_areas.name::text <> ''::text AND st_isvalid(brick_landusage_areas.geometry)
+    ORDER BY brick_landusage_areas.area DESC;
+
+
+CREATE OR REPLACE VIEW import.brick_landusage_area_labels_gen1 AS 
+    SELECT brick_landusage_areas.id, 
+	brick_landusage_areas.osm_id, 
+	brick_landusage_areas.name, 
+	brick_landusage_areas.class, 
+	brick_landusage_areas.type, 
+	brick_landusage_areas.area, 
+	st_pointonsurface(brick_landusage_areas.geometry)::geometry(Point,3857) AS geometry
+    FROM import.brick_landusage_areas
+    WHERE brick_landusage_areas.area > 10240000::double precision AND brick_landusage_areas.name IS NOT NULL AND brick_landusage_areas.name::text <> ''::text AND st_isvalid(brick_landusage_areas.geometry)
     ORDER BY brick_landusage_areas.area DESC;
 
 
