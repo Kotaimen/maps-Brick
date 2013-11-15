@@ -5,6 +5,12 @@ SET search_path TO import, public;
 CREATE INDEX ON osm_places(type);
 CREATE INDEX ON osm_places(population);
 
+CREATE INDEX ON osm_landusage_areas(name);
+CREATE INDEX ON osm_landusage_areas(area);
+
+CREATE INDEX ON osm_roads(name);
+
+
 CREATE OR REPLACE VIEW import.brick_places AS
     SELECT *,
         CASE
@@ -62,6 +68,32 @@ CREATE OR REPLACE VIEW import.brick_landusage_area_labels_gen1 AS
     FROM import.brick_landusage_areas
     WHERE brick_landusage_areas.area > 10240000::double precision AND brick_landusage_areas.name IS NOT NULL AND brick_landusage_areas.name::text <> ''::text AND st_isvalid(brick_landusage_areas.geometry)
     ORDER BY brick_landusage_areas.area DESC;
+
+
+CREATE OR REPLACE VIEW import.brick_road_labels AS 
+    SELECT osm_roads.class, osm_roads.type, regexp_replace(osm_roads.name::text, '(.*)\(.*\)'::text, '\1'::text) AS name, 
+        CASE
+            WHEN sin(pi() / 2::double precision - st_azimuth(st_startpoint(osm_roads.geometry), st_endpoint(osm_roads.geometry))) > 0::double precision THEN 1
+            ELSE (-1)
+        END AS direction, osm_roads.geometry
+    FROM import.osm_roads
+    WHERE osm_roads.name IS NOT NULL AND osm_roads.name::text <> ''::text
+    ORDER BY 
+        CASE
+            WHEN osm_roads.type::text = 'motorway'::text THEN 0::smallint
+            WHEN osm_roads.type::text = 'motorway_link'::text THEN 1::smallint
+            WHEN osm_roads.type::text = 'trunk'::text THEN 2::smallint
+            WHEN osm_roads.type::text = 'trunk_link'::text THEN 3::smallint
+            WHEN osm_roads.class::text = 'railway'::text THEN 4::smallint
+            WHEN osm_roads.type::text = 'primary'::text THEN 5::smallint
+            WHEN osm_roads.type::text = 'primary_link'::text THEN 6::smallint
+            WHEN osm_roads.type::text = 'secondary'::text THEN 7::smallint
+            WHEN osm_roads.type::text = 'secondary_link'::text THEN 8::smallint
+            WHEN osm_roads.type::text = 'tertiary'::text THEN 9::smallint
+            WHEN osm_roads.type::text = 'tertiary_link'::text THEN 10::smallint
+            WHEN osm_roads.type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
+            ELSE 99::smallint
+        END DESC;
 
 
 COMMIT;
