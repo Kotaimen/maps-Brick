@@ -16,7 +16,7 @@
 }
 
 #10m_urbanareas[zoom<=10] {
-  polygon-fill: @industrial;
+  polygon-fill: @residential;
 }
 
 #10m_snow[zoom<=10] {

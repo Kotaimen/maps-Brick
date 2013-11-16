@@ -501,8 +501,7 @@
       "advanced": {
         "srid": "3857"
       },
-      "name": "waterway_gen1",
-      "status": "off"
+      "name": "waterway_gen1"
     },
     {
       "geometry": "linestring",
@@ -532,8 +531,7 @@
       "advanced": {
         "srid": "3857"
       },
-      "name": "waterway",
-      "status": "off"
+      "name": "waterway"
     },
     {
       "geometry": "linestring",
@@ -673,14 +671,16 @@
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "id": "road_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "name": "road_gen1"
     },
@@ -704,14 +704,16 @@
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "id": "road_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "name": "road_gen0"
     },
@@ -735,14 +737,16 @@
         "port": "5432",
         "user": "postgres",
         "password": "123456",
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "id": "road_all",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "name": "road_all"
     },
@@ -1013,7 +1017,7 @@
       "Datasource": {
         "type": "postgis",
         "table": "import.brick_landusage_area_labels_gen0",
-        "key_field": "osm_id",
+        "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
@@ -1021,13 +1025,16 @@
         "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "3857"
       },
       "id": "landuse_label_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "3857"
+      },
       "name": "landuse_label_gen0"
     },
     {
@@ -1041,7 +1048,7 @@
       "Datasource": {
         "type": "postgis",
         "table": "import.brick_landusage_area_labels_gen1",
-        "key_field": "osm_id",
+        "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
@@ -1049,13 +1056,16 @@
         "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "3857"
       },
       "id": "landuse_label_gen1",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "3857"
+      },
       "name": "landuse_label_gen1"
     },
     {
@@ -1069,7 +1079,7 @@
       "Datasource": {
         "type": "postgis",
         "table": "import.brick_landusage_area_labels",
-        "key_field": "osm_id",
+        "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
@@ -1077,13 +1087,16 @@
         "host": "172.26.183.193",
         "port": "5432",
         "user": "postgres",
-        "password": "123456"
+        "password": "123456",
+        "srid": "3857"
       },
       "id": "landuse_label",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "advanced": {
+        "srid": "3857"
+      },
       "name": "landuse_label"
     },
     {
@@ -1172,6 +1185,68 @@
         "encoding": "windows-1252"
       },
       "name": "10m_elevation"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_road_labels",
+        "key_field": "",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "srid": "3857"
+      },
+      "id": "road_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "srid": "3857"
+      },
+      "name": "road_label"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_road_labels_gen1",
+        "key_field": "",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.193",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "srid": "3857"
+      },
+      "id": "road_label_gen1",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "srid": "3857"
+      },
+      "name": "road_label_gen1"
     }
   ],
   "scale": 1,

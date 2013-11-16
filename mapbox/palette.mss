@@ -70,24 +70,27 @@
 @label-poi:         #4d4441;
 @label-hospital:    #593a2d;
 
-
-
 @label-halo:        fadeout(@land, 25%);
 
 @label-water:       darken(@ferry-line, 10%);
 @label-park:        #426638;
 @label-physical:    darken(@motorway-casing, 10%);
+@label-motorway:    @label-poi;
+@label-primary:     @motorway-casing;
+@label-path:        @primary-line;
 
 @smart-halo:        1.5;
 @scale-factor:      1;
 
 //// text font
-@font-regular:      'Avenir Next Condensed Regular',  'Arial Unicode MS Regular';
-@font-heavy:        'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Avenir Next Condensed Italic',  'Arial Unicode MS Regular';
-@font-road:         'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-poi:          'Avenir Next Medium',  'Arial Unicode MS Regular';
+@font-regular:      'Avenir Next Condensed Regular';
+@font-heavy:        'Avenir Next Regular';
+@font-physical:     'Avenir Next Condensed Italic';
+@font-poi:          'Avenir Next Medium';
 @font-shield:       'Arial Regular';
+@font-motorway:     'Avenir Medium';
+@font-primary:      'Avenir Medium';
+@font-path:         'Avenir Book';
 
 //// map
 Map {
