@@ -138,10 +138,10 @@
     line-gamma: 1.2;
   }
 
-  [zoom=17][link=0]  { line-smooth: 0.2; }
-  [zoom=17][link=1]  { line-smooth: 0.4; }
-  [zoom>=18][link=0] { line-smooth: 0.4; }
-  [zoom>=18][link=1] { line-smooth: 0.6; }
+  [zoom=17][link=0]  { line-smooth: 0.1; }
+  [zoom=17][link=1]  { line-smooth: 0.2; }
+  [zoom>=18][link=0] { line-smooth: 0.2; }
+  [zoom>=18][link=1] { line-smooth: 0.3; }
 
   // line color defined by road type
   [type='motorway'],[type='trunk'] {
