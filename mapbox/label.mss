@@ -1,3 +1,4 @@
+
 //// physical
 
 #label_continent[zoom<=4] {
@@ -116,6 +117,13 @@
 }
 
 //// countries
+
+// NOTE: 
+//   - admin0 labels are adjusted manually 
+//   - zoom<=9 place labels are pre calculated using simulated 
+//     annealing and rendered using mapnik simple placement
+//     still causes some render problems
+//   - zoom>=10 labels are from osm and dynamiclly rendered
 
 #label_admin0[zoom>=3][zoom<=8] {
   ::text {
@@ -376,7 +384,8 @@
         text-fill: @label-park;
       }
     }
-
+	
+    // XXX: this is awkard but seems to be pretty fast
     [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist']
     [type='university'], [type='college'],
     [type='museum'], [type='library'], [type='theatre'], [type='cinema'],
@@ -431,6 +440,9 @@
 }
 
 //// road labels
+// NOTE
+//  for thin lines label is not drawn on the link 
+//  like most web maps...
 #road_label_gen0[zoom>=10][zoom<=12],
 #road_label_gen1[zoom>=13][zoom<=15],
 #road_label[zoom>=16] {
@@ -524,3 +536,6 @@
   [direction<0] { text-dx: -10;  text-dy: -10; }      
 }
 
+//// shields
+
+// TODO...

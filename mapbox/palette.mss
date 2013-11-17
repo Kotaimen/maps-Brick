@@ -1,48 +1,53 @@
+//====== global palette file ======
+// change this file to change color theme
+// this one assumes you use medium to light colors, change
+// 'lighten' to 'darken' if your theme is dark
 
 //// base
-@land:              #d4d1c5;
-@water:             #8fb1bf;
+@land:              #b49b7f;
+@water:             #507677;
 @river:             darken(@water, 15%);
-@beach:             #c9c5ab;
+@beach:             #ad9252;
 
 //// landuse
-@park:              #bdc4ac;
-@wooded:            #b3c7b6;
-@agriculture:       #adc7b2;
-@religion:          #ccceb9;
-@healthcare:        #cfbcb2;
+@park:              #9a9d64;
+@wooded:            #838559;
+@agriculture:       #76956c;
+@religion:          #848f82;
+@healthcare:        #b47771;
 @educational:       @beach;
-@sports:            #b2b88f;
-@building:          #dbd9d0;
+@sports:            #7f8a6a;
+@building:          #b2a18f;
 
 //// zone
 @residential:       darken(@building, 5%);
 @pedestrian:        desaturate(@sports, 11%);
 @commercial:        darken(@building, 9%);
-@industrial:        #cecab9;
-@military:          #c4c2bb;
+@industrial:        #957f62;
+@military:          #6e6966;
 
 //// transport
-@parking:           #ceccc2;
+@parking:           #bd8953;
 @airport:           @beach;
 @aeroway:           lighten(@beach, 10%);
 @terminal:          darken(@beach, 7%);
 
 //// boundary
-@boundary-line:     #676d73;
+@boundary-line:     #4e3722;
 @boundary-casing:   desaturate(lighten(@boundary-line, 40%), 50%);
 @boundary-dash:     10,5;
 
 //// road
-@ferry-line:        #547280;
+// reduce casing contrast by changing 'lighten' parameter below
+@ferry-line:        #284d4e;
 
-@motorway-fill:     #d4957f;
+@motorway-fill:     #c66627;
 @motorway-line:     darken(@motorway-fill, 2%);
-@motorway-casing:   #8a776e;
-@motorway-link:     lighten(@motorway-fill, 8%);
+@motorway-casing:   #5c4a2e;
+@motorway-link:     desaturate(@motorway-fill, 15%);
 
 @primary-line:      lighten(@motorway-casing, 10%);
-@primary-fill:   	#d9cbbd;
+@primary-fill:   	#c0823f;
 @primary-casing: 	lighten(@motorway-casing, 15%);
 
 @secondary-line:    lighten(@motorway-casing, 15%);
@@ -50,7 +55,7 @@
 @secondary-casing:  lighten(@motorway-casing, 15%);
 
 @minor-line:        lighten(@motorway-casing, 20%);
-@minor-fill:		#ebe8e2;
+@minor-fill:		#b9a794;
 @minor-casing: 		lighten(@motorway-casing, 20%);
 
 @path-line:         lighten(@motorway-casing, 20%);
@@ -63,25 +68,28 @@
 @road-dash:         5,2;
 
 //// labels
-@label-xtra:        #ab421b;
-@label-admin0:      #6e5f57;
+@label-admin0:      #524640;
 @label-admin1:      @boundary-line;
-@label-place:       #381f13;
-@label-poi:         #57443e;
-@label-hospital:    #593a2d;
-@label-fadeout:     35%;
+@label-place:       #25140d;
+@label-poi:         #392d29;
+// transparency of halo color, to handle this correctly 
+// you will need mapnik 2.2+
+@label-fadeout:     20%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
-@label-park:        #2c4c22;
+// green text is subtle so we don’t compute here
+@label-park:        #213c18;
 @label-physical:    darken(@motorway-casing, 10%);
 @label-motorway:    @label-poi;
 @label-primary:     @motorway-casing;
 @label-path:        @primary-line;
 
-// variable depth halo size
+// variable depth halo size, set to a float value requries
+// mapnik 2.2+ to handle rendering correctly
 @smart-halo:        1;
-// deal with incorrect mapnik scale factor (eg: text wrap)
+// deal with incorrect mapnik scale factor for some attributes
+// (eg: text wrap)
 @scale-factor:      1;  
 
 //// text font
@@ -89,13 +97,13 @@
 @font-heavy:        'Avenir Next Regular';
 @font-physical:     'Avenir Next Condensed Italic';
 @font-poi:          'Avenir Next Medium';
-@font-shield:       'Arial Regular';
 @font-motorway:     'Avenir Medium';
 @font-primary:      'Avenir Medium';
 @font-path:         'Avenir Book';
+@font-shield:       'Arial Regular';
 
 //// map
 Map {
   background-color: @water;
-  buffer-size: 256;
+//  buffer-size: 256;
 }

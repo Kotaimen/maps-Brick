@@ -106,9 +106,9 @@
   }
 }
 
-//// all roads
+//// all road/rail links
 
-/// road style
+// WARNING from Kotaimen: road style is *very* complex 
 // class: highway
 // type:
 //   motorway, trunk -> motorway
@@ -117,8 +117,30 @@
 //   residential, unclassfied, road, minor -> minor
 //   path, track, service, footway, bridleway, cycleway, setps, predestrian,
 //   living_street, raceway -> path
-// every link is rendered three times: outline=>casing=>inline
+// every road link is rendered three times: outline=>casing=>inline
+//   plus one time for one-way marker
+//
+// class: railway
+// type:
+//    rail -> default rail style
+//    metro, light_rail -> dashed line
+//    monorail, etc -> single line
+// every rail link is rendered four times: 
+//   casing/casing fill=>inline/inline dash
+//
+// extra rules:
+//   road bridges have slightly thicker casing
+//   road links are slightly thinner
+//   rail bridges have extra casing
+//   tunnels are semi-transparent
+//
+// the link render order is decided in road.sql by explicit and implict
+// orderering rank and does not necessary follow osm link layer,
+//
+// ps: unlike osm/mapbox we don’t render pedestrian links as dashed line
+//     unlike google/bing we cares about road/rail render order
 
+/// road style
 #road_all[zoom>=12][class='highway'][render!='marker'] {
 
   // line render options
@@ -138,6 +160,9 @@
     line-gamma: 1.2;
   }
 
+  // smooth link a bit so links look less jagged at higher zoom,
+  // too much smooth cause road links don’t match
+  // road labels, which don’t support line smooth yet
   [zoom=17][link=0]  { line-smooth: 0.1; }
   [zoom=17][link=1]  { line-smooth: 0.2; }
   [zoom>=18][link=0] { line-smooth: 0.2; }
@@ -189,7 +214,7 @@
 
 }
 
-/// road width
+/// road width, copied from osmbright and adjusted a bit
 
 @rdz12_maj: 2.5; @rdz12_med: 1.2; @rdz12_min: 0.8;
 @rdz13_maj: 3;   @rdz13_med: 1.5; @rdz13_min: 1;
@@ -200,14 +225,23 @@
 @rdz18_maj: 22;  @rdz18_med: 14;  @rdz18_min: 10;
 
 #road_all[zoom>=12][class='highway'][render!='marker'] {
+  // supress rendering for links we don’t mentioned here
   line-width: 0;
-//  [render='inline']  { [tunnel=1] { line-comp-op: dst-out; line-opacity: 0.95; } }
-// [render='casing'] { [tunnel=1] { line-dasharray: @road-dash; } }
+  
+  // for tunnel links we have three solution
+  // 1. dashed link casing
+  // 2. semi transparent link
+  // 3. transprent link fill but not casing, 
+  //    requries post processing in mason composer
+  // here we are using 2
   [render='casing'] { [tunnel=1] { line-opacity: 0.5; } }
   [render='inline']  { [tunnel=1] { line-comp-op: soft-light; } }
+  // [render='casing'] { [tunnel=1] { line-dasharray: @road-dash; } }
+  // [render='inline'] { [tunnel=1] { line-comp-op: dst-out; line-opacity: 0.95; } }
+
 
   // z=12
-
+  
   [zoom=12] {
     [type='motorway'], [type='trunk'] {
       [render='inline'] { line-width: @rdz12_maj; }
@@ -784,7 +818,6 @@
 }
 
 // class: railway
-// every link is rendered four times: casing, casing fill=>inline, inline dash
 
 #road_all[zoom>=14][class='railway'][render!='marker'] {
   line-cap: butt;
