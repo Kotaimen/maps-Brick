@@ -126,10 +126,11 @@
 #landuse_line {
   [type='ferry'][zoom>=7] {
     line-color: @ferry-line;
-    [zoom<10] { line-width: 0.25; }
-    [zoom<=12] { line-width: 0.5; }
-    [zoom<15][zoom>12] { line-width: 0.75; }
-    [zoom>=15] { line-width: 1; line-smooth: 0.8; }
+    [zoom<=9] { line-width: 0.25; }
+    [zoom>=10][zoom<=12] { line-width: 0.5; }
+    [zoom<=14][zoom>12] { line-width: 0.75; }
+    [zoom>=15][zoom<=17] { line-width: 1; line-smooth: 0.2; }
+    [zoom>=15][zoom<=17] { line-width: 1.2; line-smooth: 0.4; }    
     line-dasharray: @road-dash;
     line-join: round;
   }

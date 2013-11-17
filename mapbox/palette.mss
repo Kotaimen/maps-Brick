@@ -9,7 +9,7 @@
 @park:              #bdc4ac;
 @wooded:            #b3c7b6;
 @agriculture:       #adc7b2;
-@religion:          #cecab9;
+@religion:          #ccceb9;
 @healthcare:        #cfbcb2;
 @educational:       @beach;
 @sports:            #b2b88f;
@@ -66,21 +66,23 @@
 @label-xtra:        #ab421b;
 @label-admin0:      #6e5f57;
 @label-admin1:      @boundary-line;
-@label-place:       #2e180e;
-@label-poi:         #4d4441;
+@label-place:       #381f13;
+@label-poi:         #57443e;
 @label-hospital:    #593a2d;
-
-@label-halo:        fadeout(@land, 25%);
+@label-fadeout:     35%;
+@label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
-@label-park:        #426638;
+@label-park:        #2c4c22;
 @label-physical:    darken(@motorway-casing, 10%);
 @label-motorway:    @label-poi;
 @label-primary:     @motorway-casing;
 @label-path:        @primary-line;
 
-@smart-halo:        1.5;
-@scale-factor:      1;
+// variable depth halo size
+@smart-halo:        1;
+// deal with incorrect mapnik scale factor (eg: text wrap)
+@scale-factor:      1;  
 
 //// text font
 @font-regular:      'Avenir Next Condensed Regular';

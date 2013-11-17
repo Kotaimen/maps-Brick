@@ -27,7 +27,7 @@
     text-transform: capitalize;
     text-placement: interior;
     text-fill: @label-water;
-    text-halo-fill: @water;
+    text-halo-fill: fadeout(@water, @label-fadeout);
     text-halo-radius: @smart-halo;
     text-wrap-width: 60 * @scale-factor;
   }
@@ -46,7 +46,7 @@
     text-transform: capitalize;
     text-placement: interior;
     text-fill: @label-water;
-    text-halo-fill: fadeout(@water, 25%);
+    text-halo-fill: fadeout(@water, @label-fadeout);
     text-halo-radius: @smart-halo;
     text-wrap-width: 30 * @scale-factor;
   }
@@ -61,7 +61,7 @@
     [zoom>=10] {
 	marker-fill: @label-physical;
 	marker-line-color: @label-halo;
-    marker-line-width: @smart-halo / @scale-factor;
+    marker-line-width: @smart-halo;
     marker-height: 4 + @smart-halo;
   }
   ::text
@@ -173,7 +173,7 @@
     text-placement: point;
     text-fill: @label-admin1;
     text-halo-fill: @label-halo;
-    text-halo-radius: @smart-halo / @scale-factor;
+    text-halo-radius: @smart-halo;
     text-label-position-tolerance: 10;
   }
 }
@@ -192,14 +192,14 @@
     [font_size<24] { marker-width:4 + @smart-halo / @scale-factor; }
     marker-fill: @label-place;
     marker-line-color: @label-halo;
-    marker-line-width: @smart-halo;
+    marker-line-width: @smart-halo / @scale-factor;    
   }
   ::text {
     text-face-name: @font-regular;
     text-name: '';
     text-fill: @label-place;
     text-halo-fill: @label-halo;
-    text-halo-radius: @smart-halo / @scale-factor;
+    text-halo-radius: @smart-halo;
 	text-placement-type: simple;
     text-placement: point;
     text-placements: 'NE,SW,SE,W,N,E';
@@ -221,11 +221,11 @@
   text-face-name: @font-regular;
   text-fill: @label-place;
   text-halo-fill: @label-halo;
-  text-halo-radius: @smart-halo / @scale-factor;
+  text-halo-radius: @smart-halo;
   text-placement: point;
   text-wrap-width: 100 * @scale-factor;
   text-label-position-tolerance: 16;
-  text-min-distance: 16;
+  text-min-distance: 16 * @scale-factor;
   [type='city'][population>=10000][zoom>=8][zoom<=15] {
     text-name: "[name]";
 	[zoom<=12] { text-size: 24; text-character-spacing: 1;}
@@ -431,33 +431,37 @@
 }
 
 //// road labels
-#road_label_gen1[zoom>=10][zoom<=12],
-#road_label[zoom>=13] {
+#road_label_gen0[zoom>=10][zoom<=12],
+#road_label_gen1[zoom>=13][zoom<=15],
+#road_label[zoom>=16] {
   [type='motorway'], [type='trunk'] {
     text-clip: false;
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
     text-halo-radius: 1;
-	text-halo-fill: fadeout(@motorway-fill, 50%) ;    
+	text-halo-fill: fadeout(@motorway-fill, 50%);    
+    text-size: 14;
     [zoom<=17] { text-size: 14; }
     [zoom>=18] { text-size: 18; }
     text-name: "[name]";
     text-placement: line;
-    text-min-distance: 16;
+  	text-spacing: 160;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
   }
-  [type='primary'], [type='secondary'] {
+  [type='primary'][zoom>=11], 
+  [type='secondary'][zoom>=13] {
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
-    text-halo-radius: 1;
-	text-halo-fill: fadeout(@primary-fill, 50%) ;    
+    text-halo-radius: @smart-halo;
+	text-halo-fill: fadeout(@primary-fill, 50%);    
+    text-size: 14;    
     [zoom<=17] { text-size: 14; }
     [zoom>=18] { text-size: 16; }
     text-name: "[name]";
     text-placement: line;
-    text-min-distance: 16;
+  	text-spacing: 140;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
   }  
@@ -465,13 +469,14 @@
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
-    text-halo-radius: 1;
+    text-halo-radius: @smart-halo;
 	text-halo-fill: @label-halo;
-    [zoom<=17] { text-size: 12; }
-    [zoom>=18] { text-size: 14; }
+    text-size: 12;
+    [zoom<=17] { text-size: 14; }
+    [zoom>=18] { text-size: 16; }
     text-name: "[name]";
     text-placement: line;
-    text-min-distance: 16;
+  	text-spacing: 120;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
     [zoom<=14][direction>0] { text-dx: 10;  text-dy: 10; }
@@ -481,23 +486,41 @@
 	[zoom>=18] { text-halo-fill: fadeout(@primary-fill, 50%) ;  }
   }    
 }
-
-#road_label[zoom>=16][rank>=11], {
+//#road_label_gen1[zoom>=14][zoom<=15][rank>=12],
+#road_label[zoom>=16][rank>=12][type!='ferry'] {
   text-clip: false;  
   text-face-name: @font-path;
   text-size: 14;
+//  text-fill: @label-water;
+//  text-halo-fill: fadeout(@water, @label-fadeout);
+  text-fill: @label-primary;
   text-halo-fill: @label-halo;
-  text-fill: @label-path;
-  text-halo-radius: 1;
+  text-halo-radius: @smart-halo;
   text-allow-overlap: false;
   text-name: "[name]";
   text-placement: line;
-  text-min-distance: 16;
   text-label-position-tolerance: 16;
   text-max-char-angle-delta: 20;
-  
+  text-spacing: 120;
   [zoom>=15][zoom<=17][direction>0] { text-dx: 10;  text-dy: 10; }
   [zoom>=15][zoom<=17][direction<0] { text-dx: -10;  text-dy: -10; }      
   [zoom>=18][direction>0] { text-dx: 13;  text-dy: 13; }
   [zoom>=18][direction<0] { text-dx: -13;  text-dy: -13; }  
 }
+#road_label[zoom>=16][type='ferry'] {
+  text-clip: false;  
+  text-face-name: @font-path;
+  text-size: 14;
+  text-fill: @label-water;
+  text-halo-fill: fadeout(@water, @label-fadeout);
+  text-halo-radius: @smart-halo;
+  text-allow-overlap: false;
+  text-name: "[name]";
+  text-placement: line;
+  text-label-position-tolerance: 16;
+  text-max-char-angle-delta: 20;
+  text-spacing: 300;
+  [direction>0] { text-dx: 10;  text-dy: 10; }
+  [direction<0] { text-dx: -10;  text-dy: -10; }      
+}
+
