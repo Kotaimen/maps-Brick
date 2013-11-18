@@ -135,4 +135,39 @@ CREATE OR REPLACE VIEW import.brick_road_labels_gen0 AS
      WHERE osm_roads_gen0.name IS NOT NULL AND osm_roads_gen0.name::text <> ''::text AND osm_roads_gen0.type::text IN ('motorway', 'trunk', 'primary')
      ORDER BY 
           rank DESC;       
+
+
+CREATE OR REPLACE VIEW import.brick_shields AS 
+    SELECT class,
+	type, 
+        CASE
+            WHEN ref::text ~ '^I ?\d+'::text THEN regexp_replace(ref::text, '^I ?(\d+).*'::text, 'I \1'::text)
+            WHEN ref::text ~ '^US ?\d+'::text THEN regexp_replace(ref::text, '^US ?(\d+).*'::text, 'US \1'::text)
+            WHEN ref::text ~ '^[[:alpha:]]+ ?\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+) ?(\d+).*'::text, '\1 \2'::text)
+            WHEN ref::text ~ '^[[:alpha:]]+-\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+)-(\d+).*'::text, '\1 \2'::text)
+            WHEN ref::text ~ '^\d+$'::text THEN ref::text
+            ELSE ref::text
+        END AS ref, 
+	length(ref::text) AS reflen, 
+	geometry
+    FROM import.osm_roads
+    WHERE ref IS NOT NULL AND ref != '' AND (type = ANY (ARRAY['motorway'::character varying::text, 'trunk'::character varying::text, 'primary'::character varying::text, 'secondary'::character varying::text, 'tertiary'::character varying::text]));
+
+
+
+CREATE OR REPLACE VIEW import.brick_shields_gen0 AS 
+    SELECT class,
+	type, 
+        CASE
+            WHEN ref::text ~ '^I ?\d+'::text THEN regexp_replace(ref::text, '^I ?(\d+).*'::text, 'I \1'::text)
+            WHEN ref::text ~ '^US ?\d+'::text THEN regexp_replace(ref::text, '^US ?(\d+).*'::text, 'US \1'::text)
+            WHEN ref::text ~ '^[[:alpha:]]+ ?\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+) ?(\d+).*'::text, '\1 \2'::text)
+            WHEN ref::text ~ '^[[:alpha:]]+-\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+)-(\d+).*'::text, '\1 \2'::text)
+            WHEN ref::text ~ '^\d+$'::text THEN ref::text
+            ELSE ref::text
+        END AS ref, 
+	length(ref::text) AS reflen, 
+	geometry
+    FROM import.osm_roads_gen0;
+
 COMMIT;
