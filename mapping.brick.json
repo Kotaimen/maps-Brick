@@ -1,11 +1,11 @@
 {
     "generalized_tables": {
-        "landusages_gen0": {
-            "source": "landusages_gen1",
+        "landusage_areas_gen0": {
+            "source": "landusage_areas_gen1",
             "sql_filter": "ST_Area(geometry)>500000.000000",
             "tolerance": 200.0
         },
-        "landusages_gen1": {
+        "landusage_areas_gen1": {
             "source": "landusage_areas",
             "sql_filter": "ST_Area(geometry)>50000.000000",
             "tolerance": 50.0
@@ -631,7 +631,9 @@
                             "steps",
                             "pedestrian",
                             "living_street",
-                            "raceway"
+                            "raceway",
+			    "proposed",
+			    "construction"
                         ]
                     }
                 }
