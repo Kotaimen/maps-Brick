@@ -74,7 +74,7 @@
 @label-poi:         #392d29;
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     20%;
+@label-fadeout:     50%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -87,23 +87,22 @@
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1;
+@smart-halo:        1.5;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      1;
 
 //// text font
-@font-regular:      'Roboto Condensed Regular';
-@font-heavy:        'Roboto Regular';
-@font-physical:     'Roboto Condensed Italic';
-@font-poi:          'Roboto Medium';
-@font-motorway:     'Roboto Regular';
-@font-primary:      'Roboto Regular';
-@font-path:         'Roboto Light';
-@font-shield:       'Arial Regular';
+@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
+@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
+@font-poi:          'Roboto Medium', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Medium', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Arial Bold', 'Arial Unicode MS Regular';
 
 //// map
 Map {
-  background-color: @water;
 //  buffer-size: 256;
 }
