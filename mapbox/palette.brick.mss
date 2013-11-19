@@ -90,24 +90,23 @@
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        0;
+@smart-halo:        1.5;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      1;
 
 //// text font
 // TODO: use open sourced unicode font
-@font-regular:      'Avenir Next Condensed Regular';
-@font-heavy:        'Avenir Next Regular';
-@font-physical:     'Avenir Next Condensed Italic';
-@font-poi:          'Avenir Next Medium';
-@font-shield:       'Arial Bold';
-@font-motorway:     'Avenir Medium';
-@font-primary:      'Avenir Medium';
-@font-path:         'Avenir Book';
+@font-regular:      'Avenir Next Condensed Regular', 'Arial Unicode MS Regular';
+@font-heavy:        'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-physical:     'Avenir Next Condensed Italic', 'Arial Unicode MS Regular';
+@font-poi:          'Avenir Next Medium', 'Arial Unicode MS Regular';
+@font-motorway:     'Avenir Medium', 'Arial Unicode MS Regular';
+@font-primary:      'Avenir Medium', 'Arial Unicode MS Regular';
+@font-path:         'Avenir Book', 'Arial Unicode MS Regular';
+@font-shield:       'Arial Regular', 'Arial Unicode MS Regular';
 
 //// map
 Map {
-//  background-color: @water;
 //  buffer-size: 256;
 }
