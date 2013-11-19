@@ -108,7 +108,7 @@
 
 //// all road/rail links
 
-// WARNING from Kotaimen: road style is *very* complex 
+// WARNING from Kotaimen: road style is *very* complex
 // class: highway
 // type:
 //   motorway, trunk -> motorway
@@ -125,7 +125,7 @@
 //    rail -> default rail style
 //    metro, light_rail -> dashed line
 //    monorail, etc -> single line
-// every rail link is rendered four times: 
+// every rail link is rendered four times:
 //   casing/casing fill=>inline/inline dash
 //
 // extra rules:
@@ -163,10 +163,10 @@
   // smooth link a bit so links look less jagged at higher zoom,
   // too much smooth cause road links don’t match
   // road labels, which don’t support line smooth yet
-  [zoom=17][link=0]  { line-smooth: 0.1; }
-  [zoom=17][link=1]  { line-smooth: 0.2; }
-  [zoom>=18][link=0] { line-smooth: 0.2; }
-  [zoom>=18][link=1] { line-smooth: 0.3; }
+  [zoom=17][link=0]  { line-smooth: 0; }
+  [zoom=17][link=1]  { line-smooth: 0.1; }
+  [zoom>=18][link=0] { line-smooth: 0.05; }
+  [zoom>=18][link=1] { line-smooth: 0.4; }
 
   // line color defined by road type
   [type='motorway'],[type='trunk'] {
@@ -227,11 +227,11 @@
 #road_all[zoom>=12][class='highway'][render!='marker'] {
   // supress rendering for links we don’t mentioned here
   line-width: 0;
-  
+
   // for tunnel links we have three solution
   // 1. dashed link casing
   // 2. semi transparent link
-  // 3. transprent link fill but not casing, 
+  // 3. transprent link fill but not casing,
   //    requries post processing in mason composer
   // here we are using 2
   [render='casing'] { [tunnel=1] { line-opacity: 0.5; } }
@@ -241,7 +241,7 @@
 
 
   // z=12
-  
+
   [zoom=12] {
     [type='motorway'], [type='trunk'] {
       [render='inline'] { line-width: @rdz12_maj; }
@@ -548,7 +548,7 @@
         [bridge=1] { line-width: @rdz16_maj * 1.2 + 3; }
       }
       [render='outline'] {
-        [tunnel=0] { line-width: @rdz15_maj * 1.2 + 2; }
+        [tunnel=0] { line-width: @rdz16_maj * 1.2 + 2; }
       }
     }
 
@@ -632,7 +632,7 @@
         [bridge=1] { line-width: @rdz17_maj * 1.2 + 4; }
       }
       [render='outline'] {
-        [tunnel=0] { line-width: @rdz15_maj * 1.2 + 3; }
+        [tunnel=0] { line-width: @rdz17_maj * 1.2 + 3; }
       }
     }
 
@@ -716,7 +716,7 @@
         [bridge=1] { line-width: @rdz18_maj * 1.2 + 4; }
       }
       [render='outline'] {
-        [tunnel=0] { line-width: @rdz15_maj * 1.2 + 3; }
+        [tunnel=0] { line-width: @rdz18_maj * 1.2 + 3; }
       }
     }
 
@@ -943,13 +943,11 @@
 
 /// oneway makers
 
-#road_all[zoom>=15][oneway=1][class!='railway'][render='marker'] {
-  // TODO: How to render oneway=-1?
-  [zoom=17][link=0]  { marker-smooth: 0.2; }
-  [zoom=17][link=1]  { marker-smooth: 0.4; }
-  [zoom>=18][link=0] { marker-smooth: 0.4; }
-  [zoom>=18][link=1] { marker-smooth: 0.6; }
-
+#road_all[zoom>=15][oneway!=0][class!='railway'][render='marker'] {
+  [zoom=17][link=0]  { marker-smooth: 0; }
+  [zoom=17][link=1]  { marker-smooth: 0.1; }
+  [zoom>=18][link=0] { marker-smooth: 0.05; }
+  [zoom>=18][link=1] { marker-smooth: 0.4; }
   [zoom=15][type='motorway'],
   [zoom=15][type='trunk'],
   [zoom=15][type='primary'],
@@ -965,6 +963,9 @@
     marker-type: arrow;
     marker-clip: false;
     marker-height: 6;
+    marker-file: url("arrow/oneway.svg");
+    [oneway=-1] {   marker-file: url("arrow/oneway-reverse.svg") }
+    [zoom<=16] { marker-transform: "scale(0.5)"; }
 
     marker-spacing: 200;
     marker-ignore-placement: true;
