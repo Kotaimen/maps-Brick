@@ -4,6 +4,7 @@ SET search_path TO import, public;
 
 CREATE INDEX ON osm_roads(type);
 CREATE INDEX ON osm_roads(class);
+CREATE INDEX ON osm_roads(name);
 CREATE INDEX ON osm_roads(tunnel);
 CREATE INDEX ON osm_roads(bridge);
 CREATE INDEX ON osm_roads(oneway);
@@ -11,6 +12,7 @@ CREATE INDEX ON osm_roads(layer);
 
 CREATE INDEX ON osm_roads_gen0(type);
 CREATE INDEX ON osm_roads_gen0(class);
+CREATE INDEX ON osm_roads_gen0(name);
 CREATE INDEX ON osm_roads_gen0(tunnel);
 CREATE INDEX ON osm_roads_gen0(bridge);
 CREATE INDEX ON osm_roads_gen0(oneway);
@@ -18,150 +20,240 @@ CREATE INDEX ON osm_roads_gen0(layer);
 
 CREATE INDEX ON osm_roads_gen1(type);
 CREATE INDEX ON osm_roads_gen1(class);
+CREATE INDEX ON osm_roads_gen1(name);
 CREATE INDEX ON osm_roads_gen1(tunnel);
 CREATE INDEX ON osm_roads_gen1(bridge);
 CREATE INDEX ON osm_roads_gen1(oneway);
 CREATE INDEX ON osm_roads_gen1(layer);
 
 
-CREATE OR REPLACE VIEW import.brick_roads_stage AS 
-    SELECT osm_roads.id, osm_roads.osm_id, osm_roads.class, osm_roads.type, osm_roads.tunnel, osm_roads.bridge, osm_roads.oneway, 
-        CASE
-            WHEN osm_roads.type::text ~~ '%_link'::text THEN 1::smallint
-            ELSE 0::smallint
-        END AS link, osm_roads.access, osm_roads.service, 
-        CASE
-            WHEN osm_roads.layer IS NULL THEN 0::smallint
-            ELSE osm_roads.layer::smallint
-        END AS layer, 
-        CASE
-            WHEN type::text = 'motorway'::text THEN 0::smallint
-	    WHEN type::text = 'motorway_link'::text THEN 1::smallint
-            WHEN type::text = 'trunk'::text THEN 2::smallint
-            WHEN type::text = 'trunk_link'::text THEN 3::smallint
-            WHEN class::text = 'railway'::text THEN 4::smallint
-            WHEN type::text = 'primary'::text THEN 5::smallint
-            WHEN type::text = 'primary_link'::text THEN 6::smallint 
-            WHEN type::text = 'secondary'::text THEN 7::smallint
-            WHEN type::text = 'secondary_link'::text THEN 8::smallint
-            WHEN type::text = 'tertiary'::text THEN 9::smallint
-            WHEN type::text = 'tertiary_link'::text THEN 10::smallint
-            WHEN type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
-            ELSE 99::smallint
-        END AS rank, osm_roads.geometry
-    FROM import.osm_roads;
+-- full set of roads
+CREATE OR REPLACE VIEW brick_roads_stage AS 
+    SELECT  osm_id, class, tunnel, bridge, oneway, access, service,
+            CASE    -- roads category
+                    WHEN type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
+                    WHEN type IN ('primary', 'primary_link') THEN 'primary'
+                    WHEN type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
+                    WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
+                    WHEN type IN ('path', 'track', 'footway', 'bridleway', 'cycleway', 'pedestrian', 'living_street', 'service') THEN 'path'
+                    WHEN type IN ('construction', 'proposed') THEN 'proposed'
+                    
+                    -- railway category
+                    WHEN type IN ('rail') THEN 'rail'
+                    WHEN type IN ('subway', 'light_rail') THEN 'subway'
+                    WHEN type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
+                    ELSE 'path'
+            END AS type,
+            CASE    
+                    -- link flag
+                    WHEN type ~~ '%_link' THEN 1
+                    ELSE 0
+            END AS link,
+            CASE    
+                    -- osm layer, explicit hierarchy
+                    WHEN layer IS NULL THEN 0
+            	    ELSE layer
+            END AS layer, 
+            CASE    
+                    -- rank of roads, implicit hierarchy
+                    -- motorway
+                    WHEN type = 'motorway' THEN 0
+	    	        WHEN type = 'motorway_link' THEN 1
+                	WHEN type = 'trunk' THEN 20
+                	WHEN type = 'trunk_link' THEN 21
+                	
+                	-- all railways 
+                	WHEN class = 'railway' THEN 30
+                	
+                	-- primary roads
+                	WHEN type = 'primary' THEN 40
+                	WHEN type = 'primary_link' THEN 41 
+                	
+                	-- secondary roads
+                	WHEN type = 'secondary' THEN 50
+                	WHEN type = 'secondary_link' THEN 51
+                	
+                	WHEN type = 'tertiary' THEN 60
+                	WHEN type = 'tertiary_link' THEN 61
+                
+                   	-- minor roads
+                	WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
+                	
+                	-- path
+                	ELSE 255
+            END AS rank,
+            geometry
+    FROM osm_roads;
 
 
-CREATE OR REPLACE VIEW import.brick_roads_stage_gen0 AS 
- SELECT osm_roads_gen0.osm_id, osm_roads_gen0.class, osm_roads_gen0.type, osm_roads_gen0.tunnel, osm_roads_gen0.bridge, osm_roads_gen0.oneway, 
-        CASE
-            WHEN osm_roads_gen0.type::text ~~ '%_link'::text THEN 1::smallint
-            ELSE 0::smallint
-        END AS link, osm_roads_gen0.access, osm_roads_gen0.service, 
-        CASE
-            WHEN osm_roads_gen0.layer IS NULL THEN 0::smallint
-            ELSE osm_roads_gen0.layer::smallint
-        END AS layer, 
-        CASE
-            WHEN type::text = 'motorway'::text THEN 0::smallint
-	    WHEN type::text = 'motorway_link'::text THEN 1::smallint
-            WHEN type::text = 'trunk'::text THEN 2::smallint
-            WHEN type::text = 'trunk_link'::text THEN 3::smallint
-            WHEN class::text = 'railway'::text THEN 4::smallint
-            WHEN type::text = 'primary'::text THEN 5::smallint
-            WHEN type::text = 'primary_link'::text THEN 6::smallint 
-            WHEN type::text = 'secondary'::text THEN 7::smallint
-            WHEN type::text = 'secondary_link'::text THEN 8::smallint
-            WHEN type::text = 'tertiary'::text THEN 9::smallint
-            WHEN type::text = 'tertiary_link'::text THEN 10::smallint
-            WHEN type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
-            ELSE 99::smallint
-        END  AS rank, osm_roads_gen0.geometry
-   FROM import.osm_roads_gen0;
+-- osm_roads_gen1 contains a small set of roads in osm_roads, select logic is same as above
+CREATE OR REPLACE VIEW brick_roads_stage_gen1 AS 
+    SELECT  osm_id, class, tunnel, bridge, oneway, access, service,
+            CASE    -- roads category
+                    WHEN type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
+                    WHEN type IN ('primary', 'primary_link') THEN 'primary'
+                    WHEN type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
+                    WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
+                    WHEN type IN ('path', 'track', 'footway', 'bridleway', 'cycleway', 'pedestrian', 'living_street', 'service') THEN 'path'
+                    WHEN type IN ('construction', 'proposed') THEN 'proposed'
+                    
+                    -- railway category
+                    WHEN type IN ('rail') THEN 'rail'
+                    WHEN type IN ('subway', 'light_rail') THEN 'subway'
+                    WHEN type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
+                    ELSE 'path'
+            END AS type,
+            CASE    
+                    -- link flag
+                    WHEN type ~~ '%_link' THEN 1
+                    ELSE 0
+            END AS link,
+            CASE    
+                    -- osm layer, explicit hierarchy
+                    WHEN layer IS NULL THEN 0
+            	    ELSE layer
+            END AS layer, 
+            CASE    
+                    -- rank of roads, implicit hierarchy
+                    -- motorway
+                    WHEN type = 'motorway' THEN 0
+	    	        WHEN type = 'motorway_link' THEN 1
+                	WHEN type = 'trunk' THEN 20
+                	WHEN type = 'trunk_link' THEN 21
+                	
+                	-- all railways 
+                	WHEN class = 'railway' THEN 30
+                	
+                	-- primary roads
+                	WHEN type = 'primary' THEN 40
+                	WHEN type = 'primary_link' THEN 41 
+                	
+                	-- secondary roads
+                	WHEN type = 'secondary' THEN 50
+                	WHEN type = 'secondary_link' THEN 51
+                	
+                	WHEN type = 'tertiary' THEN 60
+                	WHEN type = 'tertiary_link' THEN 61
+                
+                   	-- minor roads
+                	WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
+                	
+                	-- path
+                	ELSE 255
+            END AS rank,
+            geometry
+    FROM osm_roads_gen1;
 
 
-CREATE OR REPLACE VIEW import.brick_roads_stage_gen1 AS 
- SELECT osm_roads_gen1.osm_id, osm_roads_gen1.class, osm_roads_gen1.type, osm_roads_gen1.tunnel, osm_roads_gen1.bridge, osm_roads_gen1.oneway, 
-        CASE
-            WHEN osm_roads_gen1.type::text ~~ '%_link'::text THEN 1::smallint
-            ELSE 0::smallint
-        END AS link, osm_roads_gen1.access, osm_roads_gen1.service, 
-        CASE
-            WHEN osm_roads_gen1.layer IS NULL THEN 0::smallint
-            ELSE osm_roads_gen1.layer::smallint
-        END AS layer, 
-        CASE
-            WHEN type::text = 'motorway'::text THEN 0::smallint
-	    WHEN type::text = 'motorway_link'::text THEN 1::smallint
-            WHEN type::text = 'trunk'::text THEN 2::smallint
-            WHEN type::text = 'trunk_link'::text THEN 3::smallint
-            WHEN class::text = 'railway'::text THEN 4::smallint
-            WHEN type::text = 'primary'::text THEN 5::smallint
-            WHEN type::text = 'primary_link'::text THEN 6::smallint 
-            WHEN type::text = 'secondary'::text THEN 7::smallint
-            WHEN type::text = 'secondary_link'::text THEN 8::smallint
-            WHEN type::text = 'tertiary'::text THEN 9::smallint
-            WHEN type::text = 'tertiary_link'::text THEN 10::smallint
-            WHEN type::text = ANY (ARRAY['residential'::character varying::text, 'unclassified'::character varying::text, 'road'::character varying::text, 'minor'::character varying::text]) THEN 11::smallint
-            ELSE 99::smallint
-        END  AS rank, osm_roads_gen1.geometry
-   FROM import.osm_roads_gen1;
+-- osm_roads_gen0 contains a small set of roads in osm_roads_gen0, select logic is same as above
+CREATE OR REPLACE VIEW brick_roads_stage_gen0 AS 
+    SELECT  osm_id, class, tunnel, bridge, oneway, access, service,
+            CASE    -- roads category
+                    WHEN type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
+                    WHEN type IN ('primary', 'primary_link') THEN 'primary'
+                    WHEN type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
+                    WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
+                    WHEN type IN ('path', 'track', 'footway', 'bridleway', 'cycleway', 'pedestrian', 'living_street', 'service') THEN 'path'
+                    WHEN type IN ('construction', 'proposed') THEN 'proposed'
+                    
+                    -- railway category
+                    WHEN type IN ('rail') THEN 'rail'
+                    WHEN type IN ('subway', 'light_rail') THEN 'subway'
+                    WHEN type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
+                    ELSE 'path'
+            END AS type,
+            CASE    
+                    -- link flag
+                    WHEN type ~~ '%_link' THEN 1
+                    ELSE 0
+            END AS link,
+            CASE    
+                    -- osm layer, explicit hierarchy
+                    WHEN layer IS NULL THEN 0
+            	    ELSE layer
+            END AS layer, 
+            CASE    
+                    -- rank of roads, implicit hierarchy
+                    -- motorway
+                    WHEN type = 'motorway' THEN 0
+	    	        WHEN type = 'motorway_link' THEN 1
+                	WHEN type = 'trunk' THEN 20
+                	WHEN type = 'trunk_link' THEN 21
+                	
+                	-- all railways 
+                	WHEN class = 'railway' THEN 30
+                	
+                	-- primary roads
+                	WHEN type = 'primary' THEN 40
+                	WHEN type = 'primary_link' THEN 41 
+                	
+                	-- secondary roads
+                	WHEN type = 'secondary' THEN 50
+                	WHEN type = 'secondary_link' THEN 51
+                	
+                	WHEN type = 'tertiary' THEN 60
+                	WHEN type = 'tertiary_link' THEN 61
+                
+                   	-- minor roads
+                	WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
+                	
+                	-- path
+                	ELSE 255
+            END AS rank,
+            geometry
+    FROM osm_roads_gen0;
 
 
-
-
-CREATE OR REPLACE VIEW import.brick_roads AS 
+-- All Roads with hierarchy effect
+CREATE OR REPLACE VIEW brick_roads AS 
     SELECT * FROM (
-	SELECT 'outline'::text AS render, 1 AS outline, 0 AS render_order, * FROM import.brick_roads_stage
+	    SELECT 'outline' AS render, 1 AS outline, 0 AS render_order, * FROM brick_roads_stage
         UNION ALL 
-        SELECT 'casing'::text AS render, 0 AS outline, 1 AS render_order, * FROM import.brick_roads_stage
+        SELECT 'casing' AS render, 0 AS outline, 1 AS render_order, * FROM brick_roads_stage
         UNION ALL 
-        SELECT 'inline'::text AS render, 0 AS outline, 2 AS render_order, * FROM import.brick_roads_stage
+        SELECT 'inline' AS render, 0 AS outline, 2 AS render_order, * FROM brick_roads_stage
         UNION ALL 
-        SELECT 'marker'::text AS render, 0 AS outline, 3 AS render_order, * FROM import.brick_roads_stage
+        SELECT 'marker' AS render, 0 AS outline, 3 AS render_order, * FROM brick_roads_stage
     ) foo
-    ORDER BY 
-    	  foo.outline DESC, 
-    	  foo.layer ASC, 
-	  foo.tunnel DESC NULLS LAST, 
-	  foo.bridge NULLS FIRST, 
-	  foo.render_order ASC, 
-	  foo.rank DESC;
+    ORDER BY
+    -- 1. Draw all the outline first.
+    foo.outline DESC, 
+    
+    -- 2. explicit hierarchy
+    foo.layer ASC, 
+    
+    -- 3. implicit hierarchy by road properties
+    foo.tunnel DESC NULLS LAST, 
+    foo.bridge NULLS FIRST, 
+    foo.render_order ASC, 
+    
+    -- 4. implicit hierarchy by road type
+    foo.rank DESC;
 
 
-
-CREATE OR REPLACE VIEW import.brick_roads_gen0 AS 
-    SELECT brick_roads_stage_gen0.osm_id, 
-    	   brick_roads_stage_gen0.class, 
-	   brick_roads_stage_gen0.type, 
-	   brick_roads_stage_gen0.tunnel, 
-	   brick_roads_stage_gen0.bridge, 
-	   brick_roads_stage_gen0.oneway, 
-	   brick_roads_stage_gen0.link, 
-	   brick_roads_stage_gen0.access, 
-	   brick_roads_stage_gen0.service, 
-	   brick_roads_stage_gen0.layer, 
-	   brick_roads_stage_gen0.rank, 
-	   brick_roads_stage_gen0.geometry
-    FROM import.brick_roads_stage_gen0
-    ORDER BY brick_roads_stage_gen0.rank DESC;
-
-
-
-CREATE OR REPLACE VIEW import.brick_roads_gen1 AS 
+-- It is not necessary to draw outline and marker in mid-level
+CREATE OR REPLACE VIEW brick_roads_gen1 AS 
     SELECT *
     FROM (         
-    	SELECT 'casing'::text AS render, 1 AS outline, 0 AS render_order, * FROM import.brick_roads_stage_gen1
+    	SELECT 'casing' AS render, 1 AS outline, 0 AS render_order, * FROM brick_roads_stage_gen1
         UNION ALL 
-        SELECT 'inline'::text AS render, 0 AS outline, 1 AS render_order, * FROM import.brick_roads_stage_gen1
+        SELECT 'inline' AS render, 0 AS outline, 1 AS render_order, * FROM brick_roads_stage_gen1
     ) foo
-    ORDER BY foo.outline DESC, 
-    	     foo.layer ASC, 
-	     foo.tunnel DESC NULLS LAST, 
-	     foo.bridge NULLS FIRST, 
-	     foo.render_order ASC, 
-	     foo.rank DESC;
+    ORDER BY 
+    foo.outline DESC, 
+    foo.layer ASC, 
+    foo.tunnel DESC NULLS LAST, 
+    foo.bridge NULLS FIRST, 
+    foo.render_order ASC, 
+    foo.rank DESC;
 
+
+-- Road Overview
+CREATE OR REPLACE VIEW brick_roads_gen0 AS 
+    SELECT *
+    FROM brick_roads_stage_gen0
+    ORDER BY 
+    rank DESC;
 
 
 COMMIT;
