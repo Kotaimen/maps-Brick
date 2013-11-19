@@ -138,36 +138,50 @@ CREATE OR REPLACE VIEW import.brick_road_labels_gen0 AS
 
 
 CREATE OR REPLACE VIEW import.brick_shields AS 
-    SELECT class,
-	type, 
+ SELECT osm_roads.class, osm_roads.type, 
         CASE
-            WHEN ref::text ~ '^I ?\d+'::text THEN regexp_replace(ref::text, '^I ?(\d+).*'::text, 'I \1'::text)
-            WHEN ref::text ~ '^US ?\d+'::text THEN regexp_replace(ref::text, '^US ?(\d+).*'::text, 'US \1'::text)
-            WHEN ref::text ~ '^[[:alpha:]]+ ?\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+) ?(\d+).*'::text, '\1 \2'::text)
-            WHEN ref::text ~ '^[[:alpha:]]+-\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+)-(\d+).*'::text, '\1 \2'::text)
-            WHEN ref::text ~ '^\d+$'::text THEN ref::text
-            ELSE ref::text
-        END AS ref, 
-	length(ref::text) AS reflen, 
-	geometry
-    FROM import.osm_roads
-    WHERE ref IS NOT NULL AND ref != '' AND (type = ANY (ARRAY['motorway'::character varying::text, 'trunk'::character varying::text, 'primary'::character varying::text, 'secondary'::character varying::text, 'tertiary'::character varying::text]));
+            WHEN osm_roads.ref::text ~ '^I ?\d+'::text THEN regexp_replace(osm_roads.ref::text, '^I ?(\d+).*'::text, 'I \1'::text)
+            WHEN osm_roads.ref::text ~ '^US ?\d+'::text THEN regexp_replace(osm_roads.ref::text, '^US ?(\d+).*'::text, 'US \1'::text)
+            WHEN osm_roads.ref::text ~ '^[[:alpha:]]+ ?\d+'::text THEN regexp_replace(osm_roads.ref::text, '^([[:alpha:]]+) ?(\d+).*'::text, '\1 \2'::text)
+            WHEN osm_roads.ref::text ~ '^[[:alpha:]]+-\d+'::text THEN regexp_replace(osm_roads.ref::text, '^([[:alpha:]]+)-(\d+).*'::text, '\1 \2'::text)
+            WHEN osm_roads.ref::text ~ '^\d+$'::text THEN osm_roads.ref::text
+            ELSE osm_roads.ref::text
+        END AS ref, length(osm_roads.ref::text) AS reflen, osm_roads.geometry
+   FROM import.osm_roads
+  WHERE osm_roads.ref IS NOT NULL AND osm_roads.ref::text <> ''::text AND (osm_roads.type::text = ANY (ARRAY['motorway'::character varying::text, 'trunk'::character varying::text, 'primary'::character varying::text, 'secondary'::character varying::text, 'tertiary'::character varying::text]))
+  ORDER BY 
+  	CASE WHEN type='motorway' THEN 0
+	     WHEN type='trunk' THEN 1
+	     WHEN type='primary' THEN 2
+	     WHEN type='secondary' THEN 3
+	     WHEN type='tertiary' THEN 4
+	     ELSE 99
+	END ASC;
 
 
-
+	
 CREATE OR REPLACE VIEW import.brick_shields_gen0 AS 
-    SELECT class,
-	type, 
-        CASE
-            WHEN ref::text ~ '^I ?\d+'::text THEN regexp_replace(ref::text, '^I ?(\d+).*'::text, 'I \1'::text)
-            WHEN ref::text ~ '^US ?\d+'::text THEN regexp_replace(ref::text, '^US ?(\d+).*'::text, 'US \1'::text)
-            WHEN ref::text ~ '^[[:alpha:]]+ ?\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+) ?(\d+).*'::text, '\1 \2'::text)
-            WHEN ref::text ~ '^[[:alpha:]]+-\d+'::text THEN regexp_replace(ref::text, '^([[:alpha:]]+)-(\d+).*'::text, '\1 \2'::text)
-            WHEN ref::text ~ '^\d+$'::text THEN ref::text
-            ELSE ref::text
-        END AS ref, 
-	length(ref::text) AS reflen, 
-	geometry
-    FROM import.osm_roads_gen0;
+ SELECT foo.class, foo.type, foo.ref, length(foo.ref) AS reflen, foo.geometry
+   FROM ( SELECT osm_roads_gen1.class, osm_roads_gen1.type, 
+                CASE
+                    WHEN osm_roads_gen1.ref::text ~ '^I ?\d+'::text THEN regexp_replace(osm_roads_gen1.ref::text, '^I ?(\d+).*'::text, 'I \1'::text)
+                    WHEN osm_roads_gen1.ref::text ~ '^US ?\d+'::text THEN regexp_replace(osm_roads_gen1.ref::text, '^US ?(\d+).*'::text, 'US \1'::text)
+                    WHEN osm_roads_gen1.ref::text ~ '^[[:alpha:]]+ ?\d+'::text THEN regexp_replace(osm_roads_gen1.ref::text, '^([[:alpha:]]+) ?(\d+).*'::text, '\1 \2'::text)
+                    WHEN osm_roads_gen1.ref::text ~ '^[[:alpha:]]+-\d+'::text THEN regexp_replace(osm_roads_gen1.ref::text, '^([[:alpha:]]+)-(\d+).*'::text, '\1 \2'::text)
+                    WHEN osm_roads_gen1.ref::text ~ '^\d+$'::text THEN osm_roads_gen1.ref::text
+                    ELSE osm_roads_gen1.ref::text
+                END AS ref, osm_roads_gen1.geometry
+           FROM import.osm_roads_gen1
+          WHERE osm_roads_gen1.ref IS NOT NULL AND osm_roads_gen1.ref::text <> ''::text AND (osm_roads_gen1.type::text = ANY (ARRAY['motorway'::character varying::text, 'trunk'::character varying::text, 'primary'::character varying::text, 'secondary'::character varying::text, 'tertiary'::character varying::text]))) foo
+ ORDER BY
+        CASE WHEN type='motorway' THEN 0
+             WHEN type='trunk' THEN 1
+             WHEN type='primary' THEN 2
+             WHEN type='secondary' THEN 3
+             WHEN type='tertiary' THEN 4
+             ELSE 99
+	END ASC;
+
+
 
 COMMIT;
