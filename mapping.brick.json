@@ -10,17 +10,17 @@
             "sql_filter": "ST_Area(geometry)>50000.000000",
             "tolerance": 50.0
         },
-	"landusages_area_labels": {
+	"landusage_area_labels": {
 	    "source": "landusage_areas",
 	    "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 1024 AND ST_Area(geometry) < 10240000 AND name IS NOT NULL AND name != ''",
 	    "tolerence": null
 	},
-	"landusages_area_labels_gen1": {
+	"landusage_area_labels_gen1": {
 	    "source": "landusages_gen1",
             "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 10240000 AND name IS NOT NULL AND name != ''",
             "tolerence": null
         },
-        "landusages_area_labels_gen0": {
+        "landusage_area_labels_gen0": {
             "source": "landusages_gen0",
             "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 1024000000 AND name IS NOT NULL AND name != ''",
             "tolerence": null

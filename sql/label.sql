@@ -31,19 +31,19 @@ CREATE OR REPLACE VIEW brick_places AS
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM landusages_area_labels
+    FROM landusage_area_labels
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM landusages_area_labels_gen0
+    FROM landusage_area_labels_gen0
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM landusages_area_labels_gen1
+    FROM landusage_area_labels_gen1
     ORDER BY area DESC, osm_id;
 
 
@@ -147,7 +147,7 @@ CREATE OR REPLACE VIEW brick_shields AS
 	
 CREATE OR REPLACE VIEW brick_shields_gen0 AS 
     SELECT class, type, ref, length(ref) AS reflen, geometry
-    FROM ( SELECT    class, type, 
+    FROM ( SELECT osm_id, class, type, 
                     CASE
                         WHEN ref ~ '^I ?\d+' THEN regexp_replace(ref, '^I ?(\d+).*', 'I \1')
                         WHEN ref ~ '^US ?\d+' THEN regexp_replace(ref, '^US ?(\d+).*', 'US \1')
