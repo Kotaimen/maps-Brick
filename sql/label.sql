@@ -32,24 +32,24 @@ CREATE OR REPLACE VIEW brick_places AS
 CREATE OR REPLACE VIEW brick_landusage_area_labels AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
     FROM landusages_area_labels
-    ORDER BY area DESC;
+    ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
     FROM landusages_area_labels_gen0
-    ORDER BY area DESC;
+    ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
     FROM landusages_area_labels_gen1
-    ORDER BY area DESC;
+    ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_road_labels AS 
     SELECT * FROM (
-        SELECT  class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name, 
+        SELECT  osm_id, class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name, 
                 CASE
                     WHEN sin(pi() / 2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
                     ELSE (-1)
@@ -68,7 +68,7 @@ CREATE OR REPLACE VIEW brick_road_labels AS
 	            geometry
         FROM road_labels
         UNION ALL
-        SELECT 'ferry' AS class, 'ferry' AS type, name, 
+        SELECT osm_id, 'ferry' AS class, 'ferry' AS type, name, 
                 CASE
                     WHEN sin(pi()/2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
                     ELSE (-1)
@@ -79,7 +79,7 @@ CREATE OR REPLACE VIEW brick_road_labels AS
         FROM osm_landusage_ways
         WHERE type='ferry'
     ) AS foo
-    ORDER BY rank DESC;
+    ORDER BY rank DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_road_labels_gen1 AS 
@@ -101,7 +101,7 @@ CREATE OR REPLACE VIEW brick_road_labels_gen1 AS
 	        tunnel,
             geometry
     FROM road_labels_gen1
-    ORDER BY rank DESC;
+    ORDER BY rank DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_road_labels_gen0 AS 
@@ -116,7 +116,7 @@ CREATE OR REPLACE VIEW brick_road_labels_gen0 AS
     	   tunnel,
     	   geometry
     FROM road_labels_gen0
-    ORDER BY rank DESC;       
+    ORDER BY rank DESC, osm_id;       
 
 
 CREATE OR REPLACE VIEW brick_shields AS 
@@ -140,7 +140,8 @@ CREATE OR REPLACE VIEW brick_shields AS
 	         WHEN type='secondary' THEN 3
 	         WHEN type='tertiary' THEN 4
 	         ELSE 99
-	    END ASC;
+	    END ASC,
+	    osm_id;
 
 
 	
@@ -165,7 +166,8 @@ CREATE OR REPLACE VIEW brick_shields_gen0 AS
              WHEN type='secondary' THEN 3
              WHEN type='tertiary' THEN 4
              ELSE 99
-	END ASC;
+	    END ASC,
+	    osm_id;
 
 
 
