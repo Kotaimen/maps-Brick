@@ -7,9 +7,9 @@ CREATE INDEX ON osm_places(population);
 
 CREATE INDEX ON osm_landusage_areas(area);
 
-CREATE INDEX ON landusage_area_labels(area);
-CREATE INDEX ON landusage_area_labels_gen0(area);
-CREATE INDEX ON landusage_area_labels_gen1(area);
+CREATE INDEX ON osm_landusage_area_labels(area);
+CREATE INDEX ON osm_landusage_area_labels_gen0(area);
+CREATE INDEX ON osm_landusage_area_labels_gen1(area);
 
 
 CREATE OR REPLACE VIEW brick_places AS
@@ -31,19 +31,19 @@ CREATE OR REPLACE VIEW brick_places AS
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM landusage_area_labels
+    FROM osm_landusage_area_labels
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM landusage_area_labels_gen0
+    FROM osm_landusage_area_labels_gen0
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS 
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM landusage_area_labels_gen1
+    FROM osm_landusage_area_labels_gen1
     ORDER BY area DESC, osm_id;
 
 
@@ -66,7 +66,7 @@ CREATE OR REPLACE VIEW brick_road_labels AS
                 END AS rank,
 	            tunnel,
 	            geometry
-        FROM road_labels
+        FROM osm_road_labels
         UNION ALL
         SELECT osm_id, 'ferry' AS class, 'ferry' AS type, name, 
                 CASE
@@ -100,7 +100,7 @@ CREATE OR REPLACE VIEW brick_road_labels_gen1 AS
             END AS rank,
 	        tunnel,
             geometry
-    FROM road_labels_gen1
+    FROM osm_road_labels_gen1
     ORDER BY rank DESC, osm_id;
 
 
@@ -115,7 +115,7 @@ CREATE OR REPLACE VIEW brick_road_labels_gen0 AS
            END AS rank,
     	   tunnel,
     	   geometry
-    FROM road_labels_gen0
+    FROM osm_road_labels_gen0
     ORDER BY rank DESC, osm_id;       
 
 
