@@ -42,25 +42,23 @@ CREATE OR REPLACE VIEW import.brick_places AS
 CREATE OR REPLACE VIEW import.brick_landusage_area_labels AS 
     SELECT osm_id, name, class, type, area, 
         st_centroid(geometry)::geometry(Point,3857) AS geometry
-    FROM import.osm_landusage_areas
-    WHERE area > 1024::double precision AND area <= 10240000 AND name IS NOT NULL AND name::text <> ''::text AND st_isvalid(geometry)
+    FROM import.landusages_area_labels
     ORDER BY area DESC;
 
 
 CREATE OR REPLACE VIEW import.brick_landusage_area_labels_gen0 AS 
     SELECT osm_id, name, class, type, area, 
 	st_pointonsurface(geometry)::geometry(Point,3857) AS geometry
-    FROM import.osm_landusages_gen0
-    WHERE area > 1024000000::double precision AND name IS NOT NULL AND name::text <> ''::text AND st_isvalid(geometry)
+    FROM import.landusages_area_labels_gen0
     ORDER BY area DESC;
 
 
 CREATE OR REPLACE VIEW import.brick_landusage_area_labels_gen1 AS 
     SELECT osm_id, name, class, type, area, 
 	st_pointonsurface(geometry)::geometry(Point,3857) AS geometry
-    FROM import.osm_landusages_gen1
-    WHERE area > 10240000::double precision AND name IS NOT NULL AND name::text <> ''::text AND st_isvalid(geometry)
+    FROM import.landusages_area_labels_gen1
     ORDER BY area DESC;
+
 
 CREATE OR REPLACE VIEW import.brick_road_labels AS 
     SELECT * FROM (
@@ -81,8 +79,7 @@ CREATE OR REPLACE VIEW import.brick_road_labels AS
                 ELSE 99::smallint
             END AS rank,
 	    tunnel
-        FROM import.osm_roads
-        WHERE osm_roads.name IS NOT NULL AND osm_roads.name::text <> ''::text
+        FROM import.road_labels
         UNION ALL
         SELECT 'ferry' AS class, 'ferry' AS type, osm_landusage_ways.name, 
             CASE
@@ -115,8 +112,7 @@ CREATE OR REPLACE VIEW import.brick_road_labels_gen1 AS
                 ELSE 99::smallint
             END AS rank,
 	    tunnel
-       FROM import.osm_roads_gen1
-      WHERE osm_roads_gen1.name IS NOT NULL AND osm_roads_gen1.name::text <> ''::text
+       FROM import.road_labels_gen1
       ORDER BY 
            rank DESC;
 
@@ -131,7 +127,7 @@ CREATE OR REPLACE VIEW import.brick_road_labels_gen0 AS
                ELSE 99::smallint
            END AS rank,
 	   tunnel
-      FROM import.osm_roads_gen0
+      FROM import.road_labels_gen0
      WHERE osm_roads_gen0.name IS NOT NULL AND osm_roads_gen0.name::text <> ''::text AND osm_roads_gen0.type::text IN ('motorway', 'trunk', 'primary')
      ORDER BY 
           rank DESC;       
