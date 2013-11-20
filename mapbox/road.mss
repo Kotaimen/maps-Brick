@@ -77,7 +77,7 @@
   }
 
   [type='secondary'] {
-    [render='inline'][zoom<=11] { line-color: @secondary-line; }    
+    [render='inline'][zoom<=11] { line-color: @secondary-line; }
     [render='inline'][zoom>=12] { line-color: @secondary-fill; }
     [render='casing']{ line-color: @secondary-casing; }
     [zoom=9] {
@@ -101,13 +101,13 @@
       [render='inline'] { line-width: 0.4; }
     }
   }
-  
+
   [type='minor'] {
     [render='inline'] { line-color: @minor-line; }
     [zoom>=12] {
       [render='inline'] { line-width: 0.2; }
     }
-  }  
+  }
 }
 
 #road_gen1[zoom>=9][zoom<=12][class='railway'] {
@@ -942,7 +942,7 @@
 
 /// oneway makers
 
-#road_all[zoom>=15][oneway!=0][class!='railway'][render='marker'] {
+#road_all[zoom>=15][oneway!=0][class='highway'][render='marker'] {
   [zoom=17][link=0]  { marker-smooth: 0; }
   [zoom=17][link=1]  { marker-smooth: 0.1; }
   [zoom>=18][link=0] { marker-smooth: 0.05; }

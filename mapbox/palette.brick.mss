@@ -77,7 +77,7 @@
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     35%;
+@label-fadeout:     40%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -90,7 +90,7 @@
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1.5;
+@smart-halo:        1;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      1;
@@ -109,4 +109,6 @@
 //// map
 Map {
 //  buffer-size: 256;
+//  font-directory: ;
+//	base: url()
 }

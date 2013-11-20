@@ -87,7 +87,7 @@
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1.5;
+@smart-halo:        1;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      1;
