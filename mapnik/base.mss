@@ -28,7 +28,6 @@ Map {
 #landuse_gen0[zoom>=5][zoom<=9],
 #landuse_gen1[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
-
   // natural green
   [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
   [type='wood'], [type='wetland'], [type='marsh'], [type='scrub'],
@@ -123,6 +122,7 @@ Map {
   // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
 //  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
+ 
 }
 
 #landuse_line {

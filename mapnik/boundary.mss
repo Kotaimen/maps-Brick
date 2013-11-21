@@ -51,20 +51,20 @@
 
 
 #10m_marine_indicator {
-  [zoom=2][scalerank<=2], 
-  [zoom=3][scalerank<=3], 
-  [zoom=4][scalerank<=4], 
-  [zoom=5][scalerank<=4], 
-  [zoom=6][scalerank<=5], 
-  [zoom=7][scalerank<=6], 
+  [zoom=2][scalerank<=2],
+  [zoom=3][scalerank<=3],
+  [zoom=4][scalerank<=4],
+  [zoom=5][scalerank<=4],
+  [zoom=6][scalerank<=5],
+  [zoom=7][scalerank<=6],
   [zoom>=8] {
     ::casing {
       line-color: @boundary-casing;
       line-opacity: 0.5;
       line-join: round;
       line-cap: round;
-      line-width: 3;    
-    }  
+      line-width: 3;
+    }
     ::body {
         [featurecla='Marine Indicator Disputed'] {
         [zoom=3] { line-dasharray:4,1; }
@@ -76,8 +76,8 @@
       line-color: @boundary-line;
       line-join: round;
       line-cap: round;
-      line-width: 1.5;    
-    }  
+      line-width: 1.5;
+    }
   }
 }
 
@@ -144,3 +144,4 @@
     }
   }
 }
+

@@ -52,7 +52,7 @@
      inkscape:groupmode="layer"
      id="layer1" />
   <path
-     style="fill:#f6f3f0;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     style="fill:#f6f3f0;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.75;stroke-dasharray:none;stroke-dashoffset:0"
      d="m 0.5,0.50000028 24,0 0,13.99999972 -24,0 z"
      id="rect2987"
      inkscape:connector-curvature="0" />
