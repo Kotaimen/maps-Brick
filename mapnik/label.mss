@@ -386,7 +386,7 @@
     }
 
     // XXX: this is awkard but seems to be pretty fast
-    [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist']
+    [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'],
     [type='university'], [type='college'],
     [type='museum'], [type='library'], [type='theatre'], [type='cinema'],
     [type='arts_centre'], [type='gallery'],
@@ -435,6 +435,7 @@
         text-fill: @label-poi;
       }
     }
+
   }
 
 }
