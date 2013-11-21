@@ -12,9 +12,9 @@ CREATE INDEX ON osm_landusage_area_labels_gen0(area);
 CREATE INDEX ON osm_landusage_area_labels_gen1(area);
 
 -- Important! Index for centroid point of landusage areas
-CREATE INDEX ON osm_landusage_area_labels USING gist((st_centroid(geometry)::geometry(Point,3857)))
-CREATE INDEX ON osm_landusage_area_labels_gen0 USING gist((st_centroid(geometry)::geometry(Point,3857)))
-CREATE INDEX ON osm_landusage_area_labels_gen1 USING gist((st_centroid(geometry)::geometry(Point,3857)))
+CREATE INDEX ON osm_landusage_area_labels USING gist((st_centroid(geometry)::geometry(Point,3857)));
+CREATE INDEX ON osm_landusage_area_labels_gen0 USING gist((st_centroid(geometry)::geometry(Point,3857)));
+CREATE INDEX ON osm_landusage_area_labels_gen1 USING gist((st_centroid(geometry)::geometry(Point,3857)));
 
 CREATE OR REPLACE VIEW brick_places AS
     SELECT *,
