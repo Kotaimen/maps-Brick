@@ -11,6 +11,10 @@ CREATE INDEX ON osm_landusage_area_labels(area);
 CREATE INDEX ON osm_landusage_area_labels_gen0(area);
 CREATE INDEX ON osm_landusage_area_labels_gen1(area);
 
+-- Important! Index for centroid point of landusage areas
+CREATE INDEX ON osm_landusage_area_labels USING gist((st_centroid(geometry)::geometry(Point,3857)))
+CREATE INDEX ON osm_landusage_area_labels_gen0 USING gist((st_centroid(geometry)::geometry(Point,3857)))
+CREATE INDEX ON osm_landusage_area_labels_gen1 USING gist((st_centroid(geometry)::geometry(Point,3857)))
 
 CREATE OR REPLACE VIEW brick_places AS
     SELECT *,
@@ -157,8 +161,8 @@ CREATE OR REPLACE VIEW brick_shields_gen0 AS
                         ELSE ref
                     END AS ref, 
                     geometry
-           FROM osm_roads_gen1
-           WHERE ref IS NOT NULL AND ref != '' AND (type = ANY (ARRAY['motorway', 'trunk', 'primary', 'secondary', 'tertiary']))) foo
+           FROM osm_roads_gen0
+           WHERE ref IS NOT NULL AND ref != '' ) foo
     ORDER BY
         CASE WHEN type='motorway' THEN 0
              WHEN type='trunk' THEN 1
