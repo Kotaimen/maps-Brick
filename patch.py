@@ -5,6 +5,7 @@ import sys
 import os, os.path
 import subprocess 
 import json
+import re
 
 def compile_mml(mml, xml):
     with open(xml, 'wb') as fp:
@@ -20,7 +21,7 @@ def patch_xml(filename):
     print '  ...set base to:', base
     root = tree.getroot()
 
-    root.attrib['font-directory'] = 'fonts'
+    root.attrib['font-directory'] = 'font'
     root.attrib['base'] = base
 
     
@@ -62,23 +63,33 @@ def patch_xml(filename):
 def make_theme(theme):
     with open('mapnik/project.mml') as fp:
         base_mml = json.load(fp)
-    theme_palette = 'palette.%s.mss' % theme
-
-    base_mml['Stylesheet'] = [
-        theme_palette, 
-        'base.mss',
-        'road.mss',
-        'boundary.mss',
-        'label.mss'
-      ]
+        
+    # generate default palette_all.xml
+    print '>>>>> Theme "%s"' % theme
     
-    mml_all = 'mapnik/~all.mml'
-    xml_all = 'mapnik/xml/%s_all.xml' % theme
-    print 'Generate %s:all' % theme
-    with open(mml_all, 'w') as fp:
-        json.dump(base_mml, fp, indent=2)
-    compile_mml(mml_all, xml_all)
-    patch_xml(xml_all)
+    def compile(stylesheets, xml_name):        
+        base_mml['Stylesheet'] = stylesheets
+    
+        mml_filename = 'mapnik/~project.mml'
+        xml_filename = 'mapnik/xml/%s_%s.xml' % (theme, xml_name)
+        with open(mml_filename, 'w') as fp:
+            json.dump(base_mml, fp, indent=2)
+        compile_mml(mml_filename, xml_filename)
+        patch_xml(xml_filename)
+
+    theme_palette = 'palette.%s.mss' % theme
+    with open(os.path.join('mapnik', theme_palette), 'r') as fp:
+        mss = fp.read()
+        with open('mapnik/~palette.mss', 'w') as wfp:
+            wfp.write(re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', mss))
+        with open('mapnik/~palette_halo.mss', 'w') as wfp:
+            wfp.write(re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 1', mss))
+    
+    compile([theme_palette, 'base.mss', 'road.mss', 'boundary.mss', 'label.mss'], 'all')
+    compile(['~palette.mss', 'base.mss'], 'base')
+    compile(['~palette.mss', 'road.mss', 'boundary.mss'], 'road')
+    compile(['~palette.mss', 'label.mss'], 'label')    
+    compile(['~palette_halo.mss', 'label.mss'], 'label_halo')        
 
 def main():
     if not os.path.exists('mapnik/xml'):
