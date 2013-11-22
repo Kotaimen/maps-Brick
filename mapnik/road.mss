@@ -190,7 +190,12 @@
   //    requries post processing in mason composer
   // here we are using 2
   [render='casing'] { [tunnel=1] { line-opacity: 0.5; } }
-  [render='inline']  { [tunnel=1] { line-comp-op: soft-light; } }
+  [render='inline']  { 
+    [tunnel=1] { 
+      line-comp-op: soft-light; 
+      line-cap: butt;
+    } 
+  }
   // [render='casing'] { [tunnel=1] { line-dasharray: @road-dash; } }
   // [render='inline'] { [tunnel=1] { line-comp-op: dst-out; line-opacity: 0.95; } }
 
@@ -826,6 +831,12 @@
   line-join: round;
   line-width: 0;
 
+  [render='casing'] {
+    [tunnel=1] {
+      line-opacity: 0.25;
+      fill/line-opacity: 0.25;
+    }
+  }  
   [render='inline'] {
     [tunnel=1] {
       line-opacity: 0.5;
@@ -963,8 +974,8 @@
     marker-file: url("arrow/oneway.svg");
     [oneway=-1] {   marker-file: url("arrow/oneway-reverse.svg") }
     [zoom<=16] { marker-transform: "scale(0.6)"; }
-
     marker-spacing: 200;
     marker-ignore-placement: true;
+	marker-opacity: 0.75;
   }
 }

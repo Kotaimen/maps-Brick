@@ -5,7 +5,7 @@
   ::text {
     text-face-name: @font-physical;
     text-name: '[name]';
-	text-size: 16;
+    text-size: 16;
     text-placement: point;
     text-character-spacing: 2;
     text-fill: @label-admin0;
@@ -340,6 +340,7 @@
         [type='marina'] { marker-file: url("marker/anchor.svg"); }
         marker-width: 12;
         marker-height: 13;
+        marker-fill: @label-poi;
       }
 	  ::text {
         text-placement-type: simple;
@@ -452,7 +453,7 @@
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
     text-halo-radius: 1;
-	text-halo-fill: fadeout(@motorway-fill, 50%);
+	  text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
     text-size: 14;
     [zoom<=17] { text-size: 14; }
     [zoom>=18] { text-size: 18; }
@@ -463,47 +464,47 @@
     text-max-char-angle-delta: 20;
   }
   [type='primary'][zoom>=11],
-  [type='secondary'][zoom>=13] {
+   {
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
-    text-halo-radius: @smart-halo;
-	text-halo-fill: fadeout(@primary-fill, 50%);
+    text-halo-radius: 1;
+	  text-halo-fill: fadeout(@primary-fill,  @label-fadeout);
     text-size: 14;
-    [zoom<=17] { text-size: 14; }
-    [zoom>=18] { text-size: 16; }
+    [zoom<=17] { text-size: 13; }
+    [zoom>=18] { text-size: 15; }
     text-name: "[name]";
     text-placement: line;
   	text-spacing: 140;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
   }
-  [type='tertiary'][zoom>=13] {
+  [type='secondary'][zoom>=13],[type='tertiary'][zoom>=13] {
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
     text-halo-radius: @smart-halo;
 	text-halo-fill: @label-halo;
     text-size: 12;
-    [zoom<=17] { text-size: 14; }
-    [zoom>=18] { text-size: 16; }
+    [zoom<=17] { text-size: 12; }
+    [zoom>=18] { text-size: 14; }
     text-name: "[name]";
     text-placement: line;
   	text-spacing: 120;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
-    [zoom<=14][direction>0] { text-dx: 10;  text-dy: 10; }
-    [zoom<=14][direction<0] { text-dx: -10;  text-dy: -10; }
-    [zoom>=15][zoom<=17][direction>0] { text-dx: 12;  text-dy: 12; }
-    [zoom>=15][zoom<=17][direction<0] { text-dx: -12;  text-dy: -12; }
-	[zoom>=18] { text-halo-fill: fadeout(@primary-fill, 50%) ;  }
+    [zoom<=14][direction>0] { text-dx: 9;  text-dy: 9; }
+    [zoom<=14][direction<0] { text-dx: -9;  text-dy: -9; }
+    [zoom>=15][zoom<=17][direction>0] { text-dx: 11;  text-dy: 11; }
+    [zoom>=15][zoom<=17][direction<0] { text-dx: -11;  text-dy: -11; }
+	//[zoom>=18] { text-halo-fill: fadeout(@primary-fill, 50%) ;  }
   }
 }
 //#road_label_gen1[zoom>=14][zoom<=15][rank>=12],
 #road_label[zoom>=16][rank>=12][type!='ferry'] {
   text-clip: false;
   text-face-name: @font-path;
-  text-size: 14;
+  text-size: 12;
   text-fill: @label-primary;
   text-halo-fill: @label-halo;
   text-halo-radius: @smart-halo;
@@ -519,6 +520,7 @@
   [zoom>=18][direction>0] { text-dx: 13;  text-dy: 13; }
   [zoom>=18][direction<0] { text-dx: -13;  text-dy: -13; }
 }
+
 #road_label[zoom>=16][type='ferry'] {
   text-clip: false;
   text-face-name: @font-path;
