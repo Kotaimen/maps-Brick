@@ -453,7 +453,7 @@
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
     text-halo-radius: 1;
-	  text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
+	text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
     text-size: 14;
     [zoom<=17] { text-size: 14; }
     [zoom>=18] { text-size: 18; }
@@ -462,6 +462,7 @@
   	text-spacing: 160;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
+    [tunnel=1] { text-opacity: 0.5; }
   }
   [type='primary'][zoom>=11],
    {
@@ -469,22 +470,27 @@
     text-face-name: @font-primary;
     text-fill: @label-primary;
     text-halo-radius: 1;
-	  text-halo-fill: fadeout(@primary-fill,  @label-fadeout);
+    text-halo-fill: fadeout(@primary-fill,  @label-fadeout);
     text-size: 14;
     [zoom<=17] { text-size: 13; }
-    [zoom>=18] { text-size: 15; }
+    [zoom>=18] { text-size: 16; }
     text-name: "[name]";
     text-placement: line;
   	text-spacing: 140;
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
   }
-  [type='secondary'][zoom>=13],[type='tertiary'][zoom>=13] {
+  [type='secondary'][zoom>=13], 
+  [type='tertiary'][zoom>=13] {
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
-    text-halo-radius: @smart-halo;
+  	text-halo-radius: @smart-halo;
 	text-halo-fill: @label-halo;
+	[zoom>=18] {
+      text-halo-radius: 1;
+      text-halo-fill: @secondary-fill;
+    }
     text-size: 12;
     [zoom<=17] { text-size: 12; }
     [zoom>=18] { text-size: 14; }
@@ -495,19 +501,18 @@
     text-max-char-angle-delta: 20;
     [zoom<=14][direction>0] { text-dx: 9;  text-dy: 9; }
     [zoom<=14][direction<0] { text-dx: -9;  text-dy: -9; }
-    [zoom>=15][zoom<=17][direction>0] { text-dx: 11;  text-dy: 11; }
-    [zoom>=15][zoom<=17][direction<0] { text-dx: -11;  text-dy: -11; }
-	//[zoom>=18] { text-halo-fill: fadeout(@primary-fill, 50%) ;  }
+    [zoom>=15][zoom<=16][direction>0] { text-dx: 11;  text-dy: 11; }
+    [zoom>=15][zoom<=16][direction<0] { text-dx: -11;  text-dy: -11; }
   }
 }
-//#road_label_gen1[zoom>=14][zoom<=15][rank>=12],
-#road_label[zoom>=16][rank>=12][type!='ferry'] {
+
+#road_label[zoom>=16][rank>=11][type!='ferry'] {
   text-clip: false;
   text-face-name: @font-path;
   text-size: 12;
   text-fill: @label-primary;
   text-halo-fill: @label-halo;
-  text-halo-radius: @smart-halo;
+  text-halo-radius: @smart-halo; 
   text-allow-overlap: false;
   text-name: "[name]";
   text-placement: line;
@@ -515,16 +520,16 @@
   text-max-char-angle-delta: 30;
   text-spacing: 120;
   text-min-path-length: 50;
-  [zoom>=15][zoom<=17][direction>0] { text-dx: 10;  text-dy: 10; }
-  [zoom>=15][zoom<=17][direction<0] { text-dx: -10;  text-dy: -10; }
-  [zoom>=18][direction>0] { text-dx: 13;  text-dy: 13; }
-  [zoom>=18][direction<0] { text-dx: -13;  text-dy: -13; }
+  [zoom>=15][direction>0] { text-dx: 9;  text-dy: 9; }
+  [zoom>=15][direction<0] { text-dx: -9;  text-dy: -9; }
+//  [zoom>=18][direction>0] { text-dx: 13;  text-dy: 13; }
+//  [zoom>=18][direction<0] { text-dx: -13;  text-dy: -13; }
 }
 
 #road_label[zoom>=16][type='ferry'] {
   text-clip: false;
   text-face-name: @font-path;
-  text-size: 14;
+  text-size: 12;
   text-fill: @label-water;
   text-halo-fill: fadeout(@water, @label-fadeout);
   text-halo-radius: @smart-halo;
@@ -535,8 +540,8 @@
   text-max-char-angle-delta: 30;
   text-spacing: 300;
   text-min-path-length: 50;
-  [direction>0] { text-dx: 10;  text-dy: 10; }
-  [direction<0] { text-dx: -10;  text-dy: -10; }
+  [direction>0] { text-dx: 9;  text-dy: 9; }
+  [direction<0] { text-dx: -9;  text-dy: -9; }
 }
 
 //// shields
