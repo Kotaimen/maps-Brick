@@ -93,22 +93,22 @@
 @smart-halo:        1;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
-@scale-factor:      1;
+@scale-factor:      2;
 
 //// text font
 // TODO: use open sourced unicode font
-@font-regular:      'Avenir Next Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Avenir Next Condensed Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Avenir Next Medium', 'Arial Unicode MS Regular';
-@font-motorway:     'Avenir Medium', 'Arial Unicode MS Regular';
-@font-primary:      'Avenir Medium', 'Arial Unicode MS Regular';
-@font-path:         'Avenir Book', 'Arial Unicode MS Regular';
-@font-shield:       'Arial Regular', 'Arial Unicode MS Regular';
+@font-regular:      'Roboto Condensed Light', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
+@font-physical:     'Roboto Condensed Light Italic', 'Arial Unicode MS Regular';
+@font-poi:          'Roboto Light', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Light', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Light', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Light', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Regular', 'Arial Unicode MS Regular';
 
 //// map
 Map {
-//  buffer-size: 256;
+//  buffer-size: 400;
 //  font-directory: ;
 //	base: url()
 }
