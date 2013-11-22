@@ -52,9 +52,14 @@ def patch_xml(filename):
     print 'Patching map layers.'
     for layer in root.findall('Layer'):
         # add "cache-features" option to layer if they contian more than one styles
-        if len(layer.findall('StyleName')) > 1:
+        style_num = len(layer.findall('StyleName'))
+        if style_num > 1:
             print '  ...enable cache-features for layer "%s"' % layer.attrib['name']
             layer.attrib['cache-features'] = 'yes'
+        elif style_num == 0:
+            print '  ...delete empty layer "%s"' % layer.attrib['name']
+            root.remove(layer)
+            
 
     print 'Overwiting %s' % filename
     tree.write(filename)
@@ -96,7 +101,7 @@ def main():
         os.mkdir('mapnik/xml')
     make_theme('brick')
     make_theme('saga')    
-    make_theme('moonlight')
+    # make_theme('moonlight')
 
 
 if __name__ == '__main__':
