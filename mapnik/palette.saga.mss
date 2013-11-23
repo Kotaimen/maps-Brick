@@ -47,23 +47,23 @@
 @motorway-link:     #b37533; //desaturate(@motorway-fill, 15%);
 
 @primary-line:      lighten(@motorway-casing, 10%);
-@primary-fill:   	#c0823f;
-@primary-casing: 	lighten(@motorway-casing, 15%);
+@primary-fill:     	#c0823f;
+@primary-casing:    lighten(@motorway-casing, 15%);
 
 @secondary-line:    lighten(@motorway-casing, 15%);
 @secondary-fill:    desaturate(lighten(@primary-fill, 3%), 10%);
 @secondary-casing:  lighten(@motorway-casing, 15%);
 
 @minor-line:        lighten(@motorway-casing, 20%);
-@minor-fill:		#b9a794;
-@minor-casing: 		lighten(@motorway-casing, 20%);
+@minor-fill:        #b9a794;
+@minor-casing: 		  lighten(@motorway-casing, 20%);
 
 @path-line:         lighten(@motorway-casing, 20%);
 @path-fill:	        @minor-fill;
 @path-casing:       lighten(@motorway-casing, 20%);
 
-@rail-line: 		@primary-casing;
-@rail-casing: 		@land;
+@rail-line: 		    @primary-casing;
+@rail-casing: 		  @land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;
 
@@ -74,7 +74,7 @@
 @label-poi:         #392d29;
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     40%;
+@label-fadeout:     50%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -97,8 +97,8 @@
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Medium', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Roboto Medium', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
+@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
 @font-shield:       'Roboto Bold';

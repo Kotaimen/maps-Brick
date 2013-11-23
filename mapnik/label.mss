@@ -480,14 +480,14 @@
     text-label-position-tolerance: 16;
     text-max-char-angle-delta: 20;
   }
-  [type='secondary'][zoom>=13], 
+  [type='secondary'][zoom>=13],
   [type='tertiary'][zoom>=13] {
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
   	text-halo-radius: @smart-halo;
-	text-halo-fill: @label-halo;
-	[zoom>=18] {
+	  text-halo-fill: @label-halo;
+	  [zoom>=17] {
       text-halo-radius: 1;
       text-halo-fill: @secondary-fill;
     }
@@ -512,7 +512,7 @@
   text-size: 12;
   text-fill: @label-primary;
   text-halo-fill: @label-halo;
-  text-halo-radius: @smart-halo; 
+  text-halo-radius: @smart-halo;
   text-allow-overlap: false;
   text-name: "[name]";
   text-placement: line;
@@ -520,8 +520,8 @@
   text-max-char-angle-delta: 30;
   text-spacing: 120;
   text-min-path-length: 50;
-  [zoom>=15][direction>0] { text-dx: 9;  text-dy: 9; }
-  [zoom>=15][direction<0] { text-dx: -9;  text-dy: -9; }
+  [zoom>=15][direction>0] { text-dx: 10;  text-dy: 10; }
+  [zoom>=15][direction<0] { text-dx: -10;  text-dy: -10; }
 //  [zoom>=18][direction>0] { text-dx: 13;  text-dy: 13; }
 //  [zoom>=18][direction<0] { text-dx: -13;  text-dy: -13; }
 }
@@ -540,8 +540,8 @@
   text-max-char-angle-delta: 30;
   text-spacing: 300;
   text-min-path-length: 50;
-  [direction>0] { text-dx: 9;  text-dy: 9; }
-  [direction<0] { text-dx: -9;  text-dy: -9; }
+  [direction>0] { text-dx: 10;  text-dy: 10; }
+  [direction<0] { text-dx: -10;  text-dy: -10; }
 }
 
 //// shields
