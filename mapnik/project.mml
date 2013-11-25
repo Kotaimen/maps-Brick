@@ -18,7 +18,8 @@
   "Stylesheet": [
     "palette.brick.mss",
     "base.mss",
-    "boundary.mss"
+    "road.mss",
+    "label.mss"
   ],
   "Layer": [
     {
@@ -1336,24 +1337,6 @@
         "srid": "3857"
       },
       "name": "road_label_gen0"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999999999,
-        -85.051,
-        180,
-        85.051
-      ],
-      "id": "bbox",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_wgs84_bounding_box.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "bbox"
     }
   ],
   "scale": 1,

@@ -91,7 +91,7 @@
     [zoom=8][scalerank<=8],
     [zoom=9][scalerank<=9],
     [zoom>=10] {
-    marker-file: url("marker/poi_peak.svg");
+    marker-file: url("marker/general/poi_peak.svg");
 	marker-fill: @label-physical;
 	marker-line-color: @label-halo;
     marker-line-width: @smart-halo / @scale-factor;
@@ -186,114 +186,42 @@
 }
 
 //// static places
-
 #place_static[zoom>=4][zoom<=9] {
+  ::marker
   [layer=4][zoom=4],
   [layer=5][zoom=5],
   [layer=6][zoom=6],
   [layer=6][zoom=7],
   [layer=7][zoom=8],
-  [layer=8][zoom=9], {  
-    shield-file: url("marker/city_small.svg");
-    shield-unlock-image: true;
-    shield-face-name: @font-regular;
-    shield-fill: @label-place;
-    shield-halo-fill: @label-halo;
-    shield-halo-radius: @smart-halo; 
+  [layer=8][zoom=9], {
+    [font_size>=24] { marker-width:5 + @smart-halo / @scale-factor;}
+    [font_size<24] { marker-width:4 + @smart-halo / @scale-factor; }
+    marker-fill: @label-place;
+    marker-line-color: @label-halo;
+    marker-line-width: @smart-halo / @scale-factor;
+  }
+  ::text {
+    text-face-name: @font-regular;
+    text-name: '';
+    text-fill: @label-place;
+    text-halo-fill: @label-halo;
+    text-halo-radius: @smart-halo;
+	text-placement-type: simple;
+    text-placement: point;
+    text-placements: 'NE,SW,SE,W,N,E';
+    [layer=4][zoom=4],
+    [layer=5][zoom=5],
+    [layer=6][zoom=6],
+    [layer=6][zoom=7],
+    [layer=7][zoom=8],
+    [layer=8][zoom=9], {
+      [font_size>=24] {text-size: 20; text-dx: 5; text-dy: 5;}
+      [font_size<24] {text-size: 16; text-dx: 4; text-dy: 4; }
+      text-name: '[name]';
+    }
+  }
+}
 
-    [font_size>=24] {
-      shield-size: 20; 
-      shield-text-dx: 5; 
-      shield-text-dy: 5;
-      shield-transform: 'scale(0.8)';
-    }
-    [font_size<24] {
-      shield-size: 16; 
-      shield-text-dx: 4; 
-      shield-text-dy: 4; 
-      shield-transform: 'scale(0.7)';
-    }
-    shield-name: '[name]';
-    shield-placement-type: simple;
-    shield-placement: point;
-    shield-placements: 'NE,SW,SE,W,N,E';
-    shield-spacing: 16;
-    }
-}
-#place_label[zoom>=10][zoom<=15] [population>=10000][type='city'] {
-  shield-file: url("marker/general/city_small.svg");
-  shield-unlock-image: true;
-  shield-face-name: @font-regular;
-  shield-fill: @label-place;
-  shield-halo-fill: @label-halo;
-  shield-halo-radius: @smart-halo; 
-  shield-size: 24; 
-  shield-text-dx: 5; 
-  shield-text-dy: 5;
-  shield-transform: 'scale(0.8)';
-  shield-name: '[name]';
-  shield-placement-type: simple;
-  shield-placement: point;
-  shield-placements: 'NE,SW,SE,W,N,E';
-  shield-spacing: 16;
-}
-#place_label[zoom>=10][zoom<=15] [population<10000][type='town'] {
-  shield-file: url("marker/general/city_small.svg");
-  shield-unlock-image: true;
-  shield-face-name: @font-regular;
-  shield-fill: @label-place;
-  shield-halo-fill: @label-halo;
-  shield-halo-radius: @smart-halo; 
-  shield-size: 20; 
-  shield-text-dx: 4; 
-  shield-text-dy: 4;
-  shield-transform: 'scale(0.8)';
-  shield-name: '[name]';
-  shield-placement-type: simple;
-  shield-placement: point;
-  shield-placements: 'NE,SW,SE,W,N,E';
-  shield-spacing: 16;
-  }
-#place_label[zoom>=10][zoom<=17] [type='town'] {
-  shield-file: url("marker/general/city_small.svg");
-  shield-unlock-image: true;
-  shield-face-name: @font-regular;
-  shield-fill: @label-place;
-  shield-halo-fill: @label-halo;
-  shield-halo-radius: @smart-halo; 
-  shield-size: 18; 
-  shield-text-dx: 4; 
-  shield-text-dy: 4;
-  shield-transform: 'scale(0.7)';
-  shield-name: '[name]';
-  shield-placement-type: simple;
-  shield-placement: point;
-  shield-placements: 'NE,SW,SE,W,N,E';
-  shield-spacing: 16;
-}
-#place_label[zoom>=13][type!='city'][type!='town'] {
-  text-name: "";
-  text-face-name: @font-regular;
-  text-fill: @label-place;
-  text-halo-fill: @label-halo;
-  text-halo-radius: @smart-halo;
-  text-placement: point;
-  text-wrap-width: 100 * @scale-factor;
-  text-label-position-tolerance: 16;
-  text-min-distance: 16 * @scale-factor;
-  [type='suburb'][zoom>=13][zoom<=18],
-  [type='village'][zoom>=13][zoom<=18]{
-    text-name: "[name]";
-    text-size: 16; text-character-spacing: 1;
-//    text-fill: red;
-  }
-  [rank>=7][zoom>=14][zoom<=18] {
-    text-name: "[name]";
-    text-size: 16; text-character-spacing: 1;
-//    text-fill: orange;
-  }
-}
-/*
 #place_label[zoom>=10] {
   text-name: "";
   text-face-name: @font-regular;
@@ -336,8 +264,8 @@
     text-size: 16; text-character-spacing: 1;
 //    text-fill: orange;
   }
+
 }
-*/
 
 //// landuse
 
@@ -372,7 +300,7 @@
     [type='national_park'], {
       ::marker {
         marker-placement: point;
-        marker-file: url("marker/tree-1.svg");
+        marker-file: url("marker/maki/tree-1.svg");
         marker-width: 11;
         marker-height: 13;
         marker-fill: @label-park;
@@ -405,9 +333,9 @@
     [type='marina'], {
       ::marker {
         marker-placement: point;
-        [type='railway'], [type='railroad'] { marker-file: url("marker/rail.svg"); }
-        [type='aerodrome'] { marker-file: url("marker/airport.svg"); }
-        [type='marina'] { marker-file: url("marker/anchor.svg"); }
+        [type='railway'], [type='railroad'] { marker-file: url("marker/maki/rail.svg"); }
+        [type='aerodrome'] { marker-file: url("marker/maki/airport.svg"); }
+        [type='marina'] { marker-file: url("marker/maki/anchor.svg"); }
         marker-width: 12;
         marker-height: 13;
         marker-fill: @label-poi;
@@ -436,12 +364,12 @@
 	[type='dog_park'], [type='theme_park'],
     [type='garden'], [type='village_green'], [type='greenspace'], {
       ::marker {
-	    [type='playground'], [type='recreation_ground'], [type='pitch'], { marker-file: url("marker/pitch.svg");  }
-        [type='golf_range'], [type='golf_course'], [type='miniature_golf'], { marker-file: url("marker/golf.svg");  }
-        [type='garden'], [type='village_green'], [type='greenspace'],  { marker-file: url("marker/garden.svg");  }
+	    [type='playground'], [type='recreation_ground'], [type='pitch'], { marker-file: url("marker/maki/pitch.svg");  }
+        [type='golf_range'], [type='golf_course'], [type='miniature_golf'], { marker-file: url("marker/maki/golf.svg");  }
+        [type='garden'], [type='village_green'], [type='greenspace'],  { marker-file: url("marker/maki/garden.svg");  }
 
         marker-placement: point;
-        marker-file: url("marker/tree-1.svg");
+        marker-file: url("marker/maki/tree-1.svg");
         marker-width: 11;
         marker-height: 13;
         marker-fill: @label-park;
@@ -473,25 +401,25 @@
     [type='landfill'],
     [type='retail'], [type='commercial'], {
       ::marker {
-        [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'] { marker-file: url("marker/hospital.svg"); }
-        [type='university'],[type='college'] { marker-file: url("marker/college.svg"); }
-        [type='museum'] { marker-file: url("marker/museum.svg"); }
-	    [type='arts_centre'], [type='gallery'] { marker-file: url("marker/art-gallery.svg"); }
-        [type='library'] { marker-file: url("marker/library.svg"); }
-        [type='theatre'] { marker-file: url("marker/theatre.svg"); }
-        [type='cinema'] { marker-file: url("marker/cinema.svg"); }
-        [type='school'] { marker-file: url("marker/school.svg"); }
-        [type='post_office'] { marker-file: url("marker/post.svg"); marker-height: 7; }
- 	    [type='townhall'],[type='public_building'], [type='courthouse'] { marker-file: url("marker/town-hall.svg"); }
-	    [type='prison'], [type='police'] { marker-file: url("marker/police.svg"); }
-	    [type='hotel'], [type='motel'], { marker-file: url("marker/lodging.svg"); }
-	    [type='fire_station'] { marker-file: url("marker/fire-station.svg"); }
-        [type='zoo'] { marker-file: url("marker/giraffe.svg"); }
-	    [type='stadium'], [type='sports_centre'] { marker-file: url("marker/soccer.svg"); }
-	    [type='cemetery'] { marker-file: url("marker/cemetery.svg"); }
-	    [type='industrial'] { marker-file: url("marker/industrial-building.svg"); }
-	    [type='landfill'] { marker-file: url("marker/trash.svg"); }
-    	[type='retail'], [type='commercial'] { marker-file: url("marker/commerical-building.svg"); }
+        [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'] { marker-file: url("marker/maki/hospital.svg"); }
+        [type='university'],[type='college'] { marker-file: url("marker/maki/college.svg"); }
+        [type='museum'] { marker-file: url("marker/maki/museum.svg"); }
+	    [type='arts_centre'], [type='gallery'] { marker-file: url("marker/maki/art-gallery.svg"); }
+        [type='library'] { marker-file: url("marker/maki/library.svg"); }
+        [type='theatre'] { marker-file: url("marker/maki/theatre.svg"); }
+        [type='cinema'] { marker-file: url("marker/maki/cinema.svg"); }
+        [type='school'] { marker-file: url("marker/maki/school.svg"); }
+        [type='post_office'] { marker-file: url("marker/maki/post.svg"); marker-height: 7; }
+ 	    [type='townhall'],[type='public_building'], [type='courthouse'] { marker-file: url("marker/maki/town-hall.svg"); }
+	    [type='prison'], [type='police'] { marker-file: url("marker/maki/police.svg"); }
+	    [type='hotel'], [type='motel'], { marker-file: url("marker/maki/lodging.svg"); }
+	    [type='fire_station'] { marker-file: url("marker/maki/fire-station.svg"); }
+        [type='zoo'] { marker-file: url("marker/maki/giraffe.svg"); }
+	    [type='stadium'], [type='sports_centre'] { marker-file: url("marker/maki/soccer.svg"); }
+	    [type='cemetery'] { marker-file: url("marker/maki/cemetery.svg"); }
+	    [type='industrial'] { marker-file: url("marker/maki/industrial-building.svg"); }
+	    [type='landfill'] { marker-file: url("marker/maki/trash.svg"); }
+    	[type='retail'], [type='commercial'] { marker-file: url("marker/maki/commerical-building.svg"); }
         marker-placement: point;
         marker-width: 11;
         marker-height: 11;
@@ -621,7 +549,6 @@
 #shield_all[zoom>=16][zoom<=17][reflen<=9]
 {
   [type='motorway'],[type='trunk'] {
-    shield-clip: false;
     shield-file: url('shield/motorway-4.svg');
     shield-placement: line;
     shield-clip: false;
@@ -659,5 +586,5 @@
     [zoom=16] { shield-min-distance: 140; }
     [zoom>=17] { shield-min-distance: 160; }
   }
-  //image-filters: 'invert(),gray()';  
+  //image-filters: 'invert(),gray()';
 }
