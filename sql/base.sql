@@ -20,9 +20,24 @@ CREATE OR REPLACE VIEW brick_landusage_areas AS SELECT * FROM osm_landusage_area
 
 CREATE OR REPLACE VIEW brick_landusage_ways AS SELECT * FROM osm_landusage_ways;
 
-CREATE OR REPLACE VIEW brick_waterareas AS SELECT * FROM osm_waterareas;
-CREATE OR REPLACE VIEW brick_waterareas_gen0 AS SELECT * FROM osm_waterareas_gen0;
-CREATE OR REPLACE VIEW brick_waterareas_gen1 AS SELECT * FROM osm_waterareas_gen1;
+CREATE OR REPLACE VIEW brick_waterareas AS 
+    SELECT osm_id, name, type, area, geometry
+        FROM osm_waterareas
+    UNION ALL 
+    SELECT osm_id, name, type, area, geometry 
+        FROM osm_landusage_areas WHERE type IN ('water', 'pond', 'salt_pond', 'water_reservoir', 'reservoir') ;
+CREATE OR REPLACE VIEW brick_waterareas_gen0 AS 
+    SELECT osm_id, name, type, area, geometry
+        FROM osm_waterareas_gen0
+    UNION ALL 
+    SELECT osm_id, name, type, area, geometry 
+        FROM osm_landusages_gen0 WHERE type IN ('water', 'pond', 'salt_pond', 'water_reservoir', 'reservoir') ;
+CREATE OR REPLACE VIEW brick_waterareas_gen1 AS 
+    SELECT osm_id, name, type, area, geometry
+        FROM osm_waterareas_gen1
+    UNION ALL 
+    SELECT osm_id, name, type, area, geometry 
+        FROM osm_landusages_gen1 WHERE type IN ('water', 'pond', 'salt_pond', 'water_reservoir', 'reservoir') ;
 
 CREATE OR REPLACE VIEW brick_waterways AS SELECT * FROM osm_waterways;
 CREATE OR REPLACE VIEW brick_waterways_gen0 AS SELECT * FROM osm_waterways_gen0;
