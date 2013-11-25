@@ -33,7 +33,7 @@
 @terminal:          darken(@beach, 7%);
 
 //// boundary
-@boundary-line:     #7B7951;
+@boundary-line:     #969575;
 @boundary-casing:   desaturate(lighten(@boundary-line, 40%), 50%);
 @boundary-dash:     10,5;
 
@@ -69,7 +69,7 @@
 
 //// labels
 @label-admin0:      #6e0432;
-@label-admin1:      darken(@boundary-line, 10%);
+@label-admin1:      darken(@boundary-line, 5%);
 @label-place:       @label-admin0;
 @label-poi:         desaturate(@label-admin0, 30%);
 // transparency of halo color, to handle this correctly
@@ -91,7 +91,7 @@
 @smart-halo:        2;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
-@scale-factor:      2;
+@scale-factor:      1;
 
 //// text font
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
