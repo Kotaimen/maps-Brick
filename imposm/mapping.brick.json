@@ -791,6 +791,10 @@
                     "swimming_pool"
                 ],
                 "landuse": [
+	    	    "water",
+		    "water_reservoir",
+		    "pond",
+		    "salt_pond",
                     "basin",
                     "reservoir"
                 ],
