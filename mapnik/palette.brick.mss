@@ -48,23 +48,23 @@
 @motorway-link:     lighten(@motorway-fill, 8%);
 
 @primary-line:      lighten(@motorway-casing, 10%);
-@primary-fill:   	#d9cbbd;
-@primary-casing: 	lighten(@motorway-casing, 15%);
+@primary-fill:   	  #d9cbbd;
+@primary-casing: 	  lighten(@motorway-casing, 15%);
 
 @secondary-line:    lighten(@motorway-casing, 15%);
 @secondary-fill:    @primary-fill;
 @secondary-casing:  lighten(@motorway-casing, 15%);
 
 @minor-line:        lighten(@motorway-casing, 20%);
-@minor-fill:		#ebe8e2;
-@minor-casing: 		lighten(@motorway-casing, 20%);
+@minor-fill:		    #ebe8e2;
+@minor-casing:      lighten(@motorway-casing, 20%);
 
 @path-line:         lighten(@motorway-casing, 20%);
 @path-fill:	        @minor-fill;
 @path-casing:       lighten(@motorway-casing, 20%);
 
-@rail-line: 		@primary-casing;
-@rail-casing: 		@land;
+@rail-line: 		    @primary-casing;
+@rail-casing: 		  @land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;
 
@@ -77,7 +77,7 @@
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     40%;
+@label-fadeout:     50%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -95,11 +95,13 @@
 // (eg: text wrap)
 @scale-factor:      2;
 
+@default-halo:      1;
+
 //// text font
 // TODO: use open sourced unicode font
 @font-regular:      'Roboto Condensed Light', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Roboto Condensed Light Italic', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Condensed Light Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Light', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Light', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Light', 'Arial Unicode MS Regular';
@@ -108,7 +110,7 @@
 
 //// map
 Map {
-//  buffer-size: 400;
-//  font-directory: ;
+  buffer-size: 400;
+//   font-directory: url("font");
 //	base: url()
 }

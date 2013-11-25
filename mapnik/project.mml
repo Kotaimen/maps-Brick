@@ -16,11 +16,9 @@
   "maxzoom": 19,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
-    "palette.saga.mss",
+    "palette.brick.mss",
     "base.mss",
-    "road.mss",
-    "boundary.mss",
-    "label.mss"
+    "boundary.mss"
   ],
   "Layer": [
     {
@@ -898,6 +896,30 @@
     {
       "geometry": "polygon",
       "extent": [
+        -179.9999999999999,
+        -85.051,
+        180,
+        83.63410065300015
+      ],
+      "id": "10m_country",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_countries.shp",
+        "id": "10m_country",
+        "project": "Brick_imposm3",
+        "srs": "",
+        "encoding": "windows1252"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "name": "10m_country"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
         -156.24532937499998,
         20.249832999999974,
         -54.77481032998548,
@@ -933,30 +955,6 @@
       "srs": "",
       "advanced": {},
       "name": "place_static"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999999999,
-        -85.051,
-        180,
-        83.63410065300015
-      ],
-      "id": "10m_country",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_countries.shp",
-        "id": "10m_country",
-        "project": "Brick_imposm3",
-        "srs": "",
-        "encoding": "windows1252"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {
-        "encoding": "windows1252"
-      },
-      "name": "10m_country"
     },
     {
       "geometry": "point",
@@ -1338,6 +1336,24 @@
         "srid": "3857"
       },
       "name": "road_label_gen0"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999999999,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "bbox",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_wgs84_bounding_box.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "bbox"
     }
   ],
   "scale": 1,

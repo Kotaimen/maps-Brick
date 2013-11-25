@@ -6,6 +6,14 @@ Map {
 #shoreline_300[zoom<=9],
 #processed_p[zoom>=10]
 {
+
+//  ::shadow {
+//    polygon-fill: darken(saturate(@water, 50%), 25%);
+//    opacity: 0.4;
+//    image-filters: 'agg-stack-blur(6,6)';
+//    comp-op: multiply;
+//  }
+
   polygon-fill: @land;
   polygon-gamma: 0.75;
 }
@@ -25,144 +33,6 @@ Map {
   polygon-fill: lighten(@land, 7%);
 }
 
-#landuse_gen0[zoom>=5][zoom<=9],
-#landuse_gen1[zoom>=10][zoom<=12],
-#landuse[zoom>=13] {
-  // natural green
-  [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
-  [type='wood'], [type='wetland'], [type='marsh'], [type='scrub'],
-  [type='heath'] { polygon-fill: @wooded; }
-
-  // manmade green
-  [type='park'], [type='garden'], [type='recreation_ground'],
-  [type='village_green'], [type='zoo'], [type='dog_park'],
-  [type='theme_park'], [type='golf_range'], [type='golf_course'], [type='miniature_golf'],
-  [type='funfair'], [type='water_park'], [type='greenspace'],
-  { polygon-fill: @park; }
-
-  // agriculture
-  [type='farm'], [type='farm_land'], [type='farmland'], [type='farmyard'],
-  [type='orchard'], [type='vineyard']
-  { polygon-fill: @agriculture; }
-
-  // sandy
-  [type='beach'], [type='sand'], [type='desert']
-  { polygon-fill: @beach; }
-
-  // sport
-  [type='camp_site'], [type='sport'], [type='pitch'],
-  [type='sports_centre'], [type='stadium'], [type='playground'],
-  { polygon-fill: @sports; }
-
-  // educational
-  [type='school'], [type='university'], [type='college'], [type='kindergarten'],
-  [type='highschool'], [type='educational'],
-  [type='arts_centre'], [type='theatre'],
-  [type='museum'], [type='library'], [type='venue'],
-  [type='attraction'], [type='tourism'], [type='gallery'], [type='cinema']
-  { polygon-fill: @educational; }
-
-  // religous
-  [type='place_of_worship'], [type='chruch'],
-  [type='cemetery'], [type='grave_yard'],
-  { polygon-fill: @religion; }
-
-  // healthcare
-  [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist']
-  { polygon-fill: @healthcare; }
-
-  // zoning
-  [type='retail'], [type='restaurant'], [type='hotel'],
-  [type='common'], [type='commercial'], [type='service'],
-  [type='courthouse'], [type='public_building'], [type='police'],
-  [type='townhall'], [type='govermnent'], [type='post_office'],
-  [type='prison'], [type='barracks']
-  { polygon-fill: @commercial; }
-
-  [type='industrial'], [type='construction'], [type='recycling'],
-  [type='landfill'], [type='quarry'], [type='mine'],
-  [type='brownfield'], [type='greenfield'], [type='special_use'],
-
-  { polygon-fill: @industrial; }
-
-  [type='residential'], [type='allotments']
-  { polygon-fill: @residential; }
-  [type='pedestrian'], [type='footway']
-  { polygon-fill: @pedestrian; }
-
-  // special
-  [type='parking'] { polygon-fill: @parking; }
-  [type='land'], [type='island'], [type='pier'] { polygon-fill: @land; }
-  [type='water'], [type='fountain'], [type='swimming_pool'],
-  [type='pond'], [type='salt_pond']
-  { polygon-fill: @water; }
-
-  // areas
-  [type='nature_reserve'], [type='conservation'],
-  [type='national_park'] {
-	polygon-fill: @park;
-    polygon-opacity: 0.5;
-  }
-  [type='military'], [type='range'] {
-	polygon-fill: @military;
-    polygon-opacity: 0.25;
-  }
-
-  // transport
-  [type='aerodrome'], [type='airport'], [type='boundary'],
-  [type='harbor'], [type='railway'],
-  { polygon-fill: @airport; }
-
-  [type='runway'], [type='helipad'], [type='track'],
-  { polygon-fill: @aeroway; }
-
-  [type='terminal'], [type='apron'], [type='hangar'], [type='fire_station'],
-  { polygon-fill: @terminal; }
-
-  // debug
-//  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
-//  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
- 
-}
-
-#landuse_line {
-  [type='ferry'][zoom>=7] {
-    line-color: @ferry-line;
-    [zoom<=9] { line-width: 0.25; }
-    [zoom>=10][zoom<=12] { line-width: 0.5; }
-    [zoom<=14][zoom>12] { line-width: 0.75; }
-    [zoom>=15][zoom<=17] { line-width: 1; line-smooth: 0.2; }
-    [zoom>=15][zoom<=17] { line-width: 1.2; line-smooth: 0.4; }
-    line-dasharray: @road-dash;
-    line-join: round;
-  }
-  [type='pier'][zoom>=10] {
-    [zoom=12] { line-width: 1;}
-    [zoom=13] { line-width: 1;}
-    [zoom=14] { line-width: 2;}
-    [zoom=15] { line-width: 3;}
-    [zoom=16] { line-width: 4;}
-    [zoom=17] { line-width: 5;}
-    [zoom>=18] { line-width: 6;}
-    line-color: @land;
-    line-join: round;
-    line-cap: butt;
-  }
-  [type='breakwater'][zoom>=10],
-  [type='groyne'][zoom>=10] {
-    [zoom=12] { line-width: 1;}
-    [zoom=13] { line-width: 2;}
-    [zoom=14] { line-width: 3;}
-    [zoom=15] { line-width: 4;}
-    [zoom=16] { line-width: 5;}
-    [zoom=17] { line-width: 7;}
-    [zoom>=18] { line-width: 8;}
-    line-color: @land;
-    line-join: round;
-    line-cap: butt;
-  }
-
-}
 
 ////// Water
 
@@ -245,13 +115,163 @@ Map {
 
 
 #10m_lake[zoom<=7],
-#10m_lake_us[zoom<=9],
-#10m_lake_eu[zoom<=9],
+//#10m_lake_us[zoom<=9],
+//#10m_lake_eu[zoom<=9],
 #waterbody_gen0[zoom>=8][zoom<=9],
 #waterbody_gen1[zoom>=10][zoom<=12],
 #waterbody[zoom>=13] {
+
   polygon-fill: @water;
-  [zoom>=16] { polygon-smooth: 0.1; }
+
+//  ::emboss {
+//    polygon-fill: grey;
+//    polygon-gamma: 0.6;
+//    opacity: 0.8;
+//    image-filters: 'x-gradient(),blur()';
+//    comp-op: soft-light;
+//  }
+
+}
+
+/// landuse
+
+#landuse_gen0[zoom>=5][zoom<=9],
+#landuse_gen1[zoom>=10][zoom<=12],
+#landuse[zoom>=13] {
+  // natural green
+  [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
+  [type='wood'], [type='wetland'], [type='marsh'], [type='scrub'],
+  [type='heath'] { polygon-fill: @wooded; }
+
+  // manmade green
+  [type='park'], [type='garden'], [type='recreation_ground'],
+  [type='village_green'], [type='zoo'], [type='dog_park'],
+  [type='theme_park'], [type='golf_range'], [type='golf_course'], [type='miniature_golf'],
+  [type='funfair'], [type='water_park'], [type='greenspace'],
+  { polygon-fill: @park; }
+
+  // agriculture
+  [type='farm'], [type='farm_land'], [type='farmland'], [type='farmyard'],
+  [type='orchard'], [type='vineyard']
+  { polygon-fill: @agriculture; }
+
+  // sandy
+  [type='beach'], [type='sand'], [type='desert']
+  { polygon-fill: @beach; }
+
+  // sport
+  [type='camp_site'], [type='sport'], [type='pitch'],
+  [type='sports_centre'], [type='stadium'], [type='playground'],
+  { polygon-fill: @sports; }
+
+  // educational
+  [type='school'], [type='university'], [type='college'], [type='kindergarten'],
+  [type='highschool'], [type='educational'],
+  [type='arts_centre'], [type='theatre'],
+  [type='museum'], [type='library'], [type='venue'],
+  [type='attraction'], [type='tourism'], [type='gallery'], [type='cinema']
+  { polygon-fill: @educational; }
+
+  // religous
+  [type='place_of_worship'], [type='chruch'],
+  [type='cemetery'], [type='grave_yard'],
+  { polygon-fill: @religion; }
+
+  // healthcare
+  [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist']
+  { polygon-fill: @healthcare; }
+
+  // zoning
+  [type='retail'], [type='restaurant'], [type='hotel'],
+  [type='common'], [type='commercial'], [type='service'],
+  [type='courthouse'], [type='public_building'], [type='police'],
+  [type='townhall'], [type='govermnent'], [type='post_office'],
+  [type='prison'], [type='barracks']
+  { polygon-fill: @commercial; }
+
+  [type='industrial'], [type='construction'], [type='recycling'],
+  [type='landfill'], [type='quarry'], [type='mine'],
+  [type='brownfield'], [type='greenfield'], [type='special_use'],
+
+  { polygon-fill: @industrial; }
+
+  [type='residential'], [type='allotments']
+  { polygon-fill: @residential; }
+  [type='pedestrian'], [type='footway']
+  { polygon-fill: @pedestrian; }
+
+  // special
+  [type='parking'] { polygon-fill: @parking; }
+  [type='land'], [type='island'], [type='pier'] { polygon-fill: @land; }
+ // [type='water'], [type='fountain'], [type='swimming_pool'],
+ // [type='pond'], [type='salt_pond']
+  [type='fountain'], [type='swimming_pool'] { polygon-fill: @water; }
+
+  // areas
+  [type='nature_reserve'], [type='conservation'],
+  [type='national_park'] {
+	polygon-fill: @park;
+    polygon-opacity: 0.5;
+  }
+  [type='military'], [type='range'] {
+	polygon-fill: @military;
+    polygon-opacity: 0.25;
+  }
+
+  // transport
+  [type='aerodrome'], [type='airport'], [type='boundary'],
+  [type='harbor'], [type='railway'],
+  { polygon-fill: @airport; }
+
+  [type='runway'], [type='helipad'], [type='track'],
+  { polygon-fill: @aeroway; }
+
+  [type='terminal'], [type='apron'], [type='hangar'], [type='fire_station'],
+  { polygon-fill: @terminal; }
+
+  // debug
+//  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
+//  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
+}
+
+#landuse_line {
+
+  [type='ferry'][zoom>=7] {
+    line-color: @ferry-line;
+    [zoom<=9] { line-width: 0.25; }
+    [zoom>=10][zoom<=12] { line-width: 0.5; }
+    [zoom<=14][zoom>12] { line-width: 0.75; }
+    [zoom>=15][zoom<=17] { line-width: 1; line-smooth: 0.2; }
+    [zoom>=15][zoom<=17] { line-width: 1.2; line-smooth: 0.4; }
+    line-dasharray: @road-dash;
+    line-join: round;
+  }
+  [type='pier'][zoom>=10] {
+    [zoom=12] { line-width: 1;}
+    [zoom=13] { line-width: 1;}
+    [zoom=14] { line-width: 2;}
+    [zoom=15] { line-width: 3;}
+    [zoom=16] { line-width: 4;}
+    [zoom=17] { line-width: 5;}
+    [zoom>=18] { line-width: 6;}
+    line-color: @land;
+    line-join: round;
+    line-cap: butt;
+  }
+  [type='breakwater'][zoom>=10],
+  [type='groyne'][zoom>=10] {
+    [zoom=12] { line-width: 1;}
+    [zoom=13] { line-width: 2;}
+    [zoom=14] { line-width: 3;}
+    [zoom=15] { line-width: 4;}
+    [zoom=16] { line-width: 5;}
+    [zoom=17] { line-width: 7;}
+    [zoom>=18] { line-width: 8;}
+    line-color: @land;
+    line-join: round;
+    line-cap: butt;
+  }
+
 }
 
 #transport[zoom>=8]
@@ -306,3 +326,10 @@ Map {
   line-width:0.5;
 }
 
+
+
+//#bbox {
+//  polygon-pattern-file: url("texture/paper1.png");
+//  comp-op: multiply;
+//  opacity: 0.4;
+//}

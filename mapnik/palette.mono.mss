@@ -5,8 +5,8 @@
 
 //// base
 @land:              #d3d1d0;
-@water:             #969390;
-@river:             #969390;
+@water:             #666462;
+@river:             #666462;
 @beach:             #b7b7b3;
 
 //// landuse
@@ -40,11 +40,11 @@
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
-@ferry-line:        #55524f;
+@ferry-line:        #1a1514;
 
 @motorway-fill:     #f0f0f0; //#d3d1d0;
 @motorway-line:     #979491;
-@motorway-casing:   #1a1714;
+@motorway-casing:   #1a1514;
 @motorway-link:     @motorway-fill;
 
 @primary-line:      lighten(@motorway-line, 5%);
@@ -94,6 +94,8 @@
 // (eg: text wrap)
 @scale-factor:      2;
 
+@default-halo:      1;
+
 //// text font
 // TODO: use open sourced unicode font
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
@@ -103,9 +105,9 @@
 @font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Medium', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Medium', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
 
 //// map
 Map {
-  //buffer-size: 400;
+  buffer-size: 200;
 }
