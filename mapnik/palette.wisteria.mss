@@ -80,31 +80,29 @@
 @label-water:       darken(@water, 15%);
 // green text is subtle so we don’t compute here
 @label-park:        darken(@park, 25%);
-@label-physical:    darken(@motorway-casing, 10%);
+@label-physical:    @label-admin1;
 @label-motorway:    #dadad3;
 @label-primary:     @motorway-line;
 @label-path:        @primary-line;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@default-halo:      1.5;
-@smart-halo:        2;
+@default-halo:      1;
+@smart-halo:        1;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
-@scale-factor:      1;
+@scale-factor:      2;
 
 //// text font
-@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
+@font-regular:      'Roboto Condensed Light', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Roboto Medium', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Medium', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
+@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Condensed Regular', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Light', 'Arial Unicode MS Regular';
 @font-shield:       'Arial Bold', 'Arial Unicode MS Regular';
 
 //// map
 Map {
-  font-directory: url('/usr/share/fonts/Mac/'); 
-  buffer-size: 256;
 }

@@ -77,7 +77,7 @@
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     50%;
+@label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -110,7 +110,4 @@
 
 //// map
 Map {
-  buffer-size: 400;
-//   font-directory: url("font");
-//	base: url()
 }

@@ -91,16 +91,17 @@
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;
+@default-halo:      1;
 
 //// text font
 @font-regular:      'Roboto Condensed Light', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Roboto Condensed Medium', 'Arial Unicode MS Regular';
+@font-poi:          'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Light', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Light', 'Arial Unicode MS Regular';
-@font-shield:       'Arial Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Regular', 'Arial Unicode MS Regular';
 
 //// map
 Map {

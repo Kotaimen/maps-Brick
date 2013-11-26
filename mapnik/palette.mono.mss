@@ -5,7 +5,7 @@
 
 //// base
 @land:              #d3d1d0;
-@water:             #666462;
+@water:             #706c69;
 @river:             #666462;
 @beach:             #b7b7b3;
 

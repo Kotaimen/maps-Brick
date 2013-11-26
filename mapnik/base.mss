@@ -7,15 +7,23 @@ Map {
 #processed_p[zoom>=10]
 {
 
-//  ::shadow {
-//    polygon-fill: darken(saturate(@water, 50%), 25%);
-//    opacity: 0.4;
-//    image-filters: 'agg-stack-blur(6,6)';
-//    comp-op: multiply;
-//  }
+  ::effect_shadow {
+    polygon-fill: darken(saturate(@water, 50%), 25%);
+    opacity: 0.5;
+    image-filters: 'agg-stack-blur(8,8)';
+    comp-op: multiply;
+  }
 
   polygon-fill: @land;
   polygon-gamma: 0.75;
+
+  ::effect_emboss {
+      polygon-fill: grey;
+      opacity: 1;
+      image-filters: 'invert(),x-gradient(),blur()';
+      comp-op: soft-light;
+  }
+
 }
 
 #10m_reef[zoom>=4] {
@@ -118,23 +126,22 @@ Map {
 //#10m_lake_us[zoom<=9],
 //#10m_lake_eu[zoom<=9],
 #waterbody_gen0[zoom>=8][zoom<=9],
-#waterbody_gen1[zoom>=10][zoom<=12],
-#waterbody[zoom>=13] {
+#waterbody_gen1[zoom>=10][zoom<=11],
+#waterbody[zoom>=12] {
 
   polygon-fill: @water;
+  [zoom>=16] { polygon-smooth: 0.25; }
 
-//  ::emboss {
-//    polygon-fill: grey;
-//    polygon-gamma: 0.6;
-//    opacity: 0.8;
-//    image-filters: 'x-gradient(),blur()';
-//    comp-op: soft-light;
-//  }
+  ::effect_emboss {
+    polygon-fill: grey;
+    image-filters: 'x-gradient(),blur()';
+    comp-op: soft-light;
+    [zoom>=16] { polygon-smooth: 0.25; }
+  }
 
 }
 
 /// landuse
-
 #landuse_gen0[zoom>=5][zoom<=9],
 #landuse_gen1[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
@@ -325,11 +332,3 @@ Map {
   line-color: darken(@building,20);
   line-width:0.5;
 }
-
-
-
-//#bbox {
-//  polygon-pattern-file: url("texture/paper1.png");
-//  comp-op: multiply;
-//  opacity: 0.4;
-//}

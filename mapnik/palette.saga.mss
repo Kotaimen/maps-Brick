@@ -74,7 +74,7 @@
 @label-poi:         #392d29;
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     0%;
+@label-fadeout:     30%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -93,16 +93,17 @@
 @scale-factor:      2;
 
 @default-halo:      1;
+
 //// text font
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold';
+@font-path:         'Roboto Light', 'Arial Unicode MS Regular';
+@font-shield:       'Arial Bold', 'Arial Unicode MS Regular';
 
 //// map
 Map {
