@@ -1,5 +1,5 @@
 ﻿BEGIN;
-    
+
 SET search_path TO import, public;
 
 CREATE INDEX ON osm_places(type);
@@ -30,30 +30,30 @@ CREATE OR REPLACE VIEW brick_places AS
         	 ELSE 10
         END AS rank
     FROM osm_places
-    ORDER BY rank, population DESC NULLS LAST;
+    ORDER BY rank, population DESC NULLS LAST, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_landusage_area_labels AS 
+CREATE OR REPLACE VIEW brick_landusage_area_labels AS
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
     FROM osm_landusage_area_labels
     ORDER BY area DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS 
+CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
     FROM osm_landusage_area_labels_gen0
     ORDER BY area DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS 
+CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS
     SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
     FROM osm_landusage_area_labels_gen1
     ORDER BY area DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_road_labels AS 
+CREATE OR REPLACE VIEW brick_road_labels AS
     SELECT * FROM (
-        SELECT  osm_id, class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name, 
+        SELECT  osm_id, class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
                 CASE
                     WHEN sin(pi() / 2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
                     ELSE (-1)
@@ -72,7 +72,7 @@ CREATE OR REPLACE VIEW brick_road_labels AS
 	            geometry
         FROM osm_road_labels
         UNION ALL
-        SELECT osm_id, 'ferry' AS class, 'ferry' AS type, name, 
+        SELECT osm_id, 'ferry' AS class, 'ferry' AS type, name,
                 CASE
                     WHEN sin(pi()/2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
                     ELSE (-1)
@@ -86,8 +86,8 @@ CREATE OR REPLACE VIEW brick_road_labels AS
     ORDER BY rank DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_road_labels_gen1 AS 
-    SELECT class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name, 
+CREATE OR REPLACE VIEW brick_road_labels_gen1 AS
+    SELECT class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
             CASE
                 WHEN sin(pi() / 2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
                 ELSE (-1)
@@ -99,7 +99,7 @@ CREATE OR REPLACE VIEW brick_road_labels_gen1 AS
                 WHEN type = 'secondary' THEN 7
                 WHEN type = 'tertiary' THEN 9
                 WHEN type = ANY (ARRAY['residential', 'unclassified', 'road', 'minor']) THEN 11
-                WHEN class = 'railway' THEN 12                
+                WHEN class = 'railway' THEN 12
                 ELSE 99
             END AS rank,
 	        tunnel,
@@ -108,8 +108,8 @@ CREATE OR REPLACE VIEW brick_road_labels_gen1 AS
     ORDER BY rank DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_road_labels_gen0 AS 
-    SELECT class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name,        
+CREATE OR REPLACE VIEW brick_road_labels_gen0 AS
+    SELECT class, type, regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
            0 AS direction,
            CASE
                WHEN type = 'motorway' THEN 0
@@ -120,11 +120,11 @@ CREATE OR REPLACE VIEW brick_road_labels_gen0 AS
     	   tunnel,
     	   geometry
     FROM osm_road_labels_gen0
-    ORDER BY rank DESC, osm_id;       
+    ORDER BY rank DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_shields AS 
-    SELECT  class, type, 
+CREATE OR REPLACE VIEW brick_shields AS
+    SELECT  class, type,
             CASE
                 WHEN ref ~ '^I ?\d+' THEN regexp_replace(ref, '^I ?(\d+).*', 'I \1')
                 WHEN ref ~ '^US ?\d+' THEN regexp_replace(ref, '^US ?(\d+).*', 'US \1')
@@ -132,12 +132,12 @@ CREATE OR REPLACE VIEW brick_shields AS
                 WHEN ref ~ '^[[:alpha:]]+-\d+' THEN regexp_replace(ref, '^([[:alpha:]]+)-(\d+).*', '\1 \2')
                 WHEN ref ~ '^\d+$' THEN ref
                 ELSE ref
-            END AS ref, 
-            length(ref) AS reflen, 
+            END AS ref,
+            length(ref) AS reflen,
             geometry
     FROM osm_roads
     WHERE ref IS NOT NULL AND ref != '' AND (type = ANY (ARRAY['motorway', 'trunk', 'primary', 'secondary', 'tertiary']))
-    ORDER BY 
+    ORDER BY
       	CASE WHEN type='motorway' THEN 0
 	         WHEN type='trunk' THEN 1
 	         WHEN type='primary' THEN 2
@@ -148,10 +148,10 @@ CREATE OR REPLACE VIEW brick_shields AS
 	    osm_id;
 
 
-	
-CREATE OR REPLACE VIEW brick_shields_gen0 AS 
+
+CREATE OR REPLACE VIEW brick_shields_gen0 AS
     SELECT class, type, ref, length(ref) AS reflen, geometry
-    FROM ( SELECT osm_id, class, type, 
+    FROM ( SELECT osm_id, class, type,
                     CASE
                         WHEN ref ~ '^I ?\d+' THEN regexp_replace(ref, '^I ?(\d+).*', 'I \1')
                         WHEN ref ~ '^US ?\d+' THEN regexp_replace(ref, '^US ?(\d+).*', 'US \1')
@@ -159,7 +159,7 @@ CREATE OR REPLACE VIEW brick_shields_gen0 AS
                         WHEN ref ~ '^[[:alpha:]]+-\d+' THEN regexp_replace(ref, '^([[:alpha:]]+)-(\d+).*', '\1 \2')
                         WHEN ref ~ '^\d+$' THEN ref
                         ELSE ref
-                    END AS ref, 
+                    END AS ref,
                     geometry
            FROM osm_roads_gen0
            WHERE ref IS NOT NULL AND ref != '' ) foo
