@@ -1,0 +1,4 @@
+
+mapnik/font/*.ttf
+mapnik/~*
+cache/*
