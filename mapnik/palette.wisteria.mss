@@ -42,7 +42,7 @@
 @ferry-line:        @land;
 
 @motorway-fill:     #86677f;//#7A3567;//#3d65af;
-@motorway-line:     darken(@motorway-fill, 2%);
+@motorway-line:     lighten(@motorway-fill, 16%);
 @motorway-casing:   fadeout(@land, 50%);
 @motorway-link:     lighten(@motorway-fill, 10%);
 
@@ -105,4 +105,5 @@
 
 //// map
 Map {
+  font-directory: url('/usr/share/fonts/Mac');
 }
