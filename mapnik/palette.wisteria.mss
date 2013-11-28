@@ -17,12 +17,12 @@
 @healthcare:        #bba3a3;
 @educational:       @beach;
 @sports:            #b5baab;
-@building:          #b2bacc;
+@building:          #bec6d7;
 
 //// zone
 @residential:       #c2c5cc;
 @pedestrian:        @sports;
-@commercial:        lighten(@building, 5%);
+@commercial:        lighten(@building, 3%);
 @industrial:        #b5abba;
 @military:          #bab2ad;
 
@@ -41,12 +41,12 @@
 // reduce casing contrast by changing 'lighten' parameter below
 @ferry-line:        @land;
 
-@motorway-fill:     #86677f;//#7A3567;//#3d65af;
-@motorway-line:     lighten(@motorway-fill, 16%);
+@motorway-fill:     #7d5f76;//#7A3567;//#3d65af;
+@motorway-line:     desaturate(lighten(@motorway-fill, 16%), 3%);
 @motorway-casing:   fadeout(@land, 50%);
 @motorway-link:     lighten(@motorway-fill, 10%);
 
-@primary-line:      darken(@primary-fill, 2%);
+@primary-line:      desaturate(darken(@primary-fill, 5%), 5%);
 @primary-fill:   	#bb98b1;
 @primary-casing: 	fadeout(@land, 50%);//lighten(@motorway-casing, 15%);
 
@@ -68,7 +68,7 @@
 @road-dash:         5,2;
 
 //// labels
-@label-admin0:      #6e0432;
+@label-admin0:      #6c0f37;
 @label-admin1:      darken(@boundary-line, 5%);
 @label-place:       @label-admin0;
 @label-poi:         desaturate(@label-admin0, 30%);
@@ -82,7 +82,7 @@
 @label-park:        darken(@park, 25%);
 @label-physical:    @label-admin1;
 @label-motorway:    #dadad3;
-@label-primary:     @motorway-line;
+@label-primary:     @motorway-fill;
 @label-path:        @primary-line;
 
 // variable depth halo size, set to a float value requries
