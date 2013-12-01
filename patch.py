@@ -90,14 +90,19 @@ def make_theme(theme, smart=False):
     with open(os.path.join('mapnik', theme_palette), 'r') as fp:
         mss = fp.read()
         with open('mapnik/~palette.mss', 'w') as wfp:
-            wfp.write(re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', mss))
+            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', mss)
+            out = re.sub(r'@default-halo:\s+\d+', '@default-halo: 0', out)
+            wfp.write(out)
         with open('mapnik/~palette_halo.mss', 'w') as wfp:
-            wfp.write(re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 1', mss))
+            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 1', mss)
+            out = re.sub(r'@default-halo:\s+\d+', '@default-halo: 1', out)
+            wfp.write(out)
+
 
     if not smart:
         compile([theme_palette, 'base.mss', 'road.mss', 'boundary.mss', 'label.mss'], 'all')
     else:
-#     compile(['~palette.mss', 'base.mss', 'road.mss', 'boundary.mss'], 'base_road')
+##        compile(['~palette.mss', 'base.mss', 'road.mss', 'boundary.mss'], 'base_road')
         compile(['~palette.mss', 'base.mss'], 'base')
         compile(['~palette.mss', 'road.mss', 'boundary.mss'], 'road')
         compile(['~palette.mss', 'label.mss'], 'label')
