@@ -85,8 +85,8 @@
 @label-park:        #2c4c22;
 @label-physical:    darken(@motorway-casing, 10%);
 @label-motorway:    @label-poi;
-@label-primary:     @motorway-casing;
-@label-path:        @primary-line;
+@label-primary:     darken(@motorway-casing, 10%);
+@label-path:        darken(@primary-line, 10%);
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
