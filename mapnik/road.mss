@@ -839,7 +839,9 @@
   [render='inline'] {
     [tunnel=1] {
       line-opacity: 0.5;
+      line-clip: false;
       dash/line-opacity: 0.5;
+      dash/line-clip: false;
     }
   }
 

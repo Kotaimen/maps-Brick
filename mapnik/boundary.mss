@@ -19,6 +19,7 @@
     line-width: 0;
   	line-color: @boundary-line;
   	line-join: round;
+    line-clip: false;
     [zoom=2] { line-width: 0.25; }
   	[zoom=3] { line-width: 0.75; }
   	[zoom=4] { line-width: 1; }
@@ -92,11 +93,11 @@
     ::casing {
       line-width: 0;
       line-color: @boundary-casing;
-      line-opacity: 0.25;
+      line-opacity: 0.5;
       line-join: round;
       line-cap: round;
-      [zoom=4] { line-width: 1; }
-      [zoom=5] { line-width: 1; }
+      [zoom<=4] { line-width: 1; }
+      [zoom=5] { line-width: 2; }
       [zoom>=6] { line-width: 3; }
     }
     ::body {
@@ -104,12 +105,14 @@
   	  line-color: @boundary-line;
       line-opacity: 0.5;
       line-join: round;
-      line-dasharray: @boundary-dash;
-      [zoom=3] { line-width: 0.25; }
-      [zoom=4] { line-width: 0.4; }
-      [zoom=5] { line-width: 0.5; }
-      [zoom=6] { line-width: 0.6; }
-      [zoom>6] { line-width: 1; }
+      line-clip: false;
+      [zoom<=4] { line-dasharray: 8,2; }
+      [zoom>=5] { line-dasharray: 16,4; }
+
+      [zoom<=4] { line-width: 0.5; }
+      [zoom=5] { line-width: 1; }
+      [zoom=6] { line-width: 1.25; }
+      [zoom>6] { line-width: 1.5; }
     }
   }
 }

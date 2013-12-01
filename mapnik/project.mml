@@ -10,14 +10,15 @@
     37.7642,
     10
   ],
-  "format": "png",
+  "format": "png8",
   "interactivity": false,
   "minzoom": 2,
   "maxzoom": 19,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "palette.brick.mss",
-    "base.mss","road.mss","boundary.mss",
+    "base.mss",
+    "road.mss",
     "label.mss"
   ],
   "Layer": [
@@ -782,41 +783,20 @@
     {
       "geometry": "linestring",
       "extent": [
-        -141.00554863899987,
-        -55.120923766999944,
-        140.97762699400005,
-        70.07531036400012
+        -139.0602066219999,
+        -49.25087001999992,
+        178.448622268,
+        81.12853131600008
       ],
-      "id": "10m_admin0",
+      "id": "10m_admin1",
       "class": "",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp",
-        "id": "10m_admin0",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_1_states_provinces_lines_shp.shp"
       },
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "10m_admin0"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -89.19313967135845,
-        -23.83757903399993,
-        149.3593353700001,
-        48.12060394300009
-      ],
-      "id": "10m_disurpted",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_disputed_areas.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_disurpted"
+      "name": "10m_admin1"
     },
     {
       "geometry": "linestring",
@@ -842,20 +822,41 @@
     {
       "geometry": "linestring",
       "extent": [
-        -139.0602066219999,
-        -49.25087001999992,
-        178.448622268,
-        81.12853131600008
+        -89.19313967135845,
+        -23.83757903399993,
+        149.3593353700001,
+        48.12060394300009
       ],
-      "id": "10m_admin1",
+      "id": "10m_disurpted",
       "class": "",
       "Datasource": {
-        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_1_states_provinces_lines_shp.shp"
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_disputed_areas.shp"
       },
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "10m_admin1"
+      "name": "10m_disurpted"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -141.00554863899987,
+        -55.120923766999944,
+        140.97762699400005,
+        70.07531036400012
+      ],
+      "id": "10m_admin0",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp",
+        "id": "10m_admin0",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_admin0"
     },
     {
       "geometry": "linestring",

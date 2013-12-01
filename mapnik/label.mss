@@ -393,33 +393,34 @@
     [type='townhall'], [type='public_building'], [type='courthouse'],
     [type='prison'], [type='police'],
     [type='fire_station'],
-    [type='hotel'], [type='motel'],
+//    [type='hotel'], [type='motel'],
     [type='zoo'],
     [type='stadium'], [type='sports_centre'],
     [type='cemetery'],
-    [type='industrial'],
+//    [type='industrial'],
     [type='landfill'],
-    [type='retail'], [type='commercial'], {
+//    [type='retail'], [type='commercial'],
+    {
       ::marker {
         [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'] { marker-file: url("marker/maki/hospital.svg"); }
         [type='university'],[type='college'] { marker-file: url("marker/maki/college.svg"); }
         [type='museum'] { marker-file: url("marker/maki/museum.svg"); }
-	    [type='arts_centre'], [type='gallery'] { marker-file: url("marker/maki/art-gallery.svg"); }
+	      [type='arts_centre'], [type='gallery'] { marker-file: url("marker/maki/art-gallery.svg"); }
         [type='library'] { marker-file: url("marker/maki/library.svg"); }
         [type='theatre'] { marker-file: url("marker/maki/theatre.svg"); }
         [type='cinema'] { marker-file: url("marker/maki/cinema.svg"); }
         [type='school'] { marker-file: url("marker/maki/school.svg"); }
         [type='post_office'] { marker-file: url("marker/maki/post.svg"); marker-height: 7; }
- 	    [type='townhall'],[type='public_building'], [type='courthouse'] { marker-file: url("marker/maki/town-hall.svg"); }
-	    [type='prison'], [type='police'] { marker-file: url("marker/maki/police.svg"); }
-	    [type='hotel'], [type='motel'], { marker-file: url("marker/maki/lodging.svg"); }
-	    [type='fire_station'] { marker-file: url("marker/maki/fire-station.svg"); }
+ 	      [type='townhall'],[type='public_building'], [type='courthouse'] { marker-file: url("marker/maki/town-hall.svg"); }
+	      [type='prison'], [type='police'] { marker-file: url("marker/maki/police.svg"); }
+//	      [type='hotel'], [type='motel'], { marker-file: url("marker/maki/lodging.svg"); }
+	      [type='fire_station'] { marker-file: url("marker/maki/fire-station.svg"); }
         [type='zoo'] { marker-file: url("marker/maki/giraffe.svg"); }
-	    [type='stadium'], [type='sports_centre'] { marker-file: url("marker/maki/soccer.svg"); }
-	    [type='cemetery'] { marker-file: url("marker/maki/cemetery.svg"); }
-	    [type='industrial'] { marker-file: url("marker/maki/industrial-building.svg"); }
-	    [type='landfill'] { marker-file: url("marker/maki/trash.svg"); }
-    	[type='retail'], [type='commercial'] { marker-file: url("marker/maki/commerical-building.svg"); }
+	      [type='stadium'], [type='sports_centre'] { marker-file: url("marker/maki/soccer.svg"); }
+	      [type='cemetery'] { marker-file: url("marker/maki/cemetery.svg"); }
+//	      [type='industrial'] { marker-file: url("marker/maki/industrial-building.svg"); }
+	      [type='landfill'] { marker-file: url("marker/maki/trash.svg"); }
+//    	  [type='retail'], [type='commercial'] { marker-file: url("marker/maki/commerical-building.svg"); }
         marker-placement: point;
         marker-width: 11;
         marker-height: 11;
