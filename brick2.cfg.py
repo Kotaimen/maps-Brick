@@ -49,13 +49,20 @@ composer=dict(\
              ],
     format=fmt,
     command='''
-    {{base}}
-    (
-        {{road}} {{halo}} -compose dst-out  -composite
-    ) -compose over -composite
-    {{label}} -compose over -composite
-    -dither none
-    -colors 128
+    # Roads/boundarys 
+    {{road}}
+    
+    # Halo only on top of roads, also make halo semi-transparent
+    ( {{halo}}  -channel A -evaluate Multiply 0.5 +channel ) -compose Atop -composite
+    
+    # Land/areas below roads
+    {{base}} -compose DstOver -composite
+    
+    # Render labels on top of roads
+    {{label}} -compose Over -composite
+    
+    # Reduce number of colors
+    -dither none -colors 128
     ''',
     )
 ROOT = dict(\
