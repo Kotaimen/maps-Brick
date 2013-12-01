@@ -49,18 +49,47 @@ composer=dict(\
              ],
     format=fmt,
     command='''
-    {{base}}
-    -ordered-dither o4x4,7,6,5
+    # Apply ordered dither to landbase, mimics 'halftone dither' effect
+    ( {{base}} -ordered-dither o4x4,4 )
+    
     (
-        {{road}} {{halo}} -compose dst-out  -composite
-    ) -compose over -composite
-    {{label}} -compose over -composite
-#    -colorspace gray -fill wheat -tint 22
-#    -quality 90
+        # Use a different dither for some variation
+        ( {{road}} -ordered-dither o4x4,8 )
+        # Fill halo with land color and only render on top of roads
+        ( {{halo}} +level-colors #ebe9e6 ) -compose Atop -composite
+    ) -compose Over -composite
+
+    (
+        # Increase lightness of labels, will apply Multiply later...
+        {{label}}  -brightness-contrast +10
+        # Mimics 'typewriter' effect, only works on thin fonts.
+        # Find line joins of labels and thicken/darken them.
+        # Uses ImageMagick's morphology operation.
+        # Slow!
+        ( +clone -channel A
+          -morphology HMT LineJunctions
+          -morphology Dilate Disk:1
+          +channel
+        ) -compose Multiply -composite
+    )  -compose Over -composite
+    
+    # Make "real" duetone effect, not fake color tint.
+    # First reduce brightness and contrast (the original 'mono' theme 
+    # is high contrast white/black ) so the image fit in mid tone range.
+    -brightness-contrast -15x-10
+    
+    # Convert to grayscale then apply duetone lookup table
+    # The reference duotone images are converted from 
+    # Photoshop's classic 'Duotone' mode library.
+    -colorspace gray    
+    %(lut)s -clut
+    
+    # Finally, convert to paletted png
     -dither none
-    -colors 64
-    ''',
+    -colors 128
+    ''' % dict(lut=os.path.join(themedir, 'mapnik/duotone/Bl-for-dark-cg9-cg2.png')),
     )
+
 ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
