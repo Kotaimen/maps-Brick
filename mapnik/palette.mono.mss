@@ -4,47 +4,46 @@
 // 'lighten' to 'darken' if your theme is dark
 
 //// base
-@land:              #d3d1d0;
-@water:             #706c69;
-@river:             #666462;
-@beach:             #b7b7b3;
+@land:              #ebe9e6;
+@water:             #b2b1ad;
+@river:             #9a9893;
+@beach:             #d9d8d4;
 
 //// landuse
-@park:              #a5a4a0;
-@wooded:            #a5a4a0;
-@agriculture:       #a5a4a0;
-@religion:          #b7b5b3;
-@healthcare:        #b7b3b3;
+@park:              #ccccca;
+@wooded:            #ccccca;
+@agriculture:       #ccccca;
+@religion:          #d9d9d7;
+@healthcare:        #d9d9d7;
 @educational:       @beach;
-@sports:            #a5a4a0;
-@building:          #dfdedd;
+@sports:            #ccccca;
+@building:          #e3e3e3;
 
 //// zone
 @residential:       darken(@building, 2%);
 @pedestrian:        desaturate(@sports, 4%);
 @commercial:        darken(@building, 3%);
-@industrial:        #b7b7b3;
-@military:          #b7b7b7;
+@industrial:        #d9d9d7;
+@military:          #d9d9d7;
 
 //// transport
-@parking:           #b7b7b3;
+@parking:           #d9d9d7;
 @airport:           @beach;
 @aeroway:           lighten(@beach, 5%);
 @terminal:          darken(@beach, 4%);
 
 //// boundary
 @boundary-line:     #55524f;
-@boundary-casing:   lighten(@boundary-line, 40%);
-@boundary-dash:     10,5;
+@boundary-casing:   lighten(@boundary-line, 56%);
 
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
-@ferry-line:        #1a1514;
+@ferry-line:        #a3a2a1;
 
-@motorway-fill:     #f0f0f0; //#d3d1d0;
+@motorway-fill:     #ebe9e6; //#d3d1d0;
 @motorway-line:     #979491;
-@motorway-casing:   #1a1514;
+@motorway-casing:   #25201f;
 @motorway-link:     @motorway-fill;
 
 @primary-line:      lighten(@motorway-line, 5%);
@@ -57,7 +56,7 @@
 
 @minor-line:        lighten(@motorway-line, 10%);
 @minor-fill:   	    @motorway-fill;
-@minor-casing: 	    lighten(@motorway-casing, 25%);
+@minor-casing: 	    lighten(@motorway-casing, 10%);
 
 @path-line:         lighten(@motorway-line, 15%);
 @path-fill:	        @minor-fill;
@@ -69,23 +68,23 @@
 @road-dash:         5,2;
 
 //// labels
-@label-admin0:      #1a1514;
-@label-admin1:      #1a1514;
-@label-place:       #1a1514;
-@label-poi:         #1a1514;
+@label-admin0:      #25201f;
+@label-admin1:      #25201f;
+@label-place:       #25201f;
+@label-poi:         #25201f;
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
 @label-fadeout:     0%;
-@label-halo:        fadeout(#f0f0f0, @label-fadeout);
+@label-halo:        fadeout(#ebe9e6, @label-fadeout);
 
-@label-water:       darken(@ferry-line, 10%);
+@label-water:       #25201f;
 // green text is subtle so we don’t compute here
-@label-park:        #1a1514;
-@label-physical:    darken(@motorway-casing, 10%);
-@label-motorway:    @label-poi;
-@label-primary:     @motorway-casing;
-@label-path:        @primary-line;
+@label-park:        #25201f;
+@label-physical:    #25201f;
+@label-motorway:    #25201f;
+@label-primary:     #25201f;
+@label-path:        #25201f;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
@@ -98,12 +97,12 @@
 
 //// text font
 // TODO: use open sourced unicode font
-@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Medium', 'Arial Unicode MS Regular';
+@font-regular:      'American Typewriter Condensed', 'Arial Unicode MS Regular';
+@font-heavy:        'American Typewriter Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Roboto Medium', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Medium', 'Arial Unicode MS Regular';
+@font-poi:          'American Typewriter Regular', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
 @font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
 

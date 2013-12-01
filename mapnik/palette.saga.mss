@@ -35,7 +35,6 @@
 //// boundary
 @boundary-line:     #4e3722;
 @boundary-casing:   desaturate(lighten(@boundary-line, 40%), 50%);
-@boundary-dash:     10,5;
 
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
@@ -62,7 +61,7 @@
 @path-fill:	        @minor-fill;
 @path-casing:       lighten(@motorway-casing, 20%);
 
-@rail-line: 		    @primary-casing;
+@rail-line: 		@primary-casing;
 @rail-casing: 		  @land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;
@@ -74,7 +73,7 @@
 @label-poi:         #392d29;
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     30%;
+@label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@ferry-line, 10%);
@@ -97,13 +96,13 @@
 //// text font
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Light', 'Arial Unicode MS Regular';
-@font-shield:       'Arial Bold', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
 
 //// map
 Map {
