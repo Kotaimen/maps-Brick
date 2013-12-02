@@ -41,7 +41,7 @@
 // reduce casing contrast by changing 'lighten' parameter below
 @ferry-line:        @land;
 
-@motorway-fill:     #7d5f76;//#7A3567;//#3d65af;
+@motorway-fill:     #977a91;//#7A3567;//#3d65af;
 @motorway-line:     desaturate(lighten(@motorway-fill, 16%), 3%);
 @motorway-casing:   fadeout(@land, 50%);
 @motorway-link:     lighten(@motorway-fill, 10%);
@@ -81,8 +81,8 @@
 // green text is subtle so we don’t compute here
 @label-park:        darken(@park, 25%);
 @label-physical:    @label-admin1;
-@label-motorway:    #dadad3;
-@label-primary:     @motorway-fill;
+@label-motorway:    saturate(darken(@motorway-fill, 20%), 15%);
+@label-primary:     darken(@motorway-fill, 8%);
 @label-path:        @primary-line;
 
 // variable depth halo size, set to a float value requries
