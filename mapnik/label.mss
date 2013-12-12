@@ -11,6 +11,7 @@
     text-fill: @label-admin0;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;
     text-wrap-width: 125 * @scale-factor;
   }
 }
@@ -30,6 +31,7 @@
     text-fill: @label-water;
     text-halo-fill: fadeout(@water, @label-fadeout);
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;
     text-wrap-width: 60 * @scale-factor;
   }
 }
@@ -49,6 +51,7 @@
     text-fill: @label-water;
     text-halo-fill: fadeout(@water, @label-fadeout);
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;    
     text-wrap-width: 30 * @scale-factor;
   }
 }
@@ -81,6 +84,7 @@
     text-fill: @label-physical;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;
   }
 }
 
@@ -113,6 +117,7 @@
     text-fill: @label-physical;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;    
   }
 }
 
@@ -144,6 +149,7 @@
     text-label-position-tolerance: 16;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;    
     text-wrap-width: 125 * @scale-factor;
   }
 }
@@ -159,6 +165,7 @@
   text-fill:  @label-admin0;
   text-halo-fill: @label-halo;
   text-halo-radius: @smart-halo;
+  text-halo-rasterizer: @halo-quality;  
   text-label-position-tolerance: 16;
   text-wrap-width: 100;
   text-placement-type: simple;
@@ -181,6 +188,7 @@
     text-fill: @label-admin1;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;    
     text-label-position-tolerance: 10;
   }
 }
@@ -206,6 +214,7 @@
     text-fill: @label-place;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;    
 	text-placement-type: simple;
     text-placement: point;
     text-placements: 'NE,SW,SE,W,N,E';
@@ -228,6 +237,7 @@
   text-fill: @label-place;
   text-halo-fill: @label-halo;
   text-halo-radius: @smart-halo;
+  text-halo-rasterizer: @halo-quality;      
   text-placement: point;
   text-wrap-width: 100 * @scale-factor;
   text-label-position-tolerance: 16;
@@ -280,6 +290,7 @@
     text-fill: @label-poi;
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
+    text-halo-rasterizer: @halo-quality;    
     text-wrap-width: 55 * @scale-factor;
     text-placement: point;
     text-min-distance: 8;
@@ -453,6 +464,7 @@
     text-fill: @label-motorway;
     text-halo-radius: @default-halo;
 	text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
+    text-halo-rasterizer: @halo-quality;        
     text-size: 14;
     [zoom<=17] { text-size: 14; }
     [zoom>=18] { text-size: 18; }
@@ -470,6 +482,7 @@
     text-fill: @label-primary;
     text-halo-radius: @default-halo;
     text-halo-fill: fadeout(@primary-fill,  @label-fadeout);
+    text-halo-rasterizer: @halo-quality;        
     text-size: 14;
     [zoom<=17] { text-size: 13; }
     [zoom>=18] { text-size: 16; }
@@ -485,8 +498,9 @@
     text-face-name: @font-primary;
     text-fill: @label-primary;
   	text-halo-radius: @smart-halo;
-	  text-halo-fill: @label-halo;
-	  [zoom>=17] {
+	text-halo-fill: @label-halo;
+    text-halo-rasterizer: @halo-quality;          
+	[zoom>=17] {
       text-halo-radius: @default-halo;
       text-halo-fill: @secondary-fill;
     }
@@ -512,6 +526,7 @@
   text-fill: @label-primary;
   text-halo-fill: @label-halo;
   text-halo-radius: @smart-halo;
+  text-halo-rasterizer: @halo-quality;      
   text-allow-overlap: false;
   text-name: "[name]";
   text-placement: line;
@@ -533,6 +548,7 @@
   text-fill: @label-water;
   text-halo-fill: fadeout(@water, @label-fadeout);
   text-halo-radius: @smart-halo;
+  text-halo-rasterizer: @halo-quality;      
   text-allow-overlap: false;
   text-name: "[name]";
   text-placement: line;
@@ -553,6 +569,8 @@
     shield-file: url('shield/motorway-4.svg');
     shield-placement: line;
     shield-clip: false;
+//    shield-avoid-edges: false;
+//    shield-min-padding: 6;        
     shield-face-name: @font-shield;
     shield-name: '[ref]';
     shield-fill: @label-poi;
@@ -566,12 +584,14 @@
     [zoom<=14] { shield-min-distance: 100; }
     [zoom=15] { shield-min-distance: 120; }
     [zoom=16] { shield-min-distance: 140; }
-    [zoom>=17] { shield-min-distance: 160; }
+    //[zoom>=17] { shield-min-distance: 160; }
   }
   [type='primary'][zoom>=12], [type='secondary'][zoom>=16] {
     shield-file: url('shield/motorway-4.svg');
     shield-placement: line;
     shield-clip: false;
+//    shield-avoid-edges: false;
+//    shield-min-padding: 6;    
     shield-face-name: @font-shield;
     shield-name: '[ref]';
     shield-fill: @label-admin0;

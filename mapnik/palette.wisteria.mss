@@ -74,12 +74,12 @@
 @label-poi:         desaturate(@label-admin0, 30%);
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     30%;
+@label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@water, 15%);
 // green text is subtle so we don’t compute here
-@label-park:        darken(@park, 25%);
+@label-park:        spin(darken(@park, 35%), 5%);
 @label-physical:    @label-admin1;
 @label-motorway:    saturate(darken(@motorway-fill, 20%), 15%);
 @label-primary:     darken(@motorway-fill, 8%);
@@ -89,6 +89,9 @@
 // mapnik 2.2+ to handle rendering correctly
 @default-halo:      1;
 @smart-halo:        1;
+// controls text-halo-rasterizer fast/full
+@halo-quality:      fast;
+
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;

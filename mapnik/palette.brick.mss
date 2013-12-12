@@ -77,9 +77,10 @@
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     0%;
+@label-fadeout:     50%;
 @label-halo:        fadeout(@land, @label-fadeout);
-
+// controls text-halo-rasterizer fast/full
+@halo-quality:      fast;
 @label-water:       darken(@ferry-line, 10%);
 // green text is subtle so we don’t compute here
 @label-park:        #2c4c22;
@@ -110,4 +111,5 @@
 
 //// map
 Map {
+  buffer-size: 300;
 }

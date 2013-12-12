@@ -6,24 +6,24 @@ Map {
 #shoreline_300[zoom<=9],
 #processed_p[zoom>=10]
 {
-
+/*    
   ::effect_shadow {
     polygon-fill: darken(saturate(@water, 50%), 25%);
     opacity: 0.5;
     image-filters: 'agg-stack-blur(8,8)';
     comp-op: multiply;
   }
-
+*/  
   polygon-fill: @land;
   polygon-gamma: 0.75;
-
+/*
   ::effect_emboss {
       polygon-fill: grey;
       opacity: 1;
       image-filters: 'invert(),x-gradient(),blur()';
       comp-op: soft-light;
   }
-
+*/  
 }
 
 #10m_reef[zoom>=4] {
@@ -131,14 +131,14 @@ Map {
 
   polygon-fill: @water;
   [zoom>=16] { polygon-smooth: 0.25; }
-
+  /*
   ::effect_emboss {
     polygon-fill: grey;
     image-filters: 'x-gradient(),blur()';
     comp-op: soft-light;
     [zoom>=16] { polygon-smooth: 0.25; }
   }
-
+ */ 
 }
 
 /// landuse
@@ -318,12 +318,12 @@ Map {
 #building[zoom>12] {
   polygon-fill: @building;
   [zoom>=14] {
-    line-color: darken(@building,10);
+    line-color: darken(@building,5);
     line-width:0.25;
 
   }
   [zoom>=16] {
-    line-color: darken(@building,20);
+    line-color: darken(@building,10);
     line-width:0.5;
   }
 }
