@@ -19,6 +19,7 @@
     line-width: 0;
   	line-color: @boundary-line;
   	line-join: round;
+    line-cap: round;
     line-clip: false;
     [zoom=2] { line-width: 0.25; }
   	[zoom=3] { line-width: 0.75; }
@@ -27,6 +28,7 @@
   	[zoom=6] { line-width: 1.5; }
   	[zoom>6] { line-width: 2; }
     [featurecla='Disputed (please verify)'] {
+      line-cap: butt;         
       [zoom=3] { line-dasharray:4,1; }
       [zoom=4] { line-dasharray:5,2; }
       [zoom=5] { line-dasharray:6,2; }
@@ -34,6 +36,7 @@
       [zoom>6] { line-dasharray:10,3; }
     }
     [featurecla='Breakaway'] {
+      line-cap: butt;        
       [zoom=3] { line-dasharray: 3,2; }
       [zoom=4] { line-dasharray: 4,4; }
       [zoom=5] { line-dasharray: 5,5; }
@@ -41,6 +44,7 @@
       [zoom>6] { line-dasharray: 8,8; }
     }
     [featurecla='Claim boundary'] {
+      line-cap: butt;        
       line-dasharray: 1,3;
       [zoom>6] { line-dasharray: 2,4; }
     }

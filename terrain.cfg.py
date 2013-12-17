@@ -190,7 +190,7 @@ builtup_area = dict(\
 
 waterbody = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/terrain/waterbody_new.xml'),
+    theme=os.path.join(themedir, 'mapnik/terrain/waterbody.xml'),
     image_type='png',
     buffer_size=0,
     scale_factor=1

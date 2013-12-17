@@ -9,17 +9,63 @@ tile_size = 256
 
 fmt = 'png'
 
-all_ = dict(\
+base = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/wisteria_all.xml'),
-    image_type='png256',
-    image_parameters={'colors':128},
+    theme=os.path.join(themedir, 'mapnik/xml/wisteria_base.xml'),
+    image_type='png',
+    buffer_size=0,
+    scale_factor=2
+    )
+
+road = dict(\
+    prototype='node.mapnik',
+    theme=os.path.join(themedir, 'mapnik/xml/wisteria_road.xml'),
+    image_type='png',
+    buffer_size=16,
+    scale_factor=2
+    )
+
+label = dict(\
+    prototype='node.mapnik',
+    theme=os.path.join(themedir, 'mapnik/xml/wisteria_label.xml'),
+    image_type='png',
     buffer_size=tile_size*2,
     scale_factor=2
     )
 
+halo = dict(\
+    prototype='node.mapnik',
+    theme=os.path.join(themedir, 'mapnik/xml/wisteria_label_halo.xml'),
+    image_type='png',
+    buffer_size=tile_size*2,
+    scale_factor=2
+    )
+
+composer=dict(\
+    prototype='node.imagemagick',
+
+    sources=['base', 'road', 'label', 'halo',
+             ],
+    format=fmt,
+    command='''
+    # Roads/boundarys 
+    {{road}}
+    
+    # Halo only on top of roads, also make halo semi-transparent
+    ( {{halo}}  -channel A -evaluate Multiply 0.5 +channel ) -compose Atop -composite
+    
+    # Land/areas below roads
+    {{base}} -compose DstOver -composite
+    
+    # Render labels on top of roads
+    {{label}} -compose Over -composite
+    
+    # Reduce number of colors
+    -dither none -colors 128
+    ''',
+    )
 ROOT = dict(\
-    renderer='all_',
+    renderer='composer',
     metadata=dict(tag=tag,
                   version='2.0',
                   description="A Mason's Brick",

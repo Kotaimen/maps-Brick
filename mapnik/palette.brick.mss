@@ -56,15 +56,15 @@
 @secondary-casing:  lighten(@motorway-casing, 15%);
 
 @minor-line:        lighten(@motorway-casing, 20%);
-@minor-fill:		    #ebe8e2;
-@minor-casing:      lighten(@motorway-casing, 20%);
+@minor-fill:		#ebe8e2;
+@minor-casing:      lighten(@motorway-casing, 25%);
 
 @path-line:         lighten(@motorway-casing, 20%);
 @path-fill:	        @minor-fill;
-@path-casing:       lighten(@motorway-casing, 20%);
+@path-casing:       lighten(@motorway-casing, 25%);
 
-@rail-line: 		    @primary-casing;
-@rail-casing: 		  @land;
+@rail-line: 	    @primary-casing;
+@rail-casing: 	    @land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;
 
@@ -77,7 +77,7 @@
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     50%;
+@label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 // controls text-halo-rasterizer fast/full
 @halo-quality:      fast;

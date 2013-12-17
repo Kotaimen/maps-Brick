@@ -217,7 +217,7 @@
     text-halo-rasterizer: @halo-quality;    
 	text-placement-type: simple;
     text-placement: point;
-    text-placements: 'NE,SW,SE,W,N,E';
+    text-placements: 'NE,NW,S,N,E';
     [layer=4][zoom=4],
     [layer=5][zoom=5],
     [layer=6][zoom=6],
@@ -293,7 +293,7 @@
     text-halo-rasterizer: @halo-quality;    
     text-wrap-width: 55 * @scale-factor;
     text-placement: point;
-    text-min-distance: 8;
+    text-min-distance: 32;
   }
 
   [zoom=7][area>2000000000],
@@ -355,7 +355,7 @@
         text-placement-type: simple;
       	text-dx: 13;
       	text-dy: 13;
-      	text-placements: 'S,E';
+      	text-placements: 'S,E,W';
   	  	text-name: "[name]";
       }
     }
@@ -441,7 +441,7 @@
         text-placement-type: simple;
         text-dx: 11;
         text-dy: 11;
-        text-placements: 'S,E';
+        text-placements: 'S,E,W';
         text-name: "[name]";
         text-fill: @label-poi;
       }

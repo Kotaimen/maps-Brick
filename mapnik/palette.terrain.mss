@@ -92,7 +92,8 @@
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;
-
+// controls text-halo-rasterizer fast/full
+@halo-quality:      full;
 @default-halo:      2;
 
 //// text font
