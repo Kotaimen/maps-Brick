@@ -1,4 +1,5 @@
-
 mapnik/font/*.ttf
+mapnik/font/*.ttc
 mapnik/~*
+mapnik/xml/*
 cache/*
