@@ -188,15 +188,17 @@
   // 3. transprent link fill but not casing,
   //    requries post processing in mason composer
   // here we are using 2
-  [render='casing'] { [tunnel=1] { line-opacity: 0.5; } }
-  [render='inline']  {
+/*
+   [render='casing'] { [tunnel=1] { line-opacity: 0.5; } }
+    [render='inline']  {
     [tunnel=1] {
       line-comp-op: soft-light;
       line-cap: butt;
     }
   }
-  // [render='casing'] { [tunnel=1] { line-dasharray: @road-dash; } }
-  // [render='inline'] { [tunnel=1] { line-comp-op: dst-out; line-opacity: 0.95; } }
+*/
+  [render='casing'][tunnel=1] {  line-dasharray: @road-dash; }
+//  [render='inline'][tunnel=1] {  line-comp-op: dst-out; line-opacity: 0.9; }
 
 
   // line color defined by road type
@@ -235,11 +237,12 @@
 
   [type='proposed'] {
     line-cap: butt;
-    line-dasharray: @road-dash;
+    [zoom>=16] { line-dasharray: 8,4; }
+    [zoom<=15] { line-dasharray: 4,3; }
     [zoom>=16][render='inline']  { line-color: @path-fill; }
     [zoom<=15][render='inline']  { line-color: @path-line; }
-    [render='casing']  { line-color: @path-casing; }
-    [render='outline'] { line-color: @path-casing; }
+    [render='casing']  { line-color: @rail-fill; }
+    [render='outline'] { line-color: @rail-fill; }
   }
 
 }
@@ -252,7 +255,7 @@
 @rdz15_maj: 6;   @rdz15_med: 4;   @rdz15_min: 2;
 @rdz16_maj: 8;   @rdz16_med: 6;   @rdz16_min: 3;
 @rdz17_maj: 12;  @rdz17_med: 8;   @rdz17_min: 6;
-@rdz18_maj: 22;  @rdz18_med: 14;  @rdz18_min: 10;
+@rdz18_maj: 20;  @rdz18_med: 12;  @rdz18_min: 10;
 
 #road_all[zoom>=13][class='highway'][render!='marker'] {
   // supress rendering for links we don’t mentioned here
@@ -508,7 +511,7 @@
       }
     }
 
-    [type='primary_link'][link=1] {
+    [type='primary'][link=1] {
       [render='inline'] { line-width: @rdz15_maj / 2; }
       [render='casing'] {
         [bridge=0] { line-width: @rdz15_maj / 2 + 1; }
@@ -979,7 +982,6 @@
     [zoom<=16] { marker-transform: "scale(0.6)"; }
     marker-spacing: 200;
     marker-ignore-placement: true;
-	marker-opacity: 0.75;
   }
 }
 

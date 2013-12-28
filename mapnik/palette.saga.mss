@@ -6,8 +6,8 @@
 //// base
 @land:              #b49b7f;
 @water:             #507677;
-@river:             darken(@water, 15%);
-@beach:             #ad9252;
+@river:             darken(@water, 17%);
+@sand:              #ad9252;
 
 //// landuse
 @park:              #969961;
@@ -15,9 +15,10 @@
 @agriculture:       #76956c;
 @religion:          #878b87;
 @healthcare:        #b47771;
-@educational:       @beach;
+@educational:       @sand;
 @sports:            #7f8a6a;
 @building:          #b2a18f;
+@barrier:           darken(@building, 7%);
 
 //// zone
 @residential:       darken(@building, 5%);
@@ -28,9 +29,9 @@
 
 //// transport
 @parking:           #bd8953;
-@airport:           @beach;
-@aeroway:           lighten(@beach, 10%);
-@terminal:          darken(@beach, 7%);
+@airport:           @sand;
+@aeroway:           lighten(@sand, 10%);
+@terminal:          darken(@sand, 7%);
 
 //// boundary
 @boundary-line:     #4e3722;
@@ -55,13 +56,13 @@
 
 @minor-line:        lighten(@motorway-casing, 20%);
 @minor-fill:        #b9a794;
-@minor-casing: 		  lighten(@motorway-casing, 20%);
+@minor-casing: 		  lighten(@motorway-casing, 17%);
 
 @path-line:         lighten(@motorway-casing, 20%);
 @path-fill:	        @minor-fill;
-@path-casing:       lighten(@motorway-casing, 20%);
+@path-casing:       lighten(@motorway-casing, 17%);
 
-@rail-line: 		@primary-casing;
+@rail-line: 		    @primary-casing;
 @rail-casing: 		  @land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;

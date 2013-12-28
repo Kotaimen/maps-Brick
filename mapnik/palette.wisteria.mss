@@ -7,7 +7,7 @@
 @land:              #cad4de;
 @water:             #7986a1;
 @river:             lighten(@water, 15%);
-@beach:             #b2baa3; // 13, 73
+@sand:              #b2baa3; 
 
 //// landuse
 @park:              #a3bbae;
@@ -15,9 +15,10 @@
 @agriculture:       #aabba3;
 @religion:          #bab4ab;
 @healthcare:        #bba3a3;
-@educational:       @beach;
+@educational:       @sand;
 @sports:            #b5baab;
 @building:          #bec6d7;
+@barrier:           darken(@building, 4%);
 
 //// zone
 @residential:       #c2c5cc;
@@ -28,9 +29,9 @@
 
 //// transport
 @parking:           #bab3ab;
-@airport:           @beach;
-@aeroway:           lighten(@beach, 10%);
-@terminal:          darken(@beach, 7%);
+@airport:           @sand;
+@aeroway:           lighten(@sand, 10%);
+@terminal:          darken(@sand, 7%);
 
 //// boundary
 @boundary-line:     #969575;
@@ -103,7 +104,7 @@
 @font-poi:          'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Light', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
 @font-shield:       'Arial Bold', 'Arial Unicode MS Regular';
 
 //// map

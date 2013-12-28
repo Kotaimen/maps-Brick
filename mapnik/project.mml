@@ -16,12 +16,48 @@
   "maxzoom": 19,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
-    "palette.brick.mss",
+    "palette.saga.mss",
     "base.mss",
     "road.mss",
     "label.mss"
   ],
   "Layer": [
+    {
+      "geometry": "polygon",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "sea",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "sea"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.99999999999994,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "10m_sea",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_ocean.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10m_sea"
+    },
     {
       "geometry": "polygon",
       "extent": [
@@ -38,7 +74,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "shoreline_300"
+      "name": "shoreline_300",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -74,7 +111,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "processed_p"
+      "name": "processed_p",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -948,7 +986,7 @@
       "class": "",
       "Datasource": {
         "file": "/Users/Kotaimen/proj/geodata/Stage/Brick/places/place-points.shp",
-        "id": "placepoints",
+        "id": "place_static",
         "project": "Brick_imposm3",
         "srs": ""
       },
@@ -1111,7 +1149,9 @@
       },
       "srs-name": "autodetect",
       "srs": "",
-      "advanced": {},
+      "advanced": {
+        "encoding": "window1252"
+      },
       "name": "10m_marine"
     },
     {
@@ -1182,68 +1222,6 @@
         "encoding": "windows-1252"
       },
       "name": "10m_elevation"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "import.brick_shields_gen0",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "172.26.183.198",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "shield_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "shield_gen0"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "import.brick_shields",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "172.26.183.198",
-        "port": "5432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "shield_all",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "shield_all"
     },
     {
       "geometry": "linestring",
@@ -1337,6 +1315,68 @@
         "srid": "3857"
       },
       "name": "road_label_gen0"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_shields_gen0",
+        "key_field": "",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "srid": "3857"
+      },
+      "id": "shield_gen0",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "srid": "3857"
+      },
+      "name": "shield_gen0"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "import.brick_shields",
+        "key_field": "",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "172.26.183.198",
+        "port": "5432",
+        "user": "postgres",
+        "password": "123456",
+        "srid": "3857"
+      },
+      "id": "shield_all",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {
+        "srid": "3857"
+      },
+      "name": "shield_all"
     }
   ],
   "scale": 2,

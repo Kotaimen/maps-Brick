@@ -1,30 +1,16 @@
 Map {
-  background-color: @water;
+  background-color: @land;
 }
 
 ////// Land
+
 #shoreline_300[zoom<=9],
-#processed_p[zoom>=10]
+#processed_p[zoom>=10],
 {
-/*    
-  ::effect_shadow {
-    polygon-fill: darken(saturate(@water, 50%), 25%);
-    opacity: 0.5;
-    image-filters: 'agg-stack-blur(8,8)';
-    comp-op: multiply;
-  }
-*/  
   polygon-fill: @land;
   polygon-gamma: 0.75;
-/*
-  ::effect_emboss {
-      polygon-fill: grey;
-      opacity: 1;
-      image-filters: 'invert(),x-gradient(),blur()';
-      comp-op: soft-light;
-  }
-*/  
 }
+
 
 #10m_reef[zoom>=4] {
   [zoom<6] { line-width: 0.5; }
@@ -121,12 +107,13 @@ Map {
   }
 }
 
-
+#10m_sea[zoom<=7],
+#sea[zoom>=8],
 #10m_lake[zoom<=7],
-//#10m_lake_us[zoom<=9],
+#10m_lake_us[zoom<=9],
 //#10m_lake_eu[zoom<=9],
-#waterbody_gen0[zoom>=8][zoom<=9],
-#waterbody_gen1[zoom>=10][zoom<=11],
+//#waterbody_gen0[zoom>=8][zoom<=9],
+#waterbody_gen1[zoom>=8][zoom<=11],
 #waterbody[zoom>=12] {
 
   polygon-fill: @water;
@@ -134,11 +121,11 @@ Map {
   /*
   ::effect_emboss {
     polygon-fill: grey;
-    image-filters: 'x-gradient(),blur()';
+    image-filters: 'x-gradient, blur';
     comp-op: soft-light;
     [zoom>=16] { polygon-smooth: 0.25; }
   }
- */ 
+  */
 }
 
 /// landuse
@@ -164,7 +151,7 @@ Map {
 
   // sandy
   [type='beach'], [type='sand'], [type='desert']
-  { polygon-fill: @beach; }
+  { polygon-fill: @sand; }
 
   // sport
   [type='camp_site'], [type='sport'], [type='pitch'],
@@ -254,6 +241,7 @@ Map {
     line-join: round;
   }
   [type='pier'][zoom>=10] {
+
     [zoom=12] { line-width: 1;}
     [zoom=13] { line-width: 1;}
     [zoom=14] { line-width: 2;}
@@ -318,17 +306,17 @@ Map {
 #building[zoom>12] {
   polygon-fill: @building;
   [zoom>=14] {
-    line-color: darken(@building,5);
+    line-color: @barrier;
     line-width:0.25;
 
   }
   [zoom>=16] {
-    line-color: darken(@building,10);
+    line-color: @barrier;
     line-width:0.5;
   }
 }
 
 #barrier[zoom>12] {
-  line-color: darken(@building,20);
+  line-color: @barrier;
   line-width:0.5;
 }

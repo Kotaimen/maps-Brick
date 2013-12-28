@@ -5,19 +5,20 @@
 
 //// base
 @land:              #ebe9e6;
-@water:             #b2b1ad;
-@river:             #9a9893;
-@beach:             #d9d8d4;
+@water:             #a3a29f;
+@river:             #918f8b;
+@sand:              #d9d8d4;
 
 //// landuse
-@park:              #ccccca;
+@park:              fadeout(#ccccca, 10%);
 @wooded:            #ccccca;
 @agriculture:       #ccccca;
 @religion:          #d9d9d7;
 @healthcare:        #d9d9d7;
-@educational:       @beach;
+@educational:       #d9d8d4;
 @sports:            #ccccca;
 @building:          #e3e3e3;
+@barrier:           darken(@building, 25%);
 
 //// zone
 @residential:       darken(@building, 2%);
@@ -28,9 +29,9 @@
 
 //// transport
 @parking:           #d9d9d7;
-@airport:           @beach;
-@aeroway:           lighten(@beach, 5%);
-@terminal:          darken(@beach, 4%);
+@airport:           #d9d8d4;
+@aeroway:           lighten(@sand, 5%);
+@terminal:          darken(@sand, 5%);
 
 //// boundary
 @boundary-line:     #55524f;
@@ -41,7 +42,7 @@
 
 @ferry-line:        #a3a2a1;
 
-@motorway-fill:     #ebe9e6; //#d3d1d0;
+@motorway-fill:     #ebe9e6;
 @motorway-line:     #979491;
 @motorway-casing:   #25201f;
 @motorway-link:     @motorway-fill;
@@ -62,7 +63,7 @@
 @path-fill:	        @minor-fill;
 @path-casing:       @minor-casing;
 
-@rail-line: 		#999494;
+@rail-line: 		@primary-casing;
 @rail-casing: 		@land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;
@@ -93,7 +94,7 @@
 // (eg: text wrap)
 @scale-factor:      2;
 // controls text-halo-rasterizer fast/full
-@halo-quality:      full;
+@halo-quality:      fast;
 
 @default-halo:      1;
 
@@ -101,7 +102,7 @@
 // TODO: use open sourced unicode font
 @font-regular:      'American Typewriter Condensed', 'Arial Unicode MS Regular';
 @font-heavy:        'American Typewriter Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
+@font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
 @font-poi:          'American Typewriter Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
