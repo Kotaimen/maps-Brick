@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""Patch carto compiled mapnik style xml files for better load performance
+and for "smart halo" rendering.
+"""
+
 import xml.etree.cElementTree as ET
 import sys
 import os, os.path
@@ -7,10 +11,12 @@ import subprocess
 import json
 import re
 import argparse
+import time
 
 def compile_mml(mml, xml):
     with open(xml, 'wb') as fp:
         subprocess.check_call(['carto', '-n', '-l', mml, ], stdout=fp)
+
 
 def patch_xml(filename):
     tree = ET.parse(filename)
@@ -48,7 +54,7 @@ def patch_xml(filename):
                 n += 1
                 style.remove(rule)
         if n > 0:
-            print '  ...deleted %d useless rules in style "%s"'% (n, style.attrib['name'])
+            print '  ...deleted %d useless rules in style "%s"' % (n, style.attrib['name'])
 
     print 'Patching map layers.'
     for layer in root.findall('Layer'):
@@ -74,7 +80,7 @@ def make_theme(theme, smart=False):
         base_mml = json.load(fp)
 
     # generate default palette_all.xml
-    print '>>>>> Theme "%s"' % theme
+    print '>>>>> Patching theme "%s"' % theme
 
     def compile(stylesheets, xml_name):
         base_mml['Stylesheet'] = stylesheets
@@ -98,27 +104,25 @@ def make_theme(theme, smart=False):
             out = re.sub(r'@default-halo:\s+\d+', '@default-halo: 1', out)
             wfp.write(out)
 
-
     if not smart:
         compile([theme_palette, 'base.mss', 'road.mss', 'boundary.mss', 'label.mss'], 'all')
     else:
-##        compile(['~palette.mss', 'base.mss', 'road.mss', 'boundary.mss'], 'base_road')
         compile(['~palette.mss', 'base.mss'], 'base')
         compile(['~palette.mss', 'road.mss', 'boundary.mss'], 'road')
         compile(['~palette.mss', 'label.mss'], 'label')
         compile(['~palette_halo.mss', 'label.mss'], 'label_halo')
+    print '>>>>> Theme "%s" patched' % theme
+
 
 def main():
-    
-    if not os.path.exists('mapnik/xml'):
-        os.mkdir('mapnik/xml')
-        
+    # Arg paring
+
     parser = argparse.ArgumentParser()
-    
+
     parser.add_argument('themes',
                         type=str,
                         nargs='+',
-                        metavar='themes',                        
+                        metavar='themes',
                         help='''theme names''',
                        )
     parser.add_argument('--smart',
@@ -126,11 +130,48 @@ def main():
                         default=False,
                         action='store_true',
                         help='''generate smart halo style'''
-                       )                       
+                       )
+
+    parser.add_argument('-w', '--watch',
+                        dest='watch',
+                        default=False,
+                        action='store_true'
+                        )
+
     options = parser.parse_args()
-    
+
+    # Startup
+    if not os.path.exists('mapnik/xml'):
+        os.mkdir('mapnik/xml')
+
+    # Compile
     for theme in options.themes:
         make_theme(theme, options.smart)
+    if not options.watch:
+            return
+
+    # Watching file change
+    watched_files = ['mapnik/base.mss', 'mapnik/road.mss', 'mapnik/label.mss',
+                     'mapnik/boundary.mss', 'mapnik/project.mml']
+    for theme in options.themes:
+        watched_files.append('mapnik/palette.%s.mss' % theme)
+    print 'Watching: %s' % watched_files
+    time_stamps = dict(zip(watched_files,
+                           (os.stat(file).st_mtime for file in watched_files)))
+    changed = False
+    while True:
+        if changed:
+            for theme in options.themes:
+                make_theme(theme, options.smart)
+            changed = False
+
+        time.sleep(2)
+        for watched_file, mtime in time_stamps.iteritems():
+            if os.stat(watched_file).st_mtime != mtime:
+                print '"%s" changed, repatching' % watched_file
+                time_stamps[watched_file] = os.stat(watched_file).st_mtime
+                changed = True
+                break
 
 
 if __name__ == '__main__':
