@@ -9,74 +9,29 @@ tile_size = 256
 
 fmt = 'png'
 
-base = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/wisteria_base.xml'),
-    image_type='png',
-    buffer_size=0,
-    scale_factor=2
-    )
-
-road = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/wisteria_road.xml'),
-    image_type='png',
-    buffer_size=16,
-    scale_factor=2
-    )
-
-label = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/wisteria_label.xml'),
-    image_type='png',
+# XXX: This requires mapnik-compose branch
+all_ = dict(\
+    prototype='node.brick2',
+    theme=os.path.join(themedir, 'mapnik/xml/wisteria'),
     buffer_size=tile_size*2,
-    scale_factor=2
+    halo_opacity=0.7,
+    scale_factor=2,
     )
-
-halo = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/wisteria_label_halo.xml'),
-    image_type='png',
-    buffer_size=tile_size*2,
-    scale_factor=2
-    )
-
-composer=dict(\
-    prototype='node.imagemagick',
-
-    sources=['base', 'road', 'label', 'halo',
-             ],
-    format=fmt,
-    command='''
-    # Roads/boundarys 
-    {{road}}
-    
-    # Halo only on top of roads, also make halo semi-transparent
-    ( {{halo}}  -channel A -evaluate Multiply 0.5 +channel ) -compose Atop -composite
-    
-    # Land/areas below roads
-    {{base}} -compose DstOver -composite
-    
-    # Render labels on top of roads
-    {{label}} -compose Over -composite
-    
-    # Reduce number of colors
-    -dither none -colors 128
-    ''',
-    )
+        
 ROOT = dict(\
-    renderer='composer',
+    renderer='all_',
     metadata=dict(tag=tag,
+                  dispname='Wisteria',
                   version='2.0',
-                  description="A Mason's Brick",
-                  attribution='Open Street Map, Natural Earth',
+                  description="A Mason's Brick Take 2",
+                  attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
                stride=16,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
-    pyramid=dict(levels=range(2, 20),
+    pyramid=dict(levels=range(2, 21),
                  zoom=8,
                  center=(-122.4321, 37.7702),
                  format=fmt,

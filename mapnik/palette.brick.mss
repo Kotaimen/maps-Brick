@@ -46,24 +46,24 @@
 
 @ferry-line:        #637f8c;
 
-@motorway-fill:     #d4957f;
+@motorway-fill:     #d48a70;
 @motorway-line:     darken(@motorway-fill, 3%);
-@motorway-casing:   fadeout(#99847a, 60%);
+@motorway-casing:   fadeout(@casing, 33%);
 @motorway-link:     lighten(@motorway-fill, 8%);
 
 @primary-line:      lighten(@casing, 13%);
 @primary-fill:      #d4c5b6;
 @primary-casing: 	lighten(@motorway-casing, 14%);
 
-@secondary-line:    lighten(@casing, 15%);
+@secondary-line:    lighten(@casing, 16%);
 @secondary-fill:    @primary-fill;
 @secondary-casing:  lighten(@motorway-casing, 14%);
 
-@minor-line:        lighten(@casing, 17%);
-@minor-fill:        #e0ded5; ///#ebe8e2;
+@minor-line:        lighten(@casing, 20%);
+@minor-fill:        #e0ded5;
 @minor-casing:      lighten(@motorway-casing, 20%);
 
-@path-line:         lighten(@casing, 20%);
+@path-line:         lighten(@casing, 23%);
 @path-fill:	        @minor-fill;
 @path-casing:       lighten(@motorway-casing, 20%);
 
@@ -76,13 +76,14 @@
 //// labels
 @label-admin0:      #6e5f57;
 @label-admin1:      @boundary-line;
-@label-place:       #381f13;
+@label-place:       #4d362b;
 @label-poi:         #6e5f57;
 
 // transparency of halo color, set to 0% if 'smart halo'
 // is used later in post processing
 @label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
+
 // controls text-halo-rasterizer fast/full
 @halo-quality:      fast;
 @label-water:       darken(@ferry-line, 17%);
@@ -95,7 +96,7 @@
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1;
+@smart-halo:        2;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;
@@ -103,15 +104,15 @@
 @default-halo: 	    1;
 
 //// text font
-// TODO: use open sourced unicode font
-@font-regular:      'Roboto Condensed Light', 'Arial Unicode MS Regular';
+// TODO: use open sourced unicoa de font
+@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Condensed Light Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Light', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Light', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Light', 'Arial Unicode MS Regular';
+@font-physical:     'Roboto Light Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Light', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Medium', 'Arial Unicode MS Regular';
 
 //// map
 Map {

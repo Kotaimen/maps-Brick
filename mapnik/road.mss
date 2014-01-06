@@ -197,8 +197,8 @@
     }
   }
 */
-  [render='casing'][tunnel=1] {  line-dasharray: @road-dash; }
-//  [render='inline'][tunnel=1] {  line-comp-op: dst-out; line-opacity: 0.9; }
+//  [render='casing'][tunnel=1] {  line-dasharray: @road-dash; }
+  [render='inline'][tunnel=1] {  line-comp-op: dst-out; line-opacity: 0.9; }
 
 
   // line color defined by road type
@@ -241,8 +241,10 @@
     [zoom<=15] { line-dasharray: 4,3; }
     [zoom>=16][render='inline']  { line-color: @path-fill; }
     [zoom<=15][render='inline']  { line-color: @path-line; }
-    [render='casing']  { line-color: @rail-fill; }
-    [render='outline'] { line-color: @rail-fill; }
+    [render='casing'][tunnel=0]  { line-color: @rail-fill; }
+    [render='outline'][tunnel=0] { line-color: @rail-fill; }
+    [render='casing'][tunnel=1]  { line-color: @casing; }
+    [render='outline'][tunnel=1] { line-color: @casing; }
   }
 
 }
@@ -959,7 +961,8 @@
 /// oneway makers
 
 
-#road_all[zoom>=15][oneway!=0][class='highway'][render='marker'] {
+#road_all
+  [zoom>=15][oneway!=0][class='highway'][render='marker'] {
   [zoom=17][link=0]  { marker-smooth: 0; }
   [zoom=17][link=1]  { marker-smooth: 0.1; }
   [zoom>=18][link=0] { marker-smooth: 0.05; }
@@ -978,10 +981,11 @@
     marker-clip: false;
     marker-height: 6;
     marker-file: url("arrow/oneway.svg");
-    [oneway=-1] {   marker-file: url("arrow/oneway-reverse.svg") }
+    [oneway=-1] { marker-file: url("arrow/oneway-reverse.svg") }
     [zoom<=16] { marker-transform: "scale(0.6)"; }
     marker-spacing: 200;
     marker-ignore-placement: true;
+    [tunnel=1] { marker-opacity: 0.25; }
   }
 }
 

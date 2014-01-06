@@ -50,11 +50,11 @@ composer=dict(\
     format=fmt,
     command='''
     # Apply ordered dither to landbase, mimics 'halftone dither' effect
-    ( {{base}} -ordered-dither o4x4,4 )
+    ( {{base}} -ordered-dither o8x8,4 )
     
     (
         # Use a different dither for some variation
-        ( {{road}} -ordered-dither o4x4,8 )
+        ( {{road}} -ordered-dither o4x4,4 )
         # Fill halo with land color and only render on top of roads
         ( {{halo}} +level-colors #ebe9e6 ) -compose Atop -composite
     ) -compose Over -composite
@@ -93,6 +93,7 @@ composer=dict(\
 ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
+                  dispname='Duotone',
                   version='2.0',
                   description='Monochrome',
                   attribution='Open Street Map, Natural Earth',

@@ -42,9 +42,11 @@
 // reduce casing contrast by changing 'lighten' parameter below
 @ferry-line:        @land;
 
+@casing:            @land;
+
 @motorway-fill:     #977a91;//#7A3567;//#3d65af;
 @motorway-line:     desaturate(lighten(@motorway-fill, 16%), 3%);
-@motorway-casing:   fadeout(@land, 50%);
+@motorway-casing:   fadeout(@casing, 50%);
 @motorway-link:     lighten(@motorway-fill, 10%);
 
 @primary-line:      desaturate(darken(@primary-fill, 5%), 5%);
@@ -98,14 +100,14 @@
 @scale-factor:      2;
 
 //// text font
-@font-regular:      'Roboto Condensed Light', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Condensed Regular', 'Arial Unicode MS Regular';
+@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Arial Bold', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Bold', 'Arial Unicode MS Bold';
 
 //// map
 Map {

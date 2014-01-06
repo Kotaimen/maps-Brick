@@ -247,7 +247,7 @@
 	[zoom<=12] { text-size: 24; text-character-spacing: 1;}
     [zoom=13] { text-size: 24; text-character-spacing: 1; }
     [zoom=14] { text-size: 24; text-character-spacing: 2; }
-    [zoom>=15] { text-size: 26; text-character-spacing: 3; }
+    [zoom>=15] { text-size: 26; text-character-spacing: 2; }
 //    text-fill: green;
   }
   [type='city'][population<10000][zoom>=9][zoom<=15] {
@@ -462,7 +462,7 @@
     text-clip: false;
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
-    text-halo-radius: @default-halo;
+    text-halo-radius: @smart-halo;
 	text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
     text-halo-rasterizer: @halo-quality;        
     text-size: 14;
@@ -485,7 +485,7 @@
     text-clip: false;
     text-face-name: @font-primary;
     text-fill: @label-primary;
-    text-halo-radius: @default-halo;
+    text-halo-radius: @smart-halo;
     text-halo-fill: fadeout(@primary-fill,  @label-fadeout);
     text-halo-rasterizer: @halo-quality;        
     text-size: 14;

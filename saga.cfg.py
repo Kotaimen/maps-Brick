@@ -9,44 +9,27 @@ tile_size = 256
 
 fmt = 'png'
 
+# XXX: This requires mapnik-compose branch
 all_ = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/saga_all.xml'),
-    image_type='png256',
-    image_parameters={'colors':128},
+    prototype='node.brick2',
+    theme=os.path.join(themedir, 'mapnik/xml/saga'),
     buffer_size=tile_size*2,
     scale_factor=2
     )
-
-composer=dict(\
-    prototype='node.imagemagick',
-
-    sources=['base', 'road', 'label', 'halo',
-             ],
-    format=fmt,
-    command='''
-    {{base}}
-    (
-        {{road}} {{halo}} -compose dst-out  -composite
-    ) -compose over -composite
-    ( {{label}} +level 0%x80% ) -compose over -composite
-    # -dither none
-    # -colors 128
-    ''',
-    )
-
+        
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
+                  dispname='Saga',
                   version='2.0',
-                  description="Mason's Saga",
-                  attribution='Open Street Map, Natural Earth',
+                  description="A Mason's Brick Take 2",
+                  attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
-                stride=16,
-                servers=['localhost:11211',],
-                root=os.path.join(cachedir, 'export', '%s' % tag),
-               ),
+               stride=16,
+               servers=['localhost:11211',],
+               root=os.path.join(cachedir, 'export', '%s' % tag),
+              ),
     pyramid=dict(levels=range(2, 20),
                  zoom=8,
                  center=(-122.4321, 37.7702),

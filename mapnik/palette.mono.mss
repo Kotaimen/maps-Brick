@@ -41,10 +41,11 @@
 // reduce casing contrast by changing 'lighten' parameter below
 
 @ferry-line:        #a3a2a1;
+@casing:            #25201f;
 
 @motorway-fill:     #ebe9e6;
 @motorway-line:     #979491;
-@motorway-casing:   #25201f;
+@motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
 @primary-line:      lighten(@motorway-line, 5%);
@@ -89,7 +90,7 @@
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1;
+@smart-halo:        2;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;

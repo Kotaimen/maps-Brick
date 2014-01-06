@@ -7,28 +7,28 @@
 @land:              #b49b7f;
 @water:             #507677;
 @river:             darken(@water, 17%);
-@sand:              #ad9252;
+@sand:              #ada288;
 
 //// landuse
 @park:              #969961;
 @wooded:            #838559;
 @agriculture:       #76956c;
-@religion:          #878b87;
+@religion:          #7a807a;
 @healthcare:        #b47771;
 @educational:       @sand;
 @sports:            #7f8a6a;
-@building:          #b2a18f;
+@building:          #b29d87;
 @barrier:           darken(@building, 7%);
 
 //// zone
 @residential:       darken(@building, 5%);
-@pedestrian:        desaturate(@sports, 11%);
+@pedestrian:        desaturate(@park, 11%);
 @commercial:        darken(@building, 9%);
 @industrial:        #957f62;
 @military:          #6e6966;
 
 //// transport
-@parking:           #bd8953;
+@parking:           @sand;
 @airport:           @sand;
 @aeroway:           lighten(@sand, 10%);
 @terminal:          darken(@sand, 7%);
@@ -41,9 +41,11 @@
 // reduce casing contrast by changing 'lighten' parameter below
 @ferry-line:        #284d4e;
 
+@casing:            #5c4a2e;
+
 @motorway-fill:     #c66627;
 @motorway-line:     darken(@motorway-fill, 2%);
-@motorway-casing:   #5c4a2e;
+@motorway-casing:   fadeout(@casing, 33);
 @motorway-link:     #b37533; //desaturate(@motorway-fill, 15%);
 
 @primary-line:      lighten(@motorway-casing, 10%);
@@ -56,15 +58,15 @@
 
 @minor-line:        lighten(@motorway-casing, 20%);
 @minor-fill:        #b9a794;
-@minor-casing: 		  lighten(@motorway-casing, 17%);
+@minor-casing:      lighten(@motorway-casing, 17%);
 
 @path-line:         lighten(@motorway-casing, 20%);
 @path-fill:	        @minor-fill;
 @path-casing:       lighten(@motorway-casing, 17%);
 
-@rail-line: 		    @primary-casing;
-@rail-casing: 		  @land;
-@rail-fill:         @minor-casing;
+@rail-line:         @casing;
+@rail-casing:       @land;
+@rail-fill:         @casing;
 @road-dash:         5,2;
 
 //// labels
@@ -98,8 +100,8 @@
 //// text font
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Italic';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
