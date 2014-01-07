@@ -2,14 +2,6 @@ BEGIN;
 
 SET search_path TO import, public;
 
-CREATE INDEX ON osm_landusage_areas(type);
-CREATE INDEX ON osm_landusage_areas(area);
-CREATE INDEX ON osm_landusages_gen0(area);
-CREATE INDEX ON osm_landusages_gen1(area);
-CREATE INDEX ON osm_waterways_gen1(type);
---CREATE INDEX ON osm_transport_areas(area);
-CREATE INDEX ON osm_admin(type);
-
 -- landusage, water
 
 CREATE OR REPLACE VIEW brick_landusages_gen1 AS SELECT * FROM osm_landusages_gen1 ORDER BY area DESC NULLS LAST, osm_id;

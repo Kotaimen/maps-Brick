@@ -2,30 +2,6 @@ BEGIN;
 
 SET search_path TO import, public;
 
-CREATE INDEX ON osm_roads(type);
-CREATE INDEX ON osm_roads(class);
-CREATE INDEX ON osm_roads(name);
-CREATE INDEX ON osm_roads(tunnel);
-CREATE INDEX ON osm_roads(bridge);
-CREATE INDEX ON osm_roads(oneway);
-CREATE INDEX ON osm_roads(layer);
-
-CREATE INDEX ON osm_roads_gen0(type);
-CREATE INDEX ON osm_roads_gen0(class);
-CREATE INDEX ON osm_roads_gen0(name);
-CREATE INDEX ON osm_roads_gen0(tunnel);
-CREATE INDEX ON osm_roads_gen0(bridge);
-CREATE INDEX ON osm_roads_gen0(oneway);
-CREATE INDEX ON osm_roads_gen0(layer);
-
-CREATE INDEX ON osm_roads_gen1(type);
-CREATE INDEX ON osm_roads_gen1(class);
-CREATE INDEX ON osm_roads_gen1(name);
-CREATE INDEX ON osm_roads_gen1(tunnel);
-CREATE INDEX ON osm_roads_gen1(bridge);
-CREATE INDEX ON osm_roads_gen1(oneway);
-CREATE INDEX ON osm_roads_gen1(layer);
-
 
 -- full set of roads
 CREATE OR REPLACE VIEW brick_roads_stage AS 

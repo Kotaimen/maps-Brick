@@ -2,19 +2,6 @@
 
 SET search_path TO import, public;
 
-CREATE INDEX ON osm_places(type);
-CREATE INDEX ON osm_places(population);
-
-CREATE INDEX ON osm_landusage_areas(area);
-
-CREATE INDEX ON osm_landusage_area_labels(area);
-CREATE INDEX ON osm_landusage_area_labels_gen0(area);
-CREATE INDEX ON osm_landusage_area_labels_gen1(area);
-
--- Important! Index for centroid point of landusage areas
-CREATE INDEX ON osm_landusage_area_labels USING gist((st_centroid(geometry)::geometry(Point,3857)));
-CREATE INDEX ON osm_landusage_area_labels_gen0 USING gist((st_centroid(geometry)::geometry(Point,3857)));
-CREATE INDEX ON osm_landusage_area_labels_gen1 USING gist((st_centroid(geometry)::geometry(Point,3857)));
 
 CREATE OR REPLACE VIEW brick_places AS
     SELECT *,
@@ -123,7 +110,7 @@ CREATE OR REPLACE VIEW brick_road_labels_gen0 AS
     ORDER BY rank DESC, osm_id;
 
 
-CREATE OR REPLACE VIEW brick_shields AS
+CREATE TABLE brick_shields AS
     SELECT  class, type,
             CASE
                 WHEN ref ~ '^I ?\d+' THEN regexp_replace(ref, '^I ?(\d+).*', 'I \1')
@@ -134,24 +121,31 @@ CREATE OR REPLACE VIEW brick_shields AS
                 ELSE ref
             END AS ref,
             length(ref) AS reflen,
-            geometry
+            ST_Multi((ST_Dump(ST_Multi(ST_LineMerge(
+                        ST_CollectionExtract(ST_Collect(ST_SimplifyPreserveTopology(geometry, 10)), 2)))))
+                        .geom) AS geometry
     FROM osm_roads
     WHERE ref IS NOT NULL AND ref != '' AND (type = ANY (ARRAY['motorway', 'trunk', 'primary', 'secondary', 'tertiary']))
+    GROUP BY class, type, ref
     ORDER BY
-      	CASE WHEN type='motorway' THEN 0
-	         WHEN type='trunk' THEN 1
-	         WHEN type='primary' THEN 2
-	         WHEN type='secondary' THEN 3
-	         WHEN type='tertiary' THEN 4
-	         ELSE 99
-	    END ASC,
-	    osm_id;
+            CASE WHEN type='motorway' THEN 0
+                 WHEN type='trunk' THEN 1
+                 WHEN type='primary' THEN 2
+                 WHEN type='secondary' THEN 3
+                 WHEN type='tertiary' THEN 4
+                 ELSE 99
+            END ASC,
+            reflen ASC;
 
 
 
-CREATE OR REPLACE VIEW brick_shields_gen0 AS
-    SELECT class, type, ref, length(ref) AS reflen, geometry
-    FROM ( SELECT osm_id, class, type,
+CREATE table brick_shields_gen0 AS
+    SELECT class, type, ref, length(ref) AS reflen,
+    	   ST_Multi((ST_Dump(ST_Multi(ST_LineMerge(
+                        ST_CollectionExtract(ST_Collect(ST_SimplifyPreserveTopology(geometry, 10)), 2)))))
+                        .geom) AS geometry
+    
+    FROM ( SELECT class, type,
                     CASE
                         WHEN ref ~ '^I ?\d+' THEN regexp_replace(ref, '^I ?(\d+).*', 'I \1')
                         WHEN ref ~ '^US ?\d+' THEN regexp_replace(ref, '^US ?(\d+).*', 'US \1')
@@ -163,6 +157,7 @@ CREATE OR REPLACE VIEW brick_shields_gen0 AS
                     geometry
            FROM osm_roads_gen0
            WHERE ref IS NOT NULL AND ref != '' ) foo
+    GROUP BY class, type, ref
     ORDER BY
         CASE WHEN type='motorway' THEN 0
              WHEN type='trunk' THEN 1
@@ -170,9 +165,8 @@ CREATE OR REPLACE VIEW brick_shields_gen0 AS
              WHEN type='secondary' THEN 3
              WHEN type='tertiary' THEN 4
              ELSE 99
-	    END ASC,
-	    osm_id;
-
+        END ASC,
+        reflen ASC;
 
 
 COMMIT;
