@@ -809,7 +809,7 @@
 
 // overview
 
-#road_all[zoom>=13][zoom<=13][class='railway'][render!='marker'] {
+#road_all[zoom>=12][zoom<=13][class='railway'][render!='marker'] {
   [type='rail'] {
     line-cap: butt;
     line-join: round;
@@ -850,7 +850,43 @@
     }
   }
 
-  [zoom<=15] {
+  [zoom<=14] {
+    [render='casing'][bridge=1] {
+      line-color: @rail-line;
+      line-width: 4;
+      fill/line-color: @land;
+      fill/line-width: 2;
+    }
+    [render='casing'][bridge=0] {
+      fill/line-color: @land;
+      fill/line-width: 2;
+    }
+    [render='inline'] {
+      [type='monorail'] {
+        line-color: @rail-line;
+        line-width: 0.5;
+        dash/line-color: @rail-line;
+        dash/line-width: 1;
+        dash/line-dasharray: 1, 4;
+      }
+      [type='subway'] {
+        line-color: @rail-casing;
+        line-width: 1.5;
+        dash/line-color: @rail-line;
+        dash/line-width: 1;
+        dash/line-dasharray: 1.5, 1;
+      }
+      [type='rail'] {
+        line-color: @rail-line;
+        line-width: 1.4;
+        dash/line-color: @rail-casing;
+        dash/line-width: 1;
+        dash/line-dasharray: 5, 5;
+      }
+    }
+  }   
+  
+  [zoom=15] {
     [render='casing'][bridge=1] {
       line-color: @rail-line;
       line-width: 5;
@@ -866,7 +902,7 @@
         line-color: @rail-line;
         line-width: 0.5;
         dash/line-color: @rail-line;
-        dash/line-width: 2;
+        dash/line-width: 1.5;
         dash/line-dasharray: 1, 5;
       }
       [type='subway'] {
@@ -885,6 +921,7 @@
       }
     }
   }
+  
   [zoom=16] {
     [render='casing'][bridge=1] {
       line-color: @rail-line;

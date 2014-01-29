@@ -13,10 +13,10 @@ Map {
 
 
 #10m_reef[zoom>=4] {
-  [zoom<6] { line-width: 0.5; }
-  [zoom>=6] { line-width: 1; }
-  line-dasharray: 1,1;
-  line-color: darken(@water, 35%) ;
+  [zoom<6] { line-width: 0.25; }
+  [zoom>=6] { line-width: 0.5; }
+  line-dasharray: 1, 1;
+  line-color: @ferry-line;
 }
 
 #10m_urbanareas[zoom<=10] {
@@ -118,14 +118,14 @@ Map {
 
   polygon-fill: @water;
   [zoom>=16] { polygon-smooth: 0.25; }
-  /*
+  
   ::effect_emboss {
     polygon-fill: grey;
     image-filters: 'x-gradient, blur';
     comp-op: soft-light;
     [zoom>=16] { polygon-smooth: 0.25; }
   }
-  */
+  
 }
 
 /// landuse
@@ -195,11 +195,16 @@ Map {
   { polygon-fill: @pedestrian; }
 
   // special
-  [type='parking'] { polygon-fill: @parking; }
+  [type='parking'], [type='caravan_site'],
+  [type='camp_site'], { 
+    polygon-fill: @parking; 
+  }
   [type='land'], [type='island'], [type='pier'] { polygon-fill: @land; }
  // [type='water'], [type='fountain'], [type='swimming_pool'],
- // [type='pond'], [type='salt_pond']
-  [type='fountain'], [type='swimming_pool'] { polygon-fill: @water; }
+ // [type='pond'], [type='salt_pond'],
+  [type='fountain'], [type='swimming_pool'], [type='basin'], { 
+    polygon-fill: @water; 
+  }
 
   // areas
   [type='nature_reserve'], [type='conservation'],
@@ -217,15 +222,16 @@ Map {
   [type='harbor'], [type='railway'],
   { polygon-fill: @airport; }
 
-  [type='runway'], [type='helipad'], [type='track'],
+  [type='runway'], [type='helipad'], [type='track'], 
   { polygon-fill: @aeroway; }
 
-  [type='terminal'], [type='apron'], [type='hangar'], [type='fire_station'],
+  [type='terminal'], [type='apron'], [type='hangar'], 
+  [type='fire_station'], [type='railway'], 
   { polygon-fill: @terminal; }
 
   // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
-//  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 12; text-placement: interior; }
+//D4D1C1  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 10; text-placement: interior; }
 }
 
 #landuse_line {
@@ -318,5 +324,5 @@ Map {
 
 #barrier[zoom>12] {
   line-color: @barrier;
-  line-width:0.5;
+  line-width: 0.5;
 }
