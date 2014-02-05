@@ -6,42 +6,49 @@
 //// base
 @land:              #ebe9e6;
 @water:             #a3a29f;
-@river:             #918f8b;
-@sand:              #d9d8d4;
+@river:             @water;
 
-//// landuse
-@park:              fadeout(#ccccca, 10%);
-@wooded:            #ccccca;
-@agriculture:       #ccccca;
-@religion:          #d9d9d7;
-@healthcare:        #d9d9d7;
-@educational:       #d9d8d4;
-@sports:            #ccccca;
+//// basics
 @building:          #e3e3e3;
-@barrier:           darken(@building, 25%);
+@amenity:           #d9d8d4;
+@sand:              @amenity;
+
+//// greenish
+@park:              #ccccca;
+@wooded:            #ccccca;
+@agriculture:       @park;
+@sports:            @wooded;
+
+//// amenities
+@religion:          @amenity;
+@healthcare:        @amenity;
+@educational:       @amenity;
+@barrier:           darken(@building, 15%);
 
 //// zone
-@residential:       darken(@building, 2%);
-@pedestrian:        desaturate(@sports, 4%);
-@commercial:        darken(@building, 3%);
-@industrial:        #d9d9d7;
-@military:          #d9d9d7;
+@residential:       #d9d9d7;
+@pedestrian:        @residential;
+@commercial:        @residential;
+@industrial:        @residential;
+@military:          @residential;
 
 //// transport
-@parking:           #d9d9d7;
-@airport:           #d9d8d4;
-@aeroway:           lighten(@sand, 5%);
-@terminal:          darken(@sand, 5%);
+@parking:           @building;
+@airport:           darken(@amenity, 7%);
+@aeroway:           @building;
+@terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #55524f;
-@boundary-casing:   lighten(@boundary-line, 56%);
+@boundary-line:     @military;
+@boundary-casing:   @land;
 
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
-@ferry-line:        #a3a2a1;
+@road-dash:         3, 1.5;
 @casing:            #25201f;
+
+@ferry-line:        @casing;
 
 @motorway-fill:     #ebe9e6;
 @motorway-line:     #979491;
@@ -67,9 +74,7 @@
 @rail-line: 		@primary-casing;
 @rail-casing: 		@land;
 @rail-fill:         @minor-casing;
-@road-dash:         5,2;
 
-//// labels
 @label-admin0:      #25201f;
 @label-admin1:      #25201f;
 @label-place:       #25201f;
@@ -87,6 +92,7 @@
 @label-motorway:    #25201f;
 @label-primary:     #25201f;
 @label-path:        #25201f;
+@label-shield:      black;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
@@ -112,5 +118,5 @@
 
 //// map
 Map {
-  buffer-size: 200;
+  buffer-size: 500;
 }

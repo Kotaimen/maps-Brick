@@ -5,41 +5,49 @@
 
 //// base
 @land:              #ebe9e6;
-@water:             #b2b1ad;
-@river:             #9a9893;
-@beach:             #d9d8d4;
+@water:             #a3a29f;
+@river:             @water;
 
-//// landuse
+//// basics
+@building:          #e3e3e3;
+@amenity:           #d9d8d4;
+@sand:              @amenity;
+
+//// greenish
 @park:              #ccccca;
 @wooded:            #ccccca;
-@agriculture:       #ccccca;
-@religion:          #d9d9d7;
-@healthcare:        #d9d9d7;
-@educational:       @beach;
-@sports:            #ccccca;
-@building:          #e3e3e3;
+@agriculture:       @park;
+@sports:            @wooded;
+
+//// amenities
+@religion:          @amenity;
+@healthcare:        @amenity;
+@educational:       @amenity;
+@barrier:           darken(@building, 15%);
 
 //// zone
-@residential:       darken(@building, 2%);
-@pedestrian:        desaturate(@sports, 4%);
-@commercial:        darken(@building, 3%);
-@industrial:        #d9d9d7;
-@military:          #d9d9d7;
+@residential:       #d9d9d7;
+@pedestrian:        @residential;
+@commercial:        @residential;
+@industrial:        @residential;
+@military:          @residential;
 
 //// transport
-@parking:           #d9d9d7;
-@airport:           @beach;
-@aeroway:           lighten(@beach, 5%);
-@terminal:          darken(@beach, 4%);
+@parking:           @building;
+@airport:           darken(@amenity, 7%);
+@aeroway:           @building;
+@terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #212121;
-@boundary-casing:   lighten(@boundary-line, 40%);
+@boundary-line:     @military;
+@boundary-casing:   @land;
 
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
 @ferry-line:        #a3a2a1;
+
+@casing:            #313131;
 
 @motorway-fill:     #b7b7b7; //#d3d1d0;
 @motorway-line:     #646464;
@@ -47,8 +55,8 @@
 @motorway-link:     @motorway-fill;
 
 @primary-line:      @motorway-line;
-@primary-fill:   	  @motorway-fill;
-@primary-casing: 	  @motorway-casing;
+@primary-fill:   	@motorway-fill;
+@primary-casing: 	@motorway-casing;
 
 @secondary-line:    @primary-line;
 @secondary-fill:   	@primary-fill;
@@ -62,7 +70,7 @@
 @path-fill:	        @minor-fill;
 @path-casing:       @minor-casing;
 
-@rail-line: 		    #404040;
+@rail-line:         #404040;
 @rail-casing: 		@land;
 @rail-fill:         @minor-casing;
 @road-dash:         5,2;
@@ -85,6 +93,7 @@
 @label-motorway:    #202020;
 @label-primary:     #202020;
 @label-path:        #202020;
+@label-shield:      black;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
@@ -93,21 +102,20 @@
 // (eg: text wrap)
 @scale-factor:      2;
 // controls text-halo-rasterizer fast/full
-@halo-quality:      full;
+@halo-quality:      fast;
 @default-halo:      2;
 
 //// text font
 // TODO: use open sourced unicode font
 
-@font-regular:      'Avenir Next Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Avenir Next Condensed Medium', 'Arial Unicode MS Bold';
-@font-physical:     'Avenir Next Condensed Medium Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Avenir Next Condensed Regular', 'Arial Unicode MS Regular';
-@font-motorway:     'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-primary:      'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-path:         'Avenir Next Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
-
+@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Medium  ', 'Arial Unicode MS Bold';
 
 //// map
 Map {
