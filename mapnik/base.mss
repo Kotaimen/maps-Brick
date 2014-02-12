@@ -19,7 +19,7 @@ Map {
   line-color: @ferry-line;
 }
 
-#10m_urbanareas[zoom<=10] {
+#10m_urbanareas[zoom<=11] {
   polygon-fill: @residential;
 }
 
@@ -118,14 +118,14 @@ Map {
 
   polygon-fill: @water;
   [zoom>=16] { polygon-smooth: 0.25; }
-  
+
   ::effect_emboss {
     polygon-fill: grey;
     image-filters: 'x-gradient, blur';
     comp-op: soft-light;
     [zoom>=16] { polygon-smooth: 0.25; }
   }
-  
+
 }
 
 /// landuse
@@ -231,7 +231,7 @@ Map {
 
   // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
-//D4D1C1  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 10; text-placement: interior; }
+//  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 10; text-placement: interior; }
 }
 
 #landuse_line {
@@ -309,7 +309,7 @@ Map {
   }
 }
 
-#building[zoom>12] {
+#building[zoom>=12] {
   polygon-fill: @building;
   [zoom>=14] {
     line-color: @barrier;
