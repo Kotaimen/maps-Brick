@@ -88,6 +88,8 @@
 @label-primary:     darken(@motorway-fill, 8%);
 @label-path:        @primary-line;
 
+@label-shield:      black;
+
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
 @default-halo:      1;

@@ -4,29 +4,29 @@
 // 'lighten' to 'darken' if your theme is dark
 
 //// base
-@land:              #ebe9e6;
-@water:             #a3a29f;
+@land:              #D8D6CA;
+@water:             #4CC5BE;
 @river:             @water;
 
 //// basics
-@building:          #e3e3e3;
-@amenity:           #d9d8d4;
+@building:          #C9C8BD;
+@amenity:           #C9BEAD;
 @sand:              @amenity;
 
 //// greenish
-@park:              #ccccca;
-@wooded:            #ccccca;
-@agriculture:       @park;
-@sports:            @wooded;
+@park:              #91BF58;
+@wooded:            #50BF54;
+@agriculture:       #A9BF59;
+@sports:            #61BF7B;
 
 //// amenities
 @religion:          @amenity;
-@healthcare:        @amenity;
+@healthcare:        #C9B9AD;
 @educational:       @amenity;
-@barrier:           darken(@building, 15%);
+@barrier:           darken(@building, 25%);
 
 //// zone
-@residential:       #d9d9d7;
+@residential:       #E0DED3;
 @pedestrian:        @residential;
 @commercial:        @residential;
 @industrial:        @residential;
@@ -34,79 +34,79 @@
 
 //// transport
 @parking:           @building;
-@airport:           darken(@amenity, 7%);
+@airport:           darken(@amenity, 3%);
 @aeroway:           @building;
 @terminal:          @amenity;
 
 //// boundary
-@boundary-line:     fadeout(black, 25%);
-@boundary-casing:   fadeout(white, 75%);
+@boundary-line:     #4a4b53;
+@boundary-casing:   @land;
 
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
-@ferry-line:        #a3a2a1;
+@road-dash:         3, 1.5;
+@casing:            #858065;
 
-@casing:            #313131;
+@ferry-line:        @land;
 
-@motorway-fill:     #b7b7b7; //#d3d1d0;
-@motorway-line:     #646464;
-@motorway-casing:   #313131;
+@motorway-fill:     lighten(@land, 4%);
+@motorway-line:     #9E9A80;
+@motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
-@primary-line:      @motorway-line;
+@primary-line:      lighten(@motorway-line, 6%);
 @primary-fill:   	@motorway-fill;
-@primary-casing: 	@motorway-casing;
+@primary-casing: 	lighten(@motorway-casing, 15%);
 
 @secondary-line:    @primary-line;
 @secondary-fill:   	@primary-fill;
 @secondary-casing: 	@primary-casing;
 
-@minor-line:        @motorway-line;
+@minor-line:        lighten(@motorway-line, 10%);
 @minor-fill:   	    @motorway-fill;
-@minor-casing: 	    @motorway-casing;
+@minor-casing: 	    lighten(@motorway-casing, 10%);
 
-@path-line:         @motorway-line;
+@path-line:         lighten(@motorway-line, 15%);
 @path-fill:	        @minor-fill;
 @path-casing:       @minor-casing;
 
-@rail-line:         #404040;
+@rail-line: 		@primary-casing;
 @rail-casing: 		@land;
 @rail-fill:         @minor-casing;
-@road-dash:         5,2;
 
-//// labels
-@label-admin0:      #202020;
-@label-admin1:      #202020;
-@label-place:       #202020;
-@label-poi:         #202020;
+@label-admin0:      #a26868;
+@label-admin1:      @boundary-line;
+@label-place:       #CF1514;
+@label-poi:         #C02D8A;
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     0%;
-@label-halo:        fadeout(#ebe9e6, @label-fadeout);
+@label-fadeout:     20%;
+@label-halo:        fadeout(@land, @label-fadeout);
 
-@label-water:       #212a42;
+@label-water:       #1A5C96;
 // green text is subtle so we don’t compute here
-@label-park:        #162b21;
-@label-physical:    #202020;
-@label-motorway:    #202020;
-@label-primary:     #202020;
-@label-path:        #202020;
+@label-park:        #14690E;
+
+@label-physical:    darken(@casing, 5%);
+@label-motorway:    @label-physical;
+@label-primary:     @label-physical;
+@label-path:        @label-physical;
 @label-shield:      black;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        2;
+@smart-halo:        1;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;
 // controls text-halo-rasterizer fast/full
 @halo-quality:      full;
-@default-halo:      1.5;
+
+@default-halo:      1;
 
 //// text font
-// TODO: use open sourced unicode font
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
@@ -115,9 +115,9 @@
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Medium  ', 'Arial Unicode MS Bold';
+@font-shield:       'Roboto Bold', 'Arial Unicode MS Bold';
 
 //// map
 Map {
-  buffer-size: 200;
+  buffer-size: 500;
 }

@@ -4,49 +4,56 @@
 // 'lighten' to 'darken' if your theme is dark
 
 //// base
-@land:              #b49b7f;
+@land:              #B49B7F;
 @water:             #507677;
-@river:             darken(@water, 17%);
-@sand:              #ada288;
+@river:             @water;
 
-//// landuse
-@park:              #969961;
-@wooded:            #838559;
-@agriculture:       #76956c;
-@religion:          #7a807a;
-@healthcare:        #b47771;
-@educational:       @sand;
+//// basics
+@building:          #BAA38C;
+@amenity:           #948666;
+@sand:              @amenity;
+
+//// greenish
+@park:              #767d5b;
+@wooded:            #858559;
+@agriculture:       @park;
 @sports:            #7f8a6a;
-@building:          #b29d87;
-@barrier:           darken(@building, 7%);
+
+//// amenities
+@religion:          @amenity;
+@healthcare:        #B47771;
+@educational:       #949366;
+@barrier:           darken(@building, 9%);
 
 //// zone
-@residential:       darken(@building, 5%);
-@pedestrian:        desaturate(@park, 11%);
-@commercial:        darken(@building, 9%);
-@industrial:        #957f62;
-@military:          #6e6966;
+@residential:       darken(@land, 2%);
+@pedestrian:        darken(@land, 2%);
+@commercial:        @residential;
+@industrial:        @residential;
+@military:          #949494;
 
 //// transport
-@parking:           @sand;
-@airport:           @sand;
-@aeroway:           lighten(@sand, 10%);
-@terminal:          darken(@sand, 7%);
+@parking:           @building;
+@airport:           darken(@amenity, 7%);
+@aeroway:           @building;
+@terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #4e3722;
-@boundary-casing:   desaturate(lighten(@boundary-line, 40%), 50%);
+@boundary-line:     #681705;
+@boundary-casing:   @land;
 
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
-@ferry-line:        #284d4e;
+
+@road-dash:         3, 1.5;
+@ferry-line:        @land;
 
 @casing:            #5c4a2e;
 
 @motorway-fill:     #c66627;
 @motorway-line:     darken(@motorway-fill, 2%);
 @motorway-casing:   fadeout(@casing, 33);
-@motorway-link:     #b37533; //desaturate(@motorway-fill, 15%);
+@motorway-link:     #C27523; //desaturate(@motorway-fill, 15%);
 
 @primary-line:      lighten(@motorway-casing, 10%);
 @primary-fill:     	#c0823f;
@@ -64,29 +71,34 @@
 @path-fill:	        @minor-fill;
 @path-casing:       lighten(@motorway-casing, 17%);
 
-@rail-line:         @casing;
-@rail-casing:       @land;
-@rail-fill:         @casing;
-@road-dash:         5,2;
+// desaturate gives rail slightly cool grey feel
+@rail-line: 	    #665A47;
+@rail-casing: 	    @land;
+@rail-fill:         @land;
 
 //// labels
 @label-admin0:      #524640;
 @label-admin1:      @boundary-line;
-@label-place:       #25140d;
+@label-place:       #473319;
 @label-poi:         #392d29;
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
+
 @label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 // controls text-halo-rasterizer fast/full
 @halo-quality:      fast;
-@label-water:       darken(@ferry-line, 10%);
-// green text is subtle so we don’t compute here
+
+@label-water:       #184647;
 @label-park:        #394014;
-@label-physical:    darken(@motorway-casing, 10%);
+@label-physical:    @casing;
+
+// road label
 @label-motorway:    @label-poi;
-@label-primary:     @motorway-casing;
-@label-path:        @primary-line;
+@label-primary:     @casing;
+@label-path:        @casing;
+
+@label-shield:      black;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly

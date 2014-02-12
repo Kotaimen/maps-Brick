@@ -4,7 +4,7 @@
 // 'lighten' to 'darken' if your theme is dark
 
 //// base
-@land:              #222226;
+@land:              #1B1B1F;
 @water:             #1B2C40;
 @river:             @water;
 
