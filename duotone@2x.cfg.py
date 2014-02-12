@@ -1,10 +1,10 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick2.mk7'
+themedir= './themes/Brick2.mk8'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'mono'
+tag = 'duotone'
 tile_size = 256
 
 fmt = 'png'
@@ -93,9 +93,9 @@ composer=dict(\
 ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
-                  dispname='Duotone',
+                  dispname='Duotone (Retina)',
                   version='2.0',
-                  description='Monochrome',
+                  description="A Mason's Morning Newspaper",
                   attribution='Open Street Map, Natural Earth',
                   ),
     storage=dict(prototype='cluster',
@@ -103,7 +103,7 @@ ROOT = dict(\
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
-    pyramid=dict(levels=range(2, 20),
+    pyramid=dict(levels=range(2, 21),
                  zoom=8,
                  center=(-122.4321, 37.7702),
                  format=fmt,

@@ -16,7 +16,7 @@ scalefactor = 1 # label scale factor
 azimuth = 325 # light direction
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir = './themes/Brick2.mk7'
+themedir = './themes/Brick2.mk8'
 exportdir = os.path.join(themedir, 'cache', 'export')
 cachedir = os.path.join(themedir, 'cache', 'terrain_tmp')
 
@@ -305,6 +305,7 @@ composer = dict(
 ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
+                  dispname='Terrain2 (Retina)',    
                   version='2.0',
                   description='High Quality Shaded Relief Map',
                   attribution='OSM, SRTM+, NED',

@@ -1,7 +1,7 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick2.mk7'
+themedir= './themes/Brick2.mk8'
 cachedir= os.path.join(themedir, 'cache')
 
 tag = 'saga'
@@ -13,8 +13,8 @@ fmt = 'png'
 all_ = dict(\
     prototype='node.brick2',
     theme=os.path.join(themedir, 'mapnik/xml/saga'),
-    buffer_size=tile_size*2,
-    scale_factor=2
+    buffer_size=tile_size*1,
+    scale_factor=1
     )
         
 ROOT = dict(\
@@ -22,7 +22,7 @@ ROOT = dict(\
     metadata=dict(tag=tag,
                   dispname='Saga',
                   version='2.0',
-                  description="A Mason's Brick Take 2",
+                  description="A Mason's Saga",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
@@ -30,7 +30,7 @@ ROOT = dict(\
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
-    pyramid=dict(levels=range(2, 20),
+    pyramid=dict(levels=range(2, 21),
                  zoom=8,
                  center=(-122.4321, 37.7702),
                  format=fmt,

@@ -4,25 +4,24 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk8'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'brick2'
+tag = 'pastel'
 tile_size = 256
 
 fmt = 'png'
 
 all_ = dict(\
-    prototype='node.brick2',
-    theme=os.path.join(themedir, 'mapnik/xml/brick'),
+    prototype='node.mapnik',
+    theme=os.path.join(themedir, 'mapnik/xml/pastel_all.xml'),
     buffer_size=tile_size*1,
-    halo_opacity=0.7,
-    scale_factor=1,
+    scale_factor=1
     )
         
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Brick2',
+                  dispname='Pastel',
                   version='2.0',
-                  description="A Mason's Brick Take 2",
+                  description="A Mason's Pastel",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',

@@ -4,7 +4,7 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk8'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'brick2'
+tag = 'brick2@2x'
 tile_size = 256
 
 fmt = 'png'
@@ -12,15 +12,15 @@ fmt = 'png'
 all_ = dict(\
     prototype='node.brick2',
     theme=os.path.join(themedir, 'mapnik/xml/brick'),
-    buffer_size=tile_size*1,
+    buffer_size=tile_size*2,
     halo_opacity=0.7,
-    scale_factor=1,
+    scale_factor=2,
     )
         
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Brick2',
+                  dispname='Brick2 (Retina)',
                   version='2.0',
                   description="A Mason's Brick Take 2",
                   attribution='Open Street Map, Natural Earth II',
