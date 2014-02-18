@@ -5,37 +5,37 @@
 
 //// base
 @land:              #cad4de;
-@water:             #7986a1;
-@river:             lighten(@water, 15%);
+@water:             #8392b0;
+@river:             @water;
 @sand:              #b2baa3; 
 
 //// landuse
-@park:              #a3bbae;
+@park:              @agriculture;
 @wooded:            #a3bba3;
 @agriculture:       #aabba3;
 @religion:          #bab4ab;
-@healthcare:        #bba3a3;
+@healthcare:        #b9abab;
 @educational:       @sand;
 @sports:            #b5baab;
-@building:          #bec6d7;
-@barrier:           darken(@building, 4%);
+@building:          #b5bec7;
+@barrier:           @religion;
 
 //// zone
 @residential:       #c2c5cc;
 @pedestrian:        @sports;
-@commercial:        lighten(@building, 3%);
-@industrial:        #b5abba;
-@military:          #bab2ad;
+@commercial:        @industrial;
+@industrial:        #acafb6;
+@military:          #9b9b9b;
 
 //// transport
 @parking:           #bab3ab;
 @airport:           @sand;
 @aeroway:           lighten(@sand, 10%);
-@terminal:          darken(@sand, 7%);
+@terminal:          @industrial;
 
 //// boundary
-@boundary-line:     #969575;
-@boundary-casing:   desaturate(lighten(@boundary-line, 40%), 50%);
+@boundary-line:     #7c7873;
+@boundary-casing:   @land;
 @boundary-dash:     10,5;
 
 //// road
@@ -44,49 +44,49 @@
 
 @casing:            @land;
 
-@motorway-fill:     #977a91;//#7A3567;//#3d65af;
-@motorway-line:     desaturate(lighten(@motorway-fill, 16%), 3%);
+@motorway-fill:     #b29ebb;
+@motorway-line:     @motorway-fill;
 @motorway-casing:   fadeout(@casing, 50%);
-@motorway-link:     lighten(@motorway-fill, 10%);
+@motorway-link:     @motorway-fill;
 
-@primary-line:      desaturate(darken(@primary-fill, 5%), 5%);
-@primary-fill:   	#bb98b1;
-@primary-casing: 	fadeout(@land, 50%);//lighten(@motorway-casing, 15%);
+@primary-line:      @primary-fill;
+@primary-fill:   	#b9adb9;
+@primary-casing: 	fadeout(@land, 50%);
 
-@secondary-line:    darken(@secondary-fill, 2%);
-@secondary-fill:    desaturate(lighten(@primary-fill, 3%), 10%);
-@secondary-casing:  fadeout(@land, 50%);//lighten(@motorway-casing, 15%);
+@secondary-line:    @secondary-fill;
+@secondary-fill:    #b6b4af;
+@secondary-casing:  fadeout(@land, 50%);
 
-@minor-line:        darken(@minor-fill, 10%);
-@minor-fill:		#bdbdbd;
-@minor-casing: 		@secondary-casing;//@land;//lighten(@motorway-casing, 20%);
+@minor-line:        @secondary-line;
+@minor-fill:		@secondary-fill;
+@minor-casing: 		@secondary-casing;
 
 @path-line:         @minor-line;
 @path-fill:	        @minor-fill;
-@path-casing:       @secondary-casing;//@land;//lighten(@motorway-casing, 20%);
+@path-casing:       @secondary-casing;
 
 @rail-line: 		desaturate(@water, 10%);
 @rail-casing: 		@minor-casing;
 @rail-fill:         @minor-fill;
-@road-dash:         5,2;
+@road-dash:         3,2;
 
 //// labels
-@label-admin0:      #6c0f37;
-@label-admin1:      darken(@boundary-line, 5%);
+@label-admin0:      #946987;
+@label-admin1:      @boundary-line;
 @label-place:       @label-admin0;
 @label-poi:         desaturate(@label-admin0, 30%);
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     0%;
+@label-fadeout:     80%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@water, 15%);
 // green text is subtle so we don’t compute here
-@label-park:        spin(darken(@park, 35%), 5%);
-@label-physical:    @label-admin1;
-@label-motorway:    saturate(darken(@motorway-fill, 20%), 15%);
-@label-primary:     darken(@motorway-fill, 8%);
-@label-path:        @primary-line;
+@label-park:        darken(@park, 35%);
+@label-physical:    @label-admin0;
+@label-motorway:    @label-admin0;
+@label-primary:     @label-admin0;
+@label-path:        @label-admin0;
 
 @label-shield:      black;
 
@@ -99,11 +99,11 @@
 
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
-@scale-factor:      2;
+@scale-factor:      1;
 
 //// text font
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
+@font-heavy:        'Roboto Bold', 'Arial Unicode MS Bold';
 @font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
