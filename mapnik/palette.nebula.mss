@@ -19,14 +19,14 @@
 @barrier:           @land;
 @parking:           @educational;
 
-@religion:          #6078ff;//#3a42b5;
+@religion:          #6078ff;
 @healthcare:        @commercial;
-@educational:       #365680;//#487abd;
+@educational:       #365680;
 
 //// zone
-@residential:       #182649;//#141c3c;//#192e4a;
+@residential:       #182649;
 @pedestrian:        @wooded;
-@commercial:        #5286ff;//#5a549c;
+@commercial:        #5286ff;
 @industrial:        @religion;
 @military:          #131313;
 
@@ -44,7 +44,7 @@
 @road-dash:         3, 1.5;
 @casing:            #193268;
 
-@ferry-line:        #2d424c;
+@ferry-line:        #36c2bf;
 
 @motorway-fill:     @land;
 @motorway-line:     @casing;
@@ -68,7 +68,7 @@
 @path-casing:       @casing;
 
 // desaturate gives rail slightly cool grey feel
-@rail-line: 	    #36c2bf;
+@rail-line: 	    @ferry-line;
 @rail-casing: 	    @land;
 @rail-fill:         @educational;
 
