@@ -4,18 +4,18 @@
 // 'lighten' to 'darken' if your theme is dark
 
 //// base
-@land:              #ebe9e6;
-@water:             #a3a29f;
+@land:              #ebebeb;
+@water:             #b0aea7;
 @river:             @water;
 
 //// basics
 @building:          #e3e3e3;
-@amenity:           #d9d8d4;
+@amenity:           #d9d9d9;
 @sand:              @amenity;
 
 //// greenish
-@park:              #ccccca;
-@wooded:            #ccccca;
+@park:              #cbccca;
+@wooded:            #cbccca;
 @agriculture:       @park;
 @sports:            @wooded;
 
@@ -23,10 +23,10 @@
 @religion:          @amenity;
 @healthcare:        @amenity;
 @educational:       @amenity;
-@barrier:           darken(@building, 15%);
+@barrier:           darken(@building, 5%);
 
 //// zone
-@residential:       #d9d9d7;
+@residential:       #d7d7d7;
 @pedestrian:        @residential;
 @commercial:        @residential;
 @industrial:        @residential;
@@ -45,28 +45,29 @@
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
-@ferry-line:        #a3a2a1;
+@ferry-line:        #313131;
 
 @casing:            #313131;
 
-@motorway-fill:     #b7b7b7; //#d3d1d0;
+@motorway-fill:     #b7b7b7; // terrain uses this
+//@motorway-fill:     #dedcdb;
 @motorway-line:     #646464;
 @motorway-casing:   #313131;
 @motorway-link:     @motorway-fill;
 
-@primary-line:      @motorway-line;
+@primary-line:      lighten(@motorway-line, 10%);
 @primary-fill:   	@motorway-fill;
 @primary-casing: 	@motorway-casing;
 
-@secondary-line:    @primary-line;
+@secondary-line:    lighten(@motorway-line, 10%);
 @secondary-fill:   	@primary-fill;
 @secondary-casing: 	@primary-casing;
 
-@minor-line:        @motorway-line;
+@minor-line:        lighten(@motorway-line, 15%);
 @minor-fill:   	    @motorway-fill;
 @minor-casing: 	    @motorway-casing;
 
-@path-line:         @motorway-line;
+@path-line:         lighten(@motorway-line, 15%);
 @path-fill:	        @minor-fill;
 @path-casing:       @minor-casing;
 

@@ -14,6 +14,7 @@ all_ = dict(\
     prototype='node.brick2',
     theme=os.path.join(themedir, 'mapnik/xml/saga'),
     buffer_size=tile_size*1,
+    halo_opacity=0.8,        
     scale_factor=1
     )
         

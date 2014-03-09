@@ -71,13 +71,13 @@
 @road-dash:         3,2;
 
 //// labels
-@label-admin0:      #946987;
+@label-admin0:      #805b74;
 @label-admin1:      @boundary-line;
 @label-place:       @label-admin0;
 @label-poi:         desaturate(@label-admin0, 30%);
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     80%;
+@label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       darken(@water, 15%);
@@ -99,17 +99,17 @@
 
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
-@scale-factor:      1;
+@scale-factor:      2;
 
 //// text font
-@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Bold', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold', 'Arial Unicode MS Bold';
+@font-regular:      'Avenir Next Condensed Medium', 'Arial Unicode MS Regular';
+@font-heavy:        'Avenir Next Demi Bold', 'Arial Unicode MS Bold';
+@font-physical:     'Avenir Next Condensed Medium Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Avenir Next Medium', 'Arial Unicode MS Regular';
+@font-motorway:     'Avenir Next Medium', 'Arial Unicode MS Regular';
+@font-primary:      'Avenir Next Medium', 'Arial Unicode MS Regular';
+@font-path:         'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Avenia Next Bold', 'Arial Unicode MS Bold';
 
 //// map
 Map {

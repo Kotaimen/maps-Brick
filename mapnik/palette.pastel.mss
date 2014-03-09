@@ -15,7 +15,7 @@
 
 //// greenish
 @park:              #91BF58;
-@wooded:            #50BF54;
+@wooded:            #56BF5A;
 @agriculture:       #A9BF59;
 @sports:            #61BF7B;
 
@@ -23,7 +23,7 @@
 @religion:          @amenity;
 @healthcare:        #C9B9AD;
 @educational:       @amenity;
-@barrier:           darken(@building, 25%);
+@barrier:           lighten(@building, 5%);
 
 //// zone
 @residential:       #E0DED3;
@@ -39,7 +39,7 @@
 @terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #4a4b53;
+@boundary-line:     #F2F0E4;
 @boundary-casing:   @land;
 
 //// road
@@ -50,39 +50,39 @@
 
 @ferry-line:        @land;
 
-@motorway-fill:     lighten(@land, 4%);
+@motorway-fill:     #ebb010; //lighten(@land, 6%);
 @motorway-line:     #9E9A80;
 @motorway-casing:   @casing;
-@motorway-link:     @motorway-fill;
+@motorway-link:     #e5c774;
 
 @primary-line:      lighten(@motorway-line, 6%);
-@primary-fill:   	@motorway-fill;
+@primary-fill:   	@motorway-link;
 @primary-casing: 	lighten(@motorway-casing, 15%);
 
 @secondary-line:    @primary-line;
-@secondary-fill:   	@primary-fill;
+@secondary-fill:   	#D6D0C5;
 @secondary-casing: 	@primary-casing;
 
 @minor-line:        lighten(@motorway-line, 10%);
-@minor-fill:   	    @motorway-fill;
+@minor-fill:   	    #D6D0C5;
 @minor-casing: 	    lighten(@motorway-casing, 10%);
 
 @path-line:         lighten(@motorway-line, 15%);
-@path-fill:	        @minor-fill;
+@path-fill:	        #D6D0C5;
 @path-casing:       @minor-casing;
 
-@rail-line: 		@primary-casing;
+@rail-line: 		#618385; //@primary-casing;
 @rail-casing: 		@land;
 @rail-fill:         @minor-casing;
 
 @label-admin0:      #a26868;
-@label-admin1:      @boundary-line;
+@label-admin1:      #4a4b53;
 @label-place:       #CF1514;
 @label-poi:         #C02D8A;
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
-@label-fadeout:     20%;
+@label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
 @label-water:       #1A5C96;
@@ -102,20 +102,20 @@
 // (eg: text wrap)
 @scale-factor:      2;
 // controls text-halo-rasterizer fast/full
-@halo-quality:      full;
+@halo-quality:      fast;
 
 @default-halo:      1;
 
 //// text font
 
-@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold', 'Arial Unicode MS Bold';
+@font-regular:      'Avenir Next Condensed Medium', 'Arial Unicode MS Regular';
+@font-heavy:        'Avenir Next Demi Bold', 'Arial Unicode MS Bold';
+@font-physical:     'Avenir Next Condensed Medium Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-motorway:     'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-primary:      'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-path:         'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Avenia Next Bold', 'Arial Unicode MS Bold';
 
 //// map
 Map {

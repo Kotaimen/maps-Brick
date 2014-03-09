@@ -274,7 +274,7 @@ composer = dict(
         #### Label ####
 
         (
-            {{bathymetry_hypsometricmap}} -brightness-contrast +10%%             +level 15%%,100%%
+            {{bathymetry_hypsometricmap}} -brightness-contrast +10%% +level 15%%,100%%
             {{ocean_mask}} -compose DstIn -composite
             {{land_cover}} -brightness-contrast -10%%x-5%% -compose DstOver -composite
             {{waterbody}} -compose Over -composite
