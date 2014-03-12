@@ -7,12 +7,14 @@ Implemented features:
 * Reduced SQL processing time
 * Supports real time OSM replication
 * Requires mapnik2.2+ and carto 0.9.5
-* New color themes
+* Standardised color themes
 * Rewritten road styles
 * Offset road labels
 * Different haloing options
+* Integrated terrain theme
 
 Planned features:
-* Intergate terrain theme
+
 * Vector relief support
 * Makefile
+

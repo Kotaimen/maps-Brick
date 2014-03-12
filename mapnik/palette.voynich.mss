@@ -16,11 +16,11 @@
 //// greenish
 @park:              #7B9160;
 @wooded:            #5C9675;
-@agriculture:       @park;
-@sports:            @wooded;
+@agriculture:       #6c936b;
+@sports:            #848c66;
 
 //// amenities
-@religion:          #d7d7d7;
+@religion:          #cccac8;
 @healthcare:        #ccb9af;
 @educational:       #ccc6b0;
 @barrier:           darken(@building, 5%);
@@ -28,9 +28,9 @@
 //// zone
 @residential:       @land;
 @pedestrian:        @residential;
-@commercial:        @residential;
-@industrial:        @residential;
-@military:          @residential;
+@commercial:        spin(@residential, 1);
+@industrial:        spin(@residential, -2);
+@military:          #c2c2c2;
 
 //// transport
 @parking:           @building;
@@ -50,13 +50,13 @@
 
 @ferry-line:        #7A6441;
 
-@motorway-fill:     saturate(darken(@land, 4%), 7%);
+@motorway-fill:     saturate(darken(@land, 10%), 15%);
 @motorway-line:     @casing;
 @motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
 @primary-line:      lighten(@motorway-line, 5%);
-@primary-fill:   	@motorway-fill;
+@primary-fill:   	saturate(darken(@land, 5%), 7%);
 @primary-casing: 	lighten(@motorway-casing, 10%);
 
 @secondary-line:    @primary-line;
@@ -64,11 +64,11 @@
 @secondary-casing: 	@primary-casing;
 
 @minor-line:        lighten(@motorway-line, 10%);
-@minor-fill:   	    @motorway-fill;
+@minor-fill:   	    @secondary-fill;
 @minor-casing: 	    lighten(@motorway-casing, 10%);
 
 @path-line:         lighten(@motorway-line, 10%);
-@path-fill:	        @minor-fill;
+@path-fill:	        saturate(darken(@land, 3%), 5%);
 @path-casing:       @minor-casing;
 
 @rail-line: 		#806A5C;
@@ -85,7 +85,7 @@
 @label-fadeout:     0%;
 @label-halo:        fadeout(@land, @label-fadeout);
 
-@label-water:       #344769;
+@label-water:       #573920;
 // green text is subtle so we don’t compute here
 @label-park:        #263F2C;
 @label-physical:    #2F3A4E;

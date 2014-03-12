@@ -78,7 +78,7 @@
 @label-admin0:      #a26868;
 @label-admin1:      #4a4b53;
 @label-place:       #CF1514;
-@label-poi:         #C02D8A;
+@label-poi:         darken(@casing, 10%); //#C02D8A;
 
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+

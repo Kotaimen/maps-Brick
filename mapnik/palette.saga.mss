@@ -113,12 +113,12 @@
 
 @font-regular:      'Avenir Next Condensed Medium', 'Arial Unicode MS Regular';
 @font-heavy:        'Avenir Next Demi Bold', 'Arial Unicode MS Bold';
-@font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Italic';
+@font-physical:     'Avenir Next Condensed Medium Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Avenir Next Medium', 'Arial Unicode MS Regular';
-@font-motorway:     'Baskerville SemiBold', 'Arial Unicode MS Regular';
-@font-primary:      'Baskerville SemiBold', 'Arial Unicode MS Regular';
-@font-path:         'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold', 'Arial Unicode MS Bold';
+@font-motorway:     'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-primary:      'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-path:         'Avenir Next Regular', 'Arial Unicode MS Regular';
+@font-shield:       'Avenia Next Bold', 'Arial Unicode MS Bold';
 
 //// map
 Map {
