@@ -242,35 +242,31 @@
   text-wrap-width: 100 * @scale-factor;
   text-label-position-tolerance: 16;
   text-min-distance: 16 * @scale-factor;
-  [zoom>=15] { text-transform: uppercase; }
+  [zoom>=15] { text-transform: @label-text-transform; }
+  
   [type='city'][population>=10000][zoom>=8][zoom<=17] {
-    text-name: "[name]";
+    text-name: "[name]"; 
     [zoom<=14] { text-size: 24; text-character-spacing: 2; }
     [zoom>=15] { text-size: 26; text-character-spacing: 4; }
-//    text-fill: red;
   }
   [type='city'][population<10000][zoom>=9][zoom<=17] {
     text-name: "[name]";
     [zoom<=14] { text-size: 20; text-character-spacing: 1; }
     [zoom>=15] { text-size: 20; text-character-spacing: 2; }
-//    text-fill: orange;
   }
   [type='town'][zoom>=10][zoom<=18] {
     text-name: "[name]";
 	[zoom<=14] { text-size: 18; }
     [zoom>=15] { text-size: 18; text-character-spacing: 2; } 
-//    text-fill: yellow;
   }
   [type='suburb'][zoom>=13][zoom<=19],
   [type='village'][zoom>=13][zoom<=19]{
     text-name: "[name]";
     text-size: 16; text-character-spacing: 1;
-//    text-fill: black;
   }
   [rank>=7][zoom>=14][zoom<=20] {
     text-name: "[name]";
     text-size: 16; text-character-spacing: 1;
-//    text-fill: white;
   }
 
 }
@@ -299,7 +295,7 @@
   [zoom=9][area>250000000],
   [zoom=10][area>80000000],
   [zoom=11][area>7500000],
-  [zoom=12][area>5000000],
+  [zoom=12][area>2500000],
   [zoom=13][area>700000],
   [zoom=14][area>50000],
   [zoom=15][area>10000],
@@ -408,7 +404,7 @@
     [type='cemetery'],
 //    [type='industrial'],
     [type='landfill'],
-//    [type='retail'], [type='commercial'],
+    [type='retail'], [type='commercial'],
     {
       ::marker {
         [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'] { marker-file: url("marker/maki/hospital.svg"); }
@@ -429,7 +425,7 @@
 	      [type='cemetery'] { marker-file: url("marker/maki/cemetery.svg"); }
 //	      [type='industrial'] { marker-file: url("marker/maki/industrial-building.svg"); }
 	      [type='landfill'] { marker-file: url("marker/maki/trash.svg"); }
-//    	  [type='retail'], [type='commercial'] { marker-file: url("marker/maki/commerical-building.svg"); }
+    	  [type='retail'], [type='commercial'] { marker-file: url("marker/maki/commerical-building.svg"); }
         marker-placement: point;
         marker-width: 11;
         marker-height: 11;
@@ -454,7 +450,7 @@
 //  for thin lines label is not drawn on the link
 //  like most web maps...
 //#road_label_gen0[zoom>=10][zoom<=12][class='highway'],
-#road_label_gen1[zoom>=13][zoom<=15][class='highway'],
+#road_label_gen1[zoom>=12][zoom<=15][class='highway'],
 #road_label[zoom>=16][class='highway'] {
   [type='motorway'], [type='trunk'] {
     text-clip: false;

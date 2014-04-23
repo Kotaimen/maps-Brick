@@ -188,7 +188,7 @@
   // 3. transprent link fill but not casing,
   //    requries post processing in mason composer
   // here we are using 2
-/*
+  /*
    [render='casing'] { [tunnel=1] { line-opacity: 0.5; } }
     [render='inline']  {
     [tunnel=1] {
@@ -196,9 +196,9 @@
       line-cap: butt;
     }
   }
-*/
+  */
 //  [render='casing'][tunnel=1] {  line-dasharray: @road-dash; }
-  [render='inline'][tunnel=1] {  line-comp-op: dst-out; line-opacity: 0.9; }
+  [render='inline'][tunnel=1] {  line-comp-op: dst-out; line-opacity: 0.75; }
 
 
   // line color defined by road type

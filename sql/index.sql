@@ -1,6 +1,6 @@
 ﻿BEGIN;
 
-SET search_path TO import, public;
+-- SET search_path TO import, public;
 
 -- index
 CREATE INDEX ON osm_landusage_areas(type);

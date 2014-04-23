@@ -106,7 +106,8 @@
 @default-halo:      1;
 
 //// text font
-// TODO: use open sourced unicode font
+@label-text-transform: capitalize;
+
 @font-regular:      'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
 @font-heavy:        'American Typewriter Bold', 'Arial Unicode MS Bold';
 @font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Italic';
@@ -117,5 +118,5 @@
 @font-shield:       'Roboto Bold', 'Arial Unicode MS Bold';
 //// map
 Map {
-  buffer-size: 500;
+  buffer-size: 0;
 }

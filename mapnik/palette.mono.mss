@@ -106,7 +106,7 @@
 @default-halo:      1;
 
 //// text font
-// TODO: use open sourced unicode font
+@label-text-transform: capitalize;
 @font-regular:      'American Typewriter Condensed', 'Arial Unicode MS Regular';
 @font-heavy:        'American Typewriter Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';

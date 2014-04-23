@@ -71,7 +71,7 @@
 @road-dash:         3,2;
 
 //// labels
-@label-admin0:      #805b74;
+@label-admin0:      #734564;
 @label-admin1:      @boundary-line;
 @label-place:       @label-admin0;
 @label-poi:         desaturate(@label-admin0, 30%);
@@ -102,6 +102,8 @@
 @scale-factor:      2;
 
 //// text font
+@label-text-transform: capitalize;
+
 @font-regular:      'Avenir Next Condensed Medium', 'Arial Unicode MS Regular';
 @font-heavy:        'Avenir Next Demi Bold', 'Arial Unicode MS Bold';
 @font-physical:     'Avenir Next Condensed Medium Italic', 'Arial Unicode MS Italic';

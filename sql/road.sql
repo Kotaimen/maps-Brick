@@ -1,6 +1,6 @@
 BEGIN;
 
-SET search_path TO import, public;
+-- SET search_path TO import, public;
 
 
 -- full set of roads

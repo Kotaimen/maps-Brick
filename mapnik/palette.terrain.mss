@@ -107,7 +107,7 @@
 @default-halo:      1.5;
 
 //// text font
-// TODO: use open sourced unicode font
+@label-text-transform: uppercase;
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';

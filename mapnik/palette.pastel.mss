@@ -107,6 +107,7 @@
 @default-halo:      1;
 
 //// text font
+@label-text-transform: none;
 
 @font-regular:      'Avenir Next Condensed Medium', 'Arial Unicode MS Regular';
 @font-heavy:        'Avenir Next Demi Bold', 'Arial Unicode MS Bold';

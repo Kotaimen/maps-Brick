@@ -1,6 +1,6 @@
 ﻿BEGIN;
 
-SET search_path TO import, public;
+-- SET search_path TO import, public;
 
 
 CREATE OR REPLACE VIEW brick_places AS

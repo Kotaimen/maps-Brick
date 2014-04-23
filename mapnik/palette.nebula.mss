@@ -107,6 +107,8 @@
 
 //// text font
 // TODO: use open sourced unicoa de font
+@label-text-transform: uppercase;
+
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
 @font-physical:     'Roboto Light Italic', 'Arial Unicode MS Italic';

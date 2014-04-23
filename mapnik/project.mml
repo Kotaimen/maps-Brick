@@ -16,10 +16,10 @@
   "maxzoom": 18,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
-    "palette.voynich.mss",
+    "palette.pastel.mss",
     "base.mss",
-    "road.mss",
     "boundary.mss",
+    "road.mss",
     "label.mss"
   ],
   "Layer": [
@@ -161,7 +161,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_landusages_gen0",
+        "table": "brick_landusages_gen0",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -192,7 +192,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_landusages_gen1",
+        "table": "brick_landusages_gen1",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -223,7 +223,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_landusage_areas",
+        "table": "brick_landusage_areas",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -242,36 +242,6 @@
       "name": "landuse"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "import.brick_landusage_ways",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456"
-      },
-      "id": "landuse_line",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "landuse_line"
-    },
-    {
       "geometry": "polygon",
       "extent": [
         -179.9999999749438,
@@ -281,7 +251,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_transport_areas",
+        "table": "brick_transport_areas",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -311,7 +281,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_aeroways",
+        "table": "brick_aeroways",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -341,7 +311,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_waterareas_gen0",
+        "table": "brick_waterareas_gen0",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -371,7 +341,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_waterareas_gen1",
+        "table": "brick_waterareas_gen1",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -401,7 +371,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_waterareas",
+        "table": "brick_waterareas",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -488,7 +458,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_waterways_gen0",
+        "table": "brick_waterways_gen0",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -519,7 +489,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_waterways_gen1",
+        "table": "brick_waterways_gen1",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -549,7 +519,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_waterways",
+        "table": "brick_waterways",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -568,6 +538,34 @@
         "srid": "3857"
       },
       "name": "waterway"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "brick_landusage_ways",
+        "key_field": "osm_id",
+        "geometry_field": "geometry",
+        "extent_cache": "custom",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "dbname": "imposm3",
+        "host": "127.0.0.1",
+        "port": "6432",
+        "user": "postgres",
+        "password": "123456"
+      },
+      "id": "landuse_line",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "landuse_line"
     },
     {
       "geometry": "linestring",
@@ -639,7 +637,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_barrierways",
+        "table": "brick_barrierways",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -667,7 +665,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_buildings",
+        "table": "brick_buildings",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -697,7 +695,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_roads_gen1",
+        "table": "brick_roads_gen1",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -730,7 +728,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_roads_gen0",
+        "table": "brick_roads_gen0",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -763,7 +761,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_roads",
+        "table": "brick_roads",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -796,7 +794,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_admin",
+        "table": "brick_admin",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1024,7 +1022,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_places",
+        "table": "brick_places",
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1052,7 +1050,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_shields_gen0",
+        "table": "brick_shields_gen0",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1083,7 +1081,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_shields",
+        "table": "brick_shields",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1114,7 +1112,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_landusage_area_labels_gen0",
+        "table": "brick_landusage_area_labels_gen0",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1145,7 +1143,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_landusage_area_labels_gen1",
+        "table": "brick_landusage_area_labels_gen1",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1176,7 +1174,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_landusage_area_labels",
+        "table": "brick_landusage_area_labels",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1300,7 +1298,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_road_labels",
+        "table": "brick_road_labels_gen0",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1312,14 +1310,14 @@
         "password": "123456",
         "srid": "3857"
       },
-      "id": "road_label",
+      "id": "road_label_gen0",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
         "srid": "3857"
       },
-      "name": "road_label"
+      "name": "road_label_gen0"
     },
     {
       "geometry": "linestring",
@@ -1331,7 +1329,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_road_labels_gen1",
+        "table": "brick_road_labels_gen1",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1362,7 +1360,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "import.brick_road_labels_gen0",
+        "table": "brick_road_labels",
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
@@ -1374,14 +1372,14 @@
         "password": "123456",
         "srid": "3857"
       },
-      "id": "road_label_gen0",
+      "id": "road_label",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
         "srid": "3857"
       },
-      "name": "road_label_gen0"
+      "name": "road_label"
     }
   ],
   "scale": 2,

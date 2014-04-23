@@ -118,14 +118,14 @@ Map {
 
   polygon-fill: @water;
   [zoom>=16] { polygon-smooth: 0.25; }
-
+  
   ::effect_emboss {
     polygon-fill: grey;
     image-filters: 'x-gradient, blur';
     comp-op: soft-light;
     [zoom>=16] { polygon-smooth: 0.25; }
   }
-
+  
 }
 
 /// landuse
@@ -134,8 +134,13 @@ Map {
 #landuse[zoom>=13] {
   // natural green
   [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
-  [type='wood'], [type='wetland'], [type='marsh'], [type='scrub'],
-  [type='heath'] { polygon-fill: @wooded; }
+  [type='wood'], [type='wetland'], [type='marsh'], 
+  [type='scrub'], [type='heath'] { polygon-fill: @wooded; }
+  
+  // agriculture
+  [type='farm_land'], [type='farmland'], [type='farmyard'],
+  [type='orchard'], [type='vineyard'], 
+  [type='farm'], { polygon-fill: @agriculture; }
 
   // manmade green
   [type='park'], [type='garden'], [type='recreation_ground'],
@@ -144,13 +149,9 @@ Map {
   [type='funfair'], [type='water_park'], [type='greenspace'],
   { polygon-fill: @park; }
 
-  // agriculture
-  [type='farm'], [type='farm_land'], [type='farmland'], [type='farmyard'],
-  [type='orchard'], [type='vineyard']
-  { polygon-fill: @agriculture; }
-
   // sandy
-  [type='beach'], [type='sand'], [type='desert']
+  [type='sand'], [type='desert'],
+  [type='beach'],
   { polygon-fill: @sand; }
 
   // sport
@@ -238,6 +239,7 @@ Map {
 
   [type='ferry'][zoom>=7] {
     line-color: @ferry-line;
+    line-width: 1;
     [zoom<=9] { line-width: 0.25; }
     [zoom>=10][zoom<=12] { line-width: 0.5; }
     [zoom<=14][zoom>12] { line-width: 0.75; }
