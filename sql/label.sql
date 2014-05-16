@@ -21,19 +21,19 @@ CREATE OR REPLACE VIEW brick_places AS
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels AS
-    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
+    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,4326) AS geometry
     FROM osm_landusage_area_labels
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS
-    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
+    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,4326) AS geometry
     FROM osm_landusage_area_labels_gen0
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS
-    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
+    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,4326) AS geometry
     FROM osm_landusage_area_labels_gen1
     ORDER BY area DESC, osm_id;
 

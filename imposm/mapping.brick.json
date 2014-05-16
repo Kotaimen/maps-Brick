@@ -2,27 +2,27 @@
     "generalized_tables": {
         "landusages_gen0": {
             "source": "landusages_gen1",
-            "sql_filter": "ST_Area(geometry)>500000.000000",
-            "tolerance": 200.0
+            "sql_filter": "ST_Area(ST_Transform(geometry, 3857))>500000.000000",
+            "tolerance": 0.005
         },
         "landusages_gen1": {
             "source": "landusage_areas",
-            "sql_filter": "ST_Area(geometry)>50000.000000",
-            "tolerance": 20.0
+            "sql_filter": "ST_Area(ST_Transform(geometry, 3857))>50000.000000",
+            "tolerance": 0.0005
         },
 	"landusage_area_labels": {
 	    "source": "landusage_areas",
-	    "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 1024 AND ST_Area(geometry) < 10240000 AND name IS NOT NULL AND name != ''",
+	    "sql_filter": "ST_IsValid(geometry) AND ST_Area(ST_Transform(geometry, 3857)) > 1024 AND ST_Area(ST_Transform(geometry, 3857)) < 10240000 AND name IS NOT NULL AND name != ''",
 	    "tolerence": null
 	},
 	"landusage_area_labels_gen1": {
 	    "source": "landusages_gen1",
-            "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 10240000 AND name IS NOT NULL AND name != ''",
+            "sql_filter": "ST_IsValid(geometry) AND ST_Area(ST_Transform(geometry, 3857)) > 10240000 AND name IS NOT NULL AND name != ''",
             "tolerence": null
         },
         "landusage_area_labels_gen0": {
             "source": "landusages_gen0",
-            "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 1024000000 AND name IS NOT NULL AND name != ''",
+            "sql_filter": "ST_IsValid(geometry) AND ST_Area(ST_Transform(geometry, 3857)) > 1024000000 AND name IS NOT NULL AND name != ''",
             "tolerence": null
         },
 	"road_labels": {
@@ -43,32 +43,32 @@
         "roads_gen0": {
             "source": "roads_gen1",
             "sql_filter": "type IN ('motorway', 'trunk', 'primary')",
-            "tolerance": 200.0
+            "tolerance": 0.005
         },
         "roads_gen1": {
             "source": "roads",
             "sql_filter": "type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'minor', 'rail')",
-            "tolerance": 20.0
+            "tolerance": 0.0005
         },
         "waterareas_gen0": {
             "source": "waterareas_gen1",
-            "sql_filter": "ST_Area(geometry)>500000.000000",
-            "tolerance": 200.0
+            "sql_filter": "ST_Area(ST_Transform(geometry, 3857))>500000.000000",
+            "tolerance": 0.005
         },
         "waterareas_gen1": {
             "source": "waterareas",
-            "sql_filter": "ST_Area(geometry)>50000.000000",
-            "tolerance": 20.0
+            "sql_filter": "ST_Area(ST_Transform(geometry, 3857))>50000.000000",
+            "tolerance": 0.0005
         },
         "waterways_gen0": {
             "source": "waterways_gen1",
             "sql_filter": null,
-            "tolerance": 200
+            "tolerance": 0.005
         },
         "waterways_gen1": {
             "source": "waterways",
             "sql_filter": "type = 'river'",
-            "tolerance": 20.0
+            "tolerance": 0.0005
         }
     },
     "tables": {

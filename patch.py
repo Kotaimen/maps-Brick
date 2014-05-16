@@ -28,8 +28,11 @@ def patch_xml(filename):
     print '  ...set base to:', base
     root = tree.getroot()
 
-    root.attrib['font-directory'] = 'font'
+    root.attrib['font-directory'] =  os.path.join(os.getenv('PWD'), 'mapnik', 'font')
     root.attrib['base'] = base
+    
+    del root.attrib['maximum-extent']
+    del root.attrib['srs']
 
 
     print 'Patching map styles.'

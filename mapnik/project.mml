@@ -14,7 +14,6 @@
   "interactivity": false,
   "minzoom": 2,
   "maxzoom": 18,
-  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "palette.pastel.mss",
     "base.mss",
@@ -73,8 +72,7 @@
         "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/shoreline_300/shoreline_300.shp"
       },
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",      "advanced": {},
       "name": "shoreline_300",
       "status": "off"
     },
@@ -110,7 +108,7 @@
         "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/processed_p/processed_p.shp"
       },
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "processed_p",
       "status": "off"
@@ -165,20 +163,20 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
         "dbname": "imposm3",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "landuse_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "landuse_gen0"
     },
@@ -196,20 +194,20 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
         "dbname": "imposm3",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "landuse_gen1",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "landuse_gen1"
     },
@@ -227,7 +225,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -237,7 +235,7 @@
       "id": "landuse",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "landuse"
     },
@@ -255,7 +253,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -265,9 +263,9 @@
       "id": "transport",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "transport"
     },
@@ -285,7 +283,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -295,9 +293,9 @@
       "id": "aeroway",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "aeroway"
     },
@@ -315,7 +313,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -325,9 +323,9 @@
       "id": "waterbody_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "waterbody_gen0"
     },
@@ -345,7 +343,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -355,9 +353,9 @@
       "id": "waterbody_gen1",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "waterbody_gen1"
     },
@@ -375,7 +373,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -385,9 +383,9 @@
       "id": "waterbody",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "waterbody"
     },
@@ -462,7 +460,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -473,9 +471,9 @@
       "id": "waterway_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "waterway_gen0"
     },
@@ -493,7 +491,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
@@ -503,9 +501,9 @@
       "id": "waterway_gen1",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "waterway_gen1"
     },
@@ -523,7 +521,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
@@ -533,9 +531,9 @@
       "id": "waterway",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "waterway"
     },
@@ -553,7 +551,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
@@ -563,7 +561,7 @@
       "id": "landuse_line",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "landuse_line"
     },
@@ -641,7 +639,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
@@ -651,7 +649,7 @@
       "id": "barrier",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "barrier"
     },
@@ -669,7 +667,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
@@ -679,9 +677,9 @@
       "id": "building",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "building"
     },
@@ -699,22 +697,22 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
         "simplify_geometries": "yes",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "road_gen1",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
         "simplify_geometries": "no",
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "road_gen1"
     },
@@ -732,22 +730,22 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
         "simplify_geometries": "yes",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "road_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
         "simplify_geometries": "yes",
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "road_gen0"
     },
@@ -765,22 +763,22 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
         "simplify_geometries": "no",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "road_all",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
         "simplify_geometries": "no",
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "road_all"
     },
@@ -798,7 +796,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
@@ -809,9 +807,9 @@
       "id": "osm_admin",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857",
+        "srid": "4326",
         "simplify_geometries": "yes"
       },
       "name": "osm_admin",
@@ -1026,7 +1024,7 @@
         "key_field": "osm_id",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
@@ -1036,7 +1034,7 @@
       "id": "place_label",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "place_label"
     },
@@ -1054,20 +1052,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "shield_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "shield_gen0"
     },
@@ -1085,20 +1083,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "shield_all",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "shield_all"
     },
@@ -1116,20 +1114,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "landuse_label_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "landuse_label_gen0"
     },
@@ -1147,20 +1145,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "landuse_label_gen1",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "landuse_label_gen1"
     },
@@ -1178,20 +1176,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "landuse_label",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "landuse_label"
     },
@@ -1302,20 +1300,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "road_label_gen0",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "road_label_gen0"
     },
@@ -1333,20 +1331,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "road_label_gen1",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "road_label_gen1"
     },
@@ -1364,20 +1362,20 @@
         "key_field": "",
         "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent": "-180,-90,180,90",
         "dbname": "imposm3",
         "host": "127.0.0.1",
         "port": "6432",
         "user": "postgres",
         "password": "123456",
-        "srid": "3857"
+        "srid": "4326"
       },
       "id": "road_label",
       "class": "",
       "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {
-        "srid": "3857"
+        "srid": "4326"
       },
       "name": "road_label"
     }
