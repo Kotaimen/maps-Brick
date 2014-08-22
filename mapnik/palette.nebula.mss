@@ -76,12 +76,12 @@
 //// labels
 @label-admin0:      @boundary-line;
 @label-admin1:      @boundary-line;
-@label-place:       #85bde0;
-@label-poi:         #bcd5ec;
+@label-place:       #7cd1d0;
+@label-poi:         @label-place;
 
 // transparency of halo color, set to 0% if 'smart halo'
 // is used later in post processing
-@label-fadeout:     50%;
+@label-fadeout:     30%;
 @label-halo:        fadeout(@land, @label-fadeout); //#2c5d8e;
 
 // controls text-halo-rasterizer fast/full
@@ -90,35 +90,35 @@
 // green text is subtle so we don’t compute here
 @label-park:        @label-place;
 @label-physical:    @label-poi;
-@label-motorway:    #607fb5;
-@label-primary:     #607fb5;
+@label-motorway:    #AFAFD5;
+@label-primary:     @label-motorway;
 @label-path:        @label-primary;
 @label-shield:      white;
 
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1;
+@smart-halo:        2;
 // deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap)
 @scale-factor:      2;
 
-@default-halo: 	    1;
+@default-halo: 	    2;
 
 //// text font
 // TODO: use open sourced unicoa de font
 @label-text-transform: uppercase;
 
-@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Light Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Medium', 'Arial Unicode MS Regular';
+@font-regular:      'Roboto Condensed Bold', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Black', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Bold Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Bold', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Bold', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Bold', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Medium', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Medium', 'Arial Unicode MS Bold';
 
 //// map
 Map {
-  buffer-size: 100;
+//  buffer-size: 500;
 }

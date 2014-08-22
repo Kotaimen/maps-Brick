@@ -45,14 +45,14 @@
 //// road
 // reduce casing contrast by changing 'lighten' parameter below
 
-@road-dash:         3, 1.5;
+@road-dash:         3, 2;
 @casing:            #99847A;
 
-@ferry-line:        #6B7E96;
+@ferry-line:        #5b6b80;
 
 @motorway-fill:     #D69076;
 @motorway-line:     @motorway-fill;
-@motorway-casing:   fadeout(@casing, 40%);
+@motorway-casing:   fadeout(@casing, 30%);
 @motorway-link:     desaturate(lighten(@motorway-fill, 10%), 5%);
 
 @primary-line:      lighten(@casing, 13%);
@@ -72,15 +72,15 @@
 @path-casing:       lighten(@motorway-casing, 20%);
 
 // desaturate gives rail slightly cool grey feel
-@rail-line: 	    #ABA5A1;
+@rail-line: 	    #a19d9a;
 @rail-casing: 	    @land;
 @rail-fill:         @land;
 
 //// labels
 @label-admin0:      #736655;
 @label-admin1:      @boundary-line;
-@label-place:       #8E4D3B;
-@label-poi:         #736655;
+@label-place:       #874938;
+@label-poi:         #6b5e4f;
 // transparency of halo color, to handle this correctly
 // you will need mapnik 2.2+
 
@@ -90,7 +90,7 @@
 @halo-quality:      fast;
 
 @label-water:       @ferry-line;
-@label-park:        #5C6E57;
+@label-park:        #556651;
 @label-physical:    @casing;
 
 // road label
@@ -98,7 +98,7 @@
 @label-primary:     @casing;
 @label-path:        @casing;
 
-@label-shield:      @casing;
+@label-shield:      @label-motorway;
 
 // variable depth halo size, set to a float value requries
 // mapnik 2.2+ to handle rendering correctly
@@ -113,7 +113,7 @@
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
+@font-physical:     'Roboto Medium Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
@@ -122,5 +122,5 @@
 
 //// map
 Map {
-  buffer-size: 500;
+//  buffer-size: 0;
 }

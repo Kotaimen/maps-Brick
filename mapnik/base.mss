@@ -118,14 +118,14 @@ Map {
 
   polygon-fill: @water;
   [zoom>=16] { polygon-smooth: 0.25; }
-  
+/*  
   ::effect_emboss {
     polygon-fill: grey;
     image-filters: 'x-gradient, blur';
     comp-op: soft-light;
     [zoom>=16] { polygon-smooth: 0.25; }
   }
-  
+*/  
 }
 
 /// landuse
@@ -133,15 +133,15 @@ Map {
 #landuse_gen1[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
   // natural green
-  [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
+/*  [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
   [type='wood'], [type='wetland'], [type='marsh'], 
   [type='scrub'], [type='heath'] { polygon-fill: @wooded; }
-  
+*/  
   // agriculture
-  [type='farm_land'], [type='farmland'], [type='farmyard'],
+/*  [type='farm_land'], [type='farmland'], [type='farmyard'],
   [type='orchard'], [type='vineyard'], 
   [type='farm'], { polygon-fill: @agriculture; }
-
+*/
   // manmade green
   [type='park'], [type='garden'], [type='recreation_ground'],
   [type='village_green'], [type='zoo'], [type='dog_park'],

@@ -56,7 +56,7 @@
   }
 }
 
-#10m_georegion[zoom>=7] {
+#10m_georegion[zoom>=7][zoom<16] {
   ::marker
     [zoom=6][scalerank<=6],
     [zoom=7][scalerank<=7],
@@ -66,7 +66,8 @@
 	marker-fill: @label-physical;
 	marker-line-color: @label-halo;
     marker-line-width: @smart-halo;
-    marker-height: 4 + @smart-halo;
+    marker-file: url("marker/maki/circle-stroked-12.svg");
+    marker-height: 7 + @smart-halo;    
   }
   ::text
     [zoom=6][scalerank<=6],
@@ -79,7 +80,7 @@
     text-size: 12;
 	text-placement-type: simple;
     text-placement: point;
-    text-dx: 5; text-dy: 5;
+    text-dx: 6; text-dy: 6;
     text-placements: 'E,W';
     text-fill: @label-physical;
     text-halo-fill: @label-halo;
@@ -95,11 +96,10 @@
     [zoom=8][scalerank<=8],
     [zoom=9][scalerank<=9],
     [zoom>=10] {
-    marker-file: url("marker/general/poi_peak.svg");
+    marker-file: url("marker/maki/triangle-12.svg");
 	marker-fill: @label-physical;
 	marker-line-color: @label-halo;
     marker-line-width: @smart-halo / @scale-factor;
-    marker-height: 5 + @smart-halo;
   }
   ::text
     [zoom=6][scalerank<=6],
@@ -112,7 +112,7 @@
     text-size: 12;
 	text-placement-type: simple;
     text-placement: point;
-    text-dx: 5; text-dy: 5;
+    text-dx: 10; text-dy: 10;
     text-placements: 'E,W';
     text-fill: @label-physical;
     text-halo-fill: @label-halo;
@@ -305,10 +305,11 @@
     [type='national_park'], {
       ::marker {
         marker-placement: point;
-        marker-file: url("marker/maki/tree-1.svg");
-        marker-width: 11;
-        marker-height: 13;
+        marker-file: url("marker/maki/park-18.svg");
+        marker-width: 18;
         marker-fill: @label-park;
+        marker-line-color: @label-halo;
+        marker-line-width: @smart-halo / @scale-factor;        
       }
 	  ::text {
         text-placement-type: simple;
@@ -318,6 +319,7 @@
         text-name: "[name]";
         text-fill: @label-park;
       }
+      
     }
     [type='military'], [type='range'], {
       ::text {
@@ -325,7 +327,7 @@
       }
     }
   }
-
+  
   [zoom=9][area>20000000],
   [zoom=10][area>4000000],
   [zoom=11][area>1000000],
@@ -338,12 +340,12 @@
     [type='marina'], {
       ::marker {
         marker-placement: point;
-        [type='railway'], [type='railroad'] { marker-file: url("marker/maki/rail.svg"); }
-        [type='aerodrome'] { marker-file: url("marker/maki/airport.svg"); }
-        [type='marina'] { marker-file: url("marker/maki/anchor.svg"); }
-        marker-width: 12;
-        marker-height: 13;
+        [type='railway'], [type='railroad'] { marker-file: url("marker/maki/rail-18.svg"); }
+        [type='aerodrome'] { marker-file: url("marker/maki/airport-18.svg"); }
+        [type='marina'] { marker-file: url("marker/maki/harbor-18.svg"); }
         marker-fill: @label-poi;
+        marker-line-color: @label-halo;
+//        marker-line-width: @smart-halo / @scale-factor;
       }
 	  ::text {
         text-placement-type: simple;
@@ -369,15 +371,15 @@
 	[type='dog_park'], [type='theme_park'],
     [type='garden'], [type='village_green'], [type='greenspace'], {
       ::marker {
-	    [type='playground'], [type='recreation_ground'], [type='pitch'], { marker-file: url("marker/maki/pitch.svg");  }
-        [type='golf_range'], [type='golf_course'], [type='miniature_golf'], { marker-file: url("marker/maki/golf.svg");  }
-        [type='garden'], [type='village_green'], [type='greenspace'],  { marker-file: url("marker/maki/garden.svg");  }
-
+	    [type='playground']  { marker-file: url("marker/maki/playground-18.svg");  }
+        [type='recreation_ground'], [type='pitch'], { marker-file: url("marker/maki/pitch-18.svg");  }
+        [type='golf_range'], [type='golf_course'], [type='miniature_golf'], { marker-file: url("marker/maki/golf-18.svg");  }
+        [type='garden'], [type='village_green'], [type='greenspace'],  { marker-file: url("marker/maki/garden-18.svg");  }
         marker-placement: point;
-        marker-file: url("marker/maki/tree-1.svg");
-        marker-width: 11;
-        marker-height: 13;
+        marker-file: url("marker/maki/park2-18.svg");
         marker-fill: @label-park;
+        marker-line-color: @label-halo;
+        marker-line-width: @smart-halo / @scale-factor;        
       }
       ::text {
         text-placement-type: simple;
@@ -398,38 +400,38 @@
     [type='townhall'], [type='public_building'], [type='courthouse'],
     [type='prison'], [type='police'],
     [type='fire_station'],
-//    [type='hotel'], [type='motel'],
+    [type='hotel'], [type='motel'],
     [type='zoo'],
     [type='stadium'], [type='sports_centre'],
     [type='cemetery'],
-//    [type='industrial'],
+    [type='industrial'],
     [type='landfill'],
     [type='retail'], [type='commercial'],
     {
       ::marker {
-        [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'] { marker-file: url("marker/maki/hospital.svg"); }
-        [type='university'],[type='college'] { marker-file: url("marker/maki/college.svg"); }
-        [type='museum'] { marker-file: url("marker/maki/museum.svg"); }
-	      [type='arts_centre'], [type='gallery'] { marker-file: url("marker/maki/art-gallery.svg"); }
-        [type='library'] { marker-file: url("marker/maki/library.svg"); }
-        [type='theatre'] { marker-file: url("marker/maki/theatre.svg"); }
-        [type='cinema'] { marker-file: url("marker/maki/cinema.svg"); }
-        [type='school'] { marker-file: url("marker/maki/school.svg"); }
-        [type='post_office'] { marker-file: url("marker/maki/post.svg"); marker-height: 7; }
- 	      [type='townhall'],[type='public_building'], [type='courthouse'] { marker-file: url("marker/maki/town-hall.svg"); }
-	      [type='prison'], [type='police'] { marker-file: url("marker/maki/police.svg"); }
-//	      [type='hotel'], [type='motel'], { marker-file: url("marker/maki/lodging.svg"); }
-	      [type='fire_station'] { marker-file: url("marker/maki/fire-station.svg"); }
-        [type='zoo'] { marker-file: url("marker/maki/giraffe.svg"); }
-	      [type='stadium'], [type='sports_centre'] { marker-file: url("marker/maki/soccer.svg"); }
-	      [type='cemetery'] { marker-file: url("marker/maki/cemetery.svg"); }
-//	      [type='industrial'] { marker-file: url("marker/maki/industrial-building.svg"); }
-	      [type='landfill'] { marker-file: url("marker/maki/trash.svg"); }
-    	  [type='retail'], [type='commercial'] { marker-file: url("marker/maki/commerical-building.svg"); }
+        [type='hospital'], [type='doctors'], [type='clinc'], [type='nursery'], [type='dentist'] { marker-file: url("marker/maki/hospital-18.svg"); }
+        [type='university'],[type='college'] { marker-file: url("marker/maki/college-18.svg"); }
+        [type='museum'] { marker-file: url("marker/maki/museum-18.svg"); }
+	    [type='arts_centre'], [type='gallery'] { marker-file: url("marker/maki/art-gallery-18.svg"); }
+        [type='library'] { marker-file: url("marker/maki/library-18.svg"); }
+        [type='theatre'] { marker-file: url("marker/maki/theatre-18.svg"); }
+        [type='cinema'] { marker-file: url("marker/maki/cinema-18.svg"); }
+        [type='school'] { marker-file: url("marker/maki/school-18.svg"); }
+        [type='post_office'] { marker-file: url("marker/maki/post-18.svg"); marker-height: 7; }
+ 	    [type='townhall'],[type='public_building'], [type='courthouse'] { marker-file: url("marker/maki/town-hall-18.svg"); }
+	    [type='prison'], [type='police'] { marker-file: url("marker/maki/police-18.svg"); }
+	    [type='hotel'], [type='motel'], { marker-file: url("marker/maki/town-18.svg"); }
+	    [type='fire_station'] { marker-file: url("marker/maki/fire-station-18.svg"); }
+        [type='zoo'] { marker-file: url("marker/maki/zoo-18.svg"); }
+	    [type='stadium'], [type='sports_centre'] { marker-file: url("marker/maki/soccer-18.svg"); }
+	    [type='cemetery'] { marker-file: url("marker/maki/cemetery-18.svg"); }
+	    [type='industrial'] { marker-file: url("marker/maki/industrial-18.svg"); }
+	    [type='landfill'] { marker-file: url("marker/maki/waste-basket-18.svg"); }
+    	[type='retail'], [type='commercial'] { marker-file: url("marker/maki/grocery-18.svg"); }
         marker-placement: point;
-        marker-width: 11;
-        marker-height: 11;
         marker-fill: @label-poi;
+        marker-line-color: @label-halo;
+        marker-line-width: @smart-halo / @scale-factor;        
       }
       ::text {
         text-placement-type: simple;
@@ -441,9 +443,25 @@
       }
     }
 
+ 	::marker {
+      marker-file: url("marker/general/poi_general.svg");
+      marker-placement: point;
+      marker-fill: @label-poi;
+      marker-line-color: @label-halo;
+      marker-line-width: @smart-halo / @scale-factor;        
+    }
+    ::text {
+      text-placement-type: simple;
+      text-dx: 10;
+      text-dy: 10;
+      text-placements: 'E,W,S';
+      text-name: "[name]";
+      text-fill: @label-poi;
+    }    
+    
   }
-
 }
+
 
 //// road labels
 // NOTE
@@ -502,7 +520,7 @@
 	text-halo-fill: @label-halo;
     text-halo-rasterizer: @halo-quality;          
 	[zoom>=17] {
-      text-halo-radius: @default-halo;
+      text-halo-radius: @smart-halo;
       text-halo-fill: @secondary-fill;
     }
     text-size: 12;

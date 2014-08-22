@@ -101,7 +101,7 @@
 // (eg: text wrap)
 @scale-factor:      2;
 // controls text-halo-rasterizer fast/full
-@halo-quality:      fast;
+@halo-quality:      full;
 
 @default-halo:      1;
 
