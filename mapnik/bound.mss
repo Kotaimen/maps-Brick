@@ -1,4 +1,6 @@
-
+//
+// Boundaries
+//
 
 // natural earth boundary
 #10m_admin0, #10m_disurpted
@@ -8,7 +10,6 @@
   	line-color: @boundary-casing;
     line-opacity: 0.5;
   	line-join: round;
-    line-cap: round;
   	[zoom=3] { line-width: 1; }
   	[zoom=4] { line-width: 2; }
   	[zoom=5] { line-width: 3; }
@@ -19,7 +20,6 @@
     line-width: 0;
   	line-color: @boundary-line;
   	line-join: round;
-    line-cap: round;
     line-clip: false;
     [zoom=2] { line-width: 0.25; }
   	[zoom=3] { line-width: 0.75; }
@@ -28,7 +28,6 @@
   	[zoom=6] { line-width: 1.5; }
   	[zoom>6] { line-width: 2; }
     [featurecla='Disputed (please verify)'] {
-      line-cap: butt;         
       [zoom=3] { line-dasharray:4,1; }
       [zoom=4] { line-dasharray:5,2; }
       [zoom=5] { line-dasharray:6,2; }
@@ -36,7 +35,6 @@
       [zoom>6] { line-dasharray:10,3; }
     }
     [featurecla='Breakaway'] {
-      line-cap: butt;        
       [zoom=3] { line-dasharray: 3,2; }
       [zoom=4] { line-dasharray: 4,4; }
       [zoom=5] { line-dasharray: 5,5; }
@@ -44,7 +42,6 @@
       [zoom>6] { line-dasharray: 8,8; }
     }
     [featurecla='Claim boundary'] {
-      line-cap: butt;        
       line-dasharray: 1,3;
       [zoom>6] { line-dasharray: 2,4; }
     }
@@ -67,7 +64,6 @@
       line-color: @boundary-casing;
       line-opacity: 0.5;
       line-join: round;
-      line-cap: round;
       line-width: 3;
     }
     ::body {
@@ -80,7 +76,6 @@
       }
       line-color: @boundary-line;
       line-join: round;
-      line-cap: round;
       line-width: 1.5;
     }
   }
@@ -99,7 +94,6 @@
       line-color: @boundary-casing;
       line-opacity: 0.5;
       line-join: round;
-      line-cap: round;
       [zoom<=4] { line-width: 1; }
       [zoom=5] { line-width: 2; }
       [zoom>=6] { line-width: 3; }
@@ -110,8 +104,8 @@
       line-opacity: 0.5;
       line-join: round;
       line-clip: false;
-      [zoom<=4] { line-dasharray: 8,2; }
-      [zoom>=5] { line-dasharray: 16,4; }
+      [zoom<=4] { line-dasharray: 6,2,1,2; }
+      [zoom>=5] { line-dasharray: 8,3,2,3; }
 
       [zoom<=4] { line-width: 0.5; }
       [zoom=5] { line-width: 1; }
@@ -128,16 +122,16 @@
     [name='Arctic Circle'],
     [name='Antarctic Circle'],
     {
-  line-width: 0.75;
-  line-color: @boundary-line;
-  line-dasharray: 5,2;
+      line-width: 0.75;
+      line-color: @boundary-line;
+      line-dasharray: 5,2;
    }
 }
 
 
 // osm admin areas
-#osm_admin[zoom>=11] {
-  [admin_level=4] {
+#osm_admin[zoom>=3] {
+  [admin_level>=1] {
     ::casing {
       line-color: @boundary-casing;
       line-join: round;
@@ -148,6 +142,7 @@
       line-color: @boundary-line;
       line-join: round;
       line-width: 1.5;
+      [zoom<=4] { line-dasharray: 6,2; }      
     }
   }
 }

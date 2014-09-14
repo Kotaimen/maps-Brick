@@ -16,1375 +16,1377 @@
   "maxzoom": 20,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
-    "palette.nebula.mss",
+    "palette.brick.mss",
     "base.mss",
-    "boundary.mss",
+    "bound.mss",
     "road.mss",
     "label.mss"
   ],
   "Layer": [
     {
-      "geometry": "polygon",
-      "extent": [
-        -180,
-        -85.051,
-        180,
-        85.051
-      ],
-      "id": "sea",
-      "class": "",
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp"
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_ocean.shp"
       },
-      "srs-name": "autodetect",
-      "srs": "",
       "advanced": {},
-      "name": "sea"
-    },
-    {
-      "geometry": "polygon",
+      "class": "",
       "extent": [
         -179.99999999999994,
         -85.051,
         180,
         85.051
       ],
+      "geometry": "polygon",
       "id": "10m_sea",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_ocean.shp"
+      "layer": null,
+      "name": "10m_sea",
+      "properties": {
+        "buffer-size": 16
       },
-      "srs-name": "autodetect",
       "srs": "",
-      "advanced": {},
-      "name": "10m_sea"
+      "srs-name": "autodetect"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.99999692067183,
-        -85.051,
-        179.99999692067183,
-        83.66933299999998
-      ],
-      "id": "shoreline_300",
-      "class": "",
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/shoreline_300/shoreline_300.shp"
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_urban_areas.shp"
       },
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "shoreline_300",
-      "status": "off"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -180,
-        -29.984060967734536,
-        179.99999999999994,
-        28.445189113879394
-      ],
-      "id": "10m_reef",
       "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_reefs.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_reef"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.99999692067183,
-        -85.051,
-        179.99999692067183,
-        83.66933299999998
-      ],
-      "id": "processed_p",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/processed_p/processed_p.shp"
-      },
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "processed_p",
-      "status": "off"
-    },
-    {
-      "geometry": "polygon",
       "extent": [
         -157.99118261729797,
         -51.05303741160215,
         178.0338339830011,
         69.76985509228818
       ],
+      "geometry": "polygon",
       "id": "10m_urbanareas",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_urban_areas.shp"
+      "layer": null,
+      "name": "10m_urbanareas",
+      "properties": {
+        "buffer-size": 16
       },
-      "srs-name": "autodetect",
       "srs": "",
-      "advanced": {},
-      "name": "10m_urbanareas"
+      "srs-name": "autodetect"
     },
     {
-      "geometry": "polygon",
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_glaciated_areas.shp"
+      },
+      "advanced": {},
+      "class": "",
       "extent": [
         -179.9999893871038,
         -85.051,
         180,
         83.55756256718149
       ],
+      "geometry": "polygon",
       "id": "10m_snow",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_glaciated_areas.shp"
+      "layer": null,
+      "name": "10m_snow",
+      "properties": {
+        "buffer-size": 16
       },
-      "srs-name": "autodetect",
       "srs": "",
-      "advanced": {},
-      "name": "10m_snow"
+      "srs-name": "autodetect"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
         "table": "brick_landusages_gen0",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
         "srid": "3857"
       },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
       "id": "landuse_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
+      "name": "landuse_gen0",
+      "properties": {
+        "buffer-size": 16
       },
-      "name": "landuse_gen0"
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
         "table": "brick_landusages_gen1",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
         "srid": "3857"
       },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
       "id": "landuse_gen1",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
+      "name": "landuse_gen1",
+      "properties": {
+        "buffer-size": 16
       },
-      "name": "landuse_gen1"
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
         "table": "brick_landusage_areas",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3"
+        "type": "postgis",
+        "user": "postgres"
       },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
       "id": "landuse",
-      "class": "",
-      "srs-name": "900913",
+      "name": "landuse",
+      "properties": {
+        "buffer-size": 16
+      },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "landuse"
+      "srs-name": "900913"
     },
     {
-      "geometry": "polygon",
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp",
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
       "extent": [
-        -179.9999999749438,
+        -180,
         -85.051,
-        179.9999999749438,
+        180,
         85.051
       ],
+      "geometry": "polygon",
+      "id": "sea",
+      "layer": null,
+      "name": "sea",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
       "Datasource": {
-        "type": "postgis",
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_reefs.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -180,
+        -29.984060967734536,
+        179.99999999999994,
+        28.445189113879394
+      ],
+      "geometry": "linestring",
+      "id": "10m_reef",
+      "layer": null,
+      "name": "10m_reef",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
         "table": "brick_transport_areas",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3"
+        "type": "postgis",
+        "user": "postgres"
       },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
       "id": "transport",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
+      "name": "transport",
+      "properties": {
+        "buffer-size": 16
       },
-      "name": "transport"
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
         "table": "brick_aeroways",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3"
+        "type": "postgis",
+        "user": "postgres"
       },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
       "id": "aeroway",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
+      "name": "aeroway",
+      "properties": {
+        "buffer-size": 16
       },
-      "name": "aeroway"
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
-        "table": "brick_waterareas_gen0",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
+        "dbname": "imposm3",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3"
-      },
-      "id": "waterbody_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "waterbody_gen0"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_waterareas_gen1",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3"
-      },
-      "id": "waterbody_gen1",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "waterbody_gen1"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_waterareas",
-        "key_field": "osm_id",
         "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
+        "key_field": "osm_id",
         "password": "123456",
-        "dbname": "imposm3"
-      },
-      "id": "waterbody",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "waterbody"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -9.597096320697517,
-        30.528082586712827,
-        60.19092858164623,
-        69.51727936405658
-      ],
-      "id": "10m_lake_eu",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes_europe.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_lake_eu"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -164.28410994679615,
-        8.988348699994077,
-        -18.569996711322517,
-        82.29248688358783
-      ],
-      "id": "10m_lake_us",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes_north_america.shp",
-        "id": "10m_lake_us",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_lake_us"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -165.96558168829336,
-        -50.66966651748362,
-        176.09377623426627,
-        81.95520786930868
-      ],
-      "id": "10m_lake",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_lake"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "srid": "3857",
         "table": "brick_waterways_gen0",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3",
-        "": "imposm3"
+        "type": "postgis",
+        "user": "postgres"
       },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
       "id": "waterway_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
+      "name": "waterway_gen0",
+      "properties": {
+        "buffer-size": 16
       },
-      "name": "waterway_gen0"
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "srid": "3857",
         "table": "brick_waterways_gen1",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456"
+        "type": "postgis",
+        "user": "postgres"
       },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
       "id": "waterway_gen1",
-      "class": "",
-      "srs-name": "900913",
+      "name": "waterway_gen1",
+      "properties": {
+        "buffer-size": 16
+      },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "waterway_gen1"
+      "srs-name": "900913"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
-        "table": "brick_waterways",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456"
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_lake_centerlines.shp"
       },
-      "id": "waterway",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "waterway"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_landusage_ways",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456"
-      },
-      "id": "landuse_line",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "landuse_line"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -21.510894335020424,
-        27.31338125207737,
-        65.84888756602123,
-        70.09316640832736
-      ],
-      "id": "10m_river_eu",
       "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_europe.shp",
-        "id": "10m_river_eu",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_river_eu"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -166.31509355377037,
-        9.145127671348206,
-        -27.262359178770424,
-        82.63967519738985
-      ],
-      "id": "10m_river_us",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_north_america.shp",
-        "id": "10m_river_us",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_river_us"
-    },
-    {
-      "geometry": "linestring",
       "extent": [
         -164.90347246002037,
         -52.157728773964294,
         177.21119225352123,
         75.79348379113986
       ],
+      "geometry": "linestring",
       "id": "10m_river",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_lake_centerlines.shp"
+      "layer": null,
+      "name": "10m_river",
+      "properties": {
+        "buffer-size": 16
       },
-      "srs-name": "autodetect",
       "srs": "",
-      "advanced": {},
-      "name": "10m_river"
+      "srs-name": "autodetect"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
-        "table": "brick_barrierways",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456"
-      },
-      "id": "barrier",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "barrier"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_buildings",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "dbname": "imposm3"
-      },
-      "id": "building",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "building"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_roads_gen1",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
         "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
+        "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
+        "key_field": "osm_id",
         "password": "123456",
+        "port": "6432",
         "simplify_geometries": "yes",
-        "srid": "3857"
-      },
-      "id": "road_gen1",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "no",
-        "srid": "3857"
-      },
-      "name": "road_gen1"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_roads_gen0",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "simplify_geometries": "yes",
-        "srid": "3857"
-      },
-      "id": "road_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "yes",
-        "srid": "3857"
-      },
-      "name": "road_gen0"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_roads",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "simplify_geometries": "no",
-        "srid": "3857"
-      },
-      "id": "road_all",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "simplify_geometries": "no",
-        "srid": "3857"
-      },
-      "name": "road_all"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_admin",
-        "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "simplify_geometries": "yes"
-      },
-      "id": "osm_admin",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
         "srid": "3857",
+        "table": "brick_waterways",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "waterway",
+      "name": "waterway",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "srid": "3857",
+        "table": "brick_waterareas_gen0",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
+      "id": "waterbody_gen0",
+      "name": "waterbody_gen0",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "table": "brick_waterareas_gen1",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
         "simplify_geometries": "yes"
       },
-      "name": "osm_admin",
-      "status": "off"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -139.0602066219999,
-        -49.25087001999992,
-        178.448622268,
-        81.12853131600008
-      ],
-      "id": "10m_admin1",
       "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_1_states_provinces_lines_shp.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_admin1"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -180,
-        -58.37588254937078,
-        178.74932072512505,
-        82.21688470654527
-      ],
-      "id": "10m_marine_indicator",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_maritime_indicator.shp",
-        "id": "10m_marine_indicator",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_marine_indicator"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -89.19813967135845,
-        -23.83757903399993,
-        149.3593353700001,
-        48.12060394300009
-      ],
-      "id": "10m_disurpted",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_disputed_areas.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_disurpted"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -141.00554863899987,
-        -55.120923766999944,
-        140.97762699400005,
-        70.07531036400012
-      ],
-      "id": "10m_admin0",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp",
-        "id": "10m_admin0",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_admin0"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -180,
-        -85.051,
-        180,
-        85.051
-      ],
-      "id": "10m_geographicline",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geographic_lines.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "10m_geographicline"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -102.90068436639604,
-        -78.60693899999998,
-        178.0308332721056,
-        79.04721407579228
-      ],
-      "id": "label_admin0",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-0-labels-z6.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "label_admin0"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -179.9999999999999,
-        -85.051,
-        180,
-        83.63410065300015
-      ],
-      "id": "10m_country",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_countries.shp",
-        "id": "10m_country",
-        "project": "Brick_imposm3",
-        "srs": "",
-        "encoding": "windows1252"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {
-        "encoding": "windows1252"
-      },
-      "name": "10m_country"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -156.24532937499998,
-        20.249832999999974,
-        -54.77481032998548,
-        71.1110301058789
-      ],
-      "id": "label_admin1",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-1-labels-z7.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "label_admin1"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -176.53333,
-        -54.8,
-        178.00417,
-        71.68722
-      ],
-      "id": "place_static",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/place-points.shp",
-        "id": "place_static",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "place_static"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -99.6754881921606,
-        -81.78992209909535,
-        134.1784941447303,
-        49.32165488322707
-      ],
-      "id": "label_continent",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/continents.shp"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "label_continent"
-    },
-    {
-      "geometry": "point",
       "extent": [
         -179.9999999749438,
         -85.051,
         179.9999999749438,
         85.051
       ],
+      "geometry": "polygon",
+      "id": "waterbody_gen1",
+      "name": "waterbody_gen1",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
       "Datasource": {
-        "type": "postgis",
-        "table": "brick_places",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
         "key_field": "osm_id",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
+        "password": "123456",
         "port": "6432",
-        "user": "postgres",
-        "password": "123456"
+        "simplify_geometries": "yes",
+        "table": "brick_waterareas",
+        "type": "postgis",
+        "user": "postgres"
       },
-      "id": "place_label",
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
       "class": "",
-      "srs-name": "900913",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
+      "id": "waterbody",
+      "name": "waterbody",
+      "properties": {
+        "buffer-size": 16
+      },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp"
+      },
       "advanced": {},
-      "name": "place_label"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_shields_gen0",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "shield_gen0",
       "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "shield_gen0"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_shields",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "shield_all",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "shield_all"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_landusage_area_labels_gen0",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "landuse_label_gen0",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "landuse_label_gen0"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_landusage_area_labels_gen1",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "landuse_label_gen1",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "landuse_label_gen1"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_landusage_area_labels",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "landuse_label",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "landuse_label"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        -180,
-        -85.051,
-        179.9998970889459,
-        85.051
-      ],
-      "id": "10m_marine",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_marine_polys.shp",
-        "id": "10m_marine",
-        "project": "Brick_imposm3",
-        "srs": "",
-        "encoding": "windows1252"
-      },
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {
-        "encoding": "windows1252"
-      },
-      "name": "10m_marine"
-    },
-    {
-      "geometry": "polygon",
       "extent": [
         -165.96558168829336,
         -50.66966651748362,
         176.09377623426627,
         81.95520786930868
       ],
-      "id": "10m_lake_label",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp",
-        "encoding": "windows1252"
-      },
-      "srs-name": "autodetect",
+      "geometry": "polygon",
+      "id": "10m_lake",
+      "layer": null,
+      "name": "10m_lake",
       "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "table": "brick_landusage_ways",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "landuse_line",
+      "name": "landuse_line",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "table": "brick_barrierways",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "simplify_geometries": "yes"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "barrier",
+      "name": "barrier",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick_buildings",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
+      "id": "building",
+      "name": "building",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick_roads_gen0",
+        "type": "postgis",
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_gen0",
+      "name": "road_gen0",
+      "properties": {
+        "buffer-size": 32
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "table": "(SELECT *, layer AS z_order FROM brick_roads_stage  WHERE tunnel=1 ORDER BY \nlayer, bridge desc)  AS foo",
+        "type": "postgis",
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_stage_tunnel",
+      "name": "road_stage_tunnel",
+      "properties": {
+        "buffer-size": 32,
+        "group-by": "z_order"
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "table": "(SELECT *, layer AS z_order FROM brick_roads_stage  WHERE tunnel=0 ORDER BY \nlayer, bridge desc)  AS foo",
+        "type": "postgis",
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_stage",
+      "name": "road_stage",
+      "properties": {
+        "buffer-size": 32,
+        "group-by": "z_order"
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "simplify_geometries": "yes",
+        "table": "brick_admin",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "polygon",
+      "id": "osm_admin",
+      "name": "osm_admin",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913",
+      "status": "off"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_1_states_provinces_lines_shp.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -139.0602066219999,
+        -49.25087001999992,
+        178.448622268,
+        81.12853131600008
+      ],
+      "geometry": "linestring",
+      "id": "10m_admin1",
+      "name": "10m_admin1",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_maritime_indicator.shp",
+        "id": "10m_marine_indicator",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -180,
+        -58.37588254937078,
+        178.74932072512505,
+        82.21688470654527
+      ],
+      "geometry": "linestring",
+      "id": "10m_marine_indicator",
+      "name": "10m_marine_indicator",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_disputed_areas.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -89.19813967135845,
+        -23.83757903399993,
+        149.3593353700001,
+        48.12060394300009
+      ],
+      "geometry": "linestring",
+      "id": "10m_disurpted",
+      "name": "10m_disurpted",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp",
+        "id": "10m_admin0",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -141.00554863899987,
+        -55.120923766999944,
+        140.97762699400005,
+        70.07531036400012
+      ],
+      "geometry": "linestring",
+      "id": "10m_admin0",
+      "name": "10m_admin0",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geographic_lines.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "10m_geographicline",
+      "name": "10m_geographicline",
+      "properties": {
+        "buffer-size": 16,
+        "clear-label-cache": "yes"
+      },
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-0-labels-z6.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -102.90068436639604,
+        -78.60693899999998,
+        178.0308332721056,
+        79.04721407579228
+      ],
+      "geometry": "polygon",
+      "id": "label_admin0",
+      "name": "label_admin0",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "encoding": "windows1252",
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_countries.shp",
+        "id": "10m_country",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
       "advanced": {
         "encoding": "windows1252"
       },
-      "name": "10m_lake_label"
+      "class": "",
+      "extent": [
+        -179.9999999999999,
+        -85.051,
+        180,
+        83.63410065300015
+      ],
+      "geometry": "polygon",
+      "id": "10m_country",
+      "name": "10m_country",
+      "srs": "",
+      "srs-name": "autodetect"
     },
     {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-1-labels-z7.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -156.24532937499998,
+        20.249832999999974,
+        -54.77481032998548,
+        71.1110301058789
+      ],
+      "geometry": "polygon",
+      "id": "label_admin1",
+      "name": "label_admin1",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/place-points.shp",
+        "id": "place_static",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -176.53333,
+        -54.8,
+        178.00417,
+        71.68722
+      ],
       "geometry": "point",
+      "id": "place_static",
+      "name": "place_static",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/continents.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -99.6754881921606,
+        -81.78992209909535,
+        134.1784941447303,
+        49.32165488322707
+      ],
+      "geometry": "point",
+      "id": "label_continent",
+      "name": "label_continent",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick_places",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "point",
+      "id": "place_label",
+      "name": "place_label",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
+        "table": "brick_shields_gen0",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "shield_gen0",
+      "name": "shield_gen0",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
+        "table": "brick_shields",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "shield_all",
+      "name": "shield_all",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
+        "table": "brick_landusage_area_labels_gen0",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "point",
+      "id": "landuse_label_gen0",
+      "name": "landuse_label_gen0",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913",
+      "status": "off"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
+        "table": "brick_landusage_area_labels_gen1",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "point",
+      "id": "landuse_label_gen1",
+      "name": "landuse_label_gen1",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913",
+      "status": "off"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
+        "table": "brick_landusage_area_labels",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "point",
+      "id": "landuse_label",
+      "name": "landuse_label",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913",
+      "status": "off"
+    },
+    {
+      "Datasource": {
+        "encoding": "windows1252",
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_marine_polys.shp",
+        "id": "10m_marine",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "class": "",
+      "extent": [
+        -180,
+        -85.051,
+        179.9998970889459,
+        85.051
+      ],
+      "geometry": "polygon",
+      "id": "10m_marine",
+      "name": "10m_marine",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "encoding": "windows1252",
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp"
+      },
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "class": "",
+      "extent": [
+        -165.96558168829336,
+        -50.66966651748362,
+        176.09377623426627,
+        81.95520786930868
+      ],
+      "geometry": "polygon",
+      "id": "10m_lake_label",
+      "name": "10m_lake_label",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
+      "Datasource": {
+        "encoding": "windows1252",
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_points.shp",
+        "id": "10m_geoegion",
+        "project": "Brick_imposm3",
+        "srs": ""
+      },
+      "advanced": {
+        "encoding": "windows1252"
+      },
+      "class": "",
       "extent": [
         -178.31920325429127,
         -78.63811614375592,
         179.49756920664623,
         83.62628815311908
       ],
+      "geometry": "point",
       "id": "10m_georegion",
-      "class": "",
+      "name": "10m_georegion",
+      "srs": "",
+      "srs-name": "autodetect"
+    },
+    {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_points.shp",
-        "encoding": "windows1252",
-        "id": "10m_geoegion",
+        "encoding": "windows-1252",
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_elevation_points.shp",
+        "id": "10m_elevation",
         "project": "Brick_imposm3",
         "srs": ""
       },
-      "srs-name": "autodetect",
-      "srs": "",
       "advanced": {
-        "encoding": "windows1252"
+        "encoding": "windows-1252"
       },
-      "name": "10m_georegion"
-    },
-    {
-      "geometry": "point",
+      "class": "",
       "extent": [
         -178.1552017894475,
         -85.051,
         179.20362451966955,
         83.32740297860224
       ],
+      "geometry": "point",
       "id": "10m_elevation",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_elevation_points.shp",
-        "id": "10m_elevation",
-        "project": "Brick_imposm3",
-        "srs": "",
-        "encoding": "windows-1252"
-      },
-      "srs-name": "autodetect",
+      "name": "10m_elevation",
       "srs": "",
-      "advanced": {
-        "encoding": "windows-1252"
-      },
-      "name": "10m_elevation"
+      "srs-name": "autodetect"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
         "table": "brick_road_labels_gen0",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
+        "type": "postgis",
+        "user": "postgres"
+      },
+      "advanced": {
         "srid": "3857"
       },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
       "id": "road_label_gen0",
-      "class": "",
-      "srs-name": "900913",
+      "name": "road_label_gen0",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {
-        "srid": "3857"
-      },
-      "name": "road_label_gen0"
+      "srs-name": "900913"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
       "Datasource": {
-        "type": "postgis",
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
         "table": "brick_road_labels_gen1",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
+        "type": "postgis",
+        "user": "postgres"
       },
-      "id": "road_label_gen1",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {
         "srid": "3857"
       },
-      "name": "road_label_gen1"
-    },
-    {
-      "geometry": "linestring",
+      "class": "",
       "extent": [
         -179.9999999749438,
         -85.051,
         179.9999999749438,
         85.051
       ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "brick_road_labels",
-        "key_field": "",
-        "geometry_field": "geometry",
-        "extent_cache": "custom",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "dbname": "imposm3",
-        "host": "127.0.0.1",
-        "port": "6432",
-        "user": "postgres",
-        "password": "123456",
-        "srid": "3857"
-      },
-      "id": "road_label",
-      "class": "",
-      "srs-name": "900913",
+      "geometry": "linestring",
+      "id": "road_label_gen1",
+      "name": "road_label_gen1",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "srid": "3857",
+        "table": "brick_road_labels",
+        "type": "postgis",
+        "user": "postgres"
+      },
       "advanced": {
         "srid": "3857"
       },
-      "name": "road_label"
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_label",
+      "name": "road_label",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
     }
   ],
-  "scale": 1,
-  "metatile": 2,
-  "name": "Brick",
-  "description": "Brick 2.0 using imposm3 as data source",
-  "attribution": ""
+  "scale": 2,
+  "metatile": 1,
+  "attribution": "",
+  "description": "Brick Map Theme using OSM Data, Mark 9",
+  "name": "Brick"
 }

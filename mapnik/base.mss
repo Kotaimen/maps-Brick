@@ -1,95 +1,73 @@
+//
+// Backgrounds
+//
+
 Map {
   background-color: @land;
 }
 
-////// Land
+// Waterbody
 
-#shoreline_300[zoom<=9],
-#processed_p[zoom>=10],
-{
-  polygon-fill: @land;
-  polygon-gamma: 0.75;
+#10m_sea[zoom<=5],
+#10m_lake[zoom<=5],
+#sea[zoom>5],
+#waterbody_gen0[zoom>5][zoom<=8],
+#waterbody_gen1[zoom>8][zoom<=11],
+#waterbody[zoom>11] {
+  
+  // Fill a darker color for waterbody
+  polygon-fill: darken(@water, 13%);
+  
+  // Optional texture
+  //::pattern{ polygon-pattern-file: url('res/texture/wave.png'); }
+  
+  // Make a slightly blurred light polygon and use softlight to 
+  // create "inner shadow" and slightly edge contrast lift.
+  ::effect_shadow {
+    polygon-fill: @land;
+    comp-op: soft-light;
+    image-filters: agg-stack-blur(8 * @scale-factor, 8 * @scale-factor);
+    image-filters-inflate: yes;
+    polygon-clip: false;
+  }  
 }
 
-
-#10m_reef[zoom>=4] {
-  [zoom<6] { line-width: 0.25; }
-  [zoom>=6] { line-width: 0.5; }
-  line-dasharray: 1, 1;
-  line-color: @ferry-line;
-}
-
-#10m_urbanareas[zoom<=11] {
-  polygon-fill: @residential;
-}
-
-#10m_snow[zoom<=10] {
-  polygon-fill: lighten(@land, 7%);
-}
-
-
-////// Water
-
-#10m_river[zoom<=7],
-#10m_river_eu[zoom<=7],
-#10m_river_us[zoom<=7],
-{
-  [zoom=2][scalerank<=3],
-  [zoom=3][scalerank<=4],
-  {
-  	line-color: @water;
-  	line-width: 0.25;
-  }
-
-  [zoom=4][scalerank<=5],
-  [zoom=5][scalerank<=6],
-  [zoom=6][scalerank<=7],
-  [zoom>=7][scalerank<=99],
-  {
-  	line-color: @water;
-  	line-width: 0.5;
-  }
-}
-
-#waterway_gen0[zoom>=8][zoom<=11][type="river"] {
+#10m_river[zoom<=5] {
   line-color: @water;
-  [zoom=8] { line-width: 0.1; }
-  [zoom=9] { line-width: 0.2; }
-  [zoom=10]{ line-width: 0.4; }
-  [zoom=11]{ line-width: 0.6; }
-  [zoom=12]{ line-width: 0.8; }
+  line-join: round;
+  line-width: 0;
+  [scalerank<=3] { line-width: 0.5; }
+  [scalerank>3][scalerank<=6][zoom>3] { line-width: 0.2; }  
+  [scalerank>6][zoom>3] { line-width: 0.1; }  
 }
 
-#waterway_gen1[zoom>=12][zoom<14] {
+#waterway_gen0[zoom>5][zoom<=10],
+#waterway_gen1[zoom>10][zoom<=14],
+#waterway[zoom>14] {
   [type='river'],
   [type='canal'] {
     line-color: @water;
-    line-cap: round;
     line-join: round;
-    [zoom<=12]{ line-width: 1; }
-    [zoom>=13]{ line-width: 1.5; }
-  }
-  [type='stream'] {
-    line-color: @water;
-    [zoom<=12]{ line-width: 0.2; }
-    [zoom>=13]{ line-width: 0.4; }
-  }
-}
-
-#waterway[zoom>=14] {
-  line-color: @water;
-  [type='river'],
-  [type='canal'] {
-    line-cap: round;
-    line-join: round;
-    [zoom<=15]{ line-width: 2; }
+    [zoom<=8] { line-width: 0.2; }
+    [zoom=9] { line-width: 0.4; }
+    [zoom=10]{ line-width: 0.6; }
+    [zoom=11]{ line-width: 0.8; }
+    [zoom=12]{ line-width: 1; }
+    [zoom=13]{ line-width: 1.5; }
+    [zoom=14]{ line-width: 1.5; }
+    [zoom=15]{ line-width: 2; }
     [zoom=16]{ line-width: 3; }
     [zoom=17]{ line-width: 4; }
-    [zoom=18]{ line-width: 5; }
-    [zoom=19]{ line-width: 6; }
-    [zoom>19]{ line-width: 7; }
+    [zoom=18]{ line-width: 4; }
+    [zoom=19]{ line-width: 5; }
+    [zoom>19]{ line-width: 5; }
   }
   [type='stream'] {
+    line-color: @water;
+    line-join: round;
+    [zoom<=12]{ line-width: 0.2; }
+    [zoom=13]{ line-width: 0.4; }
+    [zoom=14]{ line-width: 0.4; }
     [zoom=15]{ line-width: 0.6; }
     [zoom=16]{ line-width: 0.8; }
     [zoom=17]{ line-width: 1; }
@@ -107,53 +85,80 @@ Map {
   }
 }
 
-#10m_sea[zoom<=7],
-#sea[zoom>=8],
-#10m_lake[zoom<=7],
-#10m_lake_us[zoom<=9],
-//#10m_lake_eu[zoom<=9],
-//#waterbody_gen0[zoom>=8][zoom<=9],
-#waterbody_gen1[zoom>=8][zoom<=11],
-#waterbody[zoom>=12] {
-
-  polygon-fill: @water;
-  [zoom>=16] { polygon-smooth: 0.25; }
-/*  
-  ::effect_emboss {
-    polygon-fill: grey;
-    image-filters: 'x-gradient, blur';
-    comp-op: soft-light;
-    [zoom>=16] { polygon-smooth: 0.25; }
-  }
-*/  
+#10m_reef[zoom>=4] {
+  [zoom<6] { line-width: 0.25; }
+  [zoom>=6] { line-width: 0.5; }
+  line-dasharray: 1, 1;
+  line-color: @ferry-line;
 }
 
-/// landuse
-#landuse_gen0[zoom>=5][zoom<=9],
+// Landcover, from Natural Earth
+
+#10m_snow[zoom<=10] {
+  polygon-fill: white;
+	opacity: 0.21;
+}
+
+#10m_urbanareas[zoom<=11] {
+  polygon-fill: @residential;
+}
+
+// Landcover & landuse, from OSM
+
+#landuse_gen0[zoom>=6][zoom<=9],
 #landuse_gen1[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
+  
+  // OSM mixes landuse and land cover together
+  
   // natural green
-/*  [type='forest'], [type='meadow'], [type='grass'], [type='grassland'],
-  [type='wood'], [type='wetland'], [type='marsh'], 
-  [type='scrub'], [type='heath'] { polygon-fill: @wooded; }
-*/  
+  [type='forest'], [type='meadow'], [type='grass'], 
+  [type='grassland'], [type='wood'],  [type='heath'] { 
+    polygon-fill: @wooded; 
+    polygon-opacity: 0.5;
+  }
+
   // agriculture
-/*  [type='farm_land'], [type='farmland'], [type='farmyard'],
+  [type='farm_land'], [type='farmland'], [type='farmyard'],
   [type='orchard'], [type='vineyard'], 
-  [type='farm'], { polygon-fill: @agriculture; }
-*/
+  [type='farm'], { 
+    polygon-fill: @agriculture; 
+	polygon-opacity: 0.5;
+  }
+
+  [type='wetland'], [type='marsh'], [type='scrub'], {
+    polygon-fill: @wooded; 
+    polygon-opacity: 0.5;
+	::pattern{
+      polygon-pattern-file: url('res/texture/wetland_64.png');
+      comp-op: multiply;
+      opacity: 0.1;
+    }    
+  }
+  
+  // sandy
+  /* [type='sand'], [type='desert'], */
+  [type='beach'],
+  { polygon-fill: @sand; }
+  
+  // areas
+  [type='nature_reserve'], [type='conservation'],
+  [type='national_park'] {
+	polygon-fill: @park;
+    polygon-opacity: 0.5;
+  }
+  [type='military'], [type='range'] {
+	polygon-fill: @military;
+    polygon-opacity: 0.6; 
+  }  
+  
   // manmade green
   [type='park'], [type='garden'], [type='recreation_ground'],
   [type='village_green'], [type='zoo'], [type='dog_park'],
   [type='theme_park'], [type='golf_range'], [type='golf_course'], [type='miniature_golf'],
   [type='funfair'], [type='water_park'], [type='greenspace'],
-  { polygon-fill: @park; }
-
-  // sandy
-  [type='sand'], [type='desert'],
-  [type='beach'],
-  { polygon-fill: @sand; }
-
+  { polygon-fill: @park; }    
+  
   // sport
   [type='camp_site'], [type='sport'], [type='pitch'],
   [type='sports_centre'], [type='stadium'], [type='playground'],
@@ -207,17 +212,6 @@ Map {
     polygon-fill: @water; 
   }
 
-  // areas
-  [type='nature_reserve'], [type='conservation'],
-  [type='national_park'] {
-	polygon-fill: @park;
-    polygon-opacity: 0.5;
-  }
-  [type='military'], [type='range'] {
-	polygon-fill: @military;
-    polygon-opacity: 0.25;
-  }
-
   // transport
   [type='aerodrome'], [type='airport'], [type='boundary'],
   [type='harbor'], [type='railway'],
@@ -229,6 +223,7 @@ Map {
   [type='terminal'], [type='apron'], [type='hangar'], 
   [type='fire_station'], [type='railway'], 
   { polygon-fill: @terminal; }
+
 
   // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
@@ -277,6 +272,14 @@ Map {
 
 }
 
+#barrier[zoom>12] {
+  line-color: @barrier;
+  line-width: 0.5;
+}
+
+
+// Transport
+
 #transport[zoom>=8]
 {
   [type='station'], [type='bus_station'],
@@ -311,20 +314,23 @@ Map {
   }
 }
 
-#building[zoom>=12] {
-  polygon-fill: @building;
-  [zoom>=14] {
-    line-color: @barrier;
-    line-width:0.25;
+// Buildings
 
+#building[zoom>=13] {
+  ::shadlow[zoom>=18]{
+    polygon-fill: darken(@building, 10);
+    polygon-geometry-transform: translate(1, 2);    
+    [zoom>=20] { polygon-geometry-transform: translate(2, 4); }
+    polygon-clip: false;
+  }
+  polygon-fill: @building;
+  polygon-clip: false;  
+  [zoom>=15] {
+    line-color: darken(@building, 10);
+    line-width:0.2;
   }
   [zoom>=16] {
-    line-color: @barrier;
+    line-color: darken(@building, 10);
     line-width:0.5;
   }
-}
-
-#barrier[zoom>12] {
-  line-color: @barrier;
-  line-width: 0.5;
 }

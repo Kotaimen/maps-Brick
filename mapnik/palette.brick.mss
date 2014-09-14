@@ -1,59 +1,87 @@
-//====== global palette file ======
-// change this file to change color theme
-// this one assumes you use medium to light colors, change
-// 'lighten' to 'darken' if your theme is dark
+//
+// Parameters and palettes
+//
 
-//// base
+// ========== Halo Parameters ==========
+
+// Text halo render quality, "fast" is considerablly faster, 
+// but "full" is required for float halo radius and transprency
+@halo-quality:      full;
+
+// Variable depth halo size, 
+// actual blending is done in "Mason" composer.
+@smart-halo:        1;
+
+// Other halo size
+@default-halo:      1;
+
+// Transparency of halo color
+@label-fadeout:     20%;
+
+
+// ========== General Parameters ==========
+
+// Deal with incorrect mapnik scale factor for some attributes
+// (eg: text wrap & filter size)
+@scale-factor:      2;
+
+// Adjust font size 
+@font-resize:       0;
+
+
+// ========== Background Colors ==========
+
+// base
 @land:              #D1CEC2;
 @water:             #8CACBA;
 @river:             @water;
 
-//// basics
+// basics
 @building:          #D9D7CC;
-@amenity:           #C9C1AB;
-@sand:              @amenity;
+@sand:              #c2b795;
 
 //// greenish
 @park:              #B5BF9D;
 @wooded:            #A0BAA1;
-@agriculture:       @park;
-@sports:            @wooded;
+@agriculture:       @wooded;
+@sports:            @park;
 
 //// amenities
+@amenity:           #C4C0B1;
 @religion:          @amenity;
 @healthcare:        #D1BEB4;
-@educational:       @amenity;
-@barrier:           darken(@building, 9%);
+@educational:       #ccc4b8;
+@barrier:           darken(@amenity, 5%);
 
 //// zone
 @residential:       #CCC8B8;
-@pedestrian:        #C8C9B7;
+@pedestrian:        @park;
 @commercial:        @residential;
 @industrial:        @residential;
-@military:          #919090;
+@military:          #aaaaaa;
 
 //// transport
-@parking:           @building;
-@airport:           darken(@amenity, 7%);
+@parking:           @amenity;
+@airport:           #BFB8A1;
 @aeroway:           @building;
 @terminal:          @amenity;
 
 //// boundary
-@boundary-line:     @military;
+@boundary-line:     #8c8982;
 @boundary-casing:   @land;
 
-//// road
-// reduce casing contrast by changing 'lighten' parameter below
 
-@road-dash:         3, 2;
+// ========== Road Colors ==========
+
+@road-dash:         6, 3;
 @casing:            #99847A;
 
 @ferry-line:        #5b6b80;
 
-@motorway-fill:     #D69076;
+@motorway-fill:     #d69880;
 @motorway-line:     @motorway-fill;
-@motorway-casing:   fadeout(@casing, 30%);
-@motorway-link:     desaturate(lighten(@motorway-fill, 10%), 5%);
+@motorway-casing:   fadeout(@casing, 0%);
+@motorway-link:     lighten(@motorway-fill, 10%);
 
 @primary-line:      lighten(@casing, 13%);
 @primary-fill:      #D4C5B6;
@@ -73,21 +101,22 @@
 
 // desaturate gives rail slightly cool grey feel
 @rail-line: 	    #a19d9a;
-@rail-casing: 	    @land;
 @rail-fill:         @land;
+@rail-casing:       @land;
 
-//// labels
-@label-admin0:      #736655;
-@label-admin1:      @boundary-line;
-@label-place:       #874938;
-@label-poi:         #6b5e4f;
-// transparency of halo color, to handle this correctly
-// you will need mapnik 2.2+
 
-@label-fadeout:     0%;
+// ========== Label Halo ==========
+
 @label-halo:        fadeout(@land, @label-fadeout);
-// controls text-halo-rasterizer fast/full
-@halo-quality:      fast;
+
+
+// ========== Label Colors ==========
+
+@label-admin0:      #4d463e;
+@label-admin1:      @boundary-line;
+@label-place:       #80321d;
+@label-poi:         #6b5e4f;
+
 
 @label-water:       @ferry-line;
 @label-park:        #556651;
@@ -97,19 +126,15 @@
 @label-motorway:    @label-poi;
 @label-primary:     @casing;
 @label-path:        @casing;
-
 @label-shield:      @label-motorway;
 
-// variable depth halo size, set to a float value requries
-// mapnik 2.2+ to handle rendering correctly
-@smart-halo:        1;
-// deal with incorrect mapnik scale factor for some attributes
-// (eg: text wrap)
-@scale-factor:      2;
-@default-halo:      1;
+
+
+// ========== Label Font ==========
 
 //// text font
 @label-text-transform: uppercase;
+@fall-back:         'Arial Unicode MS Regular';
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
@@ -118,9 +143,12 @@
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Light', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Medium  ', 'Arial Unicode MS Bold';
+@font-shield:       'Roboto Medium', 'Arial Unicode MS Bold';
 
-//// map
+
+// ========== Map ==========
+
 Map {
-//  buffer-size: 0;
+  buffer-size: 512;
+//  font-directory: ;
 }

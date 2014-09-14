@@ -139,7 +139,7 @@
     [zoom=5] { text-size: 16; text-name: '[label_z6]'; }
     [zoom=6] { text-size: 22; text-name: '[label_z7]'; }
     [zoom>6] { text-size: 32; text-name: '[name]';
-      text-character-spacing: 2;
+      text-character-spacing: 1;
       text-placements: 'X,28,24';
       text-placement-type: simple;
     }
@@ -308,8 +308,8 @@
         marker-file: url("marker/maki/park-18.svg");
         marker-width: 18;
         marker-fill: @label-park;
-        marker-line-color: @label-halo;
-        marker-line-width: @smart-halo / @scale-factor;        
+//        marker-line-color: @label-halo;
+//        marker-line-width: @smart-halo / @scale-factor;        
       }
 	  ::text {
         text-placement-type: simple;
@@ -344,7 +344,7 @@
         [type='aerodrome'] { marker-file: url("marker/maki/airport-18.svg"); }
         [type='marina'] { marker-file: url("marker/maki/harbor-18.svg"); }
         marker-fill: @label-poi;
-        marker-line-color: @label-halo;
+//        marker-line-color: @label-halo;
 //        marker-line-width: @smart-halo / @scale-factor;
       }
 	  ::text {
@@ -378,8 +378,8 @@
         marker-placement: point;
         marker-file: url("marker/maki/park2-18.svg");
         marker-fill: @label-park;
-        marker-line-color: @label-halo;
-        marker-line-width: @smart-halo / @scale-factor;        
+//        marker-line-color: @label-halo;
+//        marker-line-width: @smart-halo / @scale-factor;        
       }
       ::text {
         text-placement-type: simple;
@@ -430,8 +430,8 @@
     	[type='retail'], [type='commercial'] { marker-file: url("marker/maki/grocery-18.svg"); }
         marker-placement: point;
         marker-fill: @label-poi;
-        marker-line-color: @label-halo;
-        marker-line-width: @smart-halo / @scale-factor;        
+        //marker-line-color: @label-halo;
+        //marker-line-width: @smart-halo / @scale-factor;        
       }
       ::text {
         text-placement-type: simple;
@@ -447,8 +447,8 @@
       marker-file: url("marker/general/poi_general.svg");
       marker-placement: point;
       marker-fill: @label-poi;
-      marker-line-color: @label-halo;
-      marker-line-width: @smart-halo / @scale-factor;        
+//      marker-line-color: @label-halo;
+//      marker-line-width: @smart-halo / @scale-factor;        
     }
     ::text {
       text-placement-type: simple;
@@ -464,9 +464,7 @@
 
 
 //// road labels
-// NOTE
-//  for thin lines label is not drawn on the link
-//  like most web maps...
+
 //#road_label_gen0[zoom>=10][zoom<=12][class='highway'],
 #road_label_gen1[zoom>=12][zoom<=15][class='highway'],
 #road_label[zoom>=16][class='highway'] {
@@ -630,54 +628,3 @@
     [zoom>=17] { shield-min-distance: 160; }
   }
 }
-
-/*
-#shield_gen0[zoom>=8][zoom<=15][reflen<=9],
-#shield_all[zoom>=16][zoom<=17][reflen<=9]
-{
-  [type='motorway'],[type='trunk'] {
-    shield-file: url('shield/motorway_dark-4.svg');
-
-    shield-placement: line;
-    shield-clip: false;
-    shield-face-name: @font-shield;
-    shield-name: '[ref]';
-    shield-fill: @label-shield;
-    shield-size: 9;
-    shield-allow-overlap: false;
-    shield-spacing: 300;
-
-    [reflen=5] { shield-file: url('shield/motorway_dark-5.svg'); }    
-    [reflen=6] { shield-file: url('shield/motorway_dark-6.svg'); }
-    [reflen=7] { shield-file: url('shield/motorway_dark-7.svg'); }
-    [reflen>=8] { shield-file: url('shield/motorway_dark-8.svg'); }
-
-    [zoom<=14] { shield-min-distance: 100; }
-    [zoom=15] { shield-min-distance: 120; }
-    [zoom=16] { shield-min-distance: 140; }
-  }
-  [type='primary'][zoom>=12], [type='secondary'][zoom>=16] {
-    shield-file: url('shield/motorway_dark-4.svg');
-    
-    shield-placement: line;
-    shield-clip: false;
-    shield-face-name: @font-shield;
-    shield-name: '[ref]';
-    shield-fill: @label-shield;
-    shield-size: 9;
-    shield-allow-overlap: false;
-    shield-spacing: 300;
-
-    [reflen=5] { shield-file: url('shield/motorway_dark-5.svg'); }    
-    [reflen=6] { shield-file: url('shield/motorway_dark-6.svg'); }
-    [reflen=7] { shield-file: url('shield/motorway_dark-7.svg'); }
-    [reflen>=8] { shield-file: url('shield/motorway_dark-8.svg'); }
-
-    [zoom<=14] { shield-min-distance: 100; }
-    [zoom=15] { shield-min-distance: 120; }
-    [zoom=16] { shield-min-distance: 140; }
-    [zoom>=17] { shield-min-distance: 160; }
-  }
-//  image-filters: 'invert(),gray()';
-}
-*/
