@@ -21,19 +21,130 @@ CREATE OR REPLACE VIEW brick_places AS
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels AS
-    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
+    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry, 
+	CASE
+		WHEN type = ANY(ARRAY[ 'hospital', 'doctors', 'clinic', 'nursery', 'dentist']) THEN 'hospital'
+		WHEN type = ANY(ARRAY['university','college']) THEN 'college'
+		WHEN type = 'museum' THEN 'museum'
+		WHEN type = ANY(ARRAY['arts_centre', 'gallery']) THEN 'art-gallery'
+		WHEN type = 'library' THEN 'library'
+		WHEN type = 'theatre' THEN 'theatre'
+		WHEN type = 'cinema' THEN 'cinema'
+		WHEN type = 'school' THEN 'school'
+		WHEN type = 'post_office' THEN 'post'
+		WHEN type = ANY(ARRAY['townhall','public_building', 'courthouse']) THEN 'town-hall'
+		WHEN type = ANY(ARRAY['prison', 'police']) THEN 'police'
+		WHEN type = ANY(ARRAY['hotel', 'motel']) THEN 'town'
+		WHEN type = 'fire_station' THEN 'fire-station'
+		WHEN type = 'zoo' THEN 'zoo'
+		WHEN type = ANY(ARRAY['stadium', 'sports_centre']) THEN 'soccer'
+		WHEN type = 'cemetery' THEN 'cemetery'
+		WHEN type = 'industrial' THEN 'industrial'
+		WHEN type = 'landfill' THEN 'waste-basket'
+		WHEN type = ANY(ARRAY['retail', 'commercial']) THEN 'grocery'
+		WHEN type = 'playground'  THEN 'playground'
+		WHEN type = ANY(ARRAY['recreation_ground', 'pitch']) THEN 'pitch'
+		WHEN type = ANY(ARRAY['golf_range', 'golf_course', 'miniature_golf']) THEN 'golf'
+		WHEN type = ANY(ARRAY['forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park']) THEN 'park2'
+		WHEN type = ANY(ARRAY['garden', 'village_green', 'greenspace'])  THEN 'garden'
+		WHEN type = ANY(ARRAY['railway', 'railroad']) THEN 'rail'
+		WHEN type = ANY(ARRAY['aerodrome', 'airport']) THEN 'airport'
+		WHEN type = 'airfield' THEN 'airfield'
+		WHEN type = 'marina' THEN 'harbor'
+		WHEN type = ANY(ARRAY['nature_reserve', 'conservation', 'national_park']) THEN 'park'
+		WHEN type = 'pharmacy' THEN 'pharmacy'
+		WHEN type = 'bank' THEN 'bank'
+		WHEN type = 'bar' THEN 'bar'
+		WHEN type = 'cafe' THEN 'cafe'
+		WHEN type = 'parking' THEN 'parking'
+		ELSE 'square'
+	END AS maki
     FROM osm_landusage_area_labels
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen0 AS
-    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
+    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry,
+	CASE
+		WHEN type = ANY(ARRAY[ 'hospital', 'doctors', 'clinic', 'nursery', 'dentist']) THEN 'hospital'
+		WHEN type = ANY(ARRAY['university','college']) THEN 'college'
+		WHEN type = 'museum' THEN 'museum'
+		WHEN type = ANY(ARRAY['arts_centre', 'gallery']) THEN 'art-gallery'
+		WHEN type = 'library' THEN 'library'
+		WHEN type = 'theatre' THEN 'theatre'
+		WHEN type = 'cinema' THEN 'cinema'
+		WHEN type = 'school' THEN 'school'
+		WHEN type = 'post_office' THEN 'post'
+		WHEN type = ANY(ARRAY['townhall','public_building', 'courthouse']) THEN 'town-hall'
+		WHEN type = ANY(ARRAY['prison', 'police']) THEN 'police'
+		WHEN type = ANY(ARRAY['hotel', 'motel']) THEN 'town'
+		WHEN type = 'fire_station' THEN 'fire-station'
+		WHEN type = 'zoo' THEN 'zoo'
+		WHEN type = ANY(ARRAY['stadium', 'sports_centre']) THEN 'soccer'
+		WHEN type = 'cemetery' THEN 'cemetery'
+		WHEN type = 'industrial' THEN 'industrial'
+		WHEN type = 'landfill' THEN 'waste-basket'
+		WHEN type = ANY(ARRAY['retail', 'commercial']) THEN 'grocery'
+		WHEN type = 'playground'  THEN 'playground'
+		WHEN type = ANY(ARRAY['recreation_ground', 'pitch']) THEN 'pitch'
+		WHEN type = ANY(ARRAY['golf_range', 'golf_course', 'miniature_golf']) THEN 'golf'
+		WHEN type = ANY(ARRAY['forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park']) THEN 'park2'
+		WHEN type = ANY(ARRAY['garden', 'village_green', 'greenspace'])  THEN 'garden'
+		WHEN type = ANY(ARRAY['railway', 'railroad']) THEN 'rail'
+		WHEN type = ANY(ARRAY['aerodrome', 'airport']) THEN 'airport'
+		WHEN type = 'airfield' THEN 'airfield'
+		WHEN type = 'marina' THEN 'harbor'
+		WHEN type = ANY(ARRAY['nature_reserve', 'conservation', 'national_park']) THEN 'park'
+		WHEN type = 'pharmacy' THEN 'pharmacy'
+		WHEN type = 'bank' THEN 'bank'
+		WHEN type = 'bar' THEN 'bar'
+		WHEN type = 'cafe' THEN 'cafe'
+		WHEN type = 'parking' THEN 'parking'
+		ELSE 'square'
+	END AS maki
     FROM osm_landusage_area_labels_gen0
     ORDER BY area DESC, osm_id;
 
 
 CREATE OR REPLACE VIEW brick_landusage_area_labels_gen1 AS
-    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry
+    SELECT osm_id, name, class, type, area, st_centroid(geometry)::geometry(Point,3857) AS geometry,
+	CASE
+		WHEN type = ANY(ARRAY[ 'hospital', 'doctors', 'clinic', 'nursery', 'dentist']) THEN 'hospital'
+		WHEN type = ANY(ARRAY['university','college']) THEN 'college'
+		WHEN type = 'museum' THEN 'museum'
+		WHEN type = ANY(ARRAY['arts_centre', 'gallery']) THEN 'art-gallery'
+		WHEN type = 'library' THEN 'library'
+		WHEN type = 'theatre' THEN 'theatre'
+		WHEN type = 'cinema' THEN 'cinema'
+		WHEN type = 'school' THEN 'school'
+		WHEN type = 'post_office' THEN 'post'
+		WHEN type = ANY(ARRAY['townhall','public_building', 'courthouse']) THEN 'town-hall'
+		WHEN type = ANY(ARRAY['prison', 'police']) THEN 'police'
+		WHEN type = ANY(ARRAY['hotel', 'motel']) THEN 'town'
+		WHEN type = 'fire_station' THEN 'fire-station'
+		WHEN type = 'zoo' THEN 'zoo'
+		WHEN type = ANY(ARRAY['stadium', 'sports_centre']) THEN 'soccer'
+		WHEN type = 'cemetery' THEN 'cemetery'
+		WHEN type = 'industrial' THEN 'industrial'
+		WHEN type = 'landfill' THEN 'waste-basket'
+		WHEN type = ANY(ARRAY['retail', 'commercial']) THEN 'grocery'
+		WHEN type = 'playground'  THEN 'playground'
+		WHEN type = ANY(ARRAY['recreation_ground', 'pitch']) THEN 'pitch'
+		WHEN type = ANY(ARRAY['golf_range', 'golf_course', 'miniature_golf']) THEN 'golf'
+		WHEN type = ANY(ARRAY['forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park']) THEN 'park2'
+		WHEN type = ANY(ARRAY['garden', 'village_green', 'greenspace'])  THEN 'garden'
+		WHEN type = ANY(ARRAY['railway', 'railroad']) THEN 'rail'
+		WHEN type = ANY(ARRAY['aerodrome', 'airport']) THEN 'airport'
+		WHEN type = 'airfield' THEN 'airfield'
+		WHEN type = 'marina' THEN 'harbor'
+		WHEN type = ANY(ARRAY['nature_reserve', 'conservation', 'national_park']) THEN 'park'
+		WHEN type = 'pharmacy' THEN 'pharmacy'
+		WHEN type = 'bank' THEN 'bank'
+		WHEN type = 'bar' THEN 'bar'
+		WHEN type = 'cafe' THEN 'cafe'
+		WHEN type = 'parking' THEN 'parking'
+		ELSE 'square'
+	END AS maki
     FROM osm_landusage_area_labels_gen1
     ORDER BY area DESC, osm_id;
 
