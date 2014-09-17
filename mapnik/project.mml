@@ -25,28 +25,6 @@
   "Layer": [
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_ocean.shp"
-      },
-      "advanced": {},
-      "class": "",
-      "extent": [
-        -179.99999999999994,
-        -85.051,
-        180,
-        85.051
-      ],
-      "geometry": "polygon",
-      "id": "10m_sea",
-      "layer": null,
-      "name": "10m_sea",
-      "properties": {
-        "buffer-size": 16
-      },
-      "srs": "",
-      "srs-name": "autodetect"
-    },
-    {
-      "Datasource": {
         "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_urban_areas.shp"
       },
       "advanced": {},
@@ -187,6 +165,28 @@
       },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_ocean.shp"
+      },
+      "advanced": {},
+      "class": "",
+      "extent": [
+        -179.99999999999994,
+        -85.051,
+        180,
+        85.051
+      ],
+      "geometry": "polygon",
+      "id": "10m_sea",
+      "layer": null,
+      "name": "10m_sea",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "",
+      "srs-name": "autodetect"
     },
     {
       "Datasource": {
@@ -703,7 +703,7 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "table": "(SELECT *, layer AS z_order FROM brick_roads_stage  WHERE tunnel=1 ORDER BY \nlayer, bridge desc)  AS foo",
+        "table": "(SELECT * FROM brick_roads_all WHERE tunnel=1) AS FOO",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -725,7 +725,7 @@
       "name": "road_stage_tunnel",
       "properties": {
         "buffer-size": 32,
-        "group-by": "z_order"
+        "group-by": "layer"
       },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
@@ -740,7 +740,7 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "table": "(SELECT *, layer AS z_order FROM brick_roads_stage  WHERE tunnel=0 ORDER BY \nlayer, bridge desc)  AS foo",
+        "table": "(SELECT * FROM brick_roads_all WHERE tunnel=0) AS FOO",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -762,7 +762,7 @@
       "name": "road_stage",
       "properties": {
         "buffer-size": 32,
-        "group-by": "z_order"
+        "group-by": "layer"
       },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
@@ -914,9 +914,12 @@
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-0-labels-z6.shp"
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-0-labels-z6.shp",
+        "encoding": "windows1252"
       },
-      "advanced": {},
+      "advanced": {
+        "encoding": "windows1252"
+      },
       "class": "",
       "extent": [
         -102.90068436639604,
@@ -928,7 +931,8 @@
       "id": "label_admin0",
       "name": "label_admin0",
       "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "autodetect",
+      "layer": null
     },
     {
       "Datasource": {
@@ -952,29 +956,35 @@
       "id": "10m_country",
       "name": "10m_country",
       "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "autodetect",
+      "layer": null,
+      "status": "off"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-1-labels-z7.shp"
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-1-labels-z7.shp",
+        "encoding": "windows1252"
       },
-      "advanced": {},
+      "advanced": {
+        "encoding": "windows1252"
+      },
       "class": "",
       "extent": [
-        -156.24532937499998,
-        20.249832999999974,
+        -156.245329375,
+        20.249832999999988,
         -54.77481032998548,
-        71.1110301058789
+        71.11103010587891
       ],
       "geometry": "polygon",
       "id": "label_admin1",
       "name": "label_admin1",
       "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "autodetect",
+      "layer": null
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/place-points.shp",
+        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/place-point-labels.shp",
         "id": "place_static",
         "project": "Brick_imposm3",
         "srs": ""
@@ -984,14 +994,15 @@
       "extent": [
         -176.53333,
         -54.8,
-        178.00417,
+        178.00416999999996,
         71.68722
       ],
       "geometry": "point",
       "id": "place_static",
       "name": "place_static",
       "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "autodetect",
+      "layer": null
     },
     {
       "Datasource": {
@@ -1111,10 +1122,13 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_landusage_area_labels_gen0",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "id": "landuse_label_gen0",
+        "project": "Brick",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"
@@ -1130,8 +1144,7 @@
       "id": "landuse_label_gen0",
       "name": "landuse_label_gen0",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "srs-name": "900913",
-      "status": "off"
+      "srs-name": "900913"
     },
     {
       "Datasource": {
@@ -1143,10 +1156,10 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_landusage_area_labels_gen1",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"
@@ -1162,8 +1175,7 @@
       "id": "landuse_label_gen1",
       "name": "landuse_label_gen1",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "srs-name": "900913",
-      "status": "off"
+      "srs-name": "900913"
     },
     {
       "Datasource": {
@@ -1175,10 +1187,10 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_landusage_area_labels",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"
@@ -1194,8 +1206,7 @@
       "id": "landuse_label",
       "name": "landuse_label",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "srs-name": "900913",
-      "status": "off"
+      "srs-name": "900913"
     },
     {
       "Datasource": {

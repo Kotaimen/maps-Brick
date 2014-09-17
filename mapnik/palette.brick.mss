@@ -6,7 +6,7 @@
 
 // Text halo render quality, "fast" is considerablly faster, 
 // but "full" is required for float halo radius and transprency
-@halo-quality:      full;
+@halo-quality:      fast;
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
@@ -16,7 +16,7 @@
 @default-halo:      1;
 
 // Transparency of halo color
-@label-fadeout:     20%;
+@label-fadeout:     0%;
 
 
 // ========== General Parameters ==========
@@ -137,8 +137,8 @@
 @fall-back:         'Arial Unicode MS Regular';
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Regular', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Medium Italic', 'Arial Unicode MS Italic';
+@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';

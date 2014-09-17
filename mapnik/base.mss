@@ -16,20 +16,23 @@ Map {
 #waterbody[zoom>11] {
   
   // Fill a darker color for waterbody
+//  polygon-fill: @water; 
   polygon-fill: darken(@water, 13%);
-  
+
   // Optional texture
   //::pattern{ polygon-pattern-file: url('res/texture/wave.png'); }
   
   // Make a slightly blurred light polygon and use softlight to 
   // create "inner shadow" and slightly edge contrast lift.
+
   ::effect_shadow {
     polygon-fill: @land;
     comp-op: soft-light;
     image-filters: agg-stack-blur(8 * @scale-factor, 8 * @scale-factor);
     image-filters-inflate: yes;
     polygon-clip: false;
-  }  
+  } 
+  
 }
 
 #10m_river[zoom<=5] {
@@ -76,6 +79,8 @@ Map {
   }
   [type='ditch'],
   [type='drain'] {
+    line-color: @water;
+    line-join: round;    
     [zoom=15]{ line-width: 0.1; }
     [zoom=16]{ line-width: 0.3; }
     [zoom=17]{ line-width: 0.5; }

@@ -2,11 +2,16 @@
 // Road and railway, requires grouped render
 //
 
+@line-clip: false;
+@line-rasterizer: full;
+
 //// road overview
 #road_gen0[zoom>=5][zoom<=8] {
+
   line-cap: round;
   line-join: round;
-  line-clip: false;
+  line-clip: @line-clip;
+  line-rasterizer: @line-rasterizer;
 
   [type='motorway'][link=0] {
     line-color: @motorway-line;
@@ -51,12 +56,13 @@
 // Define attachments render order here
 #road_stage_tunnel {
   ::casing { 
-    opacity: 0.5; 
+    opacity: 1; 
+//    image-filters: invert();
   }
   ::inline { 
-    opacity: 0.5; 
+    opacity: 1; 
     comp-op: dst-out; 
-//    image-filters: scale-hsla(0,1,0,0.5,0.2,1,0,1);
+//    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }  
   ::rail {
     opacity: 0.5; 
@@ -82,7 +88,9 @@
     ::casing {
       line-color: @motorway-casing;
       line-join: round;
-      [bridge=0][tunnel=0] { line-cap: round; }
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
+      [bridge=0] { line-cap: round; }
       [link=1] {
         // don’t need thin links since road are already thin zoom<=lv11
         [zoom=9] { line-width: @rdz10_maj + @rdz10_cas; }                     
@@ -111,7 +119,9 @@
     }    
     ::inline {
       line-join:round;
-      [bridge=0][tunnel=0] { line-cap: round; }
+      line-cap: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
       line-color: @motorway-fill;         
       [link=1] {
         [zoom>=14] { line-color: @motorway-link; }
@@ -145,7 +155,9 @@
     ::casing {
       line-color: @primary-line;
       line-join: round;
-      [bridge=0] [tunnel=0] { line-cap: round; }      
+      [bridge=0] { line-cap: round; }      
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
       [link=1] {
         [zoom=9] { line-width: @rdz10_med + @rdz10_cas; }                      
         [zoom=10] { line-width: @rdz10_med + @rdz10_cas; }              
@@ -172,11 +184,11 @@
       }
     }    
     ::inline {
-      line-color: @primary-fill;         
-      
+      line-color: @primary-fill;               
       line-join:round;
-      [bridge=0][tunnel=0] { line-cap: round; }
-      
+      line-cap: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
       [link=1] {
         [zoom=9] { line-width: @rdz10_med; }
         [zoom=10] { line-width: @rdz10_med; }
@@ -208,7 +220,9 @@
     ::casing {
       line-color: @secondary-casing;
       line-join: round;
-      [bridge=0] [tunnel=0] { line-cap: round; }
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
+      [bridge=0]  { line-cap: round; }
       [zoom=9] { line-width: 0.5; line-color: @secondary-line; }
       [zoom=10] { line-width: 1; line-color: @secondary-line; }
       [zoom=11] { line-width: @rdz11_min + @rdz11_cas; }
@@ -223,7 +237,9 @@
     ::inline[zoom>=11] {
       line-color: @secondary-fill;               
       line-join:round;
-      [bridge=0][tunnel=0] { line-cap: round; }
+      line-cap: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
       [zoom=9] { line-width: @rdz10_min; }
       [zoom=10] { line-width: @rdz10_min; }
       [zoom=11] { line-width: @rdz11_min; }
@@ -241,7 +257,9 @@
     ::casing[zoom>=12] {
       line-color: @minor-casing;
       line-join: round;
-      [bridge=0] [tunnel=0] { line-cap: round; }
+      [bridge=0] { line-cap: round; }
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
       [zoom=12] { line-width: 0.5; line-color: @minor-line; }      
       [zoom=13] { line-width: 1; line-color: @minor-line;}      
       [zoom=14] { line-width: @rdz14_min + @rdz14_cas; }      
@@ -254,6 +272,8 @@
       line-color: @minor-fill;               
       line-join:round;
       [bridge=0][tunnel=0] { line-cap: round; }
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
       [zoom=13] { line-width: @rdz13_min; }
       [zoom=14] { line-width: @rdz14_min; }
       [zoom=15] { line-width: @rdz15_min; }
@@ -263,37 +283,13 @@
     }
   }
 
-  [type='path'] {
-    
+  [type='path']  {    
     ::casing[zoom>=14] {
       line-color: @path-casing;
       line-join: round;
-      [bridge=0] [tunnel=0] { line-cap: round; }
-      [zoom=14] { line-width: @rdz14_min/2 + @rdz15_cas;}      
-      [zoom=15] { line-width: @rdz15_min/2 + @rdz15_cas; }      
-      [zoom=16] { line-width: @rdz16_min/2 + @rdz16_cas; }      
-      [zoom=17] { line-width: @rdz17_min/2 + @rdz17_cas; }      
-      [zoom>=18] { line-width: @rdz18_min/2 + @rdz18_cas; }      
-    }    
-    ::inline[zoom>=14] {
-      
-      line-color: @path-fill;               
-      line-join:round;
-      [bridge=0][tunnel=0] { line-cap: round; }
-      [zoom=14] { line-width: @rdz14_min/2; }      
-      [zoom=15] { line-width: @rdz15_min/2; }
-      [zoom=16] { line-width: @rdz16_min/2; }
-      [zoom=17] { line-width: @rdz17_min/2; }
-      [zoom>=18] { line-width: @rdz18_min/2; }            
-    }    
-  }
-  
-  [type='proposed'] {
-    
-    ::casing[zoom>=14] {
-      line-color: @path-casing;
-	  line-dasharray: @road-dash;       
-      line-join: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
+      [bridge=0] { line-cap: round; }
       [zoom=14] { line-width: @rdz14_min/2 + @rdz15_cas;}      
       [zoom=15] { line-width: @rdz15_min/2 + @rdz15_cas; }      
       [zoom=16] { line-width: @rdz16_min/2 + @rdz16_cas; }      
@@ -302,8 +298,64 @@
     }    
     ::inline[zoom>=14] {      
       line-color: @path-fill;               
-	  line-dasharray: @road-dash;             
       line-join:round;
+      line-cap: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
+      [zoom=14] { line-width: @rdz14_min/2; }      
+      [zoom=15] { line-width: @rdz15_min/2; }
+      [zoom=16] { line-width: @rdz16_min/2; }
+      [zoom=17] { line-width: @rdz17_min/2; }
+      [zoom>=18] { line-width: @rdz18_min/2; }            
+    }    
+  }
+
+  [type='pedestrian']  {    
+    ::casing[zoom>=14] {
+      line-color: @path-casing;
+      line-join: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
+      [bridge=0] { line-cap: round; }
+      [zoom=14] { line-width: @rdz14_min/3 + @rdz15_cas;}      
+      [zoom=15] { line-width: @rdz15_min/3 + @rdz15_cas; }      
+      [zoom=16] { line-width: @rdz16_min/3 + @rdz16_cas; }      
+      [zoom=17] { line-width: @rdz17_min/3 + @rdz17_cas; }      
+      [zoom>=18] { line-width: @rdz18_min/3 + @rdz18_cas; }      
+    }    
+    ::inline[zoom>=14] {      
+      line-color: @path-fill;               
+      line-join:round;
+      line-cap: round;
+      line-clip: @line-clip;
+      line-rasterizer: @line-rasterizer;      
+      [zoom=14] { line-width: @rdz14_min/3; }      
+      [zoom=15] { line-width: @rdz15_min/3; }
+      [zoom=16] { line-width: @rdz16_min/3; }
+      [zoom=17] { line-width: @rdz17_min/3; }
+      [zoom>=18] { line-width: @rdz18_min/3; }            
+    }    
+  }
+
+  
+  [type='proposed'] {    
+    ::casing[zoom>=14] {
+      line-color: @path-casing;
+	  line-dasharray: @road-dash;
+      line-join: round;
+      line-clip: @line-clip;
+      [zoom=14] { line-width: @rdz14_min/2 + @rdz15_cas;}      
+      [zoom=15] { line-width: @rdz15_min/2 + @rdz15_cas; }      
+      [zoom=16] { line-width: @rdz16_min/2 + @rdz16_cas; }      
+      [zoom=17] { line-width: @rdz17_min/2 + @rdz17_cas; }      
+      [zoom>=18] { line-width: @rdz18_min/2 + @rdz18_cas; }      
+    }    
+    ::inline[zoom>=14] {      
+      line-color: @path-fill;               
+	  line-dasharray: @road-dash;
+      line-join:round;
+      line-cap: butt;
+      line-clip: @line-clip;
       [zoom=14] { line-width: @rdz14_min/2; }      
       [zoom=15] { line-width: @rdz15_min/2; }
       [zoom=16] { line-width: @rdz16_min/2; }
@@ -311,7 +363,7 @@
       [zoom>=18] { line-width: @rdz18_min/2; }            
     }    
   }  
-  
+    
 }
 
 // Detailed railways
@@ -323,6 +375,8 @@
       [type='rail'] {
         line-width: 0.75;
         line-color: @rail-line;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
       }
     }
   }
@@ -332,6 +386,8 @@
       [type='rail'] {
         line-width: 1;
         line-color: @rail-line;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;
       }
     }
   }
@@ -343,6 +399,10 @@
         line-width: 4;
         fill/line-color: @land;
         fill/line-width: 2;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        fill/line-clip: @line-clip;
+        fill/line-rasterizer: @line-rasterizer;        
       }
     }
     ::rail {
@@ -352,6 +412,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 1;
         dash/line-dasharray: 1, 4;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='subway'] {
         line-color: @rail-fill;
@@ -359,6 +422,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 1;
         dash/line-dasharray: 1.5, 1;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='rail'] {
         line-color: @rail-line;
@@ -366,6 +432,9 @@
         dash/line-color: @rail-casing;
         dash/line-width: 1;
         dash/line-dasharray: 5, 5;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
     }
   }  
@@ -377,6 +446,10 @@
         line-width: 5;
         fill/line-color: @land;
         fill/line-width: 3;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        fill/line-clip: @line-clip;
+        fill/line-rasterizer: @line-rasterizer;           
       }
     }
     ::rail {
@@ -386,6 +459,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 1.5;
         dash/line-dasharray: 1, 5;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='subway'] {
         line-color: @rail-casing;
@@ -393,6 +469,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 1;
         dash/line-dasharray: 1.5, 1;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='rail'] {
         line-color: @rail-line;
@@ -400,6 +479,9 @@
         dash/line-color: @rail-casing;
         dash/line-width: 1;
         dash/line-dasharray: 6, 6;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
     }
   }    
@@ -412,6 +494,10 @@
         line-width: 7;
         fill/line-color: @land;
         fill/line-width: 5;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        fill/line-clip: @line-clip;
+        fill/line-rasterizer: @line-rasterizer;           
       }
     }
     ::rail {
@@ -421,6 +507,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 3;
         dash/line-dasharray: 1, 7;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='subway'] {
         line-color: @rail-casing;
@@ -428,6 +517,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 2;
         dash/line-dasharray: 1.5, 1;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='rail'] {
         line-color: @rail-line;
@@ -435,6 +527,9 @@
         dash/line-color: @rail-casing;
         dash/line-width: 2;
         dash/line-dasharray: 8, 8;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
     }
   }      
@@ -446,6 +541,10 @@
         line-width: 10;
         fill/line-color: @land;
         fill/line-width: 7;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        fill/line-clip: @line-clip;
+        fill/line-rasterizer: @line-rasterizer;           
       }
     }
     ::rail {
@@ -455,6 +554,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 4;
         dash/line-dasharray: 1, 9;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='subway'] {
         line-color: @rail-casing;
@@ -462,6 +564,9 @@
         dash/line-color: @rail-line;
         dash/line-width: 4;
         dash/line-dasharray: 2, 1;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
       [type='rail']{
         line-color: @rail-line;
@@ -469,6 +574,9 @@
         dash/line-color: @rail-casing;
         dash/line-width: 3;
         dash/line-dasharray: 14, 14;
+        line-clip: @line-clip;
+        line-rasterizer: @line-rasterizer;        
+        dash/line-clip: @line-clip;
       }
     }
   }      
