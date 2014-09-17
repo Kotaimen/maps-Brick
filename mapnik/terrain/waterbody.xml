@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
+  <Parameter name="center">0,0,2</Parameter>
+  <Parameter name="format">png</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+  <Parameter name="scale">1</Parameter>
+  <Parameter name="metatile">2</Parameter>
+</Parameters>
+
+
+<Style name="waterbody_gen0-emboss" filter-mode="first" image-filters="blur,emboss,invert,blur" comp-op="soft-light" opacity="0.3">
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#808080" />
+  </Rule>
+</Style>
+<Style name="waterbody_gen0-shadow" filter-mode="first" image-filters="agg-stack-blur(16)" comp-op="src-atop" opacity="0.4">
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <LineSymbolizer stroke="#2d5773" stroke-width="4" />
+  </Rule>
+</Style>
+<Style name="waterbody_gen0" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#91aec2" />
+  </Rule>
+</Style>
+<Layer name="waterbody_gen0"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterbody_gen0</StyleName>
+    <StyleName>waterbody_gen0-shadow</StyleName>
+    <StyleName>waterbody_gen0-emboss</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[import.brick_waterareas_gen0]]></Parameter>
+       <Parameter name="key_field"><![CDATA[osm_id]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[imposm3]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterbody_gen1-emboss" filter-mode="first" image-filters="blur,emboss,invert,blur" comp-op="soft-light" opacity="0.3">
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#808080" />
+  </Rule>
+</Style>
+<Style name="waterbody_gen1-shadow" filter-mode="first" image-filters="agg-stack-blur(16)" comp-op="src-atop" opacity="0.4">
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke="#2d5773" stroke-width="4" />
+  </Rule>
+</Style>
+<Style name="waterbody_gen1" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#91aec2" />
+  </Rule>
+</Style>
+<Layer name="waterbody_gen1"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterbody_gen1</StyleName>
+    <StyleName>waterbody_gen1-shadow</StyleName>
+    <StyleName>waterbody_gen1-emboss</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[import.brick_waterareas_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[osm_id]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[imposm3]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterbody-emboss" filter-mode="first" image-filters="blur,emboss,invert,blur" comp-op="soft-light" opacity="0.3">
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#808080" />
+  </Rule>
+</Style>
+<Style name="waterbody-shadow" filter-mode="first" image-filters="agg-stack-blur(16)" comp-op="src-atop" opacity="0.4">
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#2d5773" stroke-width="4" />
+  </Rule>
+</Style>
+<Style name="waterbody" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#91aec2" />
+  </Rule>
+</Style>
+<Layer name="waterbody"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterbody</StyleName>
+    <StyleName>waterbody-shadow</StyleName>
+    <StyleName>waterbody-emboss</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[import.brick_waterareas]]></Parameter>
+       <Parameter name="key_field"><![CDATA[osm_id]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[imposm3]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Layer name="10m_lake_eu"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes_europe.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Layer name="10m_lake_us"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes_north_america.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[10m_lake_us]]></Parameter>
+       <Parameter name="project"><![CDATA[Brick_imposm3]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="10m_lake-emboss" filter-mode="first" image-filters="blur,emboss,invert,blur" comp-op="soft-light" opacity="0.3">
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#808080" />
+  </Rule>
+</Style>
+<Style name="10m_lake-shadow" filter-mode="first" image-filters="agg-stack-blur(16)" comp-op="src-atop" opacity="0.4">
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <LineSymbolizer stroke="#2d5773" stroke-width="4" />
+  </Rule>
+</Style>
+<Style name="10m_lake" filter-mode="first">
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#91aec2" />
+  </Rule>
+</Style>
+<Layer name="10m_lake"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>10m_lake</StyleName>
+    <StyleName>10m_lake-shadow</StyleName>
+    <StyleName>10m_lake-emboss</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterway_gen0" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="0.6" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="0.4" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="0.2" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="0.1" stroke="#91aec2" />
+  </Rule>
+</Style>
+<Layer name="waterway_gen0"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway_gen0</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[import.brick_waterways_gen0]]></Parameter>
+       <Parameter name="key_field"><![CDATA[osm_id]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+       <Parameter name="dbname"><![CDATA[imposm3]]></Parameter>
+       <Parameter name=""><![CDATA[imposm3]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterway_gen1" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.4" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.2" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#91aec2" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#91aec2" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#91aec2" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#91aec2" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+</Style>
+<Layer name="waterway_gen1"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway_gen1</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[import.brick_waterways_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[osm_id]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[imposm3]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="waterway" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.3" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke-width="0.1" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'drain')</Filter>
+    <LineSymbolizer stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.3" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.1" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.8" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke-width="0.6" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'stream')</Filter>
+    <LineSymbolizer stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#91aec2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#91aec2" />
+  </Rule>
+</Style>
+<Layer name="waterway"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>waterway</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[import.brick_waterways]]></Parameter>
+       <Parameter name="key_field"><![CDATA[osm_id]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[custom]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[imposm3]]></Parameter>
+       <Parameter name="host"><![CDATA[172.26.183.198]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[123456]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="10m_river_eu" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 99)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+</Style>
+<Layer name="10m_river_eu"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>10m_river_eu</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_europe.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[10m_river_eu]]></Parameter>
+       <Parameter name="project"><![CDATA[Brick_imposm3]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="10m_river_us" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 99)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+</Style>
+<Layer name="10m_river_us"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>10m_river_us</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_north_america.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[10m_river_us]]></Parameter>
+       <Parameter name="project"><![CDATA[Brick_imposm3]]></Parameter>
+       <Parameter name="srs"><![CDATA[]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="10m_river" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 4)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 5)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 6)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 7)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 99)</Filter>
+    <LineSymbolizer stroke="#91aec2" stroke-width="0.5" />
+  </Rule>
+</Style>
+<Layer name="10m_river"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>10m_river</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_lake_centerlines.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

@@ -1,45 +1,36 @@
-Brick Map Theme
-===============
+## Brick Map Theme
 
-Global general road map using OSM data, including:
-- MapBox project files
-- Patched mapnik XML themes
-- PGSQL scripts for processing OSM data
-- Mason map configuration file
-- Shields and markers
+Features:
 
-These are not included:
-- OSM planet dump database using `osm2pgsql`
-- Natural earth shapefiles
-- OSM landmass shapefile
-- Scripts for processing city labels using simulated annealing algorithm
-- Manually placed top-layer country and city labels
-- Scripts for processing DEM data (see Terrain project)
+* Imposm3 OSM data import
+* Supports real time OSM replication
+* Mapnik2.2+ and carto 0.9.5
+* Color themes
+* Transparent tunnel
+* Offset road labels
+* High quality terrain
 
-This implemented following cartographic features:
-- Variable depth label haloing ("smart halo")
-- High quality pre-calculated city names
-- Adaptive road z-ordering
+## Sample Render:
 
-Borrowed ideas from Highroad and OSMBright project.
+USA only, backed by a AWS c3.large instance:
 
-Requires mason-0.9.3.
+http://maps.masonmaps.me/
 
-Note1: Although mason is designed for poorman, OSM-planet-dump database import, data conversion and cache render requires a lot of processing power (or time).  (We cached all cities down to level 18 (see TileBitmap project) using two Intel i5 PCs with 16GB memory in 4 weeks, generating 100GB database file and 500GB tile cache.)
+Or, in case site is slow:
 
-Sample renders:
+![Terrain](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-0.jpg)
+![Brick](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-1.jpg)
+![Moonlight](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-2.jpg)
+![Duotone](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-3.jpg)
+![Visteria](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-4.jpg)
+![Saga](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-5.jpg)
+![Brick](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-6.jpg)
+![Voynich](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-7.jpg)
+![Terrain](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-8.jpg)
+![Nebula](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-9.jpg)
+![Pastel](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-10.jpg)
+![Brick](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-11.jpg)
+![Voynich](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-12.jpg)
 
-![Preview 1](https://raw.github.com/Kotaimen/maps-Brick/master/sample-0.jpg)
 
-![Preview 2](https://raw.github.com/Kotaimen/maps-Brick/master/sample-1.jpg)
-
-![Preview 3](https://raw.github.com/Kotaimen/maps-Brick/master/sample-2.jpg)
-
-![Preview 4](https://raw.github.com/Kotaimen/maps-Brick/master/sample-3.jpg)
-
-![Preview 5](https://raw.github.com/Kotaimen/maps-Brick/master/sample-4.jpg)
-
-![Preview 6](https://raw.github.com/Kotaimen/maps-Brick/master/sample-5.jpg)
-
-For a demo map, check [here](http://maps.masonmaps.me/index.html).
 
