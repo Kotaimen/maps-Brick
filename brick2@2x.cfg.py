@@ -1,7 +1,7 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick2.mk8'
+themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
 tag = 'brick2@2x'
@@ -11,7 +11,7 @@ fmt = 'png'
 
 all_ = dict(\
     prototype='node.brick2',
-    theme=os.path.join(themedir, 'mapnik/xml/brick'),
+    theme=os.path.join(themedir, 'mapnik/xml/brick@2x'),
     buffer_size=tile_size*2,
     halo_opacity=0.7,
     scale_factor=2,

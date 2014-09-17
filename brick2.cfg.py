@@ -1,7 +1,7 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick2.mk8'
+themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
 tag = 'brick2'
