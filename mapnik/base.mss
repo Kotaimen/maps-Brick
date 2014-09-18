@@ -229,7 +229,6 @@ Map {
   [type='fire_station'], [type='railway'], 
   { polygon-fill: @terminal; }
 
-
   // debug
 //  polygon-opacity: 0.5; polygon-fill: orange; line-color: red; line-width: 0.5;
 //  ::landusage_type_text[zoom>=10] { text-face-name: "Arial Bold";  text-name: "[type]"; text-fill: blue; text-halo-fill:cyan; text-halo-radius:2;  text-size: 10; text-placement: interior; }

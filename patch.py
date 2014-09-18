@@ -118,18 +118,18 @@ def make_theme(theme, smart=False):
     with open(os.path.join('mapnik', theme_palette), 'r') as fp:
         mss = fp.read()
         with open('mapnik/~palette.mss', 'w') as wfp:
-            out = re.sub(r'@scale-factor:\s+\d+', '@scale-factor: 1', mss)  
-            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', mss)
+            out = re.sub(r'@scale-factor:\s+\d+', '@scale-factor: 1', mss)
+            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', out)
             out = re.sub(r'@default-halo:\s+\d+', '@default-halo: 0', out)   
             wfp.write(out)
         with open('mapnik/~palette_halo.mss', 'w') as wfp:
-            out = re.sub(r'@scale-factor:\s+\d+', '@scale-factor: 1', mss)     
+            out = re.sub(r'@scale-factor:\s+\d+', '@scale-factor: 1', mss)
 #            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 1', mss)
 #            out = re.sub(r'@default-halo:\s+\d+', '@default-halo: 1', out)
             wfp.write(out)
         with open('mapnik/~palette@2x.mss', 'w') as wfp:
             out = re.sub(r'@scale-factor:\s+\d+', '@scale-factor: 2', mss)  
-            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', mss)
+            out = re.sub(r'@smart-halo:\s+\d+', '@smart-halo: 0', out)
             out = re.sub(r'@default-halo:\s+\d+', '@default-halo: 0', out)
             wfp.write(out)
         with open('mapnik/~palette@2x_halo.mss', 'w') as wfp:

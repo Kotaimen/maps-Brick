@@ -5,7 +5,7 @@
 @line-clip: false;
 @line-rasterizer: full;
 
-//// road overview
+// road overview
 #road_gen0[zoom>=5][zoom<=8] {
 
   line-cap: round;
@@ -53,35 +53,43 @@
 @rdz17_maj: 12;  @rdz17_med: 8;   @rdz17_min: 6;    @rdz17_cas: 2;
 @rdz18_maj: 20;  @rdz18_med: 12;  @rdz18_min: 10;   @rdz18_cas: 3;
 
-// Define attachments render order here
+// Define attachments render order here.
+
 #road_stage_tunnel {
   ::casing { 
-    opacity: 1; 
+    opacity: 0.8; 
 //    image-filters: invert();
   }
+  // knock out the casing
   ::inline { 
     opacity: 1; 
-    comp-op: dst-out; 
+    comp-op: dst-out;  
 //    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }  
-  ::rail {
-    opacity: 0.5; 
-  }
-  ::marker {
-    opacity: 0.5; 
-  }
+  // transparent rail/marker
+  ::rail { opacity: 0.5; }
+  ::marker { opacity: 0.5; }
 }
+
+#road_stage_tunnel2 {
+  ::casing { opacity: 0; }
+  // then render transparent casing  
+  ::inline { opacity: 0.1; }
+  ::rail { opacity: 0; }
+  ::marker { opacity: 0;}
+}
+
 
 #road_stage {
   ::casing { }
   ::inline {  }
   ::rail { }
-  ::marker { }
-      
+  ::marker { }     
 }
 
 // Detailed roads
 #road_stage_tunnel[zoom>=9][class='highway'] ,
+#road_stage_tunnel2[zoom>=9],
 #road_stage[zoom>=9][class='highway'] {
   
   [type='motorway'] {
@@ -312,7 +320,7 @@
 
   [type='pedestrian']  {    
     ::casing[zoom>=14] {
-      line-color: @path-casing;
+      line-color: @trail-casing;
       line-join: round;
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
@@ -324,7 +332,7 @@
       [zoom>=18] { line-width: @rdz18_min/3 + @rdz18_cas; }      
     }    
     ::inline[zoom>=14] {      
-      line-color: @path-fill;               
+      line-color: @trail-fill;               
       line-join:round;
       line-cap: round;
       line-clip: @line-clip;
@@ -336,7 +344,6 @@
       [zoom>=18] { line-width: @rdz18_min/3; }            
     }    
   }
-
   
   [type='proposed'] {    
     ::casing[zoom>=14] {

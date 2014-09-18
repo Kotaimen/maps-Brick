@@ -26,7 +26,7 @@
 @scale-factor:      2;
 
 // Adjust font size 
-@font-resize:       0;
+//@font-resize:       0;
 
 
 // ========== Background Colors ==========
@@ -44,7 +44,7 @@
 @park:              #B5BF9D;
 @wooded:            #A0BAA1;
 @agriculture:       @wooded;
-@sports:            @park;
+@sports:            #9cbc9d;//@park;
 
 //// amenities
 @amenity:           #C4C0B1;
@@ -81,7 +81,7 @@
 @motorway-fill:     #d69880;
 @motorway-line:     @motorway-fill;
 @motorway-casing:   fadeout(@casing, 0%);
-@motorway-link:     lighten(@motorway-fill, 10%);
+@motorway-link:     lighten(@motorway-fill, 8%);
 
 @primary-line:      lighten(@casing, 13%);
 @primary-fill:      #D4C5B6;
@@ -93,13 +93,17 @@
 
 @minor-line:        lighten(@casing, 20%);
 @minor-fill:        #E0DDCE;
-@minor-casing:      lighten(@motorway-casing, 20%);
+@minor-casing:      lighten(@motorway-casing, 18%);
 
 @path-line:         lighten(@casing, 20%);
 @path-fill:	        @minor-fill;
-@path-casing:       lighten(@motorway-casing, 20%);
+@path-casing:       lighten(@motorway-casing, 18%);
 
-// desaturate gives rail slightly cool grey feel
+@trail-line:        lighten(@casing, 20%);
+@trail-fill:        desaturate(@primary-fill, 8%);
+@trail-casing:      lighten(@motorway-casing, 18%);
+
+// Desaturate gives rail slightly cool grey feel
 @rail-line: 	    #a19d9a;
 @rail-fill:         @land;
 @rail-casing:       @land;
