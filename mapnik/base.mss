@@ -16,8 +16,8 @@ Map {
 #waterbody[zoom>11] {
   
   // Fill a darker color for waterbody
-//  polygon-fill: @water; 
-  polygon-fill: darken(@water, 13%);
+  polygon-fill: @water; 
+//  polygon-fill: darken(@water, 13%);
 
   // Optional texture
   //::pattern{ polygon-pattern-file: url('res/texture/wave.png'); }
@@ -25,6 +25,7 @@ Map {
   // Make a slightly blurred light polygon and use softlight to 
   // create "inner shadow" and slightly edge contrast lift.
 
+  /*
   ::effect_shadow {
     polygon-fill: @land;
     comp-op: soft-light;
@@ -32,7 +33,7 @@ Map {
     image-filters-inflate: yes;
     polygon-clip: false;
   } 
-  
+  */
 }
 
 #10m_river[zoom<=5] {

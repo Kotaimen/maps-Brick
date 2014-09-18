@@ -4,7 +4,7 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'brick2@2x'
+tag = 'brick2@2x.mk9'
 tile_size = 256
 
 fmt = 'png'

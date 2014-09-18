@@ -64,7 +64,6 @@
   ::inline { 
     opacity: 1; 
     comp-op: dst-out;  
-//    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }  
   // transparent rail/marker
   ::rail { opacity: 0.5; }
@@ -74,7 +73,9 @@
 #road_stage_tunnel2 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.1; }
+  ::inline { opacity: 0.17; 
+//    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
+  }
   ::rail { opacity: 0; }
   ::marker { opacity: 0;}
 }
@@ -161,7 +162,7 @@
   
   [type='primary'] {
     ::casing {
-      line-color: @primary-line;
+      line-color: @primary-casing;
       line-join: round;
       [bridge=0] { line-cap: round; }      
       line-clip: @line-clip;

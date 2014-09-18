@@ -471,7 +471,7 @@
     shield-allow-overlap: false;
     shield-spacing: 300;
 
-    [reflen=5] { shield-file: url('res/shield/motorway-4.svg'); }
+    [reflen=5] { shield-file: url('res/shield/motorway-5.svg'); }
     [reflen=6] { shield-file: url('res/shield/motorway-6.svg'); }
     [reflen=7] { shield-file: url('res/shield/motorway-7.svg'); }
     [reflen>=8] { shield-file: url('res/shield/motorway-8.svg'); }
@@ -494,7 +494,7 @@
     shield-allow-overlap: false;
     shield-spacing: 300;
 
-    [reflen=5] { shield-file: url('res/shield/motorway-4.svg'); }
+    [reflen=5] { shield-file: url('res/shield/motorway-5.svg'); }
     [reflen=6] { shield-file: url('res/shield/motorway-6.svg'); }
     [reflen=7] { shield-file: url('res/shield/motorway-7.svg'); }
     [reflen>=8] { shield-file: url('res/shield/motorway-8.svg'); }
