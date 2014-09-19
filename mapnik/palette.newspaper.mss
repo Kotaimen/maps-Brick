@@ -2,8 +2,7 @@
 // Parameters and palettes
 //
 
-@theme-name:        'brick';
-
+@theme-name:        'newspaper';
 
 // ========== Halo Parameters ==========
 
@@ -13,10 +12,10 @@
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
-@smart-halo:        1;
+@smart-halo:        0;
 
 // Other halo size
-@default-halo:      1;
+@default-halo:      0;
 
 // Transparency of halo color
 @label-fadeout:     0%;
@@ -35,79 +34,79 @@
 // ========== Background Colors ==========
 
 // base
-@land:              #D1CEC2;
-@water:             #8CACBA;
+@land:              #ebe9e6;
+@water:             #a3a29f;
 @river:             @water;
 
 // basics
-@building:          #D9D7CC;
-@sand:              #c2b795;
+@building:          #e3e2dc;
+@sand:              #d9d8d4;
 
 //// greenish
-@park:              #B5BF9D;
-@wooded:            #A0BAA1;
+@park:              #ccccca;
+@wooded:            @park;
 @agriculture:       @wooded;
-@sports:            #9cbc9d;//@park;
+@sports:            @park;
 
 //// amenities
-@amenity:           #C4C0B1;
+@amenity:           #d9d8d4;
 @religion:          @amenity;
-@healthcare:        #D1BEB4;
-@educational:       #ccc4b8;
+@healthcare:        @amenity;
+@educational:       @amenity;
 @barrier:           darken(@amenity, 5%);
 
 //// zone
-@residential:       #CCC8B8;
-@pedestrian:        @park;
+@residential:       #d9d9d7;
+@pedestrian:        @residential;
 @commercial:        @residential;
 @industrial:        @residential;
-@military:          #aaaaaa;
+@military:          #cccccc;
 
 //// transport
 @parking:           @amenity;
-@airport:           #BFB8A1;
+@airport:           darken(@amenity, 11%);
 @aeroway:           @building;
 @terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #8c8982;
+@boundary-line:     #25201f;
 @boundary-casing:   @land;
 
 
 // ========== Road Colors ==========
 
 @road-dash:         6, 3;
-@casing:            #99847A;
+@casing:            #25201f;
 
-@ferry-line:        #5b6b80;
+@ferry-line:        @casing;
 
-@motorway-fill:     #d69880;
-@motorway-line:     @motorway-fill;
-@motorway-casing:   fadeout(@casing, 0%);
-@motorway-link:     lighten(@motorway-fill, 8%);
+@motorway-fill:     #ebe9e6;
+@motorway-line:     #979491;
+@motorway-casing:   @casing;
+@motorway-link:     @motorway-fill;
 
-@primary-line:      lighten(@casing, 13%);
-@primary-fill:      #D4C5B6;
-@primary-casing: 	lighten(@motorway-casing, 14%);
+@primary-line:      lighten(@motorway-line, 5%);
+@primary-fill:   	@motorway-fill;
+@primary-casing: 	@casing;//lighten(@casing, 5%);
 
-@secondary-line:    lighten(@casing, 16%);
-@secondary-fill:    @primary-fill;
-@secondary-casing:  lighten(@motorway-casing, 14%);
+@secondary-line:    @primary-line;
+@secondary-fill:   	@primary-fill;
+@secondary-casing: 	@casing;
 
-@minor-line:        lighten(@casing, 20%);
-@minor-fill:        #E0DDCE;
-@minor-casing:      lighten(@motorway-casing, 18%);
+@minor-line:        lighten(@motorway-line, 10%);
+@minor-fill:   	    @motorway-fill;
+@minor-casing: 	    @casing;
 
-@path-line:         lighten(@casing, 20%);
+@path-line:         lighten(@motorway-line, 15%);
 @path-fill:	        @minor-fill;
-@path-casing:       lighten(@motorway-casing, 18%);
+@path-casing:       lighten(@casing, 0%);
 
-@trail-line:        lighten(@casing, 20%);
-@trail-fill:        desaturate(@primary-fill, 8%);
-@trail-casing:      lighten(@motorway-casing, 18%);
+@trail-line:        lighten(@casing, 15%);
+@trail-fill:        @amenity;
+@trail-casing:      lighten(@casing, 10%);
 
 // Desaturate gives rail slightly cool grey feel
-@rail-line: 	    #a19d9a;
+@rail-line: 	    lighten(@casing, 15%);
 @rail-fill:         @land;
 @rail-casing:       @land;
 
@@ -119,14 +118,14 @@
 
 // ========== Label Colors ==========
 
-@label-admin0:      #4d463e;
-@label-admin1:      @boundary-line;
-@label-place:       #80321d;
-@label-poi:         #6b5e4f;
+@label-admin0:      #211d1c;
+@label-admin1:      #211d1c;
+@label-place:       #211d1c;
+@label-poi:         #211d1c;
 
 
 @label-water:       @ferry-line;
-@label-park:        #556651;
+@label-park:        #211d1c;
 @label-physical:    @casing;
 
 // road label
@@ -155,7 +154,7 @@
 #road_stage_tunnel2 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.15; 
+  ::inline { opacity: 0.5; 
 //    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }
   ::rail { opacity: 0; }
@@ -170,21 +169,22 @@
   ::marker { }     
 }
 
+
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: uppercase;
+@label-text-transform: none;
+
 @fall-back:         'Arial Unicode MS Regular';
 
-@font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Light', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Medium', 'Arial Unicode MS Bold';
-
+@font-regular:      'American Typewriter Condensed', 'Arial Unicode MS Regular';
+@font-heavy:        'American Typewriter Regular', 'Arial Unicode MS Regular';
+@font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
+@font-poi:          'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Italic', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Italic', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Italic', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
 
 // ========== Map ==========
 

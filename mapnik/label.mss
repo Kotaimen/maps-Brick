@@ -59,6 +59,9 @@
   }
 }
 
+// carto don't support string operations in side url() function
+@geo_region_marker: 'res/shield/' + @theme-name + '/poi-circle.svg';
+
 #10m_georegion[zoom>=7][zoom<=9] {
   ::shield 
     [zoom=6][scalerank<=6],
@@ -66,7 +69,7 @@
     [zoom=8][scalerank<=8],
     [zoom=9][scalerank<=9],
     [zoom>=10] {      
-    shield-file: url('res/shield/grey-circle.svg');
+    shield-file: url(@geo_region_marker);
     shield-transform: scale(0.4, 0.4);
     shield-unlock-image: true;
     shield-face-name: @font-physical;
@@ -82,6 +85,7 @@
   }
 }
 
+@elevation_marker: 'res/shield/' + @theme-name + '/peak.svg';
 #10m_elevation[zoom>=7][zoom<=9][name!=''] {
   ::shield 
     [zoom=6][scalerank<=6],
@@ -89,7 +93,7 @@
     [zoom=8][scalerank<=8],
     [zoom=9][scalerank<=9],
     [zoom>=10] {      
-    shield-file: url('res/shield/peak.svg');
+    shield-file: url(@elevation_marker);
     shield-transform: scale(0.5, 0.5);
     shield-unlock-image: true;
     shield-face-name: @font-physical;
@@ -170,6 +174,8 @@
   }
 }
 
+@place_marker: 'res/shield/' + @theme-name + '/place-circle.svg';
+
 // pre-calculated places
 #place_static[zoom>=4][zoom<=9] {
   ::shield
@@ -179,7 +185,7 @@
   [layer=6][zoom=7],
   [layer=7][zoom=8],
   [layer=8][zoom=9], {  
-    shield-file: url('res/shield/place-circle.svg');
+    shield-file: url(@place_marker);
     shield-transform: scale(0.4, 0.4);
     shield-unlock-image: true;
     shield-face-name: @font-regular;
@@ -456,11 +462,22 @@
 
 //// shields
 
-#shield_gen0[zoom>=8][zoom<=15][reflen<=9],
-#shield_all[zoom>=16][zoom<=17][reflen<=9]
+@shield-marker: 'res/shield/' + @theme-name + '/motorway-[reflen].svg';
+
+#shield_gen0[zoom>=8][zoom<=15][reflen<9],
+#shield_all[zoom>=16][zoom<=17][reflen<9]
 {
   [type='motorway'],[type='trunk'] {
-    shield-file: url('res/shield/motorway-4.svg');
+    [ref =~ "I [0-9]+"] {
+   	  shield-file: url('res/shield/us-0.svg');    
+      shield-fill: white;
+      shield-name: '[ref].replace("I ", "")';
+    }
+    [ref =~ "US [0-9]+"] {
+   	  shield-file: url('res/shield/us-1.svg');
+      shield-name: '[ref].replace("US ", "")';      
+	}       
+    shield-file: url(@shield-marker);
 
     shield-placement: line;
     shield-clip: false;
@@ -471,19 +488,14 @@
     shield-allow-overlap: false;
     shield-spacing: 300;
 
-    [reflen=5] { shield-file: url('res/shield/motorway-5.svg'); }
-    [reflen=6] { shield-file: url('res/shield/motorway-6.svg'); }
-    [reflen=7] { shield-file: url('res/shield/motorway-7.svg'); }
-    [reflen>=8] { shield-file: url('res/shield/motorway-8.svg'); }
-
     [zoom<=14] { shield-min-distance: 100; }
     [zoom=15] { shield-min-distance: 120; }
     [zoom=16] { shield-min-distance: 140; }
   }
   
   [type='primary'][zoom>=12], [type='secondary'][zoom>=16] {
-    shield-file: url('res/shield/motorway-4.svg');
-
+    shield-file: url(@shield-marker);
+ 
     
     shield-placement: line;
     shield-clip: false;
@@ -493,11 +505,6 @@
     shield-size: 9;
     shield-allow-overlap: false;
     shield-spacing: 300;
-
-    [reflen=5] { shield-file: url('res/shield/motorway-5.svg'); }
-    [reflen=6] { shield-file: url('res/shield/motorway-6.svg'); }
-    [reflen=7] { shield-file: url('res/shield/motorway-7.svg'); }
-    [reflen>=8] { shield-file: url('res/shield/motorway-8.svg'); }
 
     [zoom<=14] { shield-min-distance: 100; }
     [zoom=15] { shield-min-distance: 120; }

@@ -77,12 +77,14 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_landusages_gen0",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -111,12 +113,14 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_landusages_gen1",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -147,9 +151,12 @@
         "port": "6432",
         "table": "brick_landusage_areas",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
-      "advanced": {},
+      "advanced": {
+        "srid": "3857"
+      },
       "class": "",
       "extent": [
         -179.9999999749438,
@@ -191,11 +198,9 @@
     {
       "Datasource": {
         "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp",
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -249,9 +254,12 @@
         "port": "6432",
         "table": "brick_transport_areas",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -282,9 +290,12 @@
         "port": "6432",
         "table": "brick_aeroways",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -377,6 +388,40 @@
     },
     {
       "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "osm_id",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick_waterways",
+        "type": "postgis",
+        "user": "postgres",
+        "srid": "3857"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "waterway",
+      "name": "waterway",
+      "properties": {
+        "buffer-size": 16
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
         "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_lake_centerlines.shp"
       },
       "advanced": {},
@@ -407,47 +452,11 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "simplify_geometries": "yes",
-        "srid": "3857",
-        "table": "brick_waterways",
-        "type": "postgis",
-        "user": "postgres"
-      },
-      "advanced": {
-        "simplify_geometries": "yes",
-        "srid": "3857"
-      },
-      "class": "",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "geometry": "linestring",
-      "id": "waterway",
-      "name": "waterway",
-      "properties": {
-        "buffer-size": 16
-      },
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "srs-name": "900913"
-    },
-    {
-      "Datasource": {
-        "dbname": "imposm3",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "extent_cache": "custom",
-        "geometry_field": "geometry",
-        "host": "127.0.0.1",
-        "key_field": "osm_id",
-        "password": "123456",
-        "port": "6432",
-        "simplify_geometries": "yes",
-        "srid": "3857",
         "table": "brick_waterareas_gen0",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
         "simplify_geometries": "yes",
@@ -479,13 +488,15 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "simplify_geometries": "yes",
         "table": "brick_waterareas_gen1",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "class": "",
       "extent": [
@@ -513,13 +524,13 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "simplify_geometries": "yes",
         "table": "brick_waterareas",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes"
+        "srid": "3857"
       },
       "class": "",
       "extent": [
@@ -566,13 +577,15 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "simplify_geometries": "yes",
         "table": "brick_landusage_ways",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes"
+        "simplify_simplify_geometries": "yes",
+        "srid": "3857"
       },
       "class": "",
       "extent": [
@@ -636,7 +649,8 @@
         "port": "6432",
         "table": "brick_buildings",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"
@@ -706,11 +720,9 @@
         "table": "(SELECT * FROM brick_roads_all WHERE tunnel=1) AS FOO",
         "type": "postgis",
         "user": "postgres",
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -726,7 +738,7 @@
       "properties": {
         "buffer-size": 32,
         "group-by": "layer"
-          },
+      },
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
     },
@@ -743,11 +755,9 @@
         "table": "(SELECT * FROM brick_roads_all WHERE tunnel=1 AND class='highway') AS FOO",
         "type": "postgis",
         "user": "postgres",
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -780,11 +790,9 @@
         "table": "(SELECT * FROM brick_roads_all WHERE tunnel=0) AS FOO",
         "type": "postgis",
         "user": "postgres",
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "advanced": {
-        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -814,10 +822,11 @@
         "key_field": "osm_id",
         "password": "123456",
         "port": "6432",
-        "simplify_geometries": "yes",
         "table": "brick_admin",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
         "simplify_geometries": "yes",
@@ -1071,9 +1080,12 @@
         "port": "6432",
         "table": "brick_places",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
-      "advanced": {},
+      "advanced": {
+        "srid": "3857"
+      },
       "class": "",
       "extent": [
         -179.9999999749438,
@@ -1097,10 +1109,10 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_shields_gen0",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"
@@ -1128,10 +1140,10 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_shields",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"
@@ -1348,12 +1360,14 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_road_labels_gen0",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -1379,12 +1393,14 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_road_labels_gen1",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -1410,10 +1426,10 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "srid": "3857",
         "table": "brick_road_labels",
         "type": "postgis",
-        "user": "postgres"
+        "user": "postgres",
+        "srid": "3857"
       },
       "advanced": {
         "srid": "3857"

@@ -53,41 +53,6 @@
 @rdz17_maj: 12;  @rdz17_med: 8;   @rdz17_min: 6;    @rdz17_cas: 2;
 @rdz18_maj: 20;  @rdz18_med: 12;  @rdz18_min: 10;   @rdz18_cas: 3;
 
-// Define attachments render order here.
-
-#road_stage_tunnel {
-  ::casing { 
-    opacity: 0.8; 
-//    image-filters: invert();
-  }
-  // knock out the casing
-  ::inline { 
-    opacity: 1; 
-    comp-op: dst-out;  
-  }  
-  // transparent rail/marker
-  ::rail { opacity: 0.5; }
-  ::marker { opacity: 0.5; }
-}
-
-#road_stage_tunnel2 {
-  ::casing { opacity: 0; }
-  // then render transparent casing  
-  ::inline { opacity: 0.17; 
-//    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
-  }
-  ::rail { opacity: 0; }
-  ::marker { opacity: 0;}
-}
-
-
-#road_stage {
-  ::casing { }
-  ::inline {  }
-  ::rail { }
-  ::marker { }     
-}
-
 // Detailed roads
 #road_stage_tunnel[zoom>=9][class='highway'] ,
 #road_stage_tunnel2[zoom>=9],
