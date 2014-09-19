@@ -4,25 +4,24 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'brick2.mk9'
+tag = 'nebula.mk9'
 tile_size = 256
 
 fmt = 'png'
 
 all_ = dict(\
-    prototype='node.brick2',
-    theme=os.path.join(themedir, 'mapnik/xml/brick'),
-    buffer_size=tile_size*1,
-    halo_opacity=0.7,
+    prototype='node.mapnik',
+    theme=os.path.join(themedir, 'mapnik/xml/nebula@2x_all.xml'),
+    buffer_size=tile_size,
     scale_factor=1,
     )
         
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Brick',
+                  dispname='Nebula (Retina)',
                   version='2.1',
-                  description="A Mason's Brick",
+                  description="Nebula",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',

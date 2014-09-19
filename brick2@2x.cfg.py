@@ -20,8 +20,8 @@ all_ = dict(\
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Brick2 (Retina)',
-                  version='2.0',
+                  dispname='Brick (Retina)',
+                  version='2.1',
                   description="A Mason's Brick Take 2",
                   attribution='Open Street Map, Natural Earth II',
                   ),

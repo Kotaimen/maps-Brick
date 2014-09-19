@@ -119,12 +119,13 @@
 
 // ========== Label Colors ==========
 
+// place label
 @label-admin0:      #4d463e;
 @label-admin1:      @boundary-line;
 @label-place:       #80321d;
+
+// poi label
 @label-poi:         #6b5e4f;
-
-
 @label-water:       @ferry-line;
 @label-park:        #556651;
 @label-physical:    @casing;

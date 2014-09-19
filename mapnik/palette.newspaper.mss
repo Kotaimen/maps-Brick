@@ -105,7 +105,6 @@
 @trail-fill:        @amenity;
 @trail-casing:      lighten(@casing, 10%);
 
-// Desaturate gives rail slightly cool grey feel
 @rail-line: 	    lighten(@casing, 15%);
 @rail-fill:         @land;
 @rail-casing:       @land;

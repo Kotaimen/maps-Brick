@@ -58,7 +58,7 @@ composer=dict(\
         # Use a different dither for some variation
         ( {{road}} )
         # Fill halo with land color and only render on top of roads
-        ( {{label}} -channel A -morphology Dilate Disk:2 +channel +level-colors #ebe9e6 ) -compose Atop -composite
+        ( {{label}} -channel A -morphology Dilate Disk:3 +channel +level-colors #ebe9e6 ) -compose Atop -composite
         -ordered-dither o4x4,4 
     ) -compose Over -composite
 
