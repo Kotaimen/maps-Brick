@@ -7,33 +7,31 @@ Map {
 }
 
 // Waterbody
-
+//#sea[zoom>5],
 #10m_sea[zoom<=5],
 #10m_lake[zoom<=5],
-#sea[zoom>5],
-#waterbody_gen0[zoom>5][zoom<=8],
-#waterbody_gen1[zoom>8][zoom<=11],
+#waterbody_gen1[zoom>5][zoom<=8],
+#waterbody_gen0[zoom>8][zoom<=11],
 #waterbody[zoom>11] {
   
   // Fill a darker color for waterbody
   polygon-fill: @water; 
-//  polygon-fill: darken(@water, 13%);
+//  polygon-fill: darken(@water, 12%);
 
   // Optional texture
-  //::pattern{ polygon-pattern-file: url('res/texture/wave.png'); }
+//  ::pattern{ polygon-pattern-file: url('res/texture/wave.png'); comp-op: multiply; }
   
   // Make a slightly blurred light polygon and use softlight to 
   // create "inner shadow" and slightly edge contrast lift.
-
-  /*
+/*
   ::effect_shadow {
     polygon-fill: @land;
     comp-op: soft-light;
-    image-filters: agg-stack-blur(8 * @scale-factor, 8 * @scale-factor);
+    image-filters: agg-stack-blur(12 * @scale-factor, 12 * @scale-factor);
     image-filters-inflate: yes;
     polygon-clip: false;
   } 
-  */
+*/
 }
 
 #10m_river[zoom<=5] {
@@ -45,8 +43,8 @@ Map {
   [scalerank>6][zoom>3] { line-width: 0.1; }  
 }
 
-#waterway_gen0[zoom>5][zoom<=10],
-#waterway_gen1[zoom>10][zoom<=14],
+#waterway_gen1[zoom>5][zoom<=10],
+#waterway_gen0[zoom>10][zoom<=14],
 #waterway[zoom>14] {
   [type='river'],
   [type='canal'] {

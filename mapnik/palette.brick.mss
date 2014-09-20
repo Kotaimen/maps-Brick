@@ -114,6 +114,7 @@
 
 // ========== Label Halo ==========
 
+
 @label-halo:        fadeout(@land, @label-fadeout);
 
 
@@ -134,11 +135,12 @@
 @label-motorway:    @label-poi;
 @label-primary:     @casing;
 @label-path:        @casing;
-@label-shield:      @label-motorway;
+@label-rail:        @rail-line;
+@label-shield:      black;
 
 // =========== Road attachments render order ===========
 
-#road_stage_tunnel {
+#road_tunnel, #road_tunnel_gen0,{
   ::casing { 
     opacity: 0.8; 
 //    image-filters: invert();
@@ -148,27 +150,27 @@
     opacity: 1; 
     comp-op: dst-out;  
   }  
-  // transparent rail/marker
   ::rail { opacity: 0.5; }
-  ::marker { opacity: 0.5; }
 }
 
-#road_stage_tunnel2 {
+#road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
   ::inline { opacity: 0.15; 
 //    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }
-  ::rail { opacity: 0; }
-  ::marker { opacity: 0;}
+  ::marker { opacity: 0.5;}
 }
 
-
-#road_stage {
+#road, #road_gen0 {
   ::casing { }
   ::inline {  }
   ::rail { }
   ::marker { }     
+}
+
+#shield_gen1, #shield {
+    image-filters: scale-hsla(0,1,0,0.7,0,0.9,0,0.9);
 }
 
 // ========== Label Font ==========

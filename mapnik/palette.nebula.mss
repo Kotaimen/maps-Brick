@@ -8,17 +8,17 @@
 
 // Text halo render quality, "fast" is considerablly faster, 
 // but "full" is required for float halo radius and transprency
-@halo-quality:      fast;
+@halo-quality:      full;
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
-@smart-halo:        1;
+@smart-halo:        2;
 
 // Other halo size
 @default-halo:      1;
 
 // Transparency of halo color
-@label-fadeout:     0%;
+@label-fadeout:     20%;
 
 
 // ========== General Parameters ==========
@@ -120,57 +120,53 @@
 @label-admin0:      @boundary-line;
 @label-admin1:      @boundary-line;
 @label-place:       #7cd1d0;
-@label-poi:         @label-place;
 
+@label-poi:         @label-place;
 @label-water:       darken(@ferry-line, 17%);
 @label-park:        @label-place;
 @label-physical:    @label-poi;
-
 @label-park:        @label-place;
 @label-physical:    @label-poi;
+
 @label-motorway:    #AFAFD5;
 @label-primary:     @label-motorway;
 @label-path:        @label-primary;
+@label-rail:        @label-primary;
+
 @label-shield:      red;
 
 // =========== Road attachments render order ===========
 
-#road_stage_tunnel {
+#road_tunnel, #road_tunnel_gen0,{
   ::casing { 
-    opacity: 1; 
-    image-filters: scale-hsla(0,1,0.5,1,0,0.5,0,1);
+    opacity: 0.5; 
   }
   // knock out the casing
   ::inline { 
     opacity: 1; 
-    comp-op: multiply;  
+    comp-op: dst-out;  
   }  
-  // transparent rail/marker
   ::rail { opacity: 0.5; }
-  ::marker { opacity: 0.5; }
 }
 
-#road_stage_tunnel2 {
+#road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { 
-    opacity: 0; 
-//    comp-op: dst-out;  
+  ::inline { opacity: 0.5; 
+      image-filters: scale-hsla(0,1,0,0.5,0,1,0,1);
   }
-  ::rail { opacity: 0; }
-  ::marker { opacity: 0;}
+  ::marker { opacity: 0.5;}
 }
 
-
-#road_stage {
+#road, #road_gen0 {
   ::casing { }
   ::inline {  }
   ::rail { }
   ::marker { }     
 }
 
-#shield_gen0,#shield_all {    
-  image-filters: invert();
+#shield_gen1, #shield {
+  image-filters: invert()
 }
 
 

@@ -18,8 +18,8 @@
   "Stylesheet": [
     "palette.brick.mss",
     "base.mss",
-    "bound.mss",
     "road.mss",
+    "bound.mss",
     "label.mss"
   ],
   "Layer": [
@@ -74,10 +74,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_landusages_gen0",
+        "table": "brick.landuse_areas_gen0",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -110,10 +110,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_landusages_gen1",
+        "table": "brick.landuse_areas_gen1",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -146,10 +146,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_landusage_areas",
+        "table": "brick.landuse_areas",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -218,7 +218,8 @@
         "buffer-size": 16
       },
       "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "autodetect",
+      "status": "off"
     },
     {
       "Datasource": {
@@ -249,10 +250,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_transport_areas",
+        "table": "brick.transport_areas",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -285,10 +286,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_aeroways",
+        "table": "brick.aeroways",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -321,12 +322,12 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
         "simplify_geometries": "yes",
         "srid": "3857",
-        "table": "brick_waterways_gen0",
+        "table": "brick.waterways_gen0",
         "type": "postgis",
         "user": "postgres"
       },
@@ -357,12 +358,12 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
         "simplify_geometries": "yes",
         "srid": "3857",
-        "table": "brick_waterways_gen1",
+        "table": "brick.waterways_gen1",
         "type": "postgis",
         "user": "postgres"
       },
@@ -393,10 +394,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_waterways",
+        "table": "brick.waterways",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -449,10 +450,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_waterareas_gen0",
+        "table": "brick.waterareas_gen0",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -485,10 +486,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_waterareas_gen1",
+        "table": "brick.waterareas_gen1",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -521,10 +522,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_waterareas",
+        "table": "brick.waterareas",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -574,10 +575,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_landusage_ways",
+        "table": "brick.landuse_ways",
         "type": "postgis",
         "user": "postgres",
         "simplify_simplify_geometries": "yes",
@@ -610,11 +611,11 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
         "simplify_geometries": "yes",
-        "table": "brick_barrierways",
+        "table": "brick.barrierways",
         "type": "postgis",
         "user": "postgres"
       },
@@ -644,10 +645,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_buildings",
+        "table": "brick.buildings",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -678,10 +679,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_roads_gen0",
+        "table": "brick.roads_gen1",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -699,8 +700,8 @@
         85.051
       ],
       "geometry": "linestring",
-      "id": "road_gen0",
-      "name": "road_gen0",
+      "id": "road_gen1",
+      "name": "road_gen1",
       "properties": {
         "buffer-size": 32
       },
@@ -714,10 +715,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "(SELECT * FROM brick_roads_all WHERE tunnel=1) AS FOO",
+        "table": "(SELECT * FROM brick.roads_gen0 WHERE is_tunnel=1) AS FOO",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -733,8 +734,8 @@
         85.051
       ],
       "geometry": "linestring",
-      "id": "road_stage_tunnel",
-      "name": "road_stage_tunnel",
+      "id": "road_tunnel_gen0",
+      "name": "road_tunnel_gen0",
       "properties": {
         "buffer-size": 32,
         "group-by": "layer"
@@ -749,10 +750,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "(SELECT * FROM brick_roads_all WHERE tunnel=1 AND class='highway') AS FOO",
+        "table": "(SELECT * FROM brick.roads_gen0 WHERE is_tunnel=1 AND class='highway') AS FOO",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -768,8 +769,8 @@
         85.051
       ],
       "geometry": "linestring",
-      "id": "road_stage_tunnel2",
-      "name": "road_stage_tunnel2",
+      "id": "road_tunnel2_gen0",
+      "name": "road_tunnel2_gen0",
       "properties": {
         "buffer-size": 32,
         "group-by": "layer"
@@ -784,10 +785,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "(SELECT * FROM brick_roads_all WHERE tunnel=0) AS FOO",
+        "table": "(SELECT * FROM brick.roads_gen0 WHERE is_tunnel=0) AS FOO",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -803,8 +804,8 @@
         85.051
       ],
       "geometry": "linestring",
-      "id": "road_stage",
-      "name": "road_stage",
+      "id": "road_gen0",
+      "name": "road_gen0",
       "properties": {
         "buffer-size": 32,
         "group-by": "layer"
@@ -819,10 +820,115 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_admin",
+        "table": "(SELECT * FROM brick.roads WHERE is_tunnel=1) AS FOO",
+        "type": "postgis",
+        "user": "postgres",
+        "srid": "3857"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_tunnel",
+      "name": "road_tunnel",
+      "properties": {
+        "buffer-size": 32,
+        "group-by": "layer"
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "(SELECT * FROM brick.roads WHERE is_tunnel=1 AND class='highway') AS FOO",
+        "type": "postgis",
+        "user": "postgres",
+        "srid": "3857"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_tunnel2",
+      "name": "road_tunnel2",
+      "properties": {
+        "buffer-size": 32,
+        "group-by": "layer"
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "(SELECT * FROM brick.roads WHERE is_tunnel=0) AS FOO",
+        "type": "postgis",
+        "user": "postgres",
+        "srid": "3857"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road",
+      "name": "road",
+      "properties": {
+        "buffer-size": 32,
+        "group-by": "layer"
+      },
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick.admins",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -1003,8 +1109,7 @@
       "name": "10m_country",
       "srs": "",
       "srs-name": "autodetect",
-      "layer": null,
-      "status": "off"
+      "layer": null
     },
     {
       "Datasource": {
@@ -1075,10 +1180,10 @@
         "extent_cache": "custom",
         "geometry_field": "geometry",
         "host": "127.0.0.1",
-        "key_field": "osm_id",
+        "key_field": "gid",
         "password": "123456",
         "port": "6432",
-        "table": "brick_places",
+        "table": "brick.label_places",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -1109,7 +1214,7 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "table": "brick_shields_gen0",
+        "table": "brick.label_shields_gen1",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -1125,8 +1230,8 @@
         85.051
       ],
       "geometry": "linestring",
-      "id": "shield_gen0",
-      "name": "shield_gen0",
+      "id": "shield_gen1",
+      "name": "shield_gen1",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
     },
@@ -1140,7 +1245,7 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "table": "brick_shields",
+        "table": "brick.label_shields",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -1156,8 +1261,8 @@
         85.051
       ],
       "geometry": "linestring",
-      "id": "shield_all",
-      "name": "shield_all",
+      "id": "shield",
+      "name": "shield",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
     },
@@ -1171,43 +1276,12 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "table": "brick_landusage_area_labels_gen0",
+        "table": "brick.label_landuse_areas_gen1",
         "type": "postgis",
         "user": "postgres",
         "id": "landuse_label_gen0",
         "project": "Brick",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "srid": "3857"
-      },
-      "advanced": {
-        "srid": "3857"
-      },
-      "class": "",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "geometry": "point",
-      "id": "landuse_label_gen0",
-      "name": "landuse_label_gen0",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "srs-name": "900913"
-    },
-    {
-      "Datasource": {
-        "dbname": "imposm3",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "extent_cache": "custom",
-        "geometry_field": "geometry",
-        "host": "127.0.0.1",
-        "key_field": "",
-        "password": "123456",
-        "port": "6432",
-        "table": "brick_landusage_area_labels_gen1",
-        "type": "postgis",
-        "user": "postgres",
         "srid": "3857"
       },
       "advanced": {
@@ -1236,7 +1310,38 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "table": "brick_landusage_area_labels",
+        "table": "brick.label_landuse_areas_gen0",
+        "type": "postgis",
+        "user": "postgres",
+        "srid": "3857"
+      },
+      "advanced": {
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "point",
+      "id": "landuse_label_gen0",
+      "name": "landuse_label_gen0",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick.label_landuse_areas",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
@@ -1360,40 +1465,7 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "table": "brick_road_labels_gen0",
-        "type": "postgis",
-        "user": "postgres",
-        "simplify_geometries": "yes",
-        "srid": "3857"
-      },
-      "advanced": {
-        "simplify_geometries": "yes",
-        "srid": "3857"
-      },
-      "class": "",
-      "extent": [
-        -179.9999999749438,
-        -85.051,
-        179.9999999749438,
-        85.051
-      ],
-      "geometry": "linestring",
-      "id": "road_label_gen0",
-      "name": "road_label_gen0",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "srs-name": "900913"
-    },
-    {
-      "Datasource": {
-        "dbname": "imposm3",
-        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "extent_cache": "custom",
-        "geometry_field": "geometry",
-        "host": "127.0.0.1",
-        "key_field": "",
-        "password": "123456",
-        "port": "6432",
-        "table": "brick_road_labels_gen1",
+        "table": "brick.label_roads_gen1",
         "type": "postgis",
         "user": "postgres",
         "simplify_geometries": "yes",
@@ -1426,7 +1498,40 @@
         "key_field": "",
         "password": "123456",
         "port": "6432",
-        "table": "brick_road_labels",
+        "table": "brick.label_roads",
+        "type": "postgis",
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "road_label_gen0",
+      "name": "road_label_gen0",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick.label_roads",
         "type": "postgis",
         "user": "postgres",
         "srid": "3857"
