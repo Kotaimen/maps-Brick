@@ -31,7 +31,7 @@ label = dict(\
     theme=os.path.join(themedir, 'mapnik/xml/newspaper_label.xml'),
     image_type='png',
     buffer_size=tile_size*1,
-    scale_factor=1.2
+    scale_factor=1
     )
 
 halo = dict(\
@@ -80,7 +80,7 @@ composer=dict(\
     # Make "real" duetone effect, not fake color tint.
     # First reduce brightness and contrast (the original 'mono' theme 
     # is high contrast white/black ) so the image fit in mid tone range.
-    -brightness-contrast -17x-13
+    -brightness-contrast -15x-10
     
     # Convert to grayscale then apply duetone lookup table
     # The reference duotone images are converted from 

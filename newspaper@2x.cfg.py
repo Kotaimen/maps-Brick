@@ -56,7 +56,7 @@ composer=dict(\
         # Use a different dither for some variation
         ( {{road}} )
         # Fill halo with land color and only render on top of roads
-        ( {{label}} -channel A -morphology Dilate Disk:5 +channel +level-colors #ebe9e6 ) -compose Atop -composite
+        ( {{label}} -channel A -morphology Dilate Disk:4 +channel +level-colors #ebe9e6 ) -compose Atop -composite
         -ordered-dither o4x4,4 
     ) -compose Over -composite
 
@@ -76,9 +76,7 @@ composer=dict(\
     )  -compose Darken -composite
     
     # Make "real" duetone effect, not fake color tint.
-    # First reduce brightness and contrast (the original 'mono' theme 
-    # is high contrast white/black ) so the image fit in mid tone range.
-    -brightness-contrast -17x-13
+    -brightness-contrast -15x-10
     
     # Convert to grayscale then apply duetone lookup table
     # The reference duotone images are converted from 
@@ -86,9 +84,9 @@ composer=dict(\
     -colorspace gray %(lut)s -clut
     
     # Finally, convert to paletted png
-#    -dither none
-#    -colors 128
-    ''' % dict(lut=os.path.join(themedir, 'mapnik/res/duotone/Bl-for-dark-cg9-cg2.png')),
+    -dither none
+    -colors 128
+    ''' % dict(lut=os.path.join(themedir, 'mapnik/res/duotone/Bl-for-dark-cg9-cg2.png'),),
     )
 
 ROOT = dict(\

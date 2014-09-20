@@ -12,8 +12,8 @@ fmt = 'png'
 all_ = dict(\
     prototype='node.mapnik',
     theme=os.path.join(themedir, 'mapnik/xml/nebula@2x_all.xml'),
-    buffer_size=tile_size,
-    scale_factor=1,
+    buffer_size=tile_size*2,
+    scale_factor=2,
     )
         
 ROOT = dict(\

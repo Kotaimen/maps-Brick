@@ -144,7 +144,7 @@
   // knock out the casing
   ::inline { 
     opacity: 1; 
-    comp-op: dst-out;  
+//    comp-op: dst-out;  
   }  
   ::rail { opacity: 0.5; }
 }
@@ -152,9 +152,7 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.5; 
-      image-filters: scale-hsla(0,1,0,0.5,0,1,0,1);
-  }
+  ::inline { opacity: 0; }
   ::marker { opacity: 0.5;}
 }
 

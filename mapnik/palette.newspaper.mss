@@ -182,7 +182,7 @@
 @font-motorway:     'Roboto Medium Italic', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Italic', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Italic', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Medium', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
 
 // ========== Map ==========
 
