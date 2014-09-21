@@ -8,17 +8,17 @@
 
 // Text halo render quality, "fast" is considerablly faster, 
 // but "full" is required for float halo radius and transprency
-@halo-quality:      full;
+@halo-quality:      fast;
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
-@smart-halo:        2;
+@smart-halo:        1;
 
 // Other halo size
 @default-halo:      1;
 
 // Transparency of halo color
-@label-fadeout:     20%;
+@label-fadeout:     0%;
 
 
 // ========== General Parameters ==========
@@ -133,7 +133,7 @@
 @label-path:        @label-primary;
 @label-rail:        @label-primary;
 
-@label-shield:      red;
+@label-shield:      black;
 
 // =========== Road attachments render order ===========
 
@@ -163,7 +163,7 @@
   ::marker { }     
 }
 
-#shield_gen1, #shield {
+#shield_gen0, #shield_gen1, #shield {
   image-filters: invert()
 }
 

@@ -163,7 +163,7 @@
   ::marker { }     
 }
 
-#shield_gen1, #shield {
+#shield_gen0, #shield_gen1, #shield {
 //  direct-image-filters: gray();
 }
 

@@ -156,7 +156,7 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.15; 
+  ::inline { opacity: 0.1; 
 //    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }
   ::marker { opacity: 0.5;}
@@ -169,8 +169,8 @@
   ::marker { }     
 }
 
-#shield_gen1, #shield {
-    image-filters: scale-hsla(0,1,0,0.7,0,0.9,0,0.9);
+#shield_gen0, #shield_gen1, #shield {
+  image-filters: scale-hsla(0,1,0,0.7,0,0.85,0,0.8);
 }
 
 // ========== Label Font ==========

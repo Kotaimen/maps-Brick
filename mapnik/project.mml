@@ -1217,9 +1217,11 @@
         "table": "brick.label_shields_gen1",
         "type": "postgis",
         "user": "postgres",
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "advanced": {
+        "simplify_geometries": "yes",
         "srid": "3857"
       },
       "class": "",
@@ -1232,6 +1234,39 @@
       "geometry": "linestring",
       "id": "shield_gen1",
       "name": "shield_gen1",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "dbname": "imposm3",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "",
+        "password": "123456",
+        "port": "6432",
+        "table": "brick.label_shields_gen0",
+        "type": "postgis",
+        "user": "postgres",
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "advanced": {
+        "simplify_geometries": "yes",
+        "srid": "3857"
+      },
+      "class": "",
+      "extent": [
+        -179.9999999749438,
+        -85.051,
+        179.9999999749438,
+        85.051
+      ],
+      "geometry": "linestring",
+      "id": "shield_gen0",
+      "name": "shield_gen0",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
     },

@@ -285,12 +285,12 @@
     [type!='water'][type!='reservoir']
     [type!='bay'][type!='sea'] {
       marker-placement: point;    
-      marker-file: url("res/maki/[maki]-18.svg");
-	  
+      [zoom>=14] { marker-file: url("res/maki/[maki]-18.svg"); }
+      [zoom<=13] { marker-file: url("res/maki/[maki]-12.svg"); }	  
       // Use square as general marker, which need smaller scale
       [maki='square'] { marker-transform: scale(0.4, 0.4); }
       // Scale to ~16px
-      marker-transform: scale(0.9, 0.9);
+//      marker-transform: scale(0.9, 0.9);
       // Rail icon uses fill incorrectly
       [maki!='rail'] { 
         marker-fill: @label-poi; 
@@ -336,7 +336,8 @@
     text-face-name: @font-poi;   
     text-fill: @label-poi;
      
-    text-size: 12;
+    [zoom>=14] { text-size: 12; }
+    [zoom<=13] { text-size: 11; }    
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
     text-halo-rasterizer: @halo-quality;    
@@ -363,6 +364,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
+    text-spacing: 150;
     
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
@@ -383,6 +385,7 @@
     [zoom<=14][direction>0] { text-dx: 6;  text-dy: 6; }
     [zoom<=14][direction<0] { text-dx: -6;  text-dy: -6; }            
   }
+  
   [class='highway'][type='primary'] {
     text-name: "[name]";
     text-placement: line; 
@@ -401,7 +404,7 @@
     [is_tunnel=1] { 
       text-opacity: 0.5; 
     }
-    text-spacing: 140;
+    text-spacing: 150;
     
     [zoom<=17] { text-size: 13; }
     [zoom>=18] { text-size: 16; }
@@ -419,7 +422,7 @@
     text-halo-radius: @smart-halo;
 	text-halo-fill: @label-halo;
     text-halo-rasterizer: @halo-quality;        
-	[zoom>=15] {
+	[zoom>=17] {
       text-halo-radius: @smart-halo;
       text-halo-fill: fadeout(@secondary-fill,  @label-fadeout);
     }    
@@ -489,7 +492,7 @@
     [zoom>=18][direction<0] { text-dx: -9;  text-dy: -9; }
   }      
   
-  [class='railway'] {
+  [class='railway'][zoom>=14] {
     text-name: "[name]";
     text-placement: line; 
     text-max-char-angle-delta: 20;    
@@ -505,7 +508,7 @@
       text-opacity: 0.5; 
     }
     
-    text-spacing: 150;    
+    text-spacing: 200;    
     text-size: 12;
 
     [zoom<=16][direction>0] { text-dx: 7;  text-dy: 7; }
@@ -539,58 +542,50 @@
 
 @shield-marker: 'res/shield/' + @theme-name + '/motorway-[ref_length].svg';
 
-#shield_gen1[zoom>=8][zoom<=15][ref_length<9],
-#shield[zoom>=16][zoom<=17][ref_length<9]
+#shield_gen0[zoom>=7][zoom<=10][type='motorway'][ref_length<9],
+#shield_gen1[zoom>=11][zoom<=14][ref_length<9],
+#shield[zoom>=15][zoom<=17][ref_length<9]
 {
-  [type='motorway'],[type='trunk'] {
-    [ref =~ "I [0-9]+"] {
-   	  shield-file: url('res/shield/us-0.svg');    
-      shield-fill: white;
-      shield-name: '[ref].replace("I ", "")';
-      shield-size: 10;      
-      shield-text-dy: 2;
-    }
-    [ref =~ "US [0-9]+"] {
-   	  shield-file: url('res/shield/us-1.svg');
-      shield-name: '[ref].replace("US ", "")';
-      shield-size: 10;            
-      shield-text-dy: 2;
+   
+  [ref =~ "I [0-9]{1,2}"]{
+    shield-file: url('res/shield/_us/interstate-2ch-48px.png');
+    shield-transform: scale(0.4, 0.4);
+    shield-fill: white;
+    shield-name: '[ref].replace("I ", "")';
+  }
+  [ref =~ "I [0-9]{3}"]{
+    shield-file: url('res/shield/_us/interstate-3ch-48px.png');
+    shield-transform: scale(0.4, 0.4);
+    shield-fill: white;
+    shield-name: '[ref].replace("I ", "")';
+  }
+  [ref =~ "US ?[0-9]+"] {
+    shield-file: url('res/shield/_us/us-cutout-48px.png');
+    shield-transform: scale(0.45, 0.45);
+    shield-name: '[ref].replace("US ?", "")';
+    shield-text-dy: 1;
+  }       
 
-    }       
-    shield-file: url(@shield-marker);
-
-    shield-placement: line;
-    shield-clip: false;
-    shield-face-name: @font-shield;
-    shield-name: '[ref]';
-    shield-fill: @label-shield;
-    shield-size: 9;
-    shield-allow-overlap: false;
-    shield-spacing: 300;
-    shield-min-distance: 32;
-
-    [zoom<=14] { shield-min-distance: 100; }
-    [zoom=15] { shield-min-distance: 120; }
-    [zoom=16] { shield-min-distance: 140; }
+  [ref =~ "CA [0-9]+"] {
+    shield-file: url('res/shield/_us/ca-48px.png');
+    shield-transform: scale(0.4, 0.4);
+    shield-name: '[ref].replace("CA ", "")';
+    shield-fill: white;    
+    shield-text-dy: 3;
   }
   
-  [type='primary'][zoom>=12], [type='secondary'][zoom>=15] {
-    shield-file: url(@shield-marker);
-
-    shield-placement: line;
-    shield-clip: false;
-    shield-face-name: @font-shield;
-    shield-name: '[ref]';
-    shield-fill: @label-shield;
-    shield-size: 9;
-    shield-allow-overlap: false;
-    shield-spacing: 300;
-    shield-min-distance: 32;
-
-    [zoom<=14] { shield-min-distance: 100; }
-    [zoom=15] { shield-min-distance: 120; }
-    [zoom=16] { shield-min-distance: 140; }
-    [zoom>=17] { shield-min-distance: 160; }
-  }
+  shield-file: url(@shield-marker);
+  shield-placement: line;
+  shield-clip: false;
+  shield-face-name: @font-shield;
+  shield-name: '[ref]';
+  shield-fill: @label-shield;
+  shield-size: 9;
+  [zoom>=11] { shield-spacing: 400; }
+  shield-min-distance: 33;
+  shield-min-padding: 8;
+//  debug-mode: vertex; 
+//  shield-allow-overlap: false;
+  
 }
 
