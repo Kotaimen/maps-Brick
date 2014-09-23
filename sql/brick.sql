@@ -79,6 +79,181 @@ CREATE OR REPLACE VIEW admins AS SELECT osm_id AS gid, 'admin'::text AS class, t
 
 
 -- roads
+DROP FUNCTION IF EXISTS road_type(class TEXT, type TEXT) CASCADE;
+CREATE FUNCTION road_type(class TEXT, type TEXT) RETURNS text AS $$
+DECLARE
+	road_type text;
+BEGIN
+    CASE
+        WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN road_type := 'motorway';
+        WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN road_type := 'primary';
+        WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN road_type := 'secondary';
+        WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN road_type := 'minor';
+        WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN road_type := 'path';
+        WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN road_type := 'pedestrian';
+        WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN road_type := 'proposed';
+        WHEN class = 'railway' AND type = 'rail' THEN road_type := 'rail';
+        WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN road_type := 'subway';
+        WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN road_type := 'monorail';
+        WHEN class = 'railway' THEN road_type := 'monorail';
+        ELSE road_type := 'path';
+    END CASE;
+	RETURN road_type;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS road_rank(class TEXT, type TEXT) CASCADE;
+CREATE FUNCTION road_rank(class TEXT, type TEXT) RETURNS smallint AS $$
+DECLARE
+	road_rank smallint;
+BEGIN
+    CASE
+        WHEN type = 'motorway' THEN road_rank := 0;
+        WHEN type = 'trunk' THEN road_rank := 20;
+        WHEN class = 'railway' THEN road_rank := 30;
+        WHEN type = 'primary' THEN road_rank := 40;
+        WHEN type = 'secondary' THEN road_rank := 50;
+        WHEN type = 'tertiary' THEN road_rank := 60;
+        
+        WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN road_rank := 70;
+        WHEN type IN ('path', 'track', 'living_street', 'service') THEN road_rank := 80;
+        WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN road_rank := 90;
+        WHEN type IN ('construction', 'proposed') THEN road_rank := 100;
+
+        WHEN type = 'motorway_link' THEN road_rank := 71;
+        WHEN type = 'trunk_link' THEN road_rank := 72;
+        WHEN type = 'primary_link' THEN road_rank := 73;
+        WHEN type = 'secondary_link' THEN road_rank := 74;
+        WHEN type = 'tertiary_link' THEN road_rank := 75;
+
+        ELSE road_rank := 255;
+    END CASE;
+	
+	RETURN road_rank;
+	
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS landuse_maki(class TEXT, type TEXT) CASCADE;
+CREATE FUNCTION landuse_maki(class TEXT, type TEXT) RETURNS text AS $$
+DECLARE
+	maki text;
+BEGIN
+    CASE
+        WHEN type IN ( 'hospital', 'doctors', 'clinic', 'nursery', 'dentist') THEN maki := 'hospital';
+        WHEN type IN ('university','college') THEN maki := 'college';
+        WHEN type = 'museum' THEN maki := 'museum';
+        WHEN type IN ('arts_centre', 'gallery') THEN maki := 'art-gallery';
+        WHEN type = 'library' THEN maki := 'library';
+        WHEN type = 'theatre' THEN maki := 'theatre';
+        WHEN type = 'cinema' THEN maki := 'cinema';
+        WHEN type = 'school' THEN maki := 'school';
+        WHEN type = 'post_office' THEN maki := 'post';
+        WHEN type IN ('townhall','public_building', 'courthouse') THEN maki := 'town-hall';
+        WHEN type IN ('prison', 'police') THEN maki := 'police';
+        WHEN type IN ('hotel', 'motel') THEN maki := 'town';
+        WHEN type = 'fire_station' THEN maki := 'fire-station';
+        WHEN type = 'zoo' THEN maki := 'zoo';
+        WHEN type IN ('stadium', 'sports_centre') THEN maki := 'soccer';
+        WHEN type = 'cemetery' THEN maki := 'cemetery';
+        WHEN type = 'industrial' THEN maki := 'industrial';
+        WHEN type = 'landfill' THEN maki := 'waste-basket';
+        WHEN type IN ('retail', 'commercial') THEN maki := 'grocery';
+        WHEN type = 'playground'  THEN maki := 'playground';
+        WHEN type IN ('recreation_ground', 'pitch') THEN maki := 'pitch';
+        WHEN type IN ('golf_range', 'golf_course', 'miniature_golf') THEN maki := 'golf';
+        WHEN type IN ('forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park') THEN maki := 'park2';
+        WHEN type IN ('garden', 'village_green', 'greenspace')  THEN maki := 'garden';
+        WHEN type IN ('railway', 'railroad') THEN maki := 'rail';
+        WHEN type IN ('aerodrome', 'airport') THEN maki := 'airport';
+        WHEN type = 'airfield' THEN maki := 'airfield';
+        WHEN type = 'marina' THEN maki := 'harbor';
+        WHEN type IN ('nature_reserve', 'conservation', 'national_park') THEN maki := 'park';
+        WHEN type = 'pharmacy' THEN maki := 'pharmacy';
+        WHEN type = 'bank' THEN maki := 'bank';
+        WHEN type = 'bar' THEN maki := 'bar';
+        WHEN type = 'cafe' THEN maki := 'cafe';
+        WHEN type = 'parking' THEN maki := 'parking';
+        ELSE maki := 'square';
+    END CASE;
+	
+	RETURN maki;
+	
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS place_rank(type TEXT) CASCADE;
+CREATE FUNCTION place_rank(type TEXT) RETURNS smallint AS $$
+DECLARE
+	place_rank smallint;
+BEGIN
+	CASE WHEN type = 'country' THEN place_rank := 1;
+	     WHEN type = 'region' THEN place_rank := 2;
+	     WHEN type = 'state' THEN place_rank := 3;
+	     WHEN type = 'city' THEN place_rank := 4;
+	     WHEN type = 'town' THEN place_rank := 5;
+	     WHEN type = 'suburb' THEN place_rank := 6;
+	     WHEN type = 'village' THEN place_rank := 7;
+	     WHEN type = 'hamlet' THEN place_rank := 8;
+	     WHEN type = 'locality' THEN place_rank := 9;
+	     ELSE place_rank := 255;
+	END CASE;
+	
+	RETURN place_rank;
+	
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS abbreviate_road_name(class TEXT, type TEXT, name TEXT) CASCADE;
+CREATE FUNCTION abbreviate_road_name(class TEXT, type TEXT, name TEXT) RETURNS text AS $$
+DECLARE
+	abbr text;
+BEGIN
+	CASE
+	    WHEN name ~* '\mavenue$'::text THEN abbr := regexp_replace("name", '\m(ave)nue$'::text, '\1'::text, 'i'::text);
+	    WHEN name ~* '\mboulevard$'::text THEN abbr := regexp_replace("name", '\m(b)oulevard$'::text, '\1lvd'::text, 'i'::text);
+	    WHEN name ~* '\mexpressway$'::text THEN abbr := regexp_replace("name", '\m(E)xpressway$'::text, '\1xpwy'::text, 'i'::text);
+	    WHEN name ~* '\mhighway$'::text THEN abbr := regexp_replace("name", '\m(h)ighway$'::text, '\1wy'::text, 'i'::text);
+	    WHEN name ~* '\mparkway$'::text THEN abbr := regexp_replace("name", '\m(p)arkway$'::text, '\1kwy'::text, 'i'::text);
+	    WHEN name ~* '\mcourt$'::text THEN abbr := regexp_replace("name", '\m(c)ourt$'::text, '\1t'::text, 'i'::text);
+	    WHEN name ~* '\mdrive$'::text THEN abbr := regexp_replace("name", '\m(dr)ive$'::text, '\1'::text, 'i'::text);
+	    WHEN name ~* '\mplace$'::text THEN abbr := regexp_replace("name", '\m(pl)ace$'::text, '\1'::text, 'i'::text);
+	    WHEN name ~* '\mlane$'::text THEN abbr := regexp_replace("name", '\m(l)ane$'::text, '\1n'::text, 'i'::text);
+	    WHEN name ~* '\mroad$'::text THEN abbr := regexp_replace("name", '\m(r)oad$'::text, '\1d'::text, 'i'::text);
+	    WHEN name ~* '\mstreet$'::text THEN abbr := regexp_replace("name", '\m(st)reet$'::text, '\1'::text, 'i'::text);
+	    WHEN name ~* '\mtrail$'::text THEN abbr := regexp_replace("name", '\m(tr)ail$'::text, '\1'::text, 'i'::text);
+	    WHEN name ~* '\mway$'::text THEN abbr := regexp_replace("name", '\m(w)ay$'::text, '\1y'::text, 'i'::text);
+	    ELSE abbr := name;
+	END CASE;
+	
+	RETURN abbr;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS normalize_shield_name(class TEXT, type TEXT, ref TEXT) CASCADE;
+CREATE FUNCTION normalize_shield_name(class TEXT, type TEXT, ref TEXT) RETURNS text AS $$
+DECLARE
+	normalized text;
+BEGIN
+    CASE
+        WHEN ref ~ '^I ?\d+' THEN normalized := regexp_replace(ref, '^I ?(\d+).*', 'I \1');
+        WHEN ref ~ '^US ?\d+' THEN normalized := regexp_replace(ref, '^US ?(\d+).*', 'US \1');
+        WHEN ref ~ '^[[:alpha:]]+ ?\d+' THEN normalized := regexp_replace(ref, '^([[:alpha:]]+) ?(\d+).*', '\1 \2');
+        WHEN ref ~ '^[[:alpha:]]+-\d+' THEN normalized := regexp_replace(ref, '^([[:alpha:]]+)-(\d+).*', '\1 \2');
+        ELSE normalized := ref;
+    END CASE;
+	
+	RETURN normalized;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
 DROP VIEW IF EXISTS roads_gen1;
 DROP VIEW IF EXISTS roads_gen0;
 DROP VIEW IF EXISTS roads;
@@ -86,20 +261,7 @@ CREATE OR REPLACE VIEW roads AS
     SELECT 
         osm_id AS gid,
         class,
-        CASE
-            WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
-            WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN 'primary'
-            WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
-            WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
-            WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN 'path'
-            WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 'pedestrian'
-            WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN 'proposed'
-            WHEN class = 'railway' AND type = 'rail' THEN 'rail'
-            WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN 'subway'
-            WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
-            WHEN class = 'railway' THEN 'monorail'
-            ELSE 'path'
-        END::text AS type,
+        road_type(class, type) AS type,
         tunnel AS is_tunnel,
         bridge AS is_bridge,
         oneway AS is_oneway,
@@ -111,27 +273,7 @@ CREATE OR REPLACE VIEW roads AS
             WHEN layer IS NULL THEN 0
             ELSE layer
         END::smallint AS layer,
-        CASE
-            WHEN type = 'motorway' THEN 0
-            WHEN type = 'trunk' THEN 20
-            WHEN class = 'railway' THEN 30
-            WHEN type = 'primary' THEN 40
-            WHEN type = 'secondary' THEN 50
-            WHEN type = 'tertiary' THEN 60
-            
-            WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
-            WHEN type IN ('path', 'track', 'living_street', 'service') THEN 80
-            WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 90
-            WHEN type IN ('construction', 'proposed') THEN 100
-
-            WHEN type = 'motorway_link' THEN 71
-            WHEN type = 'trunk_link' THEN 72
-            WHEN type = 'primary_link' THEN 73
-            WHEN type = 'secondary_link' THEN 74
-            WHEN type = 'tertiary_link' THEN 75
-
-            ELSE 255
-        END::smallint AS rank,
+        road_rank(class, type) AS rank,
         geometry
     FROM osm_roads
       ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
@@ -139,20 +281,7 @@ CREATE OR REPLACE VIEW roads_gen0 AS
     SELECT 
         osm_id AS gid,
         class,
-        CASE
-            WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
-            WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN 'primary'
-            WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
-            WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
-            WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN 'path'
-            WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 'pedestrian'
-            WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN 'proposed'
-            WHEN class = 'railway' AND type = 'rail' THEN 'rail'
-            WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN 'subway'
-            WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
-            WHEN class = 'railway' THEN 'monorail'
-            ELSE 'path'
-        END::text AS type,
+        road_type(class, type) AS type,
         tunnel AS is_tunnel,
         bridge AS is_bridge,
         oneway AS is_oneway,
@@ -164,27 +293,7 @@ CREATE OR REPLACE VIEW roads_gen0 AS
             WHEN layer IS NULL THEN 0
             ELSE layer
         END::smallint AS layer,
-        CASE
-            WHEN type = 'motorway' THEN 0
-            WHEN type = 'trunk' THEN 20
-            WHEN class = 'railway' THEN 30
-            WHEN type = 'primary' THEN 40
-            WHEN type = 'secondary' THEN 50
-            WHEN type = 'tertiary' THEN 60
-            
-            WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
-            WHEN type IN ('path', 'track', 'living_street', 'service') THEN 80
-            WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 90
-            WHEN type IN ('construction', 'proposed') THEN 100
-
-            WHEN type = 'motorway_link' THEN 71
-            WHEN type = 'trunk_link' THEN 72
-            WHEN type = 'primary_link' THEN 73
-            WHEN type = 'secondary_link' THEN 74
-            WHEN type = 'tertiary_link' THEN 75
-
-            ELSE 255
-        END::smallint AS rank,
+        road_rank(class, type) AS rank,
         geometry
     FROM osm_roads_gen1
     ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
@@ -192,20 +301,7 @@ CREATE OR REPLACE VIEW roads_gen1 AS
     SELECT 
         osm_id AS gid,
         class,
-        CASE
-            WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
-            WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN 'primary'
-            WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
-            WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
-            WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN 'path'
-            WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 'pedestrian'
-            WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN 'proposed'
-            WHEN class = 'railway' AND type = 'rail' THEN 'rail'
-            WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN 'subway'
-            WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
-            WHEN class = 'railway' THEN 'monorail'
-            ELSE 'path'
-        END::text AS type,
+        road_type(class, type) AS type,
         tunnel AS is_tunnel,
         bridge AS is_bridge,
         oneway AS is_oneway,
@@ -217,27 +313,7 @@ CREATE OR REPLACE VIEW roads_gen1 AS
             WHEN layer IS NULL THEN 0
             ELSE layer
         END::smallint AS layer,
-        CASE
-            WHEN type = 'motorway' THEN 0
-            WHEN type = 'trunk' THEN 20
-            WHEN class = 'railway' THEN 30
-            WHEN type = 'primary' THEN 40
-            WHEN type = 'secondary' THEN 50
-            WHEN type = 'tertiary' THEN 60
-            
-            WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
-            WHEN type IN ('path', 'track', 'living_street', 'service') THEN 80
-            WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 90
-            WHEN type IN ('construction', 'proposed') THEN 100
-
-            WHEN type = 'motorway_link' THEN 71
-            WHEN type = 'trunk_link' THEN 72
-            WHEN type = 'primary_link' THEN 73
-            WHEN type = 'secondary_link' THEN 74
-            WHEN type = 'tertiary_link' THEN 75
-
-            ELSE 255
-        END::smallint AS rank,
+        road_rank(class, type) AS rank,
         geometry
     FROM osm_roads_gen0
     ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
@@ -250,17 +326,7 @@ CREATE OR REPLACE VIEW label_places AS
         osm_id AS gid,
         name,
         type,
-        CASE WHEN type = 'country' THEN 1
-             WHEN type = 'region' THEN 2
-             WHEN type = 'state' THEN 3
-             WHEN type = 'city' THEN 4
-             WHEN type = 'town' THEN 5
-             WHEN type = 'suburb' THEN 6
-             WHEN type = 'village' THEN 7
-             WHEN type = 'hamlet' THEN 8
-             WHEN type = 'locality' THEN 9
-             ELSE 10
-        END::smallint AS rank,
+        place_rank(type) AS rank,
         population,
         geometry
     FROM osm_places
@@ -270,43 +336,7 @@ CREATE OR REPLACE VIEW label_places AS
 DROP VIEW IF EXISTS label_landuse_areas;
 CREATE OR REPLACE VIEW label_landuse_areas AS
     SELECT osm_id AS gid, class, type, name, area,
-    CASE
-        WHEN type IN ( 'hospital', 'doctors', 'clinic', 'nursery', 'dentist') THEN 'hospital'
-        WHEN type IN ('university','college') THEN 'college'
-        WHEN type = 'museum' THEN 'museum'
-        WHEN type IN ('arts_centre', 'gallery') THEN 'art-gallery'
-        WHEN type = 'library' THEN 'library'
-        WHEN type = 'theatre' THEN 'theatre'
-        WHEN type = 'cinema' THEN 'cinema'
-        WHEN type = 'school' THEN 'school'
-        WHEN type = 'post_office' THEN 'post'
-        WHEN type IN ('townhall','public_building', 'courthouse') THEN 'town-hall'
-        WHEN type IN ('prison', 'police') THEN 'police'
-        WHEN type IN ('hotel', 'motel') THEN 'town'
-        WHEN type = 'fire_station' THEN 'fire-station'
-        WHEN type = 'zoo' THEN 'zoo'
-        WHEN type IN ('stadium', 'sports_centre') THEN 'soccer'
-        WHEN type = 'cemetery' THEN 'cemetery'
-        WHEN type = 'industrial' THEN 'industrial'
-        WHEN type = 'landfill' THEN 'waste-basket'
-        WHEN type IN ('retail', 'commercial') THEN 'grocery'
-        WHEN type = 'playground'  THEN 'playground'
-        WHEN type IN ('recreation_ground', 'pitch') THEN 'pitch'
-        WHEN type IN ('golf_range', 'golf_course', 'miniature_golf') THEN 'golf'
-        WHEN type IN ('forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park') THEN 'park2'
-        WHEN type IN ('garden', 'village_green', 'greenspace')  THEN 'garden'
-        WHEN type IN ('railway', 'railroad') THEN 'rail'
-        WHEN type IN ('aerodrome', 'airport') THEN 'airport'
-        WHEN type = 'airfield' THEN 'airfield'
-        WHEN type = 'marina' THEN 'harbor'
-        WHEN type IN ('nature_reserve', 'conservation', 'national_park') THEN 'park'
-        WHEN type = 'pharmacy' THEN 'pharmacy'
-        WHEN type = 'bank' THEN 'bank'
-        WHEN type = 'bar' THEN 'bar'
-        WHEN type = 'cafe' THEN 'cafe'
-        WHEN type = 'parking' THEN 'parking'
-        ELSE 'square'
-    END::text AS maki,
+    landuse_maki(class, type) AS maki,
     ST_PointOnSurface(ST_Multi(geometry)) AS geometry
     FROM osm_landusage_area_labels
     WHERE class != 'place'
@@ -316,43 +346,7 @@ CREATE OR REPLACE VIEW label_landuse_areas AS
 DROP VIEW IF EXISTS label_landuse_areas_gen0;
 CREATE OR REPLACE VIEW label_landuse_areas_gen0 AS
     SELECT osm_id AS gid, class, type, name, area,
-    CASE
-        WHEN type IN ( 'hospital', 'doctors', 'clinic', 'nursery', 'dentist') THEN 'hospital'
-        WHEN type IN ('university','college') THEN 'college'
-        WHEN type = 'museum' THEN 'museum'
-        WHEN type IN ('arts_centre', 'gallery') THEN 'art-gallery'
-        WHEN type = 'library' THEN 'library'
-        WHEN type = 'theatre' THEN 'theatre'
-        WHEN type = 'cinema' THEN 'cinema'
-        WHEN type = 'school' THEN 'school'
-        WHEN type = 'post_office' THEN 'post'
-        WHEN type IN ('townhall','public_building', 'courthouse') THEN 'town-hall'
-        WHEN type IN ('prison', 'police') THEN 'police'
-        WHEN type IN ('hotel', 'motel') THEN 'town'
-        WHEN type = 'fire_station' THEN 'fire-station'
-        WHEN type = 'zoo' THEN 'zoo'
-        WHEN type IN ('stadium', 'sports_centre') THEN 'soccer'
-        WHEN type = 'cemetery' THEN 'cemetery'
-        WHEN type = 'industrial' THEN 'industrial'
-        WHEN type = 'landfill' THEN 'waste-basket'
-        WHEN type IN ('retail', 'commercial') THEN 'grocery'
-        WHEN type = 'playground'  THEN 'playground'
-        WHEN type IN ('recreation_ground', 'pitch') THEN 'pitch'
-        WHEN type IN ('golf_range', 'golf_course', 'miniature_golf') THEN 'golf'
-        WHEN type IN ('forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park') THEN 'park2'
-        WHEN type IN ('garden', 'village_green', 'greenspace')  THEN 'garden'
-        WHEN type IN ('railway', 'railroad') THEN 'rail'
-        WHEN type IN ('aerodrome', 'airport') THEN 'airport'
-        WHEN type = 'airfield' THEN 'airfield'
-        WHEN type = 'marina' THEN 'harbor'
-        WHEN type IN ('nature_reserve', 'conservation', 'national_park') THEN 'park'
-        WHEN type = 'pharmacy' THEN 'pharmacy'
-        WHEN type = 'bank' THEN 'bank'
-        WHEN type = 'bar' THEN 'bar'
-        WHEN type = 'cafe' THEN 'cafe'
-        WHEN type = 'parking' THEN 'parking'
-        ELSE 'square'
-    END::text AS maki,
+    landuse_maki(class, type) AS maki,
     ST_PointOnSurface(ST_Multi(geometry)) AS geometry
     FROM osm_landusage_area_labels_gen1
     WHERE class != 'place'
@@ -362,43 +356,7 @@ CREATE OR REPLACE VIEW label_landuse_areas_gen0 AS
 DROP VIEW IF EXISTS label_landuse_areas_gen1;
 CREATE OR REPLACE VIEW label_landuse_areas_gen1 AS
     SELECT osm_id AS gid, class, type, name, area,
-    CASE
-        WHEN type IN ( 'hospital', 'doctors', 'clinic', 'nursery', 'dentist') THEN 'hospital'
-        WHEN type IN ('university','college') THEN 'college'
-        WHEN type = 'museum' THEN 'museum'
-        WHEN type IN ('arts_centre', 'gallery') THEN 'art-gallery'
-        WHEN type = 'library' THEN 'library'
-        WHEN type = 'theatre' THEN 'theatre'
-        WHEN type = 'cinema' THEN 'cinema'
-        WHEN type = 'school' THEN 'school'
-        WHEN type = 'post_office' THEN 'post'
-        WHEN type IN ('townhall','public_building', 'courthouse') THEN 'town-hall'
-        WHEN type IN ('prison', 'police') THEN 'police'
-        WHEN type IN ('hotel', 'motel') THEN 'town'
-        WHEN type = 'fire_station' THEN 'fire-station'
-        WHEN type = 'zoo' THEN 'zoo'
-        WHEN type IN ('stadium', 'sports_centre') THEN 'soccer'
-        WHEN type = 'cemetery' THEN 'cemetery'
-        WHEN type = 'industrial' THEN 'industrial'
-        WHEN type = 'landfill' THEN 'waste-basket'
-        WHEN type IN ('retail', 'commercial') THEN 'grocery'
-        WHEN type = 'playground'  THEN 'playground'
-        WHEN type IN ('recreation_ground', 'pitch') THEN 'pitch'
-        WHEN type IN ('golf_range', 'golf_course', 'miniature_golf') THEN 'golf'
-        WHEN type IN ('forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park') THEN 'park2'
-        WHEN type IN ('garden', 'village_green', 'greenspace')  THEN 'garden'
-        WHEN type IN ('railway', 'railroad') THEN 'rail'
-        WHEN type IN ('aerodrome', 'airport') THEN 'airport'
-        WHEN type = 'airfield' THEN 'airfield'
-        WHEN type = 'marina' THEN 'harbor'
-        WHEN type IN ('nature_reserve', 'conservation', 'national_park') THEN 'park'
-        WHEN type = 'pharmacy' THEN 'pharmacy'
-        WHEN type = 'bank' THEN 'bank'
-        WHEN type = 'bar' THEN 'bar'
-        WHEN type = 'cafe' THEN 'cafe'
-        WHEN type = 'parking' THEN 'parking'
-        ELSE 'square'
-    END::text AS maki,
+    landuse_maki(class, type) AS maki,
     ST_PointOnSurface(ST_Multi(geometry)) AS geometry
     FROM osm_landusage_area_labels_gen0
     WHERE class != 'place'
@@ -418,44 +376,11 @@ CREATE OR REPLACE VIEW label_roads AS
             geometry
     FROM (
          SELECT     class, 
-         CASE
-             WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
-             WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN 'primary'
-             WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
-             WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
-             WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN 'path'
-             WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 'pedestrian'
-             WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN 'proposed'
-             WHEN class = 'railway' AND type = 'rail' THEN 'rail'
-             WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN 'subway'
-             WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
-             WHEN class = 'railway' THEN 'monorail'
-             ELSE 'path'
-         END::text AS type,
+         		road_type(class, type) AS type,
                 regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
                 tunnel,
                 bridge,
-                CASE
-                    WHEN type = 'motorway' THEN 0
-                    WHEN type = 'trunk' THEN 20
-                    WHEN class = 'railway' THEN 30
-                    WHEN type = 'primary' THEN 40
-                    WHEN type = 'secondary' THEN 50
-                    WHEN type = 'tertiary' THEN 60
-            
-                    WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
-                    WHEN type IN ('path', 'track', 'living_street', 'service') THEN 80
-                    WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 90
-                    WHEN type IN ('construction', 'proposed') THEN 100
-
-                    WHEN type = 'motorway_link' THEN 71
-                    WHEN type = 'trunk_link' THEN 72
-                    WHEN type = 'primary_link' THEN 73
-                    WHEN type = 'secondary_link' THEN 74
-                    WHEN type = 'tertiary_link' THEN 75
-
-                    ELSE 255
-                END::smallint AS rank,
+                road_rank(class, type) AS rank,
                 geometry
         FROM osm_road_labels
         UNION ALL
@@ -470,122 +395,6 @@ CREATE OR REPLACE VIEW label_roads AS
         WHERE type='ferry'
     ) AS foo
     ORDER BY rank DESC, name_length DESC, is_bridge DESC, is_tunnel DESC, name;
-
-
-DROP VIEW IF EXISTS label_roads_gen0;
-CREATE OR REPLACE VIEW label_roads_gen0 AS
-    SELECT     class, type, name, 
-            length(name) AS name_length, 
-            tunnel AS is_tunnel, 
-            bridge AS is_bridge, 
-            CASE
-                WHEN sin(pi() / 2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
-                ELSE (-1)
-            END AS direction,
-            geometry
-    FROM (
-         SELECT     class, 
-         CASE
-             WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
-             WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN 'primary'
-             WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
-             WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
-             WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN 'path'
-             WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 'pedestrian'
-             WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN 'proposed'
-             WHEN class = 'railway' AND type = 'rail' THEN 'rail'
-             WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN 'subway'
-             WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
-             WHEN class = 'railway' THEN 'monorail'
-             ELSE 'path'
-         END::text AS type,
-                regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
-                tunnel,
-                bridge,
-                CASE
-                    WHEN type = 'motorway' THEN 0
-                    WHEN type = 'trunk' THEN 20
-                    WHEN class = 'railway' THEN 30
-                    WHEN type = 'primary' THEN 40
-                    WHEN type = 'secondary' THEN 50
-                    WHEN type = 'tertiary' THEN 60
-        
-                    WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
-                    WHEN type IN ('path', 'track', 'living_street', 'service') THEN 80
-                    WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 90
-                    WHEN type IN ('construction', 'proposed') THEN 100
-
-                    WHEN type = 'motorway_link' THEN 71
-                    WHEN type = 'trunk_link' THEN 72
-                    WHEN type = 'primary_link' THEN 73
-                    WHEN type = 'secondary_link' THEN 74
-                    WHEN type = 'tertiary_link' THEN 75
-
-                    ELSE 255
-                END::smallint AS rank,
-                geometry
-        FROM osm_road_labels_gen1
-    ) AS foo
-    ORDER BY rank DESC, name_length DESC, is_bridge DESC, is_tunnel DESC, name;
-
-
-DROP VIEW IF EXISTS label_roads_gen1;
-CREATE OR REPLACE VIEW label_roads_gen1 AS
-    SELECT     class, type, name, 
-            length(name) AS name_length, 
-            tunnel AS is_tunnel, 
-            bridge AS is_bridge, 
-            CASE
-                WHEN sin(pi() / 2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
-                ELSE (-1)
-            END AS direction,
-            geometry
-    FROM (
-         SELECT     class, 
-         CASE
-             WHEN class = 'highway' AND type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link') THEN 'motorway'
-             WHEN class = 'highway' AND type IN ('primary', 'primary_link') THEN 'primary'
-             WHEN class = 'highway' AND type IN ('secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'secondary'
-             WHEN class = 'highway' AND type IN ('residential', 'unclassified', 'road', 'minor') THEN 'minor'
-             WHEN class = 'highway' AND type IN ('path', 'track', 'living_street', 'service') THEN 'path'
-             WHEN class = 'highway' AND type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 'pedestrian'
-             WHEN class = 'highway' AND type IN ('construction', 'proposed') THEN 'proposed'
-             WHEN class = 'railway' AND type = 'rail' THEN 'rail'
-             WHEN class = 'railway' AND type IN ('subway', 'light_rail') THEN 'subway'
-             WHEN class = 'railway' AND type IN ('monorail', 'tram', 'narrow_gauage', 'disused', 'preserved', 'funicular') THEN 'monorail'
-             WHEN class = 'railway' THEN 'monorail'
-             ELSE 'path'
-         END::text AS type,
-                regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
-                tunnel,
-                bridge,
-                CASE
-                    WHEN type = 'motorway' THEN 0
-                    WHEN type = 'trunk' THEN 20
-                    WHEN class = 'railway' THEN 30
-                    WHEN type = 'primary' THEN 40
-                    WHEN type = 'secondary' THEN 50
-                    WHEN type = 'tertiary' THEN 60
-    
-                    WHEN type IN ('residential', 'unclassified', 'road', 'minor') THEN 70
-                    WHEN type IN ('path', 'track', 'living_street', 'service') THEN 80
-                    WHEN type IN ('footway', 'bridleway', 'cycleway', 'pedestrian', 'steps') THEN 90
-                    WHEN type IN ('construction', 'proposed') THEN 100
-
-                    WHEN type = 'motorway_link' THEN 71
-                    WHEN type = 'trunk_link' THEN 72
-                    WHEN type = 'primary_link' THEN 73
-                    WHEN type = 'secondary_link' THEN 74
-                    WHEN type = 'tertiary_link' THEN 75
-
-                    ELSE 255
-                END::smallint AS rank,
-                geometry
-        FROM osm_road_labels_gen0
-    ) AS foo
-    ORDER BY rank DESC, name_length DESC, is_bridge DESC, is_tunnel DESC, name;
-
-
 
 
 COMMIT;
