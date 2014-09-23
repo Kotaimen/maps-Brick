@@ -170,7 +170,7 @@
 }
 
 #shield_gen0, #shield_gen1, #shield {
-  image-filters: scale-hsla(0,1,0,0.7,0,0.85,0,0.8);
+  image-filters: scale-hsla(0,1,0,0.8,0,0.8,0,0.8);
 }
 
 // ========== Label Font ==========

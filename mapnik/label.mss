@@ -289,8 +289,6 @@
       [zoom<=13] { marker-file: url("res/maki/[maki]-12.svg"); }	  
       // Use square as general marker, which need smaller scale
       [maki='square'] { marker-transform: scale(0.4, 0.4); }
-      // Scale to ~16px
-//      marker-transform: scale(0.9, 0.9);
       // Rail icon uses fill incorrectly
       [maki!='rail'] { 
         marker-fill: @label-poi; 
@@ -342,13 +340,13 @@
     text-halo-radius: @smart-halo;
     text-halo-rasterizer: @halo-quality;    
     text-wrap-width: 60 * @scale-factor;
-//    text-wrap-before: true;
     text-line-spacing: -1;    
     text-placement-type: simple;
     text-dx: 10;
     text-dy: 10;
     text-placements: 'S,E,W';
     text-name: "[name]";    
+    
 //    debug-mode: collision; 
   }
 }
@@ -359,29 +357,35 @@
 #road_label_gen1[zoom>=9][zoom<=11],
 #road_label_gen0[zoom>=12][zoom<=15],
 #road_label[zoom>=16] {
+  
   [class='highway'][type='motorway'] {
     text-name: "[name]";
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
-    text-spacing: 150;
+    text-min-padding: 8;
     
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
+    // use default halo at higher levels, offset text rendering
     text-halo-radius: @smart-halo;
 	text-halo-fill: @label-halo;
-    text-halo-rasterizer: @halo-quality;   
+    text-halo-rasterizer: @halo-quality;
+    // use road fill as halo at low levels
 	[zoom>=15] {
       text-halo-radius: @smart-halo;
       text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
     }     
+    // transprent tunnel
     [is_tunnel=1] { 
       text-opacity: 0.5; 
       text-halo-radius: 0;
     }
     
-    [zoom<=17] { text-size: 14; text-spacing: 150;}
-    [zoom>=18] { text-size: 18; text-spacing: 220;}   
+    text-label-position-tolerance: 30;
+    
+    [zoom<=17] { text-size: 14; text-spacing: 100;}
+    [zoom>=18] { text-size: 18; text-spacing: 200; }   
     [zoom<=14][direction>0] { text-dx: 6;  text-dy: 6; }
     [zoom<=14][direction<0] { text-dx: -6;  text-dy: -6; }            
   }
@@ -391,6 +395,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
+    text-min-padding: 8;    
 
     text-face-name: @font-primary;
     text-fill: @label-primary;
@@ -405,9 +410,11 @@
       text-opacity: 0.5; 
     }
     text-spacing: 150;
+    text-label-position-tolerance: 30;
     
     [zoom<=17] { text-size: 13; }
     [zoom>=18] { text-size: 16; }
+    // offset labeling
     [zoom<=14][direction>0] { text-dx: 6;  text-dy: 6; }
     [zoom<=14][direction<0] { text-dx: -6;  text-dy: -6; }            
   }  
@@ -416,6 +423,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
+    text-min-padding: 8;    
 
     text-face-name: @font-primary;
     text-fill: @label-primary;
@@ -446,6 +454,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
+    text-min-padding: 8;
 
     text-face-name: @font-path;
     text-fill: @label-path;
@@ -473,6 +482,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
+    text-min-padding: 8;
 
     text-face-name: @font-path;
     text-fill: @label-path;
@@ -497,6 +507,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
+    text-min-padding: 8;
 
     [type='rail'],[type='subway'] { text-face-name: @font-motorway; }
     text-face-name: @font-path;
@@ -522,6 +533,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 30;    
     text-clip: false;
+    text-min-padding: 8;
 
     text-face-name: @font-path;
     text-fill: @label-water;
@@ -536,17 +548,19 @@
     [direction<0] { text-dx: -10;  text-dy: -10; }
   }  
 
+  //debug-mode: collision; 
+
 }
 
 //// shields
 
-@shield-marker: 'res/shield/' + @theme-name + '/motorway-[ref_length].svg';
+@shield-marker: 'res/shield/' + @theme-name + '/motorway-[ref_length]ch-48px.png';
 
 #shield_gen0[zoom>=7][zoom<=10][type='motorway'][ref_length<9],
 #shield_gen1[zoom>=11][zoom<=14][ref_length<9],
 #shield[zoom>=15][zoom<=17][ref_length<9]
 {
-   
+  // Special shields
   [ref =~ "I [0-9]{1,2}"]{
     shield-file: url('res/shield/_us/interstate-2ch-48px.png');
     shield-transform: scale(0.4, 0.4);
@@ -573,8 +587,27 @@
     shield-fill: white;    
     shield-text-dy: 3;
   }
+  [ref =~ "NY [0-9]+"] {
+    shield-file: url('res/shield/_us/ny-48px.png');
+    shield-transform: scale(0.4, 0.4);
+    shield-name: '[ref].replace("NY ", "")';
+    shield-fill: black;    
+  }
+
+  [ref =~ "M ?[0-9]{1,5}"] {
+    shield-file: url('res/shield/_uk/M-[ref_length]ch-48px.png');
+    shield-transform: scale(0.5, 0.5);
+    shield-fill: white;    
+  }
+  [ref =~ "A ?[0-9]{1,5}"] {
+    shield-file: url('res/shield/_uk/A-[ref_length]ch-48px.png');
+    shield-transform: scale(0.5, 0.5);
+    shield-fill: #FFD200;    
+  }
   
   shield-file: url(@shield-marker);
+  shield-transform: scale(0.5, 0.5);  
+  
   shield-placement: line;
   shield-clip: false;
   shield-face-name: @font-shield;
@@ -582,9 +615,9 @@
   shield-fill: @label-shield;
   shield-size: 9;
   [zoom>=11] { shield-spacing: 400; }
-  shield-min-distance: 33;
+  shield-min-distance: 40;
   shield-min-padding: 8;
-//  debug-mode: vertex; 
+
 //  shield-allow-overlap: false;
   
 }

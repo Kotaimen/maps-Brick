@@ -1109,7 +1109,8 @@
       "name": "10m_country",
       "srs": "",
       "srs-name": "autodetect",
-      "layer": null
+      "layer": null,
+      "status": "off"
     },
     {
       "Datasource": {
