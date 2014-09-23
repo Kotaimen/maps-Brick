@@ -26,7 +26,7 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
-               stride=16,
+               stride=8,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
