@@ -113,7 +113,11 @@
 // ========== Label Halo ==========
 
 @label-halo:        fadeout(@land, @label-fadeout);
-
+@motorway-label-halo: 	fadeout(@motorway-fill,  @label-fadeout);
+@primary-label-halo: 	fadeout(@primary-fill,  @label-fadeout);
+@secondary-label-halo: 	fadeout(@secondary-fill,  @label-fadeout);
+@minor-label-halo:		fadeout(@minor-fill,  @label-fadeout);
+@path-label-halo:		fadeout(@path-fill,  @label-fadeout); 
 
 // ========== Label Colors ==========
 
@@ -166,6 +170,36 @@
 #shield_gen0, #shield_gen1, #shield {
   image-filters: invert()
 }
+
+// =========== Road Width ===========
+
+// major       medium         normal
+@r9_maj:  1;   @r9_med:  0.5; @r9_norm: 0.3;
+@r10_maj: 1.2; @r10_med: 0.7; @r10_norm: 0.5; 
+@r11_maj: 2;   @r11_med: 1;   @r11_norm: 0.7; 
+@r12_maj: 2.5; @r12_med: 1.5; @r12_norm: 1; 
+@r13_maj: 3;   @r13_med: 2;   @r13_norm: 1.5; 
+@r14_maj: 4;   @r14_med: 3;   @r14_norm: 2; 
+@r15_maj: 6;   @r15_med: 4;   @r15_norm: 3;   
+@r16_maj: 8;   @r16_med: 6;   @r16_norm: 4;   
+@r17_maj: 14;  @r17_med: 8;   @r17_norm: 6;   
+@r18_maj: 28;  @r18_med: 14;  @r18_norm: 8;
+@r19_maj: 48;  @r19_med: 28;  @r19_norm: 14;
+@r20_maj: 64;  @r20_med: 56;  @r20_norm: 28;
+
+// minor       path            casing
+@r9_min:  0.1; @r9_path:  0;   @r9_cas: 0;
+@r10_min: 0.3; @r10_path: 0.1; @r10_cas: 0;
+@r11_min: 0.5; @r11_path: 0.3; @r11_cas: 0;
+@r12_min: 0.7; @r12_path: 0.5; @r12_cas: 1;
+@r13_min: 1;   @r13_path: 0.7; @r13_cas: 1;
+@r14_min: 1.5; @r14_path: 1;   @r14_cas: 2;
+@r15_min: 2;   @r15_path: 1.5; @r15_cas: 2;
+@r16_min: 3;   @r16_path: 2;   @r16_cas: 2;
+@r17_min: 4;   @r17_path: 3;   @r17_cas: 3;
+@r18_min: 6;   @r18_path: 4;   @r18_cas: 3;
+@r19_min: 8;   @r19_path: 6;   @r19_cas: 4;
+@r20_min: 14;  @r20_path: 8;   @r20_cas: 4;
 
 
 // ========== Label Font ==========

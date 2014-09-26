@@ -373,7 +373,7 @@
     // use road fill as halo at low levels
 	[zoom>=15] {
       text-halo-radius: @smart-halo;
-      text-halo-fill: fadeout(@motorway-fill,  @label-fadeout);
+      text-halo-fill: @motorway-label-halo;
     }     
     // transprent tunnel
     [is_tunnel=1] { 
@@ -403,7 +403,7 @@
     text-halo-rasterizer: @halo-quality;        
 	[zoom>=15] {
       text-halo-radius: @smart-halo;
-      text-halo-fill: fadeout(@primary-fill,  @label-fadeout);
+      text-halo-fill: @primary-label-halo;
     } 
     [is_tunnel=1] { 
       text-opacity: 0.5; 
@@ -431,7 +431,7 @@
     text-halo-rasterizer: @halo-quality;        
 	[zoom>=17] {
       text-halo-radius: @smart-halo;
-      text-halo-fill: fadeout(@secondary-fill,  @label-fadeout);
+      text-halo-fill: @secondary-label-halo;
     }    
     [is_tunnel=1] { 
       text-opacity: 0.5; 
@@ -464,7 +464,7 @@
     }
 	[zoom>=18] {
       text-halo-radius: @smart-halo;
-      text-halo-fill: fadeout(@path-fill,  @label-fadeout);
+      text-halo-fill: @minor-label-halo;
     }    
     
     text-spacing: 120;    
@@ -486,7 +486,7 @@
     text-face-name: @font-path;
     text-fill: @label-path;
     text-halo-radius: @smart-halo;
-	text-halo-fill: @label-halo;
+	text-halo-fill: @path-label-halo;
     text-halo-rasterizer: @halo-quality;        
     [is_tunnel=1] { 
       text-opacity: 0.5; 
@@ -531,7 +531,7 @@
     text-min-padding: 8;
 
     text-face-name: @font-path;
-    text-fill: @label-water;
+    text-fill: @ferry-line;
     text-halo-radius: @smart-halo;
     text-halo-fill: fadeout(@water, @label-fadeout);
     text-halo-rasterizer: @halo-quality;      

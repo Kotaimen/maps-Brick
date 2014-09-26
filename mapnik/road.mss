@@ -41,18 +41,6 @@
   }
 }
 
-// Road widths
-
-@rdz10_maj: 1.5; @rdz10_med: 1;   @rdz10_min: 0.5;  @rdz10_cas: 1;
-@rdz11_maj: 2;   @rdz11_med: 1.2; @rdz11_min: 0.7;  @rdz11_cas: 1;
-@rdz12_maj: 2.5; @rdz12_med: 1.5; @rdz12_min: 1;    @rdz12_cas: 2;
-@rdz13_maj: 3;   @rdz13_med: 1.5; @rdz13_min: 1;    @rdz13_cas: 2;
-@rdz14_maj: 4;   @rdz14_med: 3;   @rdz14_min: 1.5;  @rdz14_cas: 2;
-@rdz15_maj: 6;   @rdz15_med: 4;   @rdz15_min: 3;    @rdz15_cas: 2;
-@rdz16_maj: 8;   @rdz16_med: 6;   @rdz16_min: 4;    @rdz16_cas: 2;
-@rdz17_maj: 12;  @rdz17_med: 8;   @rdz17_min: 6;    @rdz17_cas: 2;
-@rdz18_maj: 20;  @rdz18_med: 12;  @rdz18_min: 10;   @rdz18_cas: 3;
-
 // Detailed roads
 #road_tunnel_gen0[zoom>=9][zoom<=12][class='highway'],
 #road_tunnel2_gen0[zoom>=9][zoom<=12],
@@ -69,29 +57,33 @@
       line-rasterizer: @line-rasterizer;      
       [is_bridge=0] { line-cap: round; }
       [is_link=1] {
-        // don’t need thin links since road are already thin zoom<=lv11
-        [zoom=9] { line-width: @rdz10_maj + @rdz10_cas; }                     
-        [zoom=10] { line-width: @rdz10_maj + @rdz10_cas; }             
-        [zoom=11] { line-width: @rdz11_maj + @rdz11_cas; }                     
-        [zoom=12] { line-width: @rdz12_maj/2 + @rdz12_cas/2; }      
-        [zoom=13] { line-width: @rdz13_maj/2 + @rdz13_cas/2; }      
-        [zoom=14] { line-width: @rdz14_maj/2 + @rdz14_cas/2; }      
-        [zoom=15] { line-width: @rdz15_maj/2 + @rdz15_cas/2; }      
-        [zoom=16] { line-width: @rdz16_maj/2 + @rdz16_cas/2; }      
-        [zoom=17] { line-width: @rdz17_maj/2 + @rdz17_cas/2; }      
-        [zoom>=18] { line-width: @rdz18_maj/2 + @rdz18_cas/2; }              
+        // don’t need thin links since road are already thin zoom<=lv10
+        [zoom=9]   { line-width: 0; }                     
+        [zoom=10]  { line-width: 0; }             
+        [zoom=11]  { line-width: 0; }                     
+        [zoom=12]  { line-width: @r12_maj/2 + @r12_cas; }      
+        [zoom=13]  { line-width: @r13_maj/2 + @r13_cas; }      
+        [zoom=14]  { line-width: @r14_maj/2 + @r14_cas; }      
+        [zoom=15]  { line-width: @r15_maj/2 + @r15_cas; }      
+        [zoom=16]  { line-width: @r16_maj/2 + @r16_cas; }      
+        [zoom=17]  { line-width: @r17_maj/2 + @r17_cas; }      
+        [zoom=18]  { line-width: @r18_maj/2 + @r18_cas; }
+        [zoom=19]  { line-width: @r19_maj/2 + @r19_cas; }
+        [zoom>=20] { line-width: @r20_maj/2 + @r20_cas; }
       }
       [is_link=0] {  
-        [zoom=9] { line-width: @rdz10_maj + @rdz10_cas; }
-        [zoom=10] { line-width: @rdz10_maj + @rdz10_cas; }             
-        [zoom=11] { line-width: @rdz11_maj + @rdz11_cas; }             
-        [zoom=12] { line-width: @rdz12_maj + @rdz12_cas; }      
-        [zoom=13] { line-width: @rdz13_maj + @rdz13_cas; }      
-        [zoom=14] { line-width: @rdz14_maj + @rdz14_cas; }      
-        [zoom=15] { line-width: @rdz15_maj + @rdz15_cas; }      
-        [zoom=16] { line-width: @rdz16_maj + @rdz16_cas; }      
-        [zoom=17] { line-width: @rdz17_maj + @rdz17_cas; }      
-        [zoom>=18] { line-width: @rdz18_maj + @rdz18_cas; }      
+        [zoom=9]   { line-width: 0; }                     
+        [zoom=10]  { line-width: 0; }             
+        [zoom=11]  { line-width: 0; }                     
+        [zoom=12]  { line-width: @r12_maj + @r12_cas; }      
+        [zoom=13]  { line-width: @r13_maj + @r13_cas; }      
+        [zoom=14]  { line-width: @r14_maj + @r14_cas; }      
+        [zoom=15]  { line-width: @r15_maj + @r15_cas; }      
+        [zoom=16]  { line-width: @r16_maj + @r16_cas; }      
+        [zoom=17]  { line-width: @r17_maj + @r17_cas; }      
+        [zoom=18]  { line-width: @r18_maj + @r18_cas; }
+        [zoom=19]  { line-width: @r19_maj + @r19_cas; }
+        [zoom>=20] { line-width: @r20_maj + @r20_cas; }
       }
     }    
     ::inline {
@@ -99,31 +91,36 @@
       line-cap: round;
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
-      line-color: @motorway-fill;         
+      line-color: @motorway-fill;
+      [zoom<=10] { line-color: @motorway-line; }
       [is_link=1] {
         [zoom>=14] { line-color: @motorway-link; }
-        [zoom=9] { line-width: @rdz10_maj; } 
-        [zoom=10] { line-width: @rdz10_maj; } 
-        [zoom=11] { line-width: @rdz11_maj; }         
-        [zoom=12] { line-width: @rdz12_maj/2 }      
-        [zoom=13] { line-width: @rdz13_maj/2 }      
-        [zoom=14] { line-width: @rdz14_maj/2 }      
-        [zoom=15] { line-width: @rdz15_maj/2 }      
-        [zoom=16] { line-width: @rdz16_maj/2 }      
-        [zoom=17] { line-width: @rdz17_maj/2 }      
-        [zoom>=18] { line-width: @rdz18_maj/2 }              
+        [zoom=9]   { line-width: @r9_maj/2; line-color: @motorway-line; } 
+        [zoom=10]  { line-width: @r10_maj/2; line-color: @motorway-line; } 
+        [zoom=11]  { line-width: @r11_maj/2; line-color: @motorway-line; }         
+        [zoom=12]  { line-width: @r12_maj/2; }      
+        [zoom=13]  { line-width: @r13_maj/2; }      
+        [zoom=14]  { line-width: @r14_maj/2; }      
+        [zoom=15]  { line-width: @r15_maj/2; }      
+        [zoom=16]  { line-width: @r16_maj/2; }      
+        [zoom=17]  { line-width: @r17_maj/2; }      
+        [zoom=18]  { line-width: @r18_maj/2; }
+        [zoom=19]  { line-width: @r19_maj/2; }
+        [zoom>=20] { line-width: @r20_maj/2; }
       }
       [is_link=0] {
-        [zoom=9] { line-width: @rdz10_maj; } 
-        [zoom=10] { line-width: @rdz10_maj; } 
-        [zoom=11] { line-width: @rdz11_maj; }              
-        [zoom=12] { line-width: @rdz12_maj; }
-        [zoom=13] { line-width: @rdz13_maj; }
-        [zoom=14] { line-width: @rdz14_maj; }
-        [zoom=15] { line-width: @rdz15_maj; }
-        [zoom=16] { line-width: @rdz16_maj; }
-        [zoom=17] { line-width: @rdz17_maj; }
-        [zoom>=18] { line-width: @rdz18_maj; }      
+        [zoom=9]   { line-width: @r9_maj; line-color: @motorway-line; } 
+        [zoom=10]  { line-width: @r10_maj; line-color: @motorway-line; } 
+        [zoom=11]  { line-width: @r11_maj; line-color: @motorway-line; }              
+        [zoom=12]  { line-width: @r12_maj; }
+        [zoom=13]  { line-width: @r13_maj; }
+        [zoom=14]  { line-width: @r14_maj; }
+        [zoom=15]  { line-width: @r15_maj; }
+        [zoom=16]  { line-width: @r16_maj; }
+        [zoom=17]  { line-width: @r17_maj; }
+        [zoom=18]  { line-width: @r18_maj; }
+        [zoom=19]  { line-width: @r19_maj; }
+        [zoom>=20] { line-width: @r20_maj; }
       }
     }
   }
@@ -136,28 +133,32 @@
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
       [is_link=1] {
-        [zoom=9] { line-width: @rdz10_med + @rdz10_cas; }                      
-        [zoom=10] { line-width: @rdz10_med + @rdz10_cas; }              
-        [zoom=11] { line-width: @rdz11_med + @rdz11_cas; }                      
-        [zoom=12] { line-width: @rdz12_maj/2 + @rdz12_cas; }      
-        [zoom=13] { line-width: @rdz13_maj/2 + @rdz13_cas; }      
-        [zoom=14] { line-width: @rdz14_maj/2 + @rdz14_cas; }      
-        [zoom=15] { line-width: @rdz15_maj/2 + @rdz15_cas; }      
-        [zoom=16] { line-width: @rdz16_maj/2 + @rdz16_cas; }      
-        [zoom=17] { line-width: @rdz17_maj/2 + @rdz17_cas; }      
-        [zoom>=18] { line-width: @rdz18_maj/2 + @rdz18_cas; }              
+        [zoom=9]  { line-width: 0; }                      
+        [zoom=10] { line-width: 0; }              
+        [zoom=11] { line-width: 0; }                      
+        [zoom=12] { line-width: @r12_med/2 + @r12_cas; }      
+        [zoom=13] { line-width: @r13_med/2 + @r13_cas; }      
+        [zoom=14] { line-width: @r14_med/2 + @r14_cas; }      
+        [zoom=15] { line-width: @r15_med/2 + @r15_cas; }      
+        [zoom=16] { line-width: @r16_med/2 + @r16_cas; }      
+        [zoom=17] { line-width: @r17_med/2 + @r17_cas; }      
+        [zoom=18] { line-width: @r18_med/2 + @r18_cas; }
+		[zoom=19] { line-width: @r19_med/2 + @r19_cas; }
+		[zoom>=20] { line-width: @r20_med/2 + @r20_cas; }              
       }
       [is_link=0] {  
-        [zoom=9] { line-width: @rdz10_med + @rdz10_cas; }                              
-        [zoom=10] { line-width: @rdz10_med + @rdz10_cas; }              
-        [zoom=11] { line-width: @rdz11_med + @rdz11_cas; }              
-        [zoom=12] { line-width: @rdz12_maj + @rdz12_cas; }      
-        [zoom=13] { line-width: @rdz13_maj + @rdz13_cas; }      
-        [zoom=14] { line-width: @rdz14_maj + @rdz14_cas - 2; }      
-        [zoom=15] { line-width: @rdz15_maj + @rdz15_cas - 2; }      
-        [zoom=16] { line-width: @rdz16_maj + @rdz16_cas - 2; }      
-        [zoom=17] { line-width: @rdz17_maj + @rdz17_cas - 2; }      
-        [zoom>=18] { line-width: @rdz18_maj + @rdz18_cas - 2; }      
+        [zoom=9]  { line-width: 0; }                              
+        [zoom=10] { line-width: 0; }              
+        [zoom=11] { line-width: 0; }              
+        [zoom=12] { line-width: @r12_med + @r12_cas; }      
+        [zoom=13] { line-width: @r13_med + @r13_cas; }      
+        [zoom=14] { line-width: @r14_med + @r14_cas; }      
+        [zoom=15] { line-width: @r15_med + @r15_cas; }      
+        [zoom=16] { line-width: @r16_med + @r16_cas; }      
+        [zoom=17] { line-width: @r17_med + @r17_cas; }      
+        [zoom=18] { line-width: @r18_med + @r18_cas; }
+		[zoom=19] { line-width: @r19_med + @r19_cas; }
+		[zoom>=20] { line-width: @r20_med + @r20_cas; }  
       }
     }    
     ::inline {
@@ -167,28 +168,32 @@
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
       [is_link=1] {
-        [zoom=9] { line-width: @rdz10_med; }
-        [zoom=10] { line-width: @rdz10_med; }
-        [zoom=11] { line-width: @rdz11_med; }        
-        [zoom=12] { line-width: @rdz12_maj/2; }      
-        [zoom=13] { line-width: @rdz13_maj/2; }      
-        [zoom=14] { line-width: @rdz14_maj/2; }      
-        [zoom=15] { line-width: @rdz15_maj/2; }      
-        [zoom=16] { line-width: @rdz16_maj/2; }      
-        [zoom=17] { line-width: @rdz17_maj/2; }      
-        [zoom>=18] { line-width: @rdz18_maj/2; }              
+        [zoom=9]  { line-width: @r9_med; line-color: @primary-line; }
+        [zoom=10] { line-width: @r10_med; line-color: @primary-line; }
+        [zoom=11] { line-width: @r11_med; line-color: @primary-line; }        
+        [zoom=12] { line-width: @r12_med; }      
+        [zoom=13] { line-width: @r13_med; }      
+        [zoom=14] { line-width: @r14_med; }      
+        [zoom=15] { line-width: @r15_med; }      
+        [zoom=16] { line-width: @r16_med; }      
+        [zoom=17] { line-width: @r17_med; }      
+        [zoom=18] { line-width: @r18_med; }
+		[zoom=19] { line-width: @r19_med; }
+		[zoom>=20] { line-width: @r20_med; }              
       }
       [is_link=0] {      
-        [zoom=9] { line-width: @rdz10_med; }
-        [zoom=10] { line-width: @rdz10_med; }
-        [zoom=11] { line-width: @rdz11_med; }        
-        [zoom=12] { line-width: @rdz12_maj; }
-        [zoom=13] { line-width: @rdz13_maj; }
-        [zoom=14] { line-width: @rdz14_maj - 2; }
-        [zoom=15] { line-width: @rdz15_maj - 2; }
-        [zoom=16] { line-width: @rdz16_maj - 2; }
-        [zoom=17] { line-width: @rdz17_maj - 2; }
-        [zoom>=18] { line-width: @rdz18_maj - 2; }      
+        [zoom=9]  { line-width: @r9_med; line-color: @primary-line; }
+        [zoom=10] { line-width: @r10_med; line-color: @primary-line; }
+        [zoom=11] { line-width: @r11_med; line-color: @primary-line; }        
+        [zoom=12] { line-width: @r12_med; }
+        [zoom=13] { line-width: @r13_med; }
+        [zoom=14] { line-width: @r14_med; }
+        [zoom=15] { line-width: @r15_med; }
+        [zoom=16] { line-width: @r16_med; }
+        [zoom=17] { line-width: @r17_med; }
+        [zoom=18] { line-width: @r18_med; }
+        [zoom=19] { line-width: @r19_med; }
+        [zoom>=20] { line-width: @r20_med; }    
       }
     }
   }
@@ -200,16 +205,18 @@
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
       [is_bridge=0]  { line-cap: round; }
-      [zoom=9] { line-width: 0.5; line-color: @secondary-line; }
-      [zoom=10] { line-width: 1; line-color: @secondary-line; }
-      [zoom=11] { line-width: @rdz11_min + @rdz11_cas; }
-      [zoom=12] { line-width: @rdz12_min + @rdz12_cas; }      
-      [zoom=13] { line-width: @rdz13_min + @rdz13_cas; }      
-      [zoom=14] { line-width: @rdz14_min + @rdz14_cas; }      
-      [zoom=15] { line-width: @rdz15_min + @rdz15_cas; }      
-      [zoom=16] { line-width: @rdz16_min + @rdz16_cas; }      
-      [zoom=17] { line-width: @rdz17_min + @rdz17_cas; }      
-      [zoom>=18] { line-width: @rdz18_min + @rdz18_cas; }      
+      [zoom=9]  { line-width: 0; }
+      [zoom=10] { line-width: 0; }
+      [zoom=11] { line-width: 0; }
+      [zoom=12] { line-width: 0; }      
+      [zoom=13] { line-width: @r13_norm + @r13_cas; }      
+      [zoom=14] { line-width: @r14_norm + @r14_cas; }      
+      [zoom=15] { line-width: @r15_norm + @r15_cas; }      
+      [zoom=16] { line-width: @r16_norm + @r16_cas; }      
+      [zoom=17] { line-width: @r17_norm + @r17_cas; }      
+      [zoom=18] { line-width: @r18_norm + @r18_cas; }
+	  [zoom=19] { line-width: @r19_norm + @r19_cas; }
+	  [zoom>=20] { line-width: @r20_norm + @r20_cas; } 
     }    
     ::inline[zoom>=11] {
       line-color: @secondary-fill;               
@@ -217,46 +224,53 @@
       line-cap: round;
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
-      [zoom=9] { line-width: @rdz10_min; }
-      [zoom=10] { line-width: @rdz10_min; }
-      [zoom=11] { line-width: @rdz11_min; }
-      [zoom=12] { line-width: @rdz12_min; }
-      [zoom=13] { line-width: @rdz13_min; }
-      [zoom=14] { line-width: @rdz14_min; }
-      [zoom=15] { line-width: @rdz15_min; }
-      [zoom=16] { line-width: @rdz16_min; }
-      [zoom=17] { line-width: @rdz17_min; }
-      [zoom>=18] { line-width: @rdz18_min; }            
+      [zoom=9]  { line-width: @r10_norm; line-color: @secondary-line;}
+      [zoom=10] { line-width: @r10_norm; line-color: @secondary-line;}
+      [zoom=11] { line-width: @r11_norm; line-color: @secondary-line;}
+      [zoom=12] { line-width: @r12_norm; line-color: @secondary-line;}
+      [zoom=13] { line-width: @r13_norm; }
+      [zoom=14] { line-width: @r14_norm; }
+      [zoom=15] { line-width: @r15_norm; }
+      [zoom=16] { line-width: @r16_norm; }
+      [zoom=17] { line-width: @r17_norm; }
+      [zoom=18] { line-width: @r18_norm; }
+	  [zoom=19] { line-width: @r19_norm; } 
+	  [zoom>=20] { line-width: @r20_norm; }             
     }
   }
  
   [type='minor'] {
-    ::casing[zoom>=12] {
+    ::casing[zoom>=14] {
       line-color: @minor-casing;
       line-join: round;
       [is_bridge=0] { line-cap: round; }
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
-      [zoom=12] { line-width: 0.5; line-color: @minor-line; }      
-      [zoom=13] { line-width: 1; line-color: @minor-line;}      
-      [zoom=14] { line-width: @rdz14_min + @rdz14_cas; }      
-      [zoom=15] { line-width: @rdz15_min + @rdz15_cas; }      
-      [zoom=16] { line-width: @rdz16_min + @rdz16_cas; }      
-      [zoom=17] { line-width: @rdz17_min + @rdz17_cas; }      
-      [zoom>=18] { line-width: @rdz18_min + @rdz18_cas; }      
+      [zoom=12] { line-width: 0; }      
+      [zoom=13] { line-width: 0; }      
+      [zoom=14] { line-width: 0; }      
+      [zoom=15] { line-width: 0; }      
+      [zoom=16] { line-width: @r16_min + @r16_cas; }      
+      [zoom=17] { line-width: @r17_min + @r17_cas; }      
+      [zoom=18] { line-width: @r18_min + @r18_cas; }
+	  [zoom=19] { line-width: @r19_min + @r19_cas; }
+	  [zoom=20] { line-width: @r20_min + @r20_cas; }      
     }    
-    ::inline[zoom>=14] {
+    ::inline[zoom>=12] {
       line-color: @minor-fill;
       line-join:round;
       line-cap: round;
       line-clip: @line-clip;
-      line-rasterizer: @line-rasterizer;      
-      [zoom=13] { line-width: @rdz13_min; }
-      [zoom=14] { line-width: @rdz14_min; }
-      [zoom=15] { line-width: @rdz15_min; }
-      [zoom=16] { line-width: @rdz16_min; }
-      [zoom=17] { line-width: @rdz17_min; }
-      [zoom>=18] { line-width: @rdz18_min; }            
+      line-rasterizer: @line-rasterizer;
+      [zoom=12] { line-width: @r12_min; line-color: @minor-line; } 
+      [zoom=13] { line-width: @r13_min; line-color: @minor-line; }
+      [zoom=14] { line-width: @r14_min; line-color: @minor-line; }
+      [zoom=15] { line-width: @r15_min; line-color: @minor-line; }
+      [zoom=16] { line-width: @r16_min; }
+      [zoom=17] { line-width: @r17_min; }
+      [zoom=18] { line-width: @r18_min; }
+      [zoom=19] { line-width: @r19_min; }
+      [zoom>=20] { line-width: @r20_min; }
     }
   }
 
@@ -267,11 +281,13 @@
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
       [is_bridge=0] { line-cap: round; }
-      [zoom=14] { line-width: @rdz14_min/2 + @rdz15_cas;}      
-      [zoom=15] { line-width: @rdz15_min/2 + @rdz15_cas; }      
-      [zoom=16] { line-width: @rdz16_min/2 + @rdz16_cas; }      
-      [zoom=17] { line-width: @rdz17_min/2 + @rdz17_cas; }      
-      [zoom>=18] { line-width: @rdz18_min/2 + @rdz18_cas; }      
+      [zoom=14] { line-width: 0; }      
+      [zoom=15] { line-width: 0; }      
+      [zoom=16] { line-width: @r16_path + @r16_cas; }      
+      [zoom=17] { line-width: @r17_path + @r17_cas; }      
+      [zoom=18] { line-width: @r18_path + @r18_cas; }
+	  [zoom=19] { line-width: @r19_path + @r19_cas; }
+	  [zoom=20] { line-width: @r20_path + @r20_cas; }      
     }    
     ::inline[zoom>=14] {      
       line-color: @path-fill;               
@@ -279,14 +295,16 @@
       line-cap: round;
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
-      [zoom=14] { line-width: @rdz14_min/2; }      
-      [zoom=15] { line-width: @rdz15_min/2; }
-      [zoom=16] { line-width: @rdz16_min/2; }
-      [zoom=17] { line-width: @rdz17_min/2; }
-      [zoom>=18] { line-width: @rdz18_min/2; }            
+      [zoom=14] { line-width: @r14_path; line-color: @minor-line; }      
+      [zoom=15] { line-width: @r15_path; line-color: @minor-line; }
+      [zoom=16] { line-width: @r16_path; }
+      [zoom=17] { line-width: @r17_path; }
+      [zoom=18] { line-width: @r18_path; }
+	  [zoom=19] { line-width: @r19_path; }
+	  [zoom=20] { line-width: @r20_path; }            
     }    
   }
-
+/*
   [type='pedestrian']  {    
     ::casing[zoom>=14] {
       line-color: @trail-casing;
@@ -339,7 +357,7 @@
       [zoom>=18] { line-width: @rdz18_min/2; }            
     }    
   }  
-    
+    */
 }
 
 // Detailed railways
