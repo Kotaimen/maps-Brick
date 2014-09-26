@@ -22,7 +22,7 @@
 >
     <StyleName>sea</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/Users/Kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
     
