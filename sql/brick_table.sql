@@ -130,4 +130,42 @@ CREATE INDEX ON label_roads_gen1 USING gist(geometry);
 CREATE INDEX ON label_roads_gen1(type);
 
 
+DROP TABLE IF EXISTS label_roads CASCADE;
+CREATE TABLE label_roads AS
+    SELECT     class, type, name, 
+            length(name) AS name_length, 
+            tunnel AS is_tunnel, 
+            bridge AS is_bridge, 
+            CASE
+                WHEN sin(pi() / 2 - st_azimuth(st_startpoint(geometry), st_endpoint(geometry))) > 0 THEN 1
+                ELSE (-1)
+            END AS direction,
+            st_segmentize(geometry, 1000) AS geometry
+    FROM (
+         SELECT     class, 
+         		road_type(class, type) AS type,
+                regexp_replace(name, '(.*)\(.*\)', '\1') AS name,
+                tunnel,
+                bridge,
+                road_rank(class, type) AS rank,
+                geometry
+        FROM osm_road_labels
+        UNION ALL
+        SELECT     'ferry' AS class, 
+                'ferry' AS type, 
+                name,
+                0 AS tunnel,
+                0 AS bridge,
+                100 as rank,
+                geometry
+        FROM osm_landusage_ways
+        WHERE type='ferry'
+    ) AS foo
+    ORDER BY rank DESC, name_length DESC, is_bridge DESC, is_tunnel DESC, name;
+
+SELECT POPULATE_GEOMETRY_COLUMNS('label_roads'::regclass, true);
+CREATE INDEX ON label_roads USING gist(geometry);
+CREATE INDEX ON label_roads(class);
+CREATE INDEX ON label_roads(type);
+
 COMMIT;
