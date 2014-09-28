@@ -249,7 +249,7 @@
       [zoom=12] { line-width: 0; }      
       [zoom=13] { line-width: 0; }      
       [zoom=14] { line-width: 0; }      
-      [zoom=15] { line-width: 0; }      
+      [zoom=15] { line-width: @r15_min + @r15_cas; }      
       [zoom=16] { line-width: @r16_min + @r16_cas; }      
       [zoom=17] { line-width: @r17_min + @r17_cas; }      
       [zoom=18] { line-width: @r18_min + @r18_cas; }
@@ -265,7 +265,7 @@
       [zoom=12] { line-width: @r12_min; line-color: @minor-line; } 
       [zoom=13] { line-width: @r13_min; line-color: @minor-line; }
       [zoom=14] { line-width: @r14_min; line-color: @minor-line; }
-      [zoom=15] { line-width: @r15_min; line-color: @minor-line; }
+      [zoom=15] { line-width: @r15_min; }
       [zoom=16] { line-width: @r16_min; }
       [zoom=17] { line-width: @r17_min; }
       [zoom=18] { line-width: @r18_min; }
@@ -304,7 +304,7 @@
 	  [zoom=20] { line-width: @r20_path; }            
     }    
   }
-/*
+
   [type='pedestrian']  {    
     ::casing[zoom>=14] {
       line-color: @trail-casing;
@@ -312,11 +312,13 @@
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
       [is_bridge=0] { line-cap: round; }
-      [zoom=14] { line-width: @rdz14_min/3 + @rdz15_cas;}      
-      [zoom=15] { line-width: @rdz15_min/3 + @rdz15_cas; }      
-      [zoom=16] { line-width: @rdz16_min/3 + @rdz16_cas; }      
-      [zoom=17] { line-width: @rdz17_min/3 + @rdz17_cas; }      
-      [zoom>=18] { line-width: @rdz18_min/3 + @rdz18_cas; }      
+      [zoom=14] { line-width: 0; }      
+      [zoom=15] { line-width: 0; }      
+      [zoom=16] { line-width: @r16_path/3 + @r16_cas; }      
+      [zoom=17] { line-width: @r17_path/3 + @r17_cas; }      
+      [zoom=18] { line-width: @r18_path/3 + @r18_cas; }
+	  [zoom=19] { line-width: @r19_path/3 + @r19_cas; }
+	  [zoom>=20] { line-width: @r20_path/3 + @r20_cas; }    
     }    
     ::inline[zoom>=14] {      
       line-color: @trail-fill;               
@@ -324,11 +326,13 @@
       line-cap: round;
       line-clip: @line-clip;
       line-rasterizer: @line-rasterizer;      
-      [zoom=14] { line-width: @rdz14_min/3; }      
-      [zoom=15] { line-width: @rdz15_min/3; }
-      [zoom=16] { line-width: @rdz16_min/3; }
-      [zoom=17] { line-width: @rdz17_min/3; }
-      [zoom>=18] { line-width: @rdz18_min/3; }            
+      [zoom=14] { line-width: @r14_path/2; line-color: @trail-line; }      
+      [zoom=15] { line-width: @r15_path/2; line-color: @trail-line; }
+      [zoom=16] { line-width: @r16_path/2; }
+      [zoom=17] { line-width: @r17_path/2; }
+      [zoom=18] { line-width: @r18_path/2; }
+	  [zoom=19] { line-width: @r19_path/2; }
+	  [zoom>=20] { line-width: @r20_path/2; }         
     }    
   }
   
@@ -338,11 +342,11 @@
 	  line-dasharray: @road-dash;
       line-join: round;
       line-clip: @line-clip;
-      [zoom=14] { line-width: @rdz14_min/2 + @rdz15_cas;}      
-      [zoom=15] { line-width: @rdz15_min/2 + @rdz15_cas; }      
-      [zoom=16] { line-width: @rdz16_min/2 + @rdz16_cas; }      
-      [zoom=17] { line-width: @rdz17_min/2 + @rdz17_cas; }      
-      [zoom>=18] { line-width: @rdz18_min/2 + @rdz18_cas; }      
+      [zoom=14] { line-width: 0; }      
+      [zoom=15] { line-width: 0; }      
+      [zoom=16] { line-width: @r16_min/2 + @r16_cas; }      
+      [zoom=17] { line-width: @r17_min/2 + @r17_cas; }      
+      [zoom>=18] { line-width: @r18_min/2 + @r18_cas; }      
     }    
     ::inline[zoom>=14] {      
       line-color: @path-fill;               
@@ -350,14 +354,14 @@
       line-join:round;
       line-cap: butt;
       line-clip: @line-clip;
-      [zoom=14] { line-width: @rdz14_min/2; }      
-      [zoom=15] { line-width: @rdz15_min/2; }
-      [zoom=16] { line-width: @rdz16_min/2; }
-      [zoom=17] { line-width: @rdz17_min/2; }
-      [zoom>=18] { line-width: @rdz18_min/2; }            
+      [zoom=14] { line-width: @r14_min/2; line-color: @path-line; }      
+      [zoom=15] { line-width: @r15_min/2; line-color: @path-line; }
+      [zoom=16] { line-width: @r16_min/2; }
+      [zoom=17] { line-width: @r17_min/2; }
+      [zoom>=18] { line-width: @r18_min/2; }            
     }    
   }  
-    */
+    
 }
 
 // Detailed railways
