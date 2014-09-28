@@ -51,7 +51,7 @@
 
 //// amenities
 @amenity:           #788c78;
-@religion:          #ddc7c5;
+@religion:          @wooded;
 @healthcare:        #ddc7c5;
 @educational:       @amenity;
 @barrier:           darken(@amenity, 5%);
@@ -82,34 +82,34 @@
 @ferry-line:        @land;
 
 @motorway-fill:     #960303;
-@motorway-line:     fadeout(@motorway-fill, 80%);
+@motorway-line:     mix(@motorway-fill, @land, 65%); //fadeout(@motorway-fill, 80%);
 @motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
 
 @primary-fill:   	#27275e;
-@primary-line:      fadeout(@primary-fill, 60%);
+@primary-line:      mix(@primary-fill, @land, 65%); //fadeout(@primary-fill, 60%);
 @primary-casing: 	@casing;
 
 @secondary-fill:    @primary-fill;
-@secondary-line:    fadeout(@secondary-fill, 60%);
+@secondary-line:    mix(@secondary-fill, @land, 65%); //fadeout(@secondary-fill, 60%);
 @secondary-casing:  @casing;
 
 @minor-fill:		@primary-fill;
-@minor-line:        fadeout(@minor-fill, 50%);
+@minor-line:        mix(@minor-fill, @land, 65%); //fadeout(@minor-fill, 50%);
 @minor-casing: 		@casing;
 
 @path-fill:	        @primary-fill;
-@path-line:         fadeout(@path-fill, 50%);
+@path-line:         mix(@primary-fill, @land, 65%); //fadeout(@path-fill, 50%);
 @path-casing:       @casing;
 
 @trail-fill:	    @primary-fill;
-@trail-line:        fadeout(@trail-fill, 50%);
+@trail-line:        mix(@trail-fill, @land, 65%); //fadeout(@trail-fill, 50%);
 @trail-casing:      @casing;
 
 // Desaturate gives rail slightly cool grey feel
-@rail-fill:         @land;
-@rail-line: 	    mix(@primary-fill, @land, 50%);
+@rail-fill:         @primary-fill;
+@rail-line: 	    mix(@rail-fill, @land, 50%);
 @rail-casing:       @land;
 
 
@@ -126,21 +126,21 @@
 // ========== Label Colors ==========
 
 // place label
-@label-admin0:      #27275e;
+@label-admin0:      @motorway-fill;
 @label-admin1:      @label-admin0;
 @label-place:       @label-admin0;
 
 // poi label
-@label-poi:         @label-admin0;
-@label-water:       @label-admin0;
-@label-park:        @label-admin0;
-@label-physical:    @label-admin0;
+@label-poi:         #27275e;
+@label-water:       @label-poi;
+@label-park:        @label-poi;
+@label-physical:    @label-poi;
 
 // road label
-@label-motorway:    @label-admin0;
-@label-primary:     @label-admin0;
-@label-path:        @label-admin0;
-@label-rail:        @label-admin0;
+@label-motorway:    #27275e;
+@label-primary:     @label-motorway;
+@label-path:        @label-motorway;
+@label-rail:        @label-motorway;
 
 @label-shield:      black;
 
@@ -220,12 +220,12 @@
 
 @font-regular:      'Cochin Bold Italic', 'Noto Sans Japanese Bold', 'Arial Unicode MS Regular';
 @font-heavy:        'Cochin Bold Italic', 'Arial Unicode MS Regular';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Roboto Italic', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Medium Italic', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Italic', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Italic', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
+@font-physical:     'Roboto Black Italic', 'Arial Unicode MS Regular';
+@font-poi:          'Roboto Black Italic', 'Arial Unicode MS Regular';
+@font-motorway:     'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
+@font-primary:      'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
+@font-path:         'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Medium', 'Arial Unicode MS Regular';
 
 // ========== Map ==========
 
