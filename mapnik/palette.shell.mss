@@ -82,7 +82,7 @@
 @ferry-line:        @land;
 
 @motorway-fill:     #960303;
-@motorway-line:     mix(@motorway-fill, @land, 65%); //fadeout(@motorway-fill, 80%);
+@motorway-line:     fadeout(@motorway-fill, 80%); //mix(@motorway-fill, @land, 55%);
 @motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
@@ -150,12 +150,12 @@
   ::casing { 
     opacity: 0.6; 
 //    image-filters: scale-hsla(0,1,0,1,0,1,0,1);
-	image-filters: invert();
+	//image-filters: invert();
   }
   // knock out the casing
   ::inline { 
-    opacity: 1; 
-    comp-op: dst-out;  
+    opacity: 0; 
+//    comp-op: dst-out;  
   }  
   ::rail { opacity: 0.5; }
 }
@@ -163,8 +163,8 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.4; 
-//    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
+  ::inline { opacity: 1; 
+    image-filters: scale-hsla(0,1,0,0.3,0.5,1,0,1);
   }
   ::marker { opacity: 0.5;}
 }
@@ -218,7 +218,7 @@
 @label-text-transform: none;
 @fall-back:         'Arial Unicode MS Regular';
 
-@font-regular:      'Cochin Bold Italic', 'Noto Sans Japanese Bold', 'Arial Unicode MS Regular';
+@font-regular:      'Cochin Bold Italic', 'Arial Unicode MS Regular';
 @font-heavy:        'Cochin Bold Italic', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Black Italic', 'Arial Unicode MS Regular';
 @font-poi:          'Roboto Black Italic', 'Arial Unicode MS Regular';
