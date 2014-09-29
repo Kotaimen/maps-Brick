@@ -82,7 +82,7 @@
 @ferry-line:        @land;
 
 @motorway-fill:     #960303;
-@motorway-line:     fadeout(@motorway-fill, 80%); //mix(@motorway-fill, @land, 55%);
+@motorway-line:     #ad5e59;
 @motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
@@ -127,7 +127,7 @@
 
 // place label
 @label-admin0:      @motorway-fill;
-@label-admin1:      @label-admin0;
+@label-admin1:      #27275e;
 @label-place:       @label-admin0;
 
 // poi label
