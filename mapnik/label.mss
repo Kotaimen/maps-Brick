@@ -162,8 +162,8 @@
     text-name: '';
     [zoom=4] { text-size: 12; text-name: '[label_z4]'; }
     [zoom=5] { text-size: 12; text-name: '[label_z5]'; }
-    [zoom=6] { text-size: 14; text-name: '[label_z6]'; }
-    [zoom>=7] { text-size: 16; text-name: '[label_z7]'; }
+    [zoom=6] { text-size: 14; text-name: '[label_z5]'; }
+    [zoom>=7] { text-size: 16; text-name: '[label_z6]'; }
 
     text-placement: point;
     text-fill: @label-admin1;
@@ -480,13 +480,13 @@
     text-name: "[name]";
     text-placement: line; 
     text-max-char-angle-delta: 20;    
-   text-clip: false;
+    text-clip: false;
     text-min-padding: 8;
 
     text-face-name: @font-path;
     text-fill: @label-path;
     text-halo-radius: @smart-halo;
-	text-halo-fill: @path-label-halo;
+	text-halo-fill: @label-halo;
     text-halo-rasterizer: @halo-quality;        
     [is_tunnel=1] { 
       text-opacity: 0.5; 
