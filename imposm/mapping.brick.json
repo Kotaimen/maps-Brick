@@ -1,78 +1,6 @@
 {
-    "generalized_tables": {
-        "landusages_gen0": {
-            "source": "landusages_gen1",
-            "sql_filter": "ST_Area(geometry)>500000.000000",
-            "tolerance": 200.0
-        },
-        "landusages_gen1": {
-            "source": "landusage_areas",
-            "sql_filter": "ST_Area(geometry)>50000.000000",
-            "tolerance": 20.0
-        },
-	"landusage_area_labels": {
-	    "source": "landusage_areas",
-	    "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 1024 AND ST_Area(geometry) < 10240000 AND name IS NOT NULL AND name != ''",
-	    "tolerence": null
-	},
-	"landusage_area_labels_gen1": {
-	    "source": "landusages_gen1",
-            "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 10240000 AND name IS NOT NULL AND name != ''",
-            "tolerence": null
-        },
-        "landusage_area_labels_gen0": {
-            "source": "landusages_gen0",
-            "sql_filter": "ST_IsValid(geometry) AND ST_Area(geometry) > 1024000000 AND name IS NOT NULL AND name != ''",
-            "tolerence": null
-        },
-	"road_labels": {
- 	    "source": "roads",
-	    "sql_filter": "name IS NOT NULL AND name != ''",
-	    "tolerence": null
-	},
-	"road_labels_gen0": {
-  	    "source": "roads_gen0",
-	    "sql_filter": "name IS NOT NULL AND name != ''",
-	    "tolerence": null
-	},
-	"road_labels_gen1": {
-	    "source": "roads_gen1",
-            "sql_filter": "name IS NOT NULL AND name != ''",
-            "tolerence": null
-        },
-        "roads_gen0": {
-            "source": "roads_gen1",
-            "sql_filter": "type IN ('motorway', 'trunk', 'primary')",
-            "tolerance": 200.0
-        },
-        "roads_gen1": {
-            "source": "roads",
-            "sql_filter": "type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'minor', 'rail')",
-            "tolerance": 20.0
-        },
-        "waterareas_gen0": {
-            "source": "waterareas_gen1",
-            "sql_filter": "ST_Area(geometry)>500000.000000",
-            "tolerance": 200.0
-        },
-        "waterareas_gen1": {
-            "source": "waterareas",
-            "sql_filter": "ST_Area(geometry)>50000.000000",
-            "tolerance": 20.0
-        },
-        "waterways_gen0": {
-            "source": "waterways_gen1",
-            "sql_filter": null,
-            "tolerance": 200
-        },
-        "waterways_gen1": {
-            "source": "waterways",
-            "sql_filter": "type = 'river'",
-            "tolerance": 20.0
-        }
-    },
     "tables": {
-        "admin": {
+        "boundary": {
             "fields": [
                 {
                     "key": null,
@@ -81,13 +9,8 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
@@ -95,14 +18,25 @@
                     "type": "mapping_value"
                 },
                 {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
+                },
+                {
                     "key": "admin_level",
                     "name": "admin_level",
                     "type": "integer"
+                },
+                {
+                    "key": "border_type",
+                    "name": "border_type",
+                    "type": "string"
                 }
             ],
             "mapping": {
                 "boundary": [
-                    "administrative"
+                    "administrative",
+                    "maritime"
                 ]
             },
             "type": "polygon"
@@ -116,18 +50,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 }
             ],
             "mapping": {
@@ -139,88 +73,6 @@
             },
             "type": "linestring"
         },
-        "amenities": {
-            "fields": [
-                {
-                    "key": null,
-                    "name": "osm_id",
-                    "type": "id"
-                },
-                {
-                    "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "key": null,
-                    "name": "type",
-                    "type": "mapping_value"
-                }
-            ],
-            "mapping": {
-                "amenity": [
-                    "university",
-                    "school",
-                    "library",
-                    "fuel",
-                    "hospital",
-                    "fire_station",
-                    "police",
-                    "townhall"
-                ]
-            },
-            "type": "point"
-        },
-        "barrierpoints": {
-            "fields": [
-                {
-                    "key": null,
-                    "name": "osm_id",
-                    "type": "id"
-                },
-                {
-                    "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "key": null,
-                    "name": "type",
-                    "type": "mapping_value"
-                }
-            ],
-            "mapping": {
-                "barrier": [
-                    "block",
-                    "bollard",
-                    "cattle_grid",
-                    "chain",
-                    "cycle_barrier",
-                    "entrance",
-                    "horse_stile",
-                    "gate",
-                    "spikes",
-                    "lift_gate",
-                    "kissing_gate",
-                    "fence",
-                    "yes",
-                    "wire_fence",
-                    "toll_booth",
-                    "stile"
-                ]
-            },
-            "type": "point"
-        },
         "barrierways": {
             "fields": [
                 {
@@ -230,18 +82,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 }
             ],
             "mapping": {
@@ -272,18 +124,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 }
             ],
             "mapping": {
@@ -302,18 +154,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 },
                 {
                     "key": "addr:street",
@@ -328,82 +180,45 @@
                 {
                     "key": "addr:city",
                     "name": "addr:city",
+                    "type": "string"
+                },
+                {
+                    "key": "addr:state",
+                    "name": "addr:state",
+                    "type": "string"
+                },
+                {
+                    "key": "addr:country",
+                    "name": "addr:country",
+                    "type": "string"
+                },
+                {
+                    "key": "addr:full",
+                    "name": "addr:full",
+                    "type": "string"
+                },
+                {
+                    "key": "addr:interpolation",
+                    "name": "addr:interpolation",
                     "type": "string"
                 }
             ],
             "mapping": {
                 "addr:housenumber": [
                     "__any__"
+                ],
+                "addr:housename": [
+                    "__any__"
                 ]
             },
             "type": "point"
         },
-        "housenumbers_interpolated": {
+        "landuse_areas": {
             "fields": [
                 {
                     "key": null,
                     "name": "osm_id",
                     "type": "id"
-                },
-                {
-                    "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "key": null,
-                    "name": "type",
-                    "type": "mapping_value"
-                },
-                {
-                    "key": "addr:street",
-                    "name": "addr:street",
-                    "type": "string"
-                },
-                {
-                    "key": "addr:postcode",
-                    "name": "addr:postcode",
-                    "type": "string"
-                },
-                {
-                    "key": "addr:city",
-                    "name": "addr:city",
-                    "type": "string"
-                },
-                {
-                    "key": "addr:inclusion",
-                    "name": "addr:inclusion",
-                    "type": "string"
-                }
-            ],
-            "mapping": {
-                "addr:interpolation": [
-                    "__any__"
-                ]
-            },
-            "type": "linestring"
-        },
-        "landusage_areas": {
-            "fields": [
-                {
-                    "key": null,
-                    "name": "osm_id",
-                    "type": "id"
-                },
-                {
-                    "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
                 },
                 {
                     "key": null,
@@ -414,6 +229,21 @@
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
+                },
+                {
+                    "key": "name",
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "key": "name:en",
+                    "name": "name:en",
+                    "type": "string"
                 },
                 {
                     "key": null,
@@ -430,6 +260,9 @@
                 ],
                 "barrier": [
                     "__any__"
+                ],
+                "boundary": [
+                    "national_park"
                 ],
                 "highway": [
                     "__any__"
@@ -454,19 +287,26 @@
                 ],
                 "tourism": [
                     "__any__"
-                ],
-                "boundary": [
-                    "national_park"
                 ]
             },
             "type": "polygon"
         },
-        "landusage_ways": {
+        "landuse_ways": {
             "fields": [
                 {
                     "key": null,
                     "name": "osm_id",
                     "type": "id"
+                },
+                {
+                    "key": null,
+                    "name": "class",
+                    "type": "mapping_key"
+                },
+                {
+                    "key": null,
+                    "name": "type",
+                    "type": "mapping_value"
                 },
                 {
                     "key": null,
@@ -479,14 +319,9 @@
                     "type": "string"
                 },
                 {
-                    "key": null,
-                    "name": "class",
-                    "type": "mapping_key"
-                },
-                {
-                    "key": null,
-                    "name": "type",
-                    "type": "mapping_value"
+                    "key": "name:en",
+                    "name": "name:en",
+                    "type": "string"
                 }
             ],
             "mapping": {
@@ -513,6 +348,16 @@
                 },
                 {
                     "key": null,
+                    "name": "class",
+                    "type": "mapping_key"
+                },
+                {
+                    "key": null,
+                    "name": "type",
+                    "type": "mapping_value"
+                },
+                {
+                    "key": null,
                     "name": "geometry",
                     "type": "geometry"
                 },
@@ -522,9 +367,9 @@
                     "type": "string"
                 },
                 {
-                    "key": null,
-                    "name": "type",
-                    "type": "mapping_value"
+                    "key": "name:en",
+                    "name": "name:en",
+                    "type": "string"
                 },
                 {
                     "key": "population",
@@ -534,16 +379,7 @@
             ],
             "mapping": {
                 "place": [
-                    "country",
-                    "state",
-                    "region",
-                    "county",
-                    "city",
-                    "town",
-                    "village",
-                    "hamlet",
-                    "suburb",
-                    "locality"
+                    "__any__"
                 ]
             },
             "type": "point"
@@ -557,8 +393,8 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
@@ -566,8 +402,18 @@
                     "type": "mapping_value"
                 },
                 {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
+                },
+                {
                     "key": "name",
                     "name": "name",
+                    "type": "string"
+                },
+                {
+                    "key": "name:en",
+                    "name": "name:en",
                     "type": "string"
                 },
                 {
@@ -594,21 +440,6 @@
                     "key": "layer",
                     "name": "layer",
                     "type": "integer"
-                },
-                {
-                    "key": "access",
-                    "name": "access",
-                    "type": "string"
-                },
-                {
-                    "key": "service",
-                    "name": "service",
-                    "type": "string"
-                },
-                {
-                    "key": null,
-                    "name": "class",
-                    "type": "mapping_key"
                 }
             ],
             "filters": {
@@ -662,8 +493,8 @@
                             "pedestrian",
                             "living_street",
                             "raceway",
-			    "proposed",
-			    "construction"
+                            "proposed",
+                            "construction"
                         ]
                     }
                 }
@@ -679,18 +510,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 }
             ],
             "mapping": {
@@ -716,18 +547,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 },
                 {
                     "key": "ref",
@@ -767,18 +598,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 },
                 {
                     "key": null,
@@ -791,10 +622,10 @@
                     "swimming_pool"
                 ],
                 "landuse": [
-	    	    "water",
-		    "water_reservoir",
-		    "pond",
-		    "salt_pond",
+                    "water",
+                    "water_reservoir",
+                    "pond",
+                    "salt_pond",
                     "basin",
                     "reservoir"
                 ],
@@ -825,18 +656,18 @@
                 },
                 {
                     "key": null,
-                    "name": "geometry",
-                    "type": "geometry"
-                },
-                {
-                    "key": "name",
-                    "name": "name",
-                    "type": "string"
+                    "name": "class",
+                    "type": "mapping_key"
                 },
                 {
                     "key": null,
                     "name": "type",
                     "type": "mapping_value"
+                },
+                {
+                    "key": null,
+                    "name": "geometry",
+                    "type": "geometry"
                 }
             ],
             "mapping": {
