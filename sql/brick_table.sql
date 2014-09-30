@@ -231,6 +231,7 @@ CREATE INDEX ON public.osm_landuse_areas_gen1(area);
 CREATE INDEX ON public.osm_landuse_areas_gen1 USING gist(ST_PointOnSurface(ST_Multi(geometry))) WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
 
 -- waterareas
+CREATE INDEX ON public.osm_waterareas(type);
 CREATE INDEX ON public.osm_waterareas(area);
 
 DROP TABLE IF EXISTS public.osm_waterareas_gen0 CASCADE;
@@ -246,6 +247,30 @@ CREATE TABLE public.osm_waterareas_gen1 AS
 	FROM osm_waterareas WHERE area > 500000.0;
 ALTER TABLE public.osm_waterareas_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_waterareas_gen1 USING gist(geometry);
+
+-- waterways
+CREATE INDEX ON pulbic.osm_waterways(type);
+
+DROP TABLE IF EXISTS public.osm_waterways_gen0 CASCADE;
+CREATE TABLE public.osm_waterways_gen0 AS
+	SELECT id, osm_id, class, type, ST_Simplify(geometry, 10)::Geometry('LineString', 3857) AS geometry 
+	FROM osm_waterways WHERE type = 'river';
+ALTER TABLE public.osm_waterways_gen0 ADD PRIMARY KEY (id);
+CREATE INDEX ON public.osm_waterways_gen0 USING gist(geometry);
+
+DROP TABLE IF EXISTS public.osm_waterways_gen1 CASCADE;
+CREATE TABLE public.osm_waterways_gen1 AS
+	SELECT id, osm_id, class, type, ST_Simplify(geometry, 150)::Geometry('LineString', 3857) AS geometry 
+	FROM osm_waterways WHERE type = 'river';
+ALTER TABLE public.osm_waterways_gen1 ADD PRIMARY KEY (id);
+CREATE INDEX ON public.osm_waterways_gen1 USING gist(geometry);
+
+-- boundary
+CREATE INDEX ON public.osm_boundary(type);
+
+-- places
+CREATE INDEX ON osm_places(type);
+CREATE INDEX ON osm_places(population);
 
 -- lable roads
 -- class, type, name, name_length, name:en, name:en_length, is_tunnel, is_bridge, direction, geometry
