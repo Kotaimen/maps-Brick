@@ -76,7 +76,7 @@ composer=dict(\
     )  -compose Darken -composite
     
     # Make "real" duetone effect, not fake color tint.
-    -brightness-contrast -15x-10
+    -brightness-contrast -12x-10
     
     # Convert to grayscale then apply duetone lookup table
     # The reference duotone images are converted from 
@@ -98,7 +98,7 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth',
                   ),
     storage=dict(prototype='cluster',
-               stride=8,
+               stride=4,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),

@@ -4,7 +4,7 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'brick2.mk9'
+tag = 'brick'
 tile_size = 256
 
 fmt = 'png'
@@ -26,11 +26,11 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
-               stride=8,
+               stride=4,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
-    pyramid=dict(levels=range(2, 21),
+    pyramid=dict(levels=range(2, 20),
                  zoom=8,
                  center=(-122.4321, 37.7702),
                  format=fmt,

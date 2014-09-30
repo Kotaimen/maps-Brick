@@ -80,7 +80,7 @@ composer=dict(\
     # Make "real" duetone effect, not fake color tint.
     # First reduce brightness and contrast (the original 'mono' theme 
     # is high contrast white/black ) so the image fit in mid tone range.
-    -brightness-contrast -15x-10
+    -brightness-contrast -12x-10
     
     # Convert to grayscale then apply duetone lookup table
     # The reference duotone images are converted from 
@@ -88,8 +88,8 @@ composer=dict(\
     -colorspace gray %(lut)s -clut
     
     # Finally, convert to paletted png
-#    -dither none
-#    -colors 128
+    -dither none
+    -colors 128
     ''' % dict(lut=os.path.join(themedir, 'mapnik/res/duotone/Bl-for-dark-cg9-cg2.png')),
     )
 
@@ -102,7 +102,7 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth',
                   ),
     storage=dict(prototype='cluster',
-               stride=8,
+               stride=4,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),

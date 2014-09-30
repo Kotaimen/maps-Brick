@@ -10,10 +10,9 @@ tile_size = 256
 fmt = 'png'
 
 all_ = dict(\
-    prototype='node.brick2',
-    theme=os.path.join(themedir, 'mapnik/xml/shell'),
-    buffer_size=tile_size*1,
-    halo_opacity=0.7,
+    prototype='node.mapnik',
+    theme=os.path.join(themedir, 'mapnik/xml/shell_all.xml'),
+    buffer_size=tile_size,
     scale_factor=1,
     )
         
@@ -26,7 +25,7 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
-               stride=8,
+               stride=4,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
