@@ -249,7 +249,7 @@ ALTER TABLE public.osm_waterareas_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_waterareas_gen1 USING gist(geometry);
 
 -- waterways
-CREATE INDEX ON pulbic.osm_waterways(type);
+CREATE INDEX ON public.osm_waterways(type);
 
 DROP TABLE IF EXISTS public.osm_waterways_gen0 CASCADE;
 CREATE TABLE public.osm_waterways_gen0 AS

@@ -1,4 +1,4 @@
-BEGIN;
+﻿BEGIN;
 
 CREATE SCHEMA IF NOT EXISTS "brick";
 
@@ -67,8 +67,8 @@ DROP VIEW IF EXISTS buildings;
 CREATE OR REPLACE VIEW buildings AS SELECT osm_id AS gid, 'building'::text AS class, type, geometry FROM osm_buildings ORDER BY ST_YMin(ST_Envelope(geometry)) DESC;
 
 -- administration
-DROP VIEW IF EXISTS admins;
-CREATE OR REPLACE VIEW admins AS SELECT osm_id AS gid, 'admin'::text AS class, type, geometry FROM osm_admin WHERE admin_level<=4;
+--DROP VIEW IF EXISTS admins;
+--CREATE OR REPLACE VIEW admins AS SELECT osm_id AS gid, 'admin'::text AS class, type, geometry FROM osm_admin WHERE admin_level<=4;
 
 
 
@@ -113,7 +113,7 @@ CREATE OR REPLACE VIEW roads_gen0 AS
         END::smallint AS layer,
         road_rank(class, type) AS rank,
         geometry
-    FROM osm_roads_gen1
+    FROM osm_roads_gen0
     ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
 CREATE OR REPLACE VIEW roads_gen1 AS 
     SELECT 
@@ -133,7 +133,7 @@ CREATE OR REPLACE VIEW roads_gen1 AS
         END::smallint AS layer,
         road_rank(class, type) AS rank,
         geometry
-    FROM osm_roads_gen0
+    FROM osm_roads_gen1
     ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
         
 
