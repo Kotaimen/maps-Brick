@@ -181,58 +181,67 @@ $$ LANGUAGE plpgsql;
 
 
 -- roads
-CREATE INDEX ON public.osm_roads(type);
-CREATE INDEX ON public.osm_roads(name) WHERE name IS NOT NULL AND name != '';
-CREATE INDEX ON public.osm_roads(class, type, ref) WHERE ref IS NOT NULL AND ref != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary'));
+CREATE INDEX ON public.osm_roads(type); -- for accelerating creation of road gen0, gen1
+CREATE INDEX ON public.osm_roads(name) 
+	WHERE name IS NOT NULL AND name != ''; -- for accelerating creation of road names
+CREATE INDEX ON public.osm_roads(class, type, ref) 
+	WHERE ref IS NOT NULL AND ref != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')); -- for accelerating creation of road refs
 
 DROP TABLE IF EXISTS public.osm_roads_gen0 CASCADE;
 CREATE TABLE public.osm_roads_gen0 AS
-	SELECT id, osm_id, class, type, name, "name:en", tunnel, bridge, oneway, ref, layer, ST_Simplify(geometry, 10)::Geometry('LineString', 3857) AS geometry FROM osm_roads WHERE type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'rail');
+	SELECT id, osm_id, class, type, name, "name:en", tunnel, bridge, oneway, ref, layer, ST_Simplify(geometry, 10)::Geometry('LineString', 3857) AS geometry 
+	FROM osm_roads 
+	WHERE type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'rail');
 SELECT populate_geometry_columns('public.osm_roads_gen0'::regclass, true);
 ALTER TABLE public.osm_roads_gen0 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_roads_gen0 USING gist(geometry);
-CREATE INDEX ON public.osm_roads_gen0(type);
-CREATE INDEX ON public.osm_roads_gen0(class, type, name, "name:en") WHERE name IS NOT NULL AND name != '';
-CREATE INDEX ON public.osm_roads_gen0(class, type, ref) WHERE ref IS NOT NULL AND ref != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary'));
+CREATE INDEX ON public.osm_roads_gen0(class, type, name, "name:en") 
+	WHERE name IS NOT NULL AND name != '';  -- for accelerating creation of road names
+CREATE INDEX ON public.osm_roads_gen0(class, type, ref) 
+	WHERE ref IS NOT NULL AND ref != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')); -- for accelerating creation of road refs
 
 DROP TABLE IF EXISTS public.osm_roads_gen1 CASCADE;
 CREATE TABLE public.osm_roads_gen1 AS
-	SELECT id, osm_id, class, type, name, "name:en", tunnel, bridge, oneway, ref, layer, ST_Simplify(geometry, 150)::Geometry('LineString', 3857) AS geometry FROM osm_roads WHERE type IN ('motorway', 'trunk', 'primary');
+	SELECT id, osm_id, class, type, name, "name:en", tunnel, bridge, oneway, ref, layer, ST_Simplify(geometry, 150)::Geometry('LineString', 3857) AS geometry 
+	FROM osm_roads 
+	WHERE type IN ('motorway', 'trunk', 'primary');
 SELECT populate_geometry_columns('public.osm_roads_gen1'::regclass, true);
 ALTER TABLE public.osm_roads_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_roads_gen1 USING gist(geometry);
-CREATE INDEX ON public.osm_roads_gen1(type);
-CREATE INDEX ON public.osm_roads_gen1(class, type, name, "name:en") WHERE name IS NOT NULL AND name != '';
-CREATE INDEX ON public.osm_roads_gen1(class, type, ref) WHERE ref IS NOT NULL AND ref != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary'));
+CREATE INDEX ON public.osm_roads_gen1(class, type, name, "name:en") 
+	WHERE name IS NOT NULL AND name != ''; -- for accelerating creation of road names
+CREATE INDEX ON public.osm_roads_gen1(class, type, ref) 
+	WHERE ref IS NOT NULL AND ref != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')); -- for accelerating creation of road refs
 
 -- landuse areas
-CREATE INDEX ON public.osm_landuse_areas(type);
-CREATE INDEX ON public.osm_landuse_areas(area);
-CREATE INDEX ON public.osm_landuse_areas USING gist(ST_PointOnSurface(ST_Multi(geometry))) WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
+CREATE INDEX ON public.osm_landuse_areas(area); -- for accelerating creation of gen0, gen1
+CREATE INDEX ON public.osm_landuse_areas USING gist(ST_PointOnSurface(ST_Multi(geometry)))
+	WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != ''; -- for queries of landuse labels
 
 DROP TABLE IF EXISTS public.osm_landuse_areas_gen0 CASCADE;
 CREATE TABLE public.osm_landuse_areas_gen0 AS
-	SELECT id, osm_id, class, type, name, "name:en", area, ST_Multi(ST_Simplify(geometry, 10))::Geometry('MultiPolygon', 3857) AS geometry FROM osm_landuse_areas WHERE ST_Area(geometry) > 5000.0;
+	SELECT id, osm_id, class, type, name, "name:en", area, ST_Multi(ST_Simplify(geometry, 10))::Geometry('MultiPolygon', 3857) AS geometry 
+	FROM osm_landuse_areas WHERE area > 5000.0;
 SELECT populate_geometry_columns('public.osm_landuse_areas_gen0'::regclass, true);
 ALTER TABLE public.osm_landuse_areas_gen0 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_landuse_areas_gen0 USING gist(geometry);
-CREATE INDEX ON public.osm_landuse_areas_gen0(type);
 CREATE INDEX ON public.osm_landuse_areas_gen0(area);
-CREATE INDEX ON public.osm_landuse_areas_gen0 USING gist(ST_PointOnSurface(ST_Multi(geometry))) WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
+CREATE INDEX ON public.osm_landuse_areas_gen0 USING gist(ST_PointOnSurface(ST_Multi(geometry)))
+	WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
 
 DROP TABLE IF EXISTS public.osm_landuse_areas_gen1 CASCADE;
 CREATE TABLE public.osm_landuse_areas_gen1 AS
-	SELECT id, osm_id, class, type, name, "name:en", area, ST_Multi(ST_Simplify(geometry, 150))::Geometry('MultiPolygon', 3857) AS geometry FROM osm_landuse_areas WHERE ST_Area(geometry) > 500000.0;
+	SELECT id, osm_id, class, type, name, "name:en", area, ST_Multi(ST_Simplify(geometry, 150))::Geometry('MultiPolygon', 3857) AS geometry 
+	FROM osm_landuse_areas WHERE area > 500000.0;
 SELECT populate_geometry_columns('public.osm_landuse_areas_gen1'::regclass, true);
 ALTER TABLE public.osm_landuse_areas_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_landuse_areas_gen1 USING gist(geometry);
-CREATE INDEX ON public.osm_landuse_areas_gen1(type);
 CREATE INDEX ON public.osm_landuse_areas_gen1(area);
-CREATE INDEX ON public.osm_landuse_areas_gen1 USING gist(ST_PointOnSurface(ST_Multi(geometry))) WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
+CREATE INDEX ON public.osm_landuse_areas_gen1 USING gist(ST_PointOnSurface(ST_Multi(geometry)))
+	WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
 
 -- waterareas
-CREATE INDEX ON public.osm_waterareas(type);
-CREATE INDEX ON public.osm_waterareas(area);
+CREATE INDEX ON public.osm_waterareas(area); -- for accelerating creation of gen0, gen1
 
 DROP TABLE IF EXISTS public.osm_waterareas_gen0 CASCADE;
 CREATE TABLE public.osm_waterareas_gen0 AS
@@ -240,6 +249,7 @@ CREATE TABLE public.osm_waterareas_gen0 AS
 	FROM osm_waterareas WHERE area > 50000.0;
 ALTER TABLE public.osm_waterareas_gen0 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_waterareas_gen0 USING gist(geometry);
+CREATE INDEX ON public.osm_waterareas(area); -- for order of view 
 	
 DROP TABLE IF EXISTS public.osm_waterareas_gen1 CASCADE;
 CREATE TABLE public.osm_waterareas_gen1 AS
@@ -247,9 +257,10 @@ CREATE TABLE public.osm_waterareas_gen1 AS
 	FROM osm_waterareas WHERE area > 500000.0;
 ALTER TABLE public.osm_waterareas_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_waterareas_gen1 USING gist(geometry);
+CREATE INDEX ON public.osm_waterareas(area); -- for order of view
 
 -- waterways
-CREATE INDEX ON public.osm_waterways(type);
+CREATE INDEX ON public.osm_waterways(type); -- for accelerating creation of gen0, gen1
 
 DROP TABLE IF EXISTS public.osm_waterways_gen0 CASCADE;
 CREATE TABLE public.osm_waterways_gen0 AS
@@ -266,11 +277,11 @@ ALTER TABLE public.osm_waterways_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_waterways_gen1 USING gist(geometry);
 
 -- boundary
-CREATE INDEX ON public.osm_boundary(type);
+CREATE INDEX ON public.osm_boundary(type); -- for accelerating query of view
 
 -- places
-CREATE INDEX ON osm_places(type);
-CREATE INDEX ON osm_places(population);
+CREATE INDEX ON public.osm_places(type);
+CREATE INDEX ON public.osm_places(population); -- for accelerating query of view
 
 -- lable roads
 -- class, type, name, name_length, name:en, name:en_length, is_tunnel, is_bridge, direction, geometry
@@ -311,7 +322,6 @@ CREATE TABLE label_roads AS
 
 SELECT POPULATE_GEOMETRY_COLUMNS('label_roads'::regclass, true);
 CREATE INDEX ON label_roads USING gist(geometry);
-CREATE INDEX ON label_roads(type);
 
 DROP TABLE IF EXISTS label_roads_gen0 CASCADE;
 CREATE TABLE label_roads_gen0 AS
@@ -339,7 +349,6 @@ CREATE TABLE label_roads_gen0 AS
     ORDER BY rank, name_length, name;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_roads_gen0'::regclass, true);
 CREATE INDEX ON label_roads_gen0 USING gist(geometry);
-CREATE INDEX ON label_roads_gen0(type);
 
 DROP TABLE IF EXISTS label_roads_gen1 CASCADE;
 CREATE TABLE label_roads_gen1 AS
@@ -367,7 +376,6 @@ CREATE TABLE label_roads_gen1 AS
     ORDER BY rank, name_length, name;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_roads_gen1'::regclass, true);
 CREATE INDEX ON label_roads_gen1 USING gist(geometry);
-CREATE INDEX ON label_roads_gen1(type);
 
 
 -- road shields generations
@@ -391,8 +399,6 @@ CREATE TABLE label_shields AS
     ORDER BY rank, ref_length, ref;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_shields'::regclass, true);
 CREATE INDEX ON label_shields USING gist(geometry);
-CREATE INDEX ON label_shields(type);
-
 
 DROP TABLE IF EXISTS label_shields_gen0 CASCADE;
 CREATE TABLE label_shields_gen0 AS
@@ -414,8 +420,6 @@ CREATE TABLE label_shields_gen0 AS
     ORDER BY rank, ref_length, ref;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_shields_gen0'::regclass, true);
 CREATE INDEX ON label_shields_gen0 USING gist(geometry);
-CREATE INDEX ON label_shields_gen0(type);
-
 
 DROP TABLE IF EXISTS label_shields_gen1 CASCADE;
 CREATE TABLE label_shields_gen1 AS
@@ -437,7 +441,6 @@ CREATE TABLE label_shields_gen1 AS
     ORDER BY rank, ref_length, ref;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_shields_gen1'::regclass, true);
 CREATE INDEX ON label_shields_gen1 USING gist(geometry);
-CREATE INDEX ON label_shields_gen1(type);
 
 
 COMMIT;

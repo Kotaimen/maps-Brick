@@ -10,19 +10,28 @@ DROP VIEW IF EXISTS landuse_areas;
 DROP VIEW IF EXISTS landuse_areas_gen0;
 DROP VIEW IF EXISTS landuse_areas_gen1;
 CREATE OR REPLACE VIEW landuse_areas AS 
-	SELECT osm_id AS gid, class, type, area, geometry FROM osm_landuse_areas ORDER BY area DESC NULLS LAST, gid;
+	SELECT osm_id AS gid, class, type, area, geometry 
+	FROM osm_landuse_areas 
+	ORDER BY area DESC NULLS LAST, gid;
 CREATE OR REPLACE VIEW landuse_areas_gen0 AS 
-	SELECT osm_id AS gid, class, type, area, geometry FROM osm_landuse_areas_gen0 ORDER BY area DESC NULLS LAST, gid;
+	SELECT osm_id AS gid, class, type, area, geometry 
+	FROM osm_landuse_areas_gen0 
+	ORDER BY area DESC NULLS LAST, gid;
 CREATE OR REPLACE VIEW landuse_areas_gen1 AS 
-	SELECT osm_id AS gid, class, type, area, geometry FROM osm_landuse_areas_gen1 ORDER BY area DESC NULLS LAST, gid;
+	SELECT osm_id AS gid, class, type, area, geometry 
+	FROM osm_landuse_areas_gen1 
+	ORDER BY area DESC NULLS LAST, gid;
 
 DROP VIEW IF EXISTS landuse_ways;
-CREATE OR REPLACE VIEW landuse_ways AS SELECT osm_id AS gid, class, type, geometry FROM osm_landuse_ways;
+CREATE OR REPLACE VIEW landuse_ways AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_landuse_ways;
+
 
 -- water
-DROP VIEW IF EXISTS waterareas_gen1;
-DROP VIEW IF EXISTS waterareas_gen0;
 DROP VIEW IF EXISTS waterareas;
+DROP VIEW IF EXISTS waterareas_gen0;
+DROP VIEW IF EXISTS waterareas_gen1;
 CREATE OR REPLACE VIEW waterareas AS (
     SELECT osm_id AS gid, class, type, area, geometry
         FROM osm_waterareas
@@ -45,35 +54,57 @@ CREATE OR REPLACE VIEW waterareas_gen1 AS (
         FROM thirdparty.water_polygons
     );
 
-DROP VIEW IF EXISTS waterways_gen1;
-DROP VIEW IF EXISTS waterways_gen0;
 DROP VIEW IF EXISTS waterways;
-CREATE OR REPLACE VIEW waterways AS SELECT osm_id AS gid, class, type, geometry FROM osm_waterways;
-CREATE OR REPLACE VIEW waterways_gen0 AS SELECT osm_id AS gid, class, type, geometry FROM osm_waterways_gen0;
-CREATE OR REPLACE VIEW waterways_gen1 AS SELECT osm_id AS gid, class, type, geometry FROM osm_waterways_gen1;
+DROP VIEW IF EXISTS waterways_gen0;
+DROP VIEW IF EXISTS waterways_gen1;
+CREATE OR REPLACE VIEW waterways AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_waterways;
+CREATE OR REPLACE VIEW waterways_gen0 AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_waterways_gen0;
+CREATE OR REPLACE VIEW waterways_gen1 AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_waterways_gen1;
 
--- transport
+
+-- transports
 DROP VIEW IF EXISTS transport_areas;
 DROP VIEW IF EXISTS transport_points;
 DROP VIEW IF EXISTS aeroways;
 DROP VIEW IF EXISTS barrierways;
-CREATE OR REPLACE VIEW transport_areas AS SELECT osm_id AS gid, class, type, geometry FROM osm_transport_areas;
-CREATE OR REPLACE VIEW transport_points AS SELECT osm_id AS gid, class, type, geometry FROM osm_transport_points;
-CREATE OR REPLACE VIEW aeroways AS SELECT osm_id AS gid, class, type, geometry FROM osm_aeroways;
-CREATE OR REPLACE VIEW barrierways AS SELECT osm_id AS gid, class, type, geometry FROM osm_barrierways;
+CREATE OR REPLACE VIEW transport_areas AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_transport_areas;
+CREATE OR REPLACE VIEW transport_points AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_transport_points;
+CREATE OR REPLACE VIEW aeroways AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_aeroways;
+CREATE OR REPLACE VIEW barrierways AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_barrierways;
+
 
 -- buildings
 DROP VIEW IF EXISTS buildings;
-CREATE OR REPLACE VIEW buildings AS SELECT osm_id AS gid, class, type, geometry FROM osm_buildings ORDER BY ST_YMin(ST_Envelope(geometry)) DESC;
+CREATE OR REPLACE VIEW buildings AS 
+	SELECT osm_id AS gid, class, type, geometry 
+	FROM osm_buildings 
+	ORDER BY ST_YMin(ST_Envelope(geometry)) DESC;
 
 -- administration
 DROP VIEW IF EXISTS admins;
-CREATE OR REPLACE VIEW admins AS SELECT osm_id AS gid, class, type, admin_level, geometry FROM osm_boundary WHERE type='administrative';
+CREATE OR REPLACE VIEW admins AS 
+	SELECT osm_id AS gid, class, type, admin_level, geometry 
+	FROM osm_boundary 
+	WHERE type='administrative';
 
 -- roads
-DROP VIEW IF EXISTS roads_gen1;
-DROP VIEW IF EXISTS roads_gen0;
 DROP VIEW IF EXISTS roads;
+DROP VIEW IF EXISTS roads_gen0;
+DROP VIEW IF EXISTS roads_gen1;
 CREATE OR REPLACE VIEW roads AS 
     SELECT 
         osm_id AS gid,
@@ -93,7 +124,7 @@ CREATE OR REPLACE VIEW roads AS
         road_rank(class, type) AS rank,
         geometry
     FROM osm_roads
-      ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
+    ORDER BY layer, is_tunnel DESC NULLS LAST, is_bridge NULLS FIRST, rank DESC, gid;
 CREATE OR REPLACE VIEW roads_gen0 AS 
     SELECT 
         osm_id AS gid,
@@ -147,7 +178,7 @@ CREATE OR REPLACE VIEW label_places AS
         population,
         geometry
     FROM osm_places
-    ORDER BY rank, population DESC NULLS LAST, osm_id;
+    ORDER BY rank, population DESC NULLS LAST, gid;
 
 
 DROP VIEW IF EXISTS label_landuse_areas;
