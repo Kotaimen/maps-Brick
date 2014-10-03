@@ -48,30 +48,29 @@ CREATE OR REPLACE VIEW waterareas_gen1 AS (
 DROP VIEW IF EXISTS waterways_gen1;
 DROP VIEW IF EXISTS waterways_gen0;
 DROP VIEW IF EXISTS waterways;
-CREATE OR REPLACE VIEW waterways AS SELECT osm_id AS gid, 'natural'::text AS class, type, geometry FROM osm_waterways;
-CREATE OR REPLACE VIEW waterways_gen0 AS SELECT osm_id AS gid, 'natural'::text AS class, type, geometry FROM osm_waterways_gen1 WHERE type='river';
-CREATE OR REPLACE VIEW waterways_gen1 AS SELECT osm_id AS gid, 'natural'::text AS class, type, geometry FROM osm_waterways_gen0;
+CREATE OR REPLACE VIEW waterways AS SELECT osm_id AS gid, class, type, geometry FROM osm_waterways;
+CREATE OR REPLACE VIEW waterways_gen0 AS SELECT osm_id AS gid, class, type, geometry FROM osm_waterways_gen0;
+CREATE OR REPLACE VIEW waterways_gen1 AS SELECT osm_id AS gid, class, type, geometry FROM osm_waterways_gen1;
 
 -- transport
 DROP VIEW IF EXISTS transport_areas;
 DROP VIEW IF EXISTS transport_points;
 DROP VIEW IF EXISTS aeroways;
 DROP VIEW IF EXISTS barrierways;
-CREATE OR REPLACE VIEW transport_areas AS SELECT osm_id AS gid, 'transport'::text AS class, type, geometry FROM osm_transport_areas;
-CREATE OR REPLACE VIEW transport_points AS SELECT osm_id AS gid, 'transport'::text AS class, type, geometry FROM osm_transport_points;
-CREATE OR REPLACE VIEW aeroways AS SELECT osm_id AS gid, 'transport'::text AS class, type, geometry FROM osm_aeroways;
-CREATE OR REPLACE VIEW barrierways AS SELECT osm_id AS gid, 'transport'::text AS class, type, geometry FROM osm_barrierways;
+CREATE OR REPLACE VIEW transport_areas AS SELECT osm_id AS gid, class, type, geometry FROM osm_transport_areas;
+CREATE OR REPLACE VIEW transport_points AS SELECT osm_id AS gid, class, type, geometry FROM osm_transport_points;
+CREATE OR REPLACE VIEW aeroways AS SELECT osm_id AS gid, class, type, geometry FROM osm_aeroways;
+CREATE OR REPLACE VIEW barrierways AS SELECT osm_id AS gid, class, type, geometry FROM osm_barrierways;
 
 -- buildings
 DROP VIEW IF EXISTS buildings;
-CREATE OR REPLACE VIEW buildings AS SELECT osm_id AS gid, 'building'::text AS class, type, geometry FROM osm_buildings ORDER BY ST_YMin(ST_Envelope(geometry)) DESC;
+CREATE OR REPLACE VIEW buildings AS SELECT osm_id AS gid, class, type, geometry FROM osm_buildings ORDER BY ST_YMin(ST_Envelope(geometry)) DESC;
 
 -- administration
---DROP VIEW IF EXISTS admins;
---CREATE OR REPLACE VIEW admins AS SELECT osm_id AS gid, 'admin'::text AS class, type, geometry FROM osm_admin WHERE admin_level<=4;
+DROP VIEW IF EXISTS admins;
+CREATE OR REPLACE VIEW admins AS SELECT osm_id AS gid, class, type, admin_level, geometry FROM osm_boundary WHERE type='administrative';
 
-
-
+-- roads
 DROP VIEW IF EXISTS roads_gen1;
 DROP VIEW IF EXISTS roads_gen0;
 DROP VIEW IF EXISTS roads;
