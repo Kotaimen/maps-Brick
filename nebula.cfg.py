@@ -4,14 +4,14 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'nebula@2x'
+tag = 'nebula'
 tile_size = 256
 
 fmt = 'png'
 
 all_ = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/nebula@2x_all.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/nebula_all.xml'),
     buffer_size=tile_size*1,
     scale_factor=1,
     )
