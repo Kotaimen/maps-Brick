@@ -9,7 +9,7 @@
 
 // Text halo render quality, "fast" is considerablly faster, 
 // but "full" is required for float halo radius and transprency
-@halo-quality:      full;
+@halo-quality:      fast;
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
@@ -126,9 +126,9 @@
 // ========== Label Colors ==========
 
 // place label
-@label-admin0:      @motorway-fill;
+@label-admin0:      #27275e;
 @label-admin1:      #27275e;
-@label-place:       @label-admin0;
+@label-place:       @motorway-fill;
 
 // poi label
 @label-poi:         #27275e;
@@ -145,6 +145,17 @@
 @label-shield:      black;
 
 // =========== Road attachments render order ===========
+
+#landuse_gen0[zoom>=6][zoom<=9],
+#landuse_gen1[zoom>=10][zoom<=12],
+#landuse[zoom>=13] {
+  ::texture {
+    polygon-pattern-file: url('res/texture/halftone1.png'); 
+    comp-op: soft-light;
+    opacity: 0.2;
+  }
+}
+
 
 #road_tunnel, #road_tunnel_gen0,{
   ::casing { 
@@ -171,13 +182,13 @@
 
 #road, #road_gen0 {
   ::casing { }
-  ::inline {}
+  ::inline { }
   ::rail { }	
   ::marker { }     
 }
 
 #shield_gen0, #shield_gen1, #shield {
-  //image-filters: scale-hsla(0,1,0,0.5,0,0.8,0,0.8);
+  image-filters: scale-hsla(0,1,0.1,1,0,1,0,1);
 }
 
 // =========== Road Width ===========
@@ -215,12 +226,13 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: none;
+@label-text-transform: uppercase;
+
 @fall-back:         'Arial Unicode MS Regular';
 
-@font-regular:      'Cochin Bold Italic', 'Arial Unicode MS Regular';
-@font-heavy:        'Cochin Bold Italic', 'Arial Unicode MS Regular';
-@font-physical:     'Roboto Black Italic', 'Arial Unicode MS Regular';
+@font-regular:      'Baskerville Bold Italic', 'Noto Sans T Chinese Bold', 'Arial Unicode MS Regular';
+@font-heavy:        'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
+@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
 @font-poi:          'Roboto Black Italic', 'Arial Unicode MS Regular';
 @font-motorway:     'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
 @font-primary:      'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
