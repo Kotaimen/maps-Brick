@@ -15,7 +15,7 @@
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
     text-halo-rasterizer: @halo-quality;
-    text-wrap-width: 125 * @scale-factor;
+    text-wrap-width: 80 * @scale-factor;
   }
 }
 
@@ -130,7 +130,7 @@
     text-halo-fill: @label-halo;
     text-halo-radius: @smart-halo;
     text-halo-rasterizer: @halo-quality;    
-    text-wrap-width: 125 * @scale-factor;
+    text-wrap-width: 80 * @scale-factor;
   }
 }
 
@@ -147,7 +147,7 @@
   text-halo-radius: @smart-halo;
   text-halo-rasterizer: @halo-quality;  
   text-label-position-tolerance: 16;
-  text-wrap-width: 100;
+  text-wrap-width: 80 * @scale-factor;
   text-placement-type: simple;
   [zoom<=6] { text-size: 12; }
   [zoom>6][zoom<=7] { text-size: 16; }
@@ -285,8 +285,9 @@
     [type!='water'][type!='reservoir']
     [type!='bay'][type!='sea'] {
       marker-placement: point;    
-      [zoom>=14] { marker-file: url("res/maki/[maki]-18.svg"); }
-      [zoom<=13] { marker-file: url("res/maki/[maki]-12.svg"); }	  
+	  marker-file: url("res/maki/[maki]-18.svg");
+      marker-transform: scale(0.9, 0.9);
+//      [zoom<=13] { marker-file: url("res/maki/[maki]-12.svg"); }	  
       // Use square as general marker, which need smaller scale
       [maki='square'] { marker-transform: scale(0.4, 0.4); }
       // Rail icon uses fill incorrectly
@@ -303,12 +304,12 @@
   }
   
   ::text
-  [zoom=9][area>20000000],
-  [zoom=10][area>15000000],
-  [zoom=11][area>4000000],
-  [zoom=12][area>500000],
-  [zoom=13][area>400000],
-  [zoom=14][area>50000],
+  [zoom=9][area>40000000],
+  [zoom=10][area>30000000],
+  [zoom=11][area>8000000],
+  [zoom=12][area>1000000],
+  [zoom=13][area>600000],
+  [zoom=14][area>80000],
   [zoom=15][area>20000],
   [zoom=16][area>1000],
   [zoom>=17] {
@@ -333,6 +334,8 @@
 //    text-name:  "[name]+' ('+[class]+','+[type]+')'";
     text-face-name: @font-poi;   
     text-fill: @label-poi;
+    text-min-padding: 8;
+//    text-min-distance: 2;
      
     [zoom>=14] { text-size: 12; }
     [zoom<=13] { text-size: 11; }    
@@ -340,7 +343,7 @@
     text-halo-radius: @smart-halo;
     text-halo-rasterizer: @halo-quality;    
     text-wrap-width: 60 * @scale-factor;
-    text-line-spacing: -1;    
+    text-line-spacing: -1;
     text-placement-type: simple;
     text-dx: 10;
     text-dy: 10;
@@ -361,7 +364,7 @@
     text-name: "[name]";
     text-placement: line; 
     text-max-char-angle-delta: 20;    
-   text-clip: false;
+    text-clip: false;
     text-min-padding: 8;
     
     text-face-name: @font-motorway;
@@ -543,7 +546,7 @@
     [direction<0] { text-dx: -10;  text-dy: -10; }
   }  
 
-  //debug-mode: collision; 
+//  debug-mode: collision; 
 
 }
 

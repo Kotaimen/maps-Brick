@@ -171,15 +171,15 @@
         [zoom=9]  { line-width: @r9_med; line-color: @primary-line; }
         [zoom=10] { line-width: @r10_med; line-color: @primary-line; }
         [zoom=11] { line-width: @r11_med; line-color: @primary-line; }        
-        [zoom=12] { line-width: @r12_med; }      
-        [zoom=13] { line-width: @r13_med; }      
-        [zoom=14] { line-width: @r14_med; }      
-        [zoom=15] { line-width: @r15_med; }      
-        [zoom=16] { line-width: @r16_med; }      
-        [zoom=17] { line-width: @r17_med; }      
-        [zoom=18] { line-width: @r18_med; }
-		[zoom=19] { line-width: @r19_med; }
-		[zoom>=20] { line-width: @r20_med; }              
+        [zoom=12] { line-width: @r12_med/2; }      
+        [zoom=13] { line-width: @r13_med/2; }      
+        [zoom=14] { line-width: @r14_med/2; }      
+        [zoom=15] { line-width: @r15_med/2; }      
+        [zoom=16] { line-width: @r16_med/2; }      
+        [zoom=17] { line-width: @r17_med/2; }      
+        [zoom=18] { line-width: @r18_med/2; }
+		[zoom=19] { line-width: @r19_med/2; }
+		[zoom>=20] { line-width: @r20_med/2; }              
       }
       [is_link=0] {      
         [zoom=9]  { line-width: @r9_med; line-color: @primary-line; }

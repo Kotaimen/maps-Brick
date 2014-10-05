@@ -66,9 +66,15 @@ DECLARE
 BEGIN
     CASE
         WHEN type IN ( 'hospital', 'doctors', 'clinic', 'nursery', 'dentist') THEN maki := 'hospital';
+        WHEN type = 'pharmacy' THEN maki := 'pharmacy';
+    
         WHEN type IN ('university','college') THEN maki := 'college';
-        WHEN type = 'museum' THEN maki := 'museum';
         WHEN type IN ('arts_centre', 'gallery') THEN maki := 'art-gallery';
+        WHEN type = 'place_of_worship' THEN maki := 'place-of-worship';
+        WHEN type = 'cemetery' THEN maki := 'cemetery';
+
+        WHEN type = 'attraction' THEN maki := 'monument';                
+        WHEN type = 'museum' THEN maki := 'museum';
         WHEN type = 'library' THEN maki := 'library';
         WHEN type = 'theatre' THEN maki := 'theatre';
         WHEN type = 'cinema' THEN maki := 'cinema';
@@ -76,29 +82,40 @@ BEGIN
         WHEN type = 'post_office' THEN maki := 'post';
         WHEN type IN ('townhall','public_building', 'courthouse') THEN maki := 'town-hall';
         WHEN type IN ('prison', 'police') THEN maki := 'police';
-        WHEN type IN ('hotel', 'motel') THEN maki := 'town';
+        WHEN type IN ('hotel', 'motel') THEN maki := 'hotel';
+        WHEN type IN ('residential') THEN maki := 'building';
         WHEN type = 'fire_station' THEN maki := 'fire-station';
         WHEN type = 'zoo' THEN maki := 'zoo';
-        WHEN type IN ('stadium', 'sports_centre') THEN maki := 'soccer';
-        WHEN type = 'cemetery' THEN maki := 'cemetery';
+        WHEN type IN ('stadium', 'sports_centre') THEN maki := 'baseball';
+
+        WHEN type IN ('retail', 'commercial') THEN maki := 'commercial';
         WHEN type = 'industrial' THEN maki := 'industrial';
         WHEN type = 'landfill' THEN maki := 'waste-basket';
-        WHEN type IN ('retail', 'commercial') THEN maki := 'grocery';
+    
         WHEN type = 'playground'  THEN maki := 'playground';
+        WHEN type = 'dog_park'  THEN maki := 'dog-park';
+
         WHEN type IN ('recreation_ground', 'pitch') THEN maki := 'pitch';
         WHEN type IN ('golf_range', 'golf_course', 'miniature_golf') THEN maki := 'golf';
         WHEN type IN ('forest', 'meadow', 'grass', 'grassland', 'wood', 'wetland', 'marsh', 'scrub', 'heath', 'park') THEN maki := 'park2';
         WHEN type IN ('garden', 'village_green', 'greenspace')  THEN maki := 'garden';
+        WHEN type IN ('nature_reserve', 'conservation', 'national_park') THEN maki := 'park';
+
+        WHEN type IN ('bus_station', 'bus') THEN maki := 'bus';
         WHEN type IN ('railway', 'railroad') THEN maki := 'rail';
         WHEN type IN ('aerodrome', 'airport') THEN maki := 'airport';
         WHEN type = 'airfield' THEN maki := 'airfield';
-        WHEN type = 'marina' THEN maki := 'harbor';
-        WHEN type IN ('nature_reserve', 'conservation', 'national_park') THEN maki := 'park';
-        WHEN type = 'pharmacy' THEN maki := 'pharmacy';
+        WHEN type IN ('marina', 'pier', 'harbor') THEN maki := 'harbor';
+        WHEN type IN ('ferry_terminal', 'ferry') THEN maki := 'ferry';
+
         WHEN type = 'bank' THEN maki := 'bank';
         WHEN type = 'bar' THEN maki := 'bar';
+        WHEN type = 'restaurant' THEN maki := 'restaurant';        
         WHEN type = 'cafe' THEN maki := 'cafe';
+        WHEN type = 'fast_food' THEN maki := 'fast-food';
+    
         WHEN type = 'parking' THEN maki := 'parking';
+    
         ELSE maki := 'square';
     END CASE;
 	RETURN maki;
