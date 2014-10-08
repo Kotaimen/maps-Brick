@@ -128,7 +128,8 @@ def patch_xml(filename):
         # apply async postgis read for speed
         for parameter in datasource.findall('Parameter'):
             if parameter.attrib['name'] == 'type' and \
-                            parameter.text == 'postgis':
+               parameter.text == 'postgis' and \
+               '_gen' not in layer.attrib['name']:
                 new_params = {
                     'max_size': '10',
                     'asynchronous_request': 'true',
@@ -142,7 +143,7 @@ def patch_xml(filename):
                 break
 
         # add "cache-features" to layer if they contain more than one styles
-        if style_num > 1:
+        if style_num > 1 and '_gen' not in layer.attrib['name']:
             print '  ...enable cache-features'
             layer.attrib['cache-features'] = 'yes'
 
