@@ -71,9 +71,9 @@ BEGIN
         WHEN type IN ('university','college') THEN maki := 'college';
         WHEN type IN ('arts_centre', 'gallery') THEN maki := 'art-gallery';
         WHEN type = 'place_of_worship' THEN maki := 'place-of-worship';
-        WHEN type = 'cemetery' THEN maki := 'cemetery';
+        WHEN type IN ('grave_yard', 'cemetery') THEN maki := 'cemetery';
 
-        WHEN type = 'attraction' THEN maki := 'monument';                
+        WHEN type = 'attraction' THEN maki := 'monument';
         WHEN type = 'museum' THEN maki := 'museum';
         WHEN type = 'library' THEN maki := 'library';
         WHEN type = 'theatre' THEN maki := 'theatre';
@@ -81,18 +81,20 @@ BEGIN
         WHEN type = 'school' THEN maki := 'school';
         WHEN type = 'post_office' THEN maki := 'post';
         WHEN type IN ('townhall','public_building', 'courthouse') THEN maki := 'town-hall';
-        WHEN type IN ('prison', 'police') THEN maki := 'police';
-        WHEN type IN ('hotel', 'motel') THEN maki := 'hotel';
-        WHEN type IN ('residential') THEN maki := 'building';
+        WHEN type IN ('prison', 'police', 'military') THEN maki := 'police';
+        WHEN type IN ('hotel', 'motel') THEN maki := 'suitcase';
         WHEN type = 'fire_station' THEN maki := 'fire-station';
         WHEN type = 'zoo' THEN maki := 'zoo';
         WHEN type IN ('stadium', 'sports_centre') THEN maki := 'baseball';
+        WHEN type IN ('camp_site') THEN maki := 'campsite';
 
+        WHEN type IN ('residential') THEN maki := 'city';
         WHEN type IN ('retail', 'commercial') THEN maki := 'commercial';
         WHEN type = 'industrial' THEN maki := 'industrial';
         WHEN type = 'landfill' THEN maki := 'waste-basket';
+        WHEN type IN ('farmyard', 'farmland') THEN maki := 'farm';
     
-        WHEN type = 'playground'  THEN maki := 'playground';
+        WHEN type IN ('playground', 'kindergarten')  THEN maki := 'playground';
         WHEN type = 'dog_park'  THEN maki := 'dog-park';
 
         WHEN type IN ('recreation_ground', 'pitch') THEN maki := 'pitch';
@@ -109,12 +111,14 @@ BEGIN
         WHEN type IN ('ferry_terminal', 'ferry') THEN maki := 'ferry';
 
         WHEN type = 'bank' THEN maki := 'bank';
-        WHEN type = 'bar' THEN maki := 'bar';
+        WHEN type IN ('pub', 'bar') THEN maki := 'bar';
         WHEN type = 'restaurant' THEN maki := 'restaurant';        
         WHEN type = 'cafe' THEN maki := 'cafe';
+        WHEN type = 'fuel' THEN maki := 'fuel';
         WHEN type = 'fast_food' THEN maki := 'fast-food';
     
         WHEN type = 'parking' THEN maki := 'parking';
+        WHEN type = 'track' THEN maki := 'car';
     
         ELSE maki := 'square';
     END CASE;
@@ -234,6 +238,8 @@ CREATE INDEX ON public.osm_roads_gen1(class, type, ref)
 CREATE INDEX ON public.osm_landuse_areas(area); -- for accelerating creation of gen0, gen1
 CREATE INDEX ON public.osm_landuse_areas USING gist(ST_PointOnSurface(ST_Multi(geometry)))
 	WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != ''; -- for queries of landuse labels
+CREATE INDEX ON public.osm_landuse_areas(type);
+CREATE INDEX ON public.osm_landuse_areas(class);
 
 DROP TABLE IF EXISTS public.osm_landuse_areas_gen0 CASCADE;
 CREATE TABLE public.osm_landuse_areas_gen0 AS
@@ -245,6 +251,8 @@ CREATE INDEX ON public.osm_landuse_areas_gen0 USING gist(geometry);
 CREATE INDEX ON public.osm_landuse_areas_gen0(area);
 CREATE INDEX ON public.osm_landuse_areas_gen0 USING gist(ST_PointOnSurface(ST_Multi(geometry)))
 	WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
+CREATE INDEX ON public.osm_landuse_areas_gen0(type);
+CREATE INDEX ON public.osm_landuse_areas_gen0(class);
 
 DROP TABLE IF EXISTS public.osm_landuse_areas_gen1 CASCADE;
 CREATE TABLE public.osm_landuse_areas_gen1 AS
@@ -256,6 +264,8 @@ CREATE INDEX ON public.osm_landuse_areas_gen1 USING gist(geometry);
 CREATE INDEX ON public.osm_landuse_areas_gen1(area);
 CREATE INDEX ON public.osm_landuse_areas_gen1 USING gist(ST_PointOnSurface(ST_Multi(geometry)))
 	WHERE ST_IsValid(geometry) AND name IS NOT NULL AND name != '';
+CREATE INDEX ON public.osm_landuse_areas_gen1(type);
+CREATE INDEX ON public.osm_landuse_areas_gen1(class);
 
 -- waterareas
 CREATE INDEX ON public.osm_waterareas(area); -- for accelerating creation of gen0, gen1

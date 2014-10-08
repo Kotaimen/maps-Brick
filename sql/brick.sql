@@ -16,10 +16,13 @@ CREATE OR REPLACE VIEW landuse_areas AS
 CREATE OR REPLACE VIEW landuse_areas_gen0 AS 
 	SELECT osm_id AS gid, class, type, area, geometry 
 	FROM osm_landuse_areas_gen0 
+    WHERE type NOT IN ('water')
 	ORDER BY area DESC NULLS LAST, gid;
 CREATE OR REPLACE VIEW landuse_areas_gen1 AS 
 	SELECT osm_id AS gid, class, type, area, geometry 
 	FROM osm_landuse_areas_gen1 
+    WHERE type NOT IN ('forest', 'meadow', 'grass', 'grassland', 'wood', 'heath', 'farmland', 'farm_land', 'farm')
+    AND class NOT IN ('place', 'natural')
 	ORDER BY area DESC NULLS LAST, gid;
 
 DROP VIEW IF EXISTS landuse_ways;
