@@ -98,7 +98,7 @@ ROOT = dict(\
                   attribution='Open Street Map, Natural Earth',
                   ),
     storage=dict(prototype='cluster',
-               stride=4,
+               stride=8,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
