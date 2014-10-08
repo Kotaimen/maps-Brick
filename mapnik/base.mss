@@ -23,7 +23,7 @@ Map {
   
   // Make a slightly blurred light polygon and use softlight to 
   // create "inner shadow" and slightly edge contrast lift.
-
+  
   ::effect_shadow {
     polygon-fill: @land;
     comp-op: soft-light;
@@ -109,8 +109,8 @@ Map {
 
 // Landcover & landuse, from OSM
 
-#landuse_gen0[zoom>=6][zoom<=9],
-#landuse_gen1[zoom>=10][zoom<=12],
+#landuse_gen1[zoom>=6][zoom<=9],
+#landuse_gen0[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
   
   // OSM mixes landuse and land cover together
