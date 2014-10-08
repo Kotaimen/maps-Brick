@@ -235,7 +235,7 @@
   text-wrap-width: 100 * @scale-factor;
   text-label-position-tolerance: 16;
   text-min-distance: 16 * @scale-factor;
-  [zoom>=15] { text-transform: @label-text-transform; }
+  [zoom>=14] { text-transform: @label-text-transform; }
   
   [type='city'][population>=10000][zoom>=8][zoom<=17] {
     text-name: "[name]"; 
@@ -274,7 +274,7 @@
   ::marker
   [zoom=9][area>20000000],
   [zoom=10][area>15000000],
-  [zoom=11][area>2000000],
+  [zoom=11][area>5000000],
   [zoom=12][area>500000],
   [zoom=13][area>400000],
   [zoom=14][area>50000],
@@ -357,8 +357,8 @@
 
 //// road labels
 
-#road_label_gen1[zoom>=9][zoom<=11],
-#road_label_gen0[zoom>=12][zoom<=15],
+#road_label_gen1[zoom>=10][zoom<=12],
+#road_label_gen0[zoom>=13][zoom<=15],
 #road_label[zoom>=16] {
   [class='highway'][type='motorway'] {
     text-name: "[name]";

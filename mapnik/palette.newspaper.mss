@@ -12,7 +12,7 @@
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
-@smart-halo:        0;
+@smart-halo:        2;
 
 // Other halo size
 @default-halo:      0;
@@ -206,7 +206,7 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: none;
+@label-text-transform: uppercase;
 
 @fall-back:         'Arial Unicode MS Regular';
 
@@ -214,9 +214,9 @@
 @font-heavy:        'American Typewriter Regular', 'Arial Unicode MS Regular';
 @font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
 @font-poi:          'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Medium Italic', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Italic', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Italic', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
 @font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
 
 // ========== Map ==========

@@ -160,8 +160,7 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.1; 
-//    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
+  ::inline { opacity: 0.5; 
   }
   ::marker { opacity: 0.5;}
 }
@@ -202,16 +201,15 @@
 @r14_min: 1.5; @r14_path: 1;   @r14_cas: 2;
 @r15_min: 2;   @r15_path: 1.5; @r15_cas: 2;
 @r16_min: 3;   @r16_path: 2;   @r16_cas: 2;
-@r17_min: 4;   @r17_path: 3;   @r17_cas: 3;
-@r18_min: 6;   @r18_path: 4;   @r18_cas: 3;
+@r17_min: 4;   @r17_path: 3;   @r17_cas: 2;
+@r18_min: 6;   @r18_path: 4;   @r18_cas: 2;
 @r19_min: 8;   @r19_path: 6;   @r19_cas: 4;
 @r20_min: 14;  @r20_path: 8;   @r20_cas: 4;
 
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: uppercase;
-@fall-back:         'Arial Unicode MS Regular';
+@label-text-transform: none;
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
