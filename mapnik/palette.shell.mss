@@ -26,7 +26,7 @@
 
 // Deal with incorrect mapnik scale factor for some attributes
 // (eg: text wrap & filter size)
-@scale-factor:      1;
+@scale-factor:      2;
 
 // Adjust font size 
 //@font-resize:       0;
@@ -61,11 +61,11 @@
 @pedestrian:        @park;
 @commercial:        @land;
 @industrial:       	#d8d4a4;
-@military:          @land;
+@military:          desaturate(@land, 50%);
 
 //// transport
 @parking:           #e5b368;
-@airport:           #e6e8c6;
+@airport:           @sand;
 @aeroway:           lighten(@sand, 10%);
 @terminal:          @industrial;
 

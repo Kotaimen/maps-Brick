@@ -334,7 +334,7 @@
 //    text-name:  "[name]+' ('+[class]+','+[type]+')'";
     text-face-name: @font-poi;   
     text-fill: @label-poi;
-    text-min-padding: 8;
+    text-min-padding: 10;
 //    text-min-distance: 2;
      
     [zoom>=14] { text-size: 12; }
