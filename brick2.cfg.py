@@ -1,10 +1,10 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick2.mk8'
+themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'brick2'
+tag = 'brick'
 tile_size = 256
 
 fmt = 'png'
@@ -20,17 +20,17 @@ all_ = dict(\
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Brick2',
-                  version='2.0',
-                  description="A Mason's Brick Take 2",
+                  dispname='Brick',
+                  version='2.1',
+                  description="A Mason's Brick",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
-               stride=16,
+               stride=8,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),
-    pyramid=dict(levels=range(2, 21),
+    pyramid=dict(levels=range(2, 20),
                  zoom=8,
                  center=(-122.4321, 37.7702),
                  format=fmt,

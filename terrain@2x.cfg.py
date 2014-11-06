@@ -9,14 +9,13 @@ import os
 # ============================================================================
 # Global variables
 
-tag = 'terrain2'
+tag = 'terrain@2x'
 tile_size = 256
 fmt = 'jpg'
-scalefactor = 1 # label scale factor
 azimuth = 325 # light direction
 
-datadir = '/Users/Kotaimen/proj/geodata'
-themedir = './themes/Brick2.mk8'
+datadir = os.path.expanduser('~/proj/geodata')
+themedir = './themes/Brick2.mk9'
 exportdir = os.path.join(themedir, 'cache', 'export')
 cachedir = os.path.join(themedir, 'cache', 'terrain_tmp')
 
@@ -25,13 +24,13 @@ cachedir = os.path.join(themedir, 'cache', 'terrain_tmp')
 # Relief data
 
 # Land relief with bathymetry, 90m resolution
-srtm30_new = os.path.join(datadir, 'srtm30_new/world_tiled.tif')
+srtm30_new = os.path.join(datadir, 'Stage/SRTM30PLUS/NetCDF2GTIFF/world.3857.tif')
 # SRTM30, 30m resolution
-srtm30_org = os.path.join(datadir, 'SRTM_30_org/world_filled/')
+srtm30_org = os.path.join(datadir, 'Stage/SRTM3/world.3857.vrt')
 # NED 100m resolution, USA mainland only
-ned100 = os.path.join(datadir, 'DEM-Tools-patch/source/ned100m/')
+ned100 = os.path.join(datadir, 'Stage/NED100M/')
 # NED 10m resolution, USA mainland, Hawaii
-ned10 = os.path.join(datadir, 'DEM-Tools-patch/source/ned10m_3857/')
+ned10 = os.path.join(datadir, 'Stage/NED10M/')
 # NED 3m resolution, only in part areas
 ned3 = os.path.join(datadir, 'DEM-Tools-patch/source/ned3m/')
 
@@ -52,22 +51,12 @@ bathymetry_elevation = dict(\
     prototype='node.raster',
     dataset_path=srtm30_new,
     keep_cache=False,
-    cache=dict(prototype='metacache',
-               root=os.path.join(cachedir, 'bathymetry_elevation'),
-               compress=False,
-               data_format='gtiff',
-        ),
     )
 
 bathymetry_hypsometricmap = dict(\
     prototype='node.colorrelief',
     sources='bathymetry_elevation',
     color_context=os.path.join(themedir, 'mapnik/terrain/hypsometric-map-ocean.txt'),
-    cache=dict(prototype='metacache',
-               root=os.path.join(cachedir, 'bathymetry_hypsometricmap'),
-               compress=False,
-               data_format='png',
-              ),
     )
 
 bathymetry_diffuse = dict(\
@@ -140,33 +129,23 @@ land_hillshading = dict(\
                   [srtm30_org, srtm30_new], #9
                   [srtm30_org, srtm30_new], #10
                   [ned10, srtm30_org], #11
-                  [ned10, srtm30_org], #12
-                  [ned10, srtm30_org], #13
-                  [ned10, srtm30_org], #14
+                  ned10, #12
+                  ned10, #13
+                  ned10, #14
                   ned10,
-#                  [ned10, srtm30_org], #15
 #                  [ned3, ned10], #16
                   ],
     #          0  1    2    3  4    5  6   7   8  9 10 11
     zfactor=[100, 90, 80, 50, 40, 20, 16, 13, 10, 8, 6, 5],
     scale=1,
     azimuth=azimuth,
-    cache=dict(prototype='metacache',
-               root=os.path.join(cachedir, 'land_relief'),
-               compress=False,
-               data_format='jpg',
-        ),
     )
 
 # Land coloring
 land_cover = dict(\
     prototype='node.raster',
-    dataset_path=os.path.join(datadir, 'natural-earth-2.0b3/raster/NE2_HR_LC_2/NE2_HR_LC_3857.tif'),
-#    dataset_path=os.path.join(datadir, 'natural-earth-2.0b3/raster/HYP_HR/HYP_HR_tiled.tif'),
-#    dataset_path=os.path.join(datadir, '_processed/landcover-rgb-4326.tif'),
+    dataset_path=os.path.join(datadir, 'Vanilla/NaturalEarth2/raster/NE2_HR_LC/NE2_HR_LC.tiled.tif'),
     )
-
-
 
 
 # ============================================================================
@@ -180,14 +159,6 @@ ocean_mask = dict(\
     scale_factor=1
     )
 
-builtup_area = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'builtuparea.xml'),
-    image_type='png',
-    buffer_size=tile_size//4,
-    scale_factor=1
-    )
-
 waterbody = dict(\
     prototype='node.mapnik',
     theme=os.path.join(themedir, 'mapnik/terrain/waterbody.xml'),
@@ -196,123 +167,104 @@ waterbody = dict(\
     scale_factor=1
     )
 
-relief_contours = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/terrain/contours.xml'),
-    image_type='png',
-    buffer_size=tile_size//2,
-    scale_factor=1,
-    cache=dict(prototype='metacache',
-               root=os.path.join(cachedir, 'contours'),
-               compress=False,
-               data_format='png',
-        ),
-    )
 
 # ============================================================================
 # Roads
 
 road = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/terrain_road.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/terrain@2x_road.xml'),
     image_type='png',
-    buffer_size=16,
+    buffer_size=0,
     scale_factor=2
     )
+
 
 label = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/terrain_label.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/terrain@2x_label_halo.xml'),
     image_type='png',
-    buffer_size=tile_size*2,
+    buffer_size=tile_size,
     scale_factor=2
     )
-
 
 # ============================================================================
 # Composing
 
-composer = dict(
+terrain = dict(
     prototype='node.imagemagick',
-    sources=['land_hillshading', 'land_cover',
-      	     'bathymetry_relief', 'ocean_mask',
-#              'relief_contours',
-             'bathymetry_hypsometricmap',
-             'waterbody',
-             'road',
-             'label'
-             ],
+    sources=[
+        'land_hillshading', 'land_cover',
+        'bathymetry_relief', 'ocean_mask',
+        'waterbody',
+    ],
     format=fmt,
     command='''
+        #### Land ####
         {{land_hillshading}} -brightness-contrast -15%%x-5%%
         (
-            {{land_cover}}
-            -brightness-contrast -10%%x-5%%
-            %(blur_radius)s
+            {{land_cover}} -brightness-contrast -10%%x-5%% %(blur_radius)s
         ) -compose Overlay -composite
-        -sharpen 0x0.9
+        
+        -sharpen 0x1
         -gamma %(land_gamma)s
-        -sigmoidal-contrast 1.9
+        -sigmoidal-contrast 2
 
-        #### Contours ####
-#         ( {{relief_contours}} ) -compose Multiply -composite
-
-        #### Land overlay ####
+        #### Land overlay ####        
         {{waterbody}} -compose Over -composite
-
+        
         #### Bathymetry overlay ####
         (
             {{bathymetry_relief}}
             {{ocean_mask}} -compose CopyOpacity -composite
         ) -compose Over -composite
 
-        (
-            {{road}}
-            -brightness-contrast 0%%x-12%%
-        ) -compose HardLight -composite
-
-        #### Label ####
-
-        (
-            {{bathymetry_hypsometricmap}} -brightness-contrast +10%% +level 15%%,100%%
-            {{ocean_mask}} -compose DstIn -composite
-            {{land_cover}} -brightness-contrast -10%%x-5%% -compose DstOver -composite
-            {{waterbody}} -compose Over -composite
-
-            ( {{label}} -channel A -morphology EdgeOut Disk:3  +channel ) -compose DstIn -composite
-        ) -compose Lighten -composite
-
-#   (
-#             {{label}} -geometry +2+2
-#             -channel A -virtual-pixel edge -blur 0x2
-#             -evaluate Multiply 0.4 +channel
-#             +level-colors black
-#         ) -compose Multiply -composite
-
-        ( {{label}} ) -compose Over -composite
-
-        -quality 90
+        -quality 100 
     ''',
     command_params=dict(
                          #       1          2          3          4          5          6
         blur_radius=     ['-blur 3', '-blur 3', '-blur 2', '-blur 2', '-blur 2', '-blur 1', ''],
                          #   0     1     2     3     4     5     6     7     8     9   10   11   12   13
     	land_gamma=      [0.67, 0.67, 0.67, 0.70, 0.71, 0.72, 0.77, 0.81, 0.86, 0.86, 0.9, 0.9, 0.9, 1.0],
-        label_intensity= [0   ,    0,    0,    0,    2,    3,    5,    6,    7,   10],
     	),
+    cache=dict(prototype='metacache',
+               root=os.path.join(cachedir, 'terrain'),
+               compress=False,
+               data_format='jpg',
+        ),
+    )
+
+composer = dict(
+    prototype='node.imagemagick',
+    sources=[
+        'terrain', 'road', 'label', 
+    ],
+    format=fmt,
+    command='''
+        {{terrain}}
+
+        #### Road ####
+        {{road}} -compose HardLight -composite
+
+        #### Label ####
+        ( {{label}} ) -compose Over -composite
+
+        -quality 85 
+    ''',
+    
     )
 
 ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
-                  dispname='Terrain2 (Retina)',    
+                  dispname='Terrain2 (Retina)',
                   version='2.0',
                   description='High Quality Shaded Relief Map',
                   attribution='OSM, SRTM+, NED',
                   ),
 
     storage=dict(prototype='cluster',
-             stride=16,
+             stride=8,
              servers=['localhost:11211',],
              root=os.path.join(exportdir, '%s' % tag),
              ),
@@ -325,8 +277,7 @@ ROOT = dict(\
                  zoom=5,
                  center=(-122.4475, 37.7879),
                  format=fmt,
-                 buffer=32,
+                 buffer=8,
                  tile_size=tile_size,
                  ),
 )
-

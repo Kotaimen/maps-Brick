@@ -1,7 +1,7 @@
 import os
 
 datadir = '/Users/Kotaimen/proj/geodata'
-themedir= './themes/Brick2.mk8'
+themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
 tag = 'nebula@2x'
@@ -11,21 +11,21 @@ fmt = 'png'
 
 all_ = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/nebula_all.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/nebula@2x_all.xml'),
     buffer_size=tile_size*2,
-    scale_factor=2
+    scale_factor=2,
     )
         
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
                   dispname='Nebula (Retina)',
-                  version='2.0',
-                  description="Where we came from",
+                  version='2.1',
+                  description="Nebula",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
-               stride=16,
+               stride=8,
                servers=['localhost:11211',],
                root=os.path.join(cachedir, 'export', '%s' % tag),
               ),

@@ -1,36 +1,50 @@
-## Brick Map Theme
+# Brick Map Theme
 
-Features:
+## Features
 
-* Imposm3 OSM data import
-* Supports real time OSM replication
-* Mapnik2.2+ and carto 0.9.5
-* Color themes
-* Transparent tunnel
-* Offset road labels
-* High quality terrain
+### 2.1
+
+- Imposm3 OSM data import
+    - Supports real time OSM replication
+- `mapnik2.3+` and `carto 0.9.5`
+- Improve road render
+    - Only casing and inline is required
+    - Road geometries is passed from database only once
+    - Real semi-transparent outlined tunnel (same as Google)
+- Revised colour themes
+    - More flexibility
+    - Improved retina support
+    - New special effects
+- Speedup by employing
+    - Data simplify
+    - Async `postgis` read
+    - Postgres `materialised` view
+    - Layer based buffering
+    - `mapnik` stylesheet patching 
+    
+### 2.0
+
+- Imposm3 OSM data import
+    - Supports real time OSM replication
+- `mapnik2.2+` and `carto 0.9.5`
+- `mason-0.9.5`
+- Various colour themes
+- Retina support
+- Transparent tunnel
+- Offset road labels
+- High quality terrain
+    - Merged with primary roadmap theme
+- Speedup by use special `mason brick2` cartographer
+
+### 1.0-1.4
+
+- `osm2pgsql` OSM data import
+- `mapnik 2.0+`
+- `mason-0.9.3`
+- Variable depth haloing ("smart halo")
+- High quality pre-calculated city names (using simulated annealing)
+- Adaptive road z-ordering (idea from Highroad and OSMBright project)
 
 ## Sample Render:
 
-USA only, backed by a AWS c3.large instance:
-
-http://maps.masonmaps.me/
-
-Or, in case site is slow:
-
-![Terrain](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-0.jpg)
-![Brick](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-1.jpg)
-![Moonlight](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-2.jpg)
-![Duotone](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-3.jpg)
-![Visteria](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-4.jpg)
-![Saga](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-5.jpg)
-![Brick](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-6.jpg)
-![Voynich](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-7.jpg)
-![Terrain](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-8.jpg)
-![Nebula](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-9.jpg)
-![Pastel](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-10.jpg)
-![Brick](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-11.jpg)
-![Voynich](https://s3.amazonaws.com/masonmaps/github-wiki/samples/brick2-12.jpg)
-
-
-
+> to be updated...
