@@ -9,7 +9,7 @@
 
 // Text halo render quality, "fast" is considerablly faster, 
 // but "full" is required for float halo radius and transprency
-@halo-quality:      full;
+@halo-quality:      fast;
 
 // Variable depth halo size, 
 // actual blending is done in "Mason" composer.
@@ -35,8 +35,8 @@
 // ========== Background Colors ==========
 
 // base
-@land:              #D1CEC2;
-@water:             #8CACBA;
+@land:              #D3CBBE;
+@water:             #91aec2;
 @river:             @water;
 
 // basics
@@ -70,44 +70,44 @@
 @terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #8c8982;
-@boundary-casing:   @land;
+@boundary-line:     #ADADAD;
+@boundary-casing:   #606060;
 
 
 // ========== Road Colors ==========
 
 @road-dash:         6, 3;
-@casing:            #313131;
+@casing:            #303030;
 
-@ferry-line:        #313131;
+@ferry-line:        #303030;
 
-@motorway-fill:     #b7b7b7;
-@motorway-line:     #646464;
-@motorway-casing:   #313131;
+@motorway-fill:     #ADADAD;
+@motorway-line:     #606060;
+@motorway-casing:   #303030;
 @motorway-link:     @motorway-fill;
 
-@primary-line:      lighten(@motorway-line, 10%);
+@primary-line:      lighten(@motorway-line, 5%);
 @primary-fill:   	@motorway-fill;
 @primary-casing: 	@motorway-casing;
 
-@secondary-line:    lighten(@motorway-line, 10%);
+@secondary-line:    lighten(@motorway-line, 5%);
 @secondary-fill:   	@primary-fill;
 @secondary-casing: 	@primary-casing;
 
-@minor-line:        lighten(@motorway-line, 15%);
+@minor-line:        lighten(@motorway-line, 5%);
 @minor-fill:   	    @motorway-fill;
 @minor-casing: 	    @motorway-casing;
 
-@path-line:         lighten(@motorway-line, 15%);
+@path-line:         lighten(@motorway-line, 5%);
 @path-fill:	        @minor-fill;
 @path-casing:       @minor-casing;
 
-@trail-line:        lighten(@motorway-line, 15%);
+@trail-line:        lighten(@motorway-line, 5%);
 @trail-fill:        @minor-fill;
 @trail-casing:      @minor-fill;
 
 // Desaturate gives rail slightly cool grey feel
-@rail-line: 	    #404040;
+@rail-line: 	    #606060;
 @rail-fill:         @land;
 @rail-casing:       @land;
 
@@ -210,16 +210,16 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: uppercase;
+@label-text-transform: none;
 @fall-back:         'Arial Unicode MS Regular';
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
-@font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Light', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Bold', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Medium Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Medium', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
+@font-primary:      'Roboto Medium', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
 @font-shield:       'Roboto Medium', 'Arial Unicode MS Bold';
 
 

@@ -9,7 +9,7 @@ import os
 # ============================================================================
 # Global variables
 
-tag = 'terrain@2x'
+tag = 'terrain'
 tile_size = 256
 fmt = 'jpg'
 azimuth = 325 # light direction
@@ -133,6 +133,7 @@ land_hillshading = dict(\
                   ned10, #13
                   ned10, #14
                   ned10,
+#                  [ned10, srtm30_org], #15
 #                  [ned3, ned10], #16
                   ],
     #          0  1    2    3  4    5  6   7   8  9 10 11
@@ -173,19 +174,19 @@ waterbody = dict(\
 
 road = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/terrain@2x_road.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/terrain_road.xml'),
     image_type='png',
     buffer_size=0,
-    scale_factor=2
+    scale_factor=1
     )
 
 
 label = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/terrain@2x_label_halo.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/terrain_label_halo.xml'),
     image_type='png',
     buffer_size=tile_size,
-    scale_factor=2
+    scale_factor=1
     )
 
 # ============================================================================
@@ -257,7 +258,7 @@ composer = dict(
 ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
-                  dispname='Terrain2 (Retina)',
+                  dispname='Terrain2',
                   version='2.0',
                   description='High Quality Shaded Relief Map',
                   attribution='OSM, SRTM+, NED',

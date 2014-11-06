@@ -7,7 +7,7 @@ cachedir= os.path.join(themedir, 'cache')
 tag = 'shell@2x'
 tile_size = 256
 
-fmt = 'png'
+fmt = 'jpg'
 
 all_ = dict(\
     prototype='node.mapnik',
