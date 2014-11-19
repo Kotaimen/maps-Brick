@@ -115,6 +115,7 @@
 
 // ========== Label Halo ==========
 
+@text-padding: 10;
 
 @label-halo:        	fadeout(@land, @label-fadeout);
 @motorway-label-halo: 	fadeout(@land,  @label-fadeout);
@@ -145,36 +146,32 @@
 @label-shield:      black;
 
 // =========== Road attachments render order ===========
-
+/*
 #landuse_gen0[zoom>=6][zoom<=9],
 #landuse_gen1[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
   ::texture {
     polygon-pattern-file: url('res/texture/halftone1.png'); 
     comp-op: soft-light;
-    opacity: 0.2;
+    opacity: 0.25;
   }
 }
-
-
+*/
 #road_tunnel, #road_tunnel_gen0,{
   ::casing { 
-    opacity: 0.6; 
-//    image-filters: scale-hsla(0,1,0,1,0,1,0,1);
-	//image-filters: invert();
+    opacity: 0.5; 
   }
-  // knock out the casing
   ::inline { 
     opacity: 0; 
-//    comp-op: dst-out;  
   }  
   ::rail { opacity: 0.5; }
 }
 
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
-  // then render transparent casing  
-  ::inline { opacity: 1; 
+// semi transparent tunnel with reduced saturation  
+  ::inline { 
+    opacity: 1; 
     image-filters: scale-hsla(0,1,0,0.3,0.5,1,0,1);
   }
   ::marker { opacity: 0.5;}
@@ -226,14 +223,12 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: uppercase;
-
-@fall-back:         'Arial Unicode MS Regular';
+@label-text-transform: capitalize;
 
 @font-regular:      'Baskerville Bold Italic', 'Noto Sans T Chinese Bold', 'Arial Unicode MS Regular';
 @font-heavy:        'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Roboto Black Italic', 'Arial Unicode MS Regular';
+@font-poi:          'Roboto Condensed Bold Italic', 'Arial Unicode MS Regular';
 @font-motorway:     'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
 @font-primary:      'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';
 @font-path:         'American Typewriter Condensed Bold', 'Arial Unicode MS Regular';

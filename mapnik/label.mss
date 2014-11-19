@@ -272,8 +272,8 @@
 #landuse_label[zoom>=14]
 {
   ::marker
-  [zoom=9][area>20000000],
-  [zoom=10][area>15000000],
+  [zoom=9][area>30000000],
+  [zoom=10][area>25000000],
   [zoom=11][area>5000000],
   [zoom=12][area>500000],
   [zoom=13][area>400000],
@@ -334,7 +334,7 @@
 //    text-name:  "[name]+' ('+[class]+','+[type]+')'";
     text-face-name: @font-poi;   
     text-fill: @label-poi;
-    text-min-padding: 10;
+    text-min-padding: @text-padding;
 //    text-min-distance: 2;
      
     [zoom>=14] { text-size: 12; }
@@ -365,7 +365,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
-    text-min-padding: 8;
+    text-min-padding:  @text-padding;
     
     text-face-name: @font-motorway;
     text-fill: @label-motorway;
@@ -397,7 +397,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
    text-clip: false;
-    text-min-padding: 8;    
+    text-min-padding:  @text-padding;    
 
     text-face-name: @font-primary;
     text-fill: @label-primary;
@@ -425,7 +425,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
    text-clip: false;
-    text-min-padding: 8;    
+    text-min-padding:  @text-padding;  
 
     text-face-name: @font-primary;
     text-fill: @label-primary;
@@ -454,8 +454,8 @@
     text-name: "[name]";
     text-placement: line; 
     text-max-char-angle-delta: 20;    
-   text-clip: false;
-    text-min-padding: 8;
+    text-clip: false;
+    text-min-padding:  @text-padding;
 
     text-face-name: @font-path;
     text-fill: @label-path;
@@ -484,7 +484,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
     text-clip: false;
-    text-min-padding: 8;
+    text-min-padding:  @text-padding;
 
     text-face-name: @font-path;
     text-fill: @label-path;
@@ -507,7 +507,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 20;    
 //    text-clip: false;
-    text-min-padding: 8;
+    text-min-padding:  @text-padding;
 
     [type='rail'],[type='subway'] { text-face-name: @font-motorway; }
     text-face-name: @font-path;
@@ -531,7 +531,7 @@
     text-placement: line; 
     text-max-char-angle-delta: 30;    
 //    text-clip: false;
-    text-min-padding: 8;
+    text-min-padding:  @text-padding;
 
     text-face-name: @font-path;
     text-fill: @ferry-line;
@@ -614,7 +614,7 @@
   shield-size: 9;
   [zoom>=11] { shield-spacing: 400; }
   shield-min-distance: 40;
-  shield-min-padding: 8;
+  shield-min-padding:  @text-padding;
 
 //  shield-allow-overlap: false;
   

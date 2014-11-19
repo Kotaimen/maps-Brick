@@ -248,8 +248,12 @@ composer = dict(
         {{road}} -compose HardLight -composite
 
         #### Label ####
-        ( {{label}} ) -compose Over -composite
+        (
+            {{terrain}} +level 40%,70%
+            ( {{label}} -channel A -morphology EdgeOut Disk:1 +channel ) -compose DstIn -composite
+        ) -compose Lighten -composite
 
+        {{label}} -compose Over -composite
         -quality 85 
     ''',
     

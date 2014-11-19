@@ -111,6 +111,7 @@
 @rail-fill:         @educational;
 
 // ========== Label Halo ==========
+@text-padding: 10;
 
 @label-halo:        fadeout(@land, @label-fadeout);
 @motorway-label-halo: 	fadeout(@motorway-fill,  @label-fadeout);

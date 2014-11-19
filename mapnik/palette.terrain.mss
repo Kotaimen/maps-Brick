@@ -19,7 +19,7 @@
 @default-halo:      1;
 
 // Transparency of halo color
-@label-fadeout:     50%;
+@label-fadeout:     0%;
 
 
 // ========== General Parameters ==========
@@ -114,7 +114,6 @@
 
 // ========== Label Halo ==========
 
-
 @label-halo:        fadeout(@land, @label-fadeout);
 @motorway-label-halo: 	fadeout(@motorway-fill,  @label-fadeout);
 @primary-label-halo: 	fadeout(@primary-fill,  @label-fadeout);
@@ -123,6 +122,8 @@
 @path-label-halo:		fadeout(@path-fill,  @label-fadeout); 
 
 // ========== Label Colors ==========
+
+@text-padding: 18;
 
 // place label
 @label-admin0:      #202020;
@@ -146,10 +147,8 @@
 
 #road_tunnel, #road_tunnel_gen0,{
   ::casing { 
-    opacity: 0.8; 
-//    image-filters: invert();
+    opacity: 1; 
   }
-  // knock out the casing
   ::inline { 
     opacity: 1; 
     comp-op: dst-out;  
@@ -160,7 +159,7 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.1; 
+  ::inline { opacity: 0.2;
 //    image-filters: scale-hsla(0,1,0,0.2,0,1,0,1);
   }
   ::marker { opacity: 0.5;}
@@ -210,16 +209,15 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: none;
-@fall-back:         'Arial Unicode MS Regular';
+@label-text-transform: uppercase;
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
-@font-heavy:        'Roboto Bold', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Medium Italic', 'Arial Unicode MS Italic';
-@font-poi:          'Roboto Medium', 'Arial Unicode MS Regular';
-@font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
+@font-physical:     'Roboto Bold Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Roboto Bold', 'Arial Unicode MS Regular';
+@font-motorway:     'Roboto Bold', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Medium', 'Arial Unicode MS Regular';
-@font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
+@font-path:         'Roboto Medium', 'Arial Unicode MS Regular';
 @font-shield:       'Roboto Medium', 'Arial Unicode MS Bold';
 
 

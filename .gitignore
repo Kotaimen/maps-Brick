@@ -3,3 +3,4 @@ mapnik/font/*.ttc
 mapnik/~*
 mapnik/xml/*
 cache/*
+.idea

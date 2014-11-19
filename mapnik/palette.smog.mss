@@ -2,7 +2,8 @@
 // Parameters and palettes
 //
 
-@theme-name:        'newspaper';
+@theme-name:        'smog';
+
 
 // ========== Halo Parameters ==========
 
@@ -15,7 +16,7 @@
 @smart-halo:        2;
 
 // Other halo size
-@default-halo:      0;
+@default-halo:      1;
 
 // Transparency of halo color
 @label-fadeout:     0%;
@@ -34,86 +35,88 @@
 // ========== Background Colors ==========
 
 // base
-@land:              #ebe9e6;
-@water:             #a3a29f;
+@land:              #8F9590;
+@water:             #9FC3BB;
 @river:             @water;
 
 // basics
-@building:          #cccccc; //#e3e2dc;
-@sand:              #d9d8d4;
+@building:          #96A398;
+@sand:              #A1A396;
 
 //// greenish
-@park:              #ccccca;
-@wooded:            @park;
+@park:              #a0ab7b;
+@wooded:            #8fab7b;
 @agriculture:       @wooded;
-@sports:            @park;
+@sports:            #C2D652;
 
 //// amenities
-@amenity:           #d9d8d4;
+@amenity:           #939E95;
 @religion:          @amenity;
-@healthcare:        @amenity;
-@educational:       @amenity;
+@healthcare:        #A39C96;
+@educational:       #A3A093;
 @barrier:           darken(@amenity, 5%);
 
 //// zone
-@residential:       #d9d9d7;
-@pedestrian:        @residential;
+@residential:       #939E95;
+@pedestrian:        @park;
 @commercial:        @residential;
 @industrial:        @residential;
-@military:          #cccccc;
+@military:          #878B8C;
 
 //// transport
 @parking:           @amenity;
-@airport:           darken(@amenity, 11%);
+@airport:           #A3A093;
 @aeroway:           @building;
 @terminal:          @amenity;
 
 //// boundary
-@boundary-line:     #25201f;
+@boundary-line:     #E1FAF7;
 @boundary-casing:   @land;
 
 
 // ========== Road Colors ==========
 
 @road-dash:         6, 3;
-@casing:            #25201f;
+@casing:            #6e7984;
 
-@ferry-line:        @casing;
+@ferry-line:        #486A68;
 
-@motorway-fill:     #ebe9e6;
-@motorway-line:     #979491;
-@motorway-casing:   @casing;
+@motorway-fill:     #7B7582;
+@motorway-line:     darken(@motorway-fill, 3%);
+@motorway-casing:   darken(@casing, 7%);
 @motorway-link:     @motorway-fill;
 
-@primary-line:      lighten(@motorway-line, 5%);
-@primary-fill:   	@motorway-fill;
-@primary-casing: 	@casing;//lighten(@casing, 5%);
+@primary-fill:   	#738075;
+@primary-line:      mix(@primary-fill, @land, 65%); 
+@primary-casing: 	@casing;
 
-@secondary-line:    @primary-line;
-@secondary-fill:   	@primary-fill;
-@secondary-casing: 	@casing;
+@secondary-fill:    @primary-fill;
+@secondary-line:    mix(@secondary-fill, @land, 65%);
+@secondary-casing:  @casing;
 
-@minor-line:        lighten(@motorway-line, 10%);
-@minor-fill:   	    @motorway-fill;
-@minor-casing: 	    @casing;
+@minor-fill:		@primary-fill;
+@minor-line:        mix(@minor-fill, @land, 65%); 
+@minor-casing: 		@casing;
 
-@path-line:         lighten(@motorway-line, 15%);
-@path-fill:	        @minor-fill;
-@path-casing:       lighten(@casing, 0%);
+@path-fill:	        @primary-fill;
+@path-line:         mix(@primary-fill, @land, 65%); 
+@path-casing:       @casing;
 
-@trail-line:        lighten(@casing, 15%);
-@trail-fill:        @amenity;
-@trail-casing:      lighten(@casing, 10%);
+@trail-fill:	    @primary-fill;
+@trail-line:        mix(@trail-fill, @land, 65%); 
+@trail-casing:      @casing;
 
-@rail-line: 	    lighten(@casing, 15%);
+// Desaturate gives rail slightly cool grey feel
 @rail-fill:         @land;
+@rail-line: 	    #697282;
 @rail-casing:       @land;
 
 
 // ========== Label Halo ==========
+
 @text-padding: 10;
 
-@label-halo:        fadeout(@land, @label-fadeout);
+@label-halo:            fadeout(@land, @label-fadeout);
 @motorway-label-halo: 	fadeout(@motorway-fill,  @label-fadeout);
 @primary-label-halo: 	fadeout(@primary-fill,  @label-fadeout);
 @secondary-label-halo: 	fadeout(@secondary-fill,  @label-fadeout);
@@ -122,28 +125,29 @@
 
 // ========== Label Colors ==========
 
-@label-admin0:      #211d1c;
-@label-admin1:      #211d1c;
-@label-place:       #211d1c;
-@label-poi:         #211d1c;
+// place label
+@label-admin0:      #BAEEF7;
+@label-admin1:      #5B5F63;
+@label-place:       #EDEDD5;
 
-
+// poi label
+@label-poi:         #5B5F63;
 @label-water:       @ferry-line;
-@label-park:        #211d1c;
-@label-physical:    @casing;
+@label-park:        #587054;
+@label-physical:    @label-admin0;
 
 // road label
-@label-motorway:    @label-poi;
-@label-primary:     @casing;
-@label-path:        @casing;
-@label-rail:        @casing;
-@label-shield:      @label-motorway;
+@label-motorway:    #5B5F63;
+@label-primary:     #5B5F63;
+@label-path:        #5B5F63;
+@label-rail:        @rail-line;
+@label-shield:      black;
 
 // =========== Road attachments render order ===========
 
 #road_tunnel, #road_tunnel_gen0,{
   ::casing { 
-    opacity: 0.5; 
+//    opacity: 1; 
 //    image-filters: invert();
   }
   // knock out the casing
@@ -157,7 +161,8 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.5;}
+  ::inline { opacity: 0.5; 
+  }
   ::marker { opacity: 0.5;}
 }
 
@@ -169,9 +174,8 @@
 }
 
 #shield_gen0, #shield_gen1, #shield {
-//  direct-image-filters: gray();
+  image-filters: scale-hsla(0,1,0,0.5,0,0.9,0,1);
 }
-
 
 // =========== Road Width ===========
 
@@ -198,27 +202,25 @@
 @r14_min: 1.5; @r14_path: 1;   @r14_cas: 2;
 @r15_min: 2;   @r15_path: 1.5; @r15_cas: 2;
 @r16_min: 3;   @r16_path: 2;   @r16_cas: 2;
-@r17_min: 4;   @r17_path: 3;   @r17_cas: 3;
-@r18_min: 6;   @r18_path: 4;   @r18_cas: 3;
+@r17_min: 4;   @r17_path: 3;   @r17_cas: 2;
+@r18_min: 6;   @r18_path: 4;   @r18_cas: 2;
 @r19_min: 8;   @r19_path: 6;   @r19_cas: 4;
 @r20_min: 14;  @r20_path: 8;   @r20_cas: 4;
-
 
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: uppercase;
+@label-text-transform: none;
 
-@fall-back:         'Arial Unicode MS Regular';
-
-@font-regular:      'American Typewriter Condensed', 'Arial Unicode MS Regular';
-@font-heavy:        'American Typewriter Regular', 'Arial Unicode MS Regular';
-@font-physical:     'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
-@font-poi:          'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
+@font-regular:      'Roboto Slab Regular', 'Arial Unicode MS Regular';
+@font-heavy:        'Roboto Slab Bold', 'Arial Unicode MS Bold';
+@font-physical:     'Noto Serif Bold Italic', 'Arial Unicode MS Italic';
+@font-poi:          'Noto Serif Italic', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';
 @font-path:         'Roboto Regular', 'Arial Unicode MS Regular';
-@font-shield:       'Roboto Bold', 'Arial Unicode MS Regular';
+@font-shield:       'Roboto Medium', 'Arial Unicode MS Bold';
+
 
 // ========== Map ==========
 

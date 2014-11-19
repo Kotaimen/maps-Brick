@@ -57,7 +57,7 @@
 @barrier:           darken(@amenity, 5%);
 
 //// zone
-@residential:       #CCC8B8;
+@residential:       #CFCABA; 
 @pedestrian:        @park;
 @commercial:        @residential;
 @industrial:        @residential;
@@ -66,7 +66,7 @@
 //// transport
 @parking:           @amenity;
 @airport:           #BFB8A1;
-@aeroway:           @building;
+@aeroway:           #E0DDCE;
 @terminal:          @amenity;
 
 //// boundary
@@ -114,6 +114,7 @@
 
 // ========== Label Halo ==========
 
+@text-padding: 10;
 
 @label-halo:        fadeout(@land, @label-fadeout);
 @motorway-label-halo: 	fadeout(@motorway-fill,  @label-fadeout);
@@ -125,9 +126,9 @@
 // ========== Label Colors ==========
 
 // place label
-@label-admin0:      #4d463e;
+@label-admin0:      #423c35;
 @label-admin1:      @boundary-line;
-@label-place:       #80321d;
+@label-place:       #6b5e4f; //#80321d;
 
 // poi label
 @label-poi:         #6b5e4f;
@@ -160,8 +161,7 @@
 #road_tunnel2, #road_tunnel2_gen0 {
   ::casing { opacity: 0; }
   // then render transparent casing  
-  ::inline { opacity: 0.5; 
-  }
+  ::inline { opacity: 0.5;}
   ::marker { opacity: 0.5;}
 }
 
@@ -209,11 +209,11 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: none;
+@label-text-transform: uppercase;
 
 @font-regular:      'Roboto Condensed Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Medium', 'Arial Unicode MS Bold';
-@font-physical:     'Roboto Italic', 'Arial Unicode MS Italic';
+@font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Roboto Regular', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Regular', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';

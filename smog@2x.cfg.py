@@ -4,24 +4,25 @@ datadir = '/Users/Kotaimen/proj/geodata'
 themedir= './themes/Brick2.mk9'
 cachedir= os.path.join(themedir, 'cache')
 
-tag = 'shell'
+tag = 'smog@2x'
 tile_size = 256
 
 fmt = 'png'
 
 all_ = dict(\
-    prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/shell_all.xml'),
-    buffer_size=tile_size,
-    scale_factor=1,
+    prototype='node.brick2',
+    theme=os.path.join(themedir, 'mapnik/xml/smog@2x'),
+    buffer_size=tile_size*2,
+    halo_opacity=0.8,
+    scale_factor=2,
     )
         
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Shell',
+                  dispname='Smog (Retina)',
                   version='2.1',
-                  description="A Mason's Brick",
+                  description="A Mason's Brick Take 2",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',

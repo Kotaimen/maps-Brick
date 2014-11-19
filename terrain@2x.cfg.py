@@ -182,9 +182,9 @@ road = dict(\
 
 label = dict(\
     prototype='node.mapnik',
-    theme=os.path.join(themedir, 'mapnik/xml/terrain@2x_label_halo.xml'),
+    theme=os.path.join(themedir, 'mapnik/xml/terrain@2x_label.xml'),
     image_type='png',
-    buffer_size=tile_size,
+    buffer_size=tile_size*2,
     scale_factor=2
     )
 
@@ -247,8 +247,14 @@ composer = dict(
         {{road}} -compose HardLight -composite
 
         #### Label ####
-        ( {{label}} ) -compose Over -composite
+        # ( {{label}} ) -compose Over -composite
+        (
+            {{terrain}} +level 40%,70%
+            #{{terrain}} -fill grey70 -colorize 100%
+            ( {{label}} -channel A -morphology EdgeOut Disk:2 +channel ) -compose DstIn -composite
+        ) -compose Lighten -composite
 
+        {{label}} -compose Over -composite
         -quality 85 
     ''',
     
