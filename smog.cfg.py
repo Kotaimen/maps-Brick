@@ -11,7 +11,7 @@ fmt = 'png'
 
 all_ = dict(\
     prototype='node.brick2',
-    theme=os.path.join(themedir, 'mapnik/xml/slaty'),
+    theme=os.path.join(themedir, 'mapnik/xml/smog'),
     buffer_size=tile_size,
     halo_opacity=0.8,
     scale_factor=1,
