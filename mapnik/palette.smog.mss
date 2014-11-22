@@ -88,21 +88,21 @@
 
 @primary-fill:   	#738075;
 @primary-line:      mix(@primary-fill, @land, 65%); 
-@primary-casing: 	@casing;
+@primary-casing: 	darken(@casing, 4%);
 
 @secondary-fill:    @primary-fill;
 @secondary-line:    mix(@secondary-fill, @land, 65%);
-@secondary-casing:  @casing;
+@secondary-casing:  darken(@casing, 4%);
 
 @minor-fill:		@primary-fill;
 @minor-line:        mix(@minor-fill, @land, 65%); 
-@minor-casing: 		@casing;
+@minor-casing: 		darken(@casing, 2%);
 
-@path-fill:	        @primary-fill;
+@path-fill:	        lighten(@primary-fill, 3%);
 @path-line:         mix(@primary-fill, @land, 65%); 
 @path-casing:       @casing;
 
-@trail-fill:	    @primary-fill;
+@trail-fill:	    @land;
 @trail-line:        mix(@trail-fill, @land, 65%); 
 @trail-casing:      @casing;
 
@@ -137,10 +137,10 @@
 @label-physical:    @label-admin0;
 
 // road label
-@label-motorway:    #5B5F63;
-@label-primary:     #5B5F63;
-@label-path:        #5B5F63;
-@label-rail:        @rail-line;
+@label-motorway:    @label-poi;
+@label-primary:     @label-poi;
+@label-path:        @label-poi;
+@label-rail:        darken(@rail-line, 5%);
 @label-shield:      black;
 
 // =========== Road attachments render order ===========
@@ -210,11 +210,11 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: none;
+@label-text-transform: capitalize;
 
 @font-regular:      'Roboto Slab Regular', 'Arial Unicode MS Regular';
 @font-heavy:        'Roboto Slab Bold', 'Arial Unicode MS Bold';
-@font-physical:     'Noto Serif Bold Italic', 'Arial Unicode MS Italic';
+@font-physical:     'Noto Serif Italic', 'Arial Unicode MS Italic';
 @font-poi:          'Noto Serif Italic', 'Arial Unicode MS Regular';
 @font-motorway:     'Roboto Medium', 'Arial Unicode MS Regular';
 @font-primary:      'Roboto Regular', 'Arial Unicode MS Regular';

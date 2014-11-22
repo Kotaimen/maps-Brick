@@ -206,7 +206,7 @@
 // ========== Label Font ==========
 
 //// text font
-@label-text-transform: none;
+@label-text-transform: capitalize;
 
 @fall-back:         'Arial Unicode MS Regular';
 
