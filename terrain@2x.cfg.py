@@ -264,7 +264,7 @@ ROOT = dict(\
     renderer='composer',
     metadata=dict(tag=tag,
                   dispname='Terrain2 (Retina)',
-                  version='2.0',
+                  version='3.0',
                   description='High Quality Shaded Relief Map',
                   attribution='OSM, SRTM+, NED',
                   ),

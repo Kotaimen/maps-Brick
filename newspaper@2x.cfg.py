@@ -94,7 +94,7 @@ ROOT = dict(\
     metadata=dict(tag=tag,
                   dispname='Newspaper (Retina)',
                   version='2.0',
-                  description="A Mason's Morning Newspaper",
+                  description="Newspaper",
                   attribution='Open Street Map, Natural Earth',
                   ),
     storage=dict(prototype='cluster',

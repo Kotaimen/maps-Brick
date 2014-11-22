@@ -22,7 +22,7 @@ ROOT = dict(\
     metadata=dict(tag=tag,
                   dispname='Smog (Retina)',
                   version='2.1',
-                  description="A Mason's Brick Take 2",
+                  description="Smoggy",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',

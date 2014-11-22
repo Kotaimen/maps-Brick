@@ -20,9 +20,9 @@ all_ = dict(\
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Slaty',
+                  dispname='Smog',
                   version='2.1',
-                  description="A Mason's Brick",
+                  description="Smoggy",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',

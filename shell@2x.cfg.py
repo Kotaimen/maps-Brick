@@ -19,9 +19,9 @@ all_ = dict(\
 ROOT = dict(\
     renderer='all_',
     metadata=dict(tag=tag,
-                  dispname='Shell (Retina)',
+                  dispname='Shell 1957 (Retina)',
                   version='2.1',
-                  description="A Mason's Brick Take 2",
+                  description="Shell Roadmap 1957",
                   attribution='Open Street Map, Natural Earth II',
                   ),
     storage=dict(prototype='cluster',
