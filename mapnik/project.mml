@@ -16,7 +16,7 @@
   "maxzoom": 20,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
-    "palette.brick.mss",
+    "palette.shell.mss",
     "base.mss",
     "road.mss",
     "bound.mss",
@@ -25,15 +25,25 @@
   "Layer": [
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_urban_areas.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_cultural.ne_10m_urban_areas",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -157.99118261729797,
-        -51.05303741160215,
-        178.0338339830011,
-        69.76985509228818
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "polygon",
       "id": "10m_urbanareas",
@@ -42,20 +52,29 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
       "srs-name": "autodetect"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_glaciated_areas.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_glaciated_areas",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -179.9999893871038,
+        -180,
         -85.051,
         180,
-        83.55756256718149
+        85.051
       ],
       "geometry": "polygon",
       "id": "10m_snow",
@@ -64,7 +83,6 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
       "srs-name": "autodetect"
     },
     {
@@ -175,12 +193,22 @@
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_ocean.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_ocean",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -179.99999999999994,
+        -180,
         -85.051,
         180,
         85.051
@@ -192,46 +220,30 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/LandPolygon/water-polygons-split-3857/water_polygons.shp",
-        "srid": "3857"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_reefs",
+        "type": "postgis",
+        "user": "postgres"
       },
-      "advanced": {
-        "srid": "3857"
-      },
+      "advanced": {},
       "class": "",
       "extent": [
         -180,
         -85.051,
         180,
         85.051
-      ],
-      "geometry": "polygon",
-      "id": "sea",
-      "layer": null,
-      "name": "sea",
-      "properties": {
-        "buffer-size": 16
-      },
-      "srs": "",
-      "srs-name": "autodetect",
-      "status": "off"
-    },
-    {
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_reefs.shp"
-      },
-      "advanced": {},
-      "class": "",
-      "extent": [
-        -180,
-        -29.984060967734536,
-        179.99999999999994,
-        28.445189113879394
       ],
       "geometry": "linestring",
       "id": "10m_reef",
@@ -240,8 +252,8 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
@@ -423,15 +435,25 @@
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_rivers_lake_centerlines.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_rivers_lake_centerlines",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -164.90347246002037,
-        -52.157728773964294,
-        177.21119225352123,
-        75.79348379113986
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "linestring",
       "id": "10m_river",
@@ -440,8 +462,8 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
@@ -551,22 +573,31 @@
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_lakes",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -165.96558168829336,
-        -50.66966651748362,
-        176.09377623426627,
-        81.95520786930868
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "polygon",
       "id": "10m_lake",
-      "layer": null,
       "name": "10m_lake",
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
@@ -954,15 +985,25 @@
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_1_states_provinces_lines_shp.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_cultural.ne_10m_admin_1_states_provinces_lines_shp",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -139.0602066219999,
-        -49.25087001999992,
-        178.448622268,
-        81.12853131600008
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "linestring",
       "id": "10m_admin1",
@@ -970,23 +1011,30 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_maritime_indicator.shp",
-        "id": "10m_marine_indicator",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_cultural.ne_10m_admin_0_boundary_lines_maritime_indicator",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
         -180,
-        -58.37588254937078,
-        178.74932072512505,
-        82.21688470654527
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "linestring",
       "id": "10m_marine_indicator",
@@ -994,20 +1042,30 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_disputed_areas.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_cultural.ne_10m_admin_0_boundary_lines_disputed_areas",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -89.19813967135845,
-        -23.83757903399993,
-        149.3593353700001,
-        48.12060394300009
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "linestring",
       "id": "10m_disurpted",
@@ -1015,23 +1073,30 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_boundary_lines_land.shp",
-        "id": "10m_admin0",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_cultural.ne_10m_admin_0_boundary_lines_land",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
       "extent": [
-        -141.00554863899987,
-        -55.120923766999944,
-        140.97762699400005,
-        70.07531036400012
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "linestring",
       "id": "10m_admin0",
@@ -1039,12 +1104,22 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geographic_lines.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_geographic_lines",
+        "type": "postgis",
+        "user": "postgres"
       },
       "advanced": {},
       "class": "",
@@ -1061,12 +1136,12 @@
         "buffer-size": 16,
         "clear-label-cache": "yes"
       },
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-0-labels-z6.shp",
+        "file": "shp/places/admin-0-labels-z6.shp",
         "encoding": "windows1252"
       },
       "advanced": {
@@ -1082,39 +1157,12 @@
       "geometry": "polygon",
       "id": "label_admin0",
       "name": "label_admin0",
-      "srs": "",
       "srs-name": "autodetect",
       "layer": null
     },
     {
       "Datasource": {
-        "encoding": "windows1252",
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_cultural/ne_10m_admin_0_countries.shp",
-        "id": "10m_country",
-        "project": "Brick_imposm3",
-        "srs": ""
-      },
-      "advanced": {
-        "encoding": "windows1252"
-      },
-      "class": "",
-      "extent": [
-        -179.9999999999999,
-        -85.051,
-        180,
-        83.63410065300015
-      ],
-      "geometry": "polygon",
-      "id": "10m_country",
-      "name": "10m_country",
-      "srs": "",
-      "srs-name": "autodetect",
-      "layer": null,
-      "status": "off"
-    },
-    {
-      "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/admin-1-labels-z7.shp",
+        "file": "shp/places/admin-1-labels-z7.shp",
         "encoding": "windows1252"
       },
       "advanced": {
@@ -1130,18 +1178,17 @@
       "geometry": "polygon",
       "id": "label_admin1",
       "name": "label_admin1",
-      "srs": "",
       "srs-name": "autodetect",
       "layer": null
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/place-point-labels.shp",
-        "id": "place_static",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "file": "shp/places/place-point-labels.shp",
+        "encoding": "windows1252"
       },
-      "advanced": {},
+      "advanced": {
+        "encoding": "windows1252"
+      },
       "class": "",
       "extent": [
         -176.53333,
@@ -1152,13 +1199,12 @@
       "geometry": "point",
       "id": "place_static",
       "name": "place_static",
-      "srs": "",
       "srs-name": "autodetect",
       "layer": null
     },
     {
       "Datasource": {
-        "file": "/Users/kotaimen/proj/geodata/Stage/Brick/places/continents.shp"
+        "file": "shp/places/continents.shp"
       },
       "advanced": {},
       "class": "",
@@ -1171,7 +1217,6 @@
       "geometry": "point",
       "id": "label_continent",
       "name": "label_continent",
-      "srs": "",
       "srs-name": "autodetect"
     },
     {
@@ -1400,96 +1445,115 @@
     },
     {
       "Datasource": {
-        "encoding": "windows1252",
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_marine_polys.shp",
-        "id": "10m_marine",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_geography_marine_polys",
+        "type": "postgis",
+        "user": "postgres"
       },
-      "advanced": {
-        "encoding": "windows1252"
-      },
+      "advanced": {},
       "class": "",
       "extent": [
         -180,
         -85.051,
-        179.9998970889459,
+        180,
         85.051
       ],
       "geometry": "polygon",
       "id": "10m_marine",
       "name": "10m_marine",
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "encoding": "windows1252",
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_lakes.shp"
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_lakes",
+        "type": "postgis",
+        "user": "postgres"
       },
-      "advanced": {
-        "encoding": "windows1252"
-      },
+      "advanced": {},
       "class": "",
       "extent": [
-        -165.96558168829336,
-        -50.66966651748362,
-        176.09377623426627,
-        81.95520786930868
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "polygon",
       "id": "10m_lake_label",
       "name": "10m_lake_label",
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
-        "encoding": "windows1252",
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_points.shp",
-        "id": "10m_geoegion",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_geography_regions_points",
+        "type": "postgis",
+        "user": "postgres"
       },
-      "advanced": {
-        "encoding": "windows1252"
-      },
+      "advanced": {},
       "class": "",
       "extent": [
-        -178.31920325429127,
-        -78.63811614375592,
-        179.49756920664623,
-        83.62628815311908
+        -180,
+        -85.051,
+        180,
+        85.051
       ],
       "geometry": "point",
       "id": "10m_georegion",
       "name": "10m_georegion",
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "srs-name": "WGS84"
     },
     {
       "Datasource": {
-        "encoding": "windows-1252",
-        "file": "/Users/kotaimen/proj/geodata/Vanilla/NaturalEarth2/10m_physical/ne_10m_geography_regions_elevation_points.shp",
-        "id": "10m_elevation",
-        "project": "Brick_imposm3",
-        "srs": ""
+        "dbname": "natural_earth",
+        "extent": "-180,-90,180,90",
+        "extent_cache": "custom",
+        "geometry_field": "geometry",
+        "host": "127.0.0.1",
+        "key_field": "gid",
+        "password": "123456",
+        "port": "6432",
+        "table": "ne_10m_physical.ne_10m_geography_regions_elevation_points",
+        "type": "postgis",
+        "user": "postgres"
       },
-      "advanced": {
-        "encoding": "windows-1252"
-      },
+      "advanced": {},
       "class": "",
       "extent": [
-        -178.1552017894475,
+        -180,
         -85.051,
-        179.20362451966955,
-        83.32740297860224
+        180,
+        85.051
       ],
       "geometry": "point",
       "id": "10m_elevation",
       "name": "10m_elevation",
-      "srs": "",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {

@@ -19,7 +19,7 @@ Map {
 //  polygon-fill: darken(@water, 9%);
 
   // Optional texture
-//  ::pattern{ polygon-pattern-file: url('res/texture/wave.png'); comp-op: multiply; }
+  ::pattern{ polygon-pattern-file: url('res/texture/wave.png'); comp-op: multiply; }
   
   // Make a slightly blurred light polygon and use softlight to 
   // create "inner shadow" and slightly edge contrast lift.
