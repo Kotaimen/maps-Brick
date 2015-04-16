@@ -82,29 +82,29 @@
 @ferry-line:        @land;
 
 @motorway-fill:     #960303;
-@motorway-line:     #ad5e59;
+@motorway-line:     #c7947c;
 @motorway-casing:   @casing;
 @motorway-link:     @motorway-fill;
 
 
 @primary-fill:   	#27275e;
-@primary-line:      mix(@primary-fill, @land, 65%); //fadeout(@primary-fill, 60%);
+@primary-line:      mix(@primary-fill, @land, 60%);
 @primary-casing: 	@casing;
 
 @secondary-fill:    @primary-fill;
-@secondary-line:    mix(@secondary-fill, @land, 65%); //fadeout(@secondary-fill, 60%);
+@secondary-line:    mix(@secondary-fill, @land, 50%); 
 @secondary-casing:  @casing;
 
 @minor-fill:		@primary-fill;
-@minor-line:        mix(@minor-fill, @land, 65%); //fadeout(@minor-fill, 50%);
+@minor-line:        mix(@minor-fill, @land, 40%);
 @minor-casing: 		@casing;
 
 @path-fill:	        @primary-fill;
-@path-line:         mix(@primary-fill, @land, 65%); //fadeout(@path-fill, 50%);
+@path-line:         mix(@primary-fill, @land, 40%);
 @path-casing:       @casing;
 
 @trail-fill:	    @primary-fill;
-@trail-line:        mix(@trail-fill, @land, 65%); //fadeout(@trail-fill, 50%);
+@trail-line:        mix(@trail-fill, @land, 40%);
 @trail-casing:      @casing;
 
 // Desaturate gives rail slightly cool grey feel
@@ -146,7 +146,7 @@
 @label-shield:      black;
 
 // =========== Road attachments render order ===========
-/*
+
 #landuse_gen0[zoom>=6][zoom<=9],
 #landuse_gen1[zoom>=10][zoom<=12],
 #landuse[zoom>=13] {
@@ -156,7 +156,7 @@
     opacity: 0.25;
   }
 }
-*/
+
 #road_tunnel, #road_tunnel_gen0,{
   ::casing { 
     opacity: 0.5; 
