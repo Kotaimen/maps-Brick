@@ -22,7 +22,7 @@ def compile_mml(mml, xml):
     """compile to mapnik xml using carto"""
     print 'Compiling "%s" to "%s"...' % (mml, xml)
     with open(xml, 'wb') as fp:
-        subprocess.check_call(['carto', '-n', '-l', mml, ], stdout=fp)
+        subprocess.check_call(['carto', '-n', mml, ], stdout=fp)
     print '  ...done'
 
 
@@ -33,13 +33,9 @@ def patch_xml(filename):
     # os.path.abspath() doesn't follow symbolic link
     base = os.path.join(os.environ['PWD'], 'mapnik')
 
-    print 'Patching map attributes.'
-    print '  ...set base to:', base
+    print 'Patching map attributes...'
     root = tree.getroot()
     root.attrib['font-directory'] = 'font'
-    root.attrib['base'] = base
-    
-    # return tree
 
     styles = {}
 
@@ -126,21 +122,30 @@ def patch_xml(filename):
         datasource = layer.find('Datasource')
 
         # apply async postgis read for speed
+        is_postgis = False
         for parameter in datasource.findall('Parameter'):
-            if parameter.attrib['name'] == 'type' and \
-               parameter.text == 'postgis' and \
-               '_gen' not in layer.attrib['name']:
-                new_params = {
-                    'max_size': '10',
-                    'asynchronous_request': 'true',
-                    'max_async_connection': '5', }
-                print '  ...applying async postgis options'
-                for k, v in new_params.iteritems():
-                    p = ET.Element('Parameter')
-                    p.attrib['name'] = k
-                    p.text = v
-                    datasource.append(p)
-                break
+            if parameter.attrib['name'] == 'type':
+                is_postgis = True
+                if parameter.text == 'postgis' and \
+                                '_gen' not in layer.attrib['name']:
+                    new_params = {
+                        'max_size': '10',
+                        'asynchronous_request': 'true',
+                        'max_async_connection': '5', }
+                    print '  ...applying async postgis options'
+                    for k, v in new_params.iteritems():
+                        p = ET.Element('Parameter')
+                        p.attrib['name'] = k
+                        p.text = v
+                        datasource.append(p)
+                    break
+        if not is_postgis:
+            # carto 0.14 generates incorrect shapefile datasource
+            print '  ...patching shapefile datasource type'
+            p = ET.Element('Parameter')
+            p.attrib['name'] = 'type'
+            p.text = 'shape'
+            datasource.append(p)
 
         # add "cache-features" to layer if they contain more than one styles
         if style_num > 1 and '_gen' not in layer.attrib['name']:
@@ -151,7 +156,7 @@ def patch_xml(filename):
         if rule_num == 0:
             print '  ...delete useless layer'
             root.remove(layer)
-            
+
     return tree
 
 
@@ -230,19 +235,19 @@ def main():
                         nargs='+',
                         metavar='themes',
                         help='''theme names''',
-    )
+                        )
     parser.add_argument('--smart',
                         dest='smart',
                         default=False,
                         action='store_true',
                         help='''generate smart halo style'''
-    )
+                        )
 
     parser.add_argument('-w', '--watch',
                         dest='watch',
                         default=False,
                         action='store_true'
-    )
+                        )
 
     options = parser.parse_args()
 
@@ -282,6 +287,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
 

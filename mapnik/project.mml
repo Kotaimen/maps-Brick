@@ -52,7 +52,8 @@
       "properties": {
         "buffer-size": 16
       },
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
@@ -1142,10 +1143,10 @@
     {
       "Datasource": {
         "file": "shp/places/admin-0-labels-z6.shp",
-        "encoding": "windows1252"
+        "encoding": "iso-8859-1"
       },
       "advanced": {
-        "encoding": "windows1252"
+        "encoding": "iso-8859-1"
       },
       "class": "",
       "extent": [
@@ -1163,10 +1164,12 @@
     {
       "Datasource": {
         "file": "shp/places/admin-1-labels-z7.shp",
-        "encoding": "windows1252"
+        "encoding": "iso-8859-1",
+        "id": "label_admin1",
+        "project": "Brick"
       },
       "advanced": {
-        "encoding": "windows1252"
+        "encoding": "iso-8859-1"
       },
       "class": "",
       "extent": [
@@ -1184,11 +1187,10 @@
     {
       "Datasource": {
         "file": "shp/places/place-point-labels.shp",
-        "encoding": "windows1252"
+        "id": "place_static",
+        "project": "Brick"
       },
-      "advanced": {
-        "encoding": "windows1252"
-      },
+      "advanced": {},
       "class": "",
       "extent": [
         -176.53333,
@@ -1217,7 +1219,9 @@
       "geometry": "point",
       "id": "label_continent",
       "name": "label_continent",
-      "srs-name": "autodetect"
+      "srs-name": "WGS84",
+      "layer": null,
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
     },
     {
       "Datasource": {
