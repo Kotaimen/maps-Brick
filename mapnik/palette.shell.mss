@@ -225,7 +225,7 @@
 //// text font
 @label-text-transform: capitalize;
 
-@font-regular:      'Baskerville Bold Italic', 'Noto Sans T Chinese Bold', 'Arial Unicode MS Regular';
+@font-regular:      'Baskerville Bold Italic', 'Arial Unicode MS Regular';
 @font-heavy:        'Baskerville SemiBold Italic', 'Arial Unicode MS Regular';
 @font-physical:     'Roboto Condensed Italic', 'Arial Unicode MS Regular';
 @font-poi:          'Roboto Condensed Bold Italic', 'Arial Unicode MS Regular';
