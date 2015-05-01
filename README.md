@@ -2,6 +2,11 @@
 
 ## Features
 
+### 3.0
+
+- Ported configuration files to `stonemason`
+    - Relief map is not supported, yet.
+
 ### 2.1
 
 - Imposm3 OSM data import

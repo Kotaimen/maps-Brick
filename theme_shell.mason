@@ -1,0 +1,10 @@
+# -*- encoding: utf-8 -*-
+
+name = 'shell'
+title = 'Shell, 1957'
+abstract = 'Recreation of vintage roadmap collection published by Shell Oil Company in 1950s.'
+
+imageformat = 'JPEG'
+extension = '.jpg'
+
+{% include"template_simple.py" %}

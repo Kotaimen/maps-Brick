@@ -1,0 +1,118 @@
+# -*- encoding: utf-8 -*-
+
+metadata = dict(
+    title='Newspaper',
+    version='3.0.0',
+    abstract='Mimics a halftone newspaper.',
+    attribution='Map Design: K&R, Data: Natural Earth, Open Street Map',
+    origin=(-122, 37),
+    origin_zoom=4,
+)
+
+pyramid = dict(
+    stride=1,
+    geogcs='WGS84',
+    projcs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+    levels=range(2, 20),
+)
+
+maptype = 'image'
+
+tileformat = dict(format='PNG', extension='.png')
+
+THEME = dict(
+    name='newspaper',
+    metadata=metadata,
+    pyramid=pyramid,
+    maptype=maptype,
+    tileformat=tileformat,
+    schemas=[]
+)
+
+command =  '''
+# Apply ordered dither to landbase, mimics 'halftone dither' effect
+( <<base>> -ordered-dither o8x8,4 )
+
+(
+    # Use a different dither for some variation
+    ( <<road>> )
+    # Fill halo with land color and only render on top of roads
+    ( <<label>> -channel A -morphology Dilate Disk:4 +channel +level-colors #ebe9e6 ) -compose Atop -composite
+    -ordered-dither o4x4,4
+) -compose Over -composite
+(
+    # Increase lightness of labels, will apply Multiply later...
+    <<label>>
+    -brightness-contrast +10
+    # Mimics 'typewriter' effect, only works on thin fonts.
+    # Find line joins of labels and thicken/darken them.
+    # Uses ImageMagick's morphology operation.
+    # Slow!
+    ( +clone -channel A
+      -morphology HMT LineJunctions
+      -morphology Dilate Disk:1
+      +channel
+    ) -compose Multiply -composite
+)  -compose Darken -composite
+
+# Make "real" duetone effect, not fake color tint.
+-brightness-contrast -12x-10
+
+# Convert to grayscale then apply duetone lookup table
+# The reference duotone images are converted from
+# Photoshop's classic 'Duotone' mode library.
+-colorspace gray {{ theme_root }}/mapnik/res/duotone/Bl-for-dark-cg9-cg2.png -clut
+
+# Finally, convert to paletted png
+-dither none
+-colors 128
+'''
+
+
+for scale in [1, 2]:
+    tag = '' if (scale == 1) else ('@%dx' % scale)
+
+    schema = dict(
+        tag='%s.png' % tag,
+        pyramid=pyramid,
+        maptype=maptype,
+        tileformat=tileformat,
+        # storage={
+        # 'prototype': 'disk',
+        # 'stride': 8,
+        # 'root': '{{ theme_root }}/cache/%s' % name,
+        # },
+        renderer={
+            'prototype': 'image',
+            'layers': {
+                'root': {
+                    'prototype': 'imagemagick',
+                    'sources': ['base', 'road', 'label'],
+                    'command': command
+                },
+                'base': {
+                    'prototype': 'mapnik',
+                    'style_sheet': "{{ theme_root }}/mapnik/xml/newspaper%s_base.xml" % tag,
+                    'base_path': '{{ theme_root }}/mapnik',
+                    'default_scale': scale,
+                    'buffer_size': 256 * scale
+                },
+                'road': {
+                    'prototype': 'mapnik',
+                    'style_sheet': "{{ theme_root }}/mapnik/xml/newspaper%s_road.xml" % tag,
+                    'base_path': '{{ theme_root }}/mapnik',
+                    'default_scale': scale,
+                    'buffer_size': 256 * scale
+                },
+                'label': {
+                    'prototype': 'mapnik',
+                    'style_sheet': "{{ theme_root }}/mapnik/xml/newspaper%s_label.xml" % tag,
+                    'base_path': '{{ theme_root }}/mapnik',
+                    'default_scale': scale,
+                    'buffer_size': 256 * scale
+                }
+            }
+        }
+    )
+
+    THEME['schemas'].append(schema)

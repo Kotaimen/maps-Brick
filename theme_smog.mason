@@ -1,0 +1,10 @@
+# -*- encoding: utf-8 -*-
+
+name = 'smog'
+title = 'Smog'
+abstract = "AQI=256"
+
+imageformat = 'PNG'
+extension = '.png'
+
+{% include"template_composed.py" %}
