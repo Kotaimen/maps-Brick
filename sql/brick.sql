@@ -176,6 +176,7 @@ CREATE OR REPLACE VIEW label_places AS
     SELECT 
         osm_id AS gid,
         name,
+        "name:en",
         type,
         place_rank(type) AS rank,
         population,
@@ -186,7 +187,7 @@ CREATE OR REPLACE VIEW label_places AS
 
 DROP VIEW IF EXISTS label_landuse_areas;
 CREATE OR REPLACE VIEW label_landuse_areas AS
-    SELECT osm_id AS gid, class, type, name, area,
+    SELECT osm_id AS gid, class, type, name, "name:en", area,
     landuse_maki(class, type) AS maki,
     ST_PointOnSurface(ST_Multi(geometry)) AS geometry
     FROM osm_landuse_areas
@@ -196,7 +197,7 @@ CREATE OR REPLACE VIEW label_landuse_areas AS
 
 DROP VIEW IF EXISTS label_landuse_areas_gen0;
 CREATE OR REPLACE VIEW label_landuse_areas_gen0 AS
-    SELECT osm_id AS gid, class, type, name, area,
+    SELECT osm_id AS gid, class, type, name, "name:en", area,
     landuse_maki(class, type) AS maki,
     ST_PointOnSurface(ST_Multi(geometry)) AS geometry
     FROM osm_landuse_areas_gen0
@@ -206,7 +207,7 @@ CREATE OR REPLACE VIEW label_landuse_areas_gen0 AS
 
 DROP VIEW IF EXISTS label_landuse_areas_gen1;
 CREATE OR REPLACE VIEW label_landuse_areas_gen1 AS
-    SELECT osm_id AS gid, class, type, name, area,
+    SELECT osm_id AS gid, class, type, name, "name:en", area,
     landuse_maki(class, type) AS maki,
     ST_PointOnSurface(ST_Multi(geometry)) AS geometry
     FROM osm_landuse_areas_gen1

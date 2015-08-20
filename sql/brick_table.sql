@@ -216,8 +216,8 @@ $$ LANGUAGE plpgsql IMMUTABLE;
 
 -- roads
 CREATE INDEX ON public.osm_roads(type); -- for accelerating creation of road gen0, gen1
-CREATE INDEX ON public.osm_roads(normalize_name("name:en", name)) 
-	WHERE normalize_name("name:en", name) IS NOT NULL AND normalize_name("name:en", name) != ''; -- for accelerating creation of road names
+CREATE INDEX ON public.osm_roads(normalize_name(name, "name:en")) 
+	WHERE normalize_name(name, "name:en") IS NOT NULL AND normalize_name(name, "name:en") != ''; -- for accelerating creation of road names
 CREATE INDEX ON public.osm_roads(class, type, normalize_ref(class, type, ref)) 
 	WHERE normalize_ref(class, type, ref) IS NOT NULL AND normalize_ref(class, type, ref) != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')); -- for accelerating creation of road refs
 
@@ -229,8 +229,8 @@ CREATE TABLE public.osm_roads_gen0 AS
 SELECT populate_geometry_columns('public.osm_roads_gen0'::regclass, true);
 ALTER TABLE public.osm_roads_gen0 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_roads_gen0 USING gist(geometry);
-CREATE INDEX ON public.osm_roads_gen0(class, type, normalize_name("name:en", name)) 
-	WHERE normalize_name("name:en", name) IS NOT NULL AND normalize_name("name:en", name) != '';  -- for accelerating creation of road names
+CREATE INDEX ON public.osm_roads_gen0(class, type, normalize_name(name, "name:en")) 
+	WHERE normalize_name(name, "name:en") IS NOT NULL AND normalize_name(name, "name:en") != '';  -- for accelerating creation of road names
 CREATE INDEX ON public.osm_roads_gen0(class, type, normalize_ref(class, type, ref)) 
 	WHERE normalize_ref(class, type, ref) IS NOT NULL AND normalize_ref(class, type, ref) != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')); -- for accelerating creation of road refs
 
@@ -242,8 +242,8 @@ CREATE TABLE public.osm_roads_gen1 AS
 SELECT populate_geometry_columns('public.osm_roads_gen1'::regclass, true);
 ALTER TABLE public.osm_roads_gen1 ADD PRIMARY KEY (id);
 CREATE INDEX ON public.osm_roads_gen1 USING gist(geometry);
-CREATE INDEX ON public.osm_roads_gen1(class, type, normalize_name("name:en", name)) 
-	WHERE normalize_name("name:en", name) IS NOT NULL AND normalize_name("name:en", name) != ''; -- for accelerating creation of road names
+CREATE INDEX ON public.osm_roads_gen1(class, type, normalize_name(name, "name:en")) 
+	WHERE normalize_name(name, "name:en") IS NOT NULL AND normalize_name(name, "name:en") != ''; -- for accelerating creation of road names
 CREATE INDEX ON public.osm_roads_gen1(class, type, normalize_ref(class, type, ref)) 
 	WHERE normalize_ref(class, type, ref) IS NOT NULL AND normalize_ref(class, type, ref) != '' AND (type IN ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')); -- for accelerating creation of road refs
 
@@ -336,13 +336,13 @@ CREATE TABLE label_roads AS
     FROM (
          SELECT class, 
          		road_type(class, type) AS type,
-                regexp_replace(normalize_name("name:en", name), '(.*)\(.*\)', '\1') AS name,
+                regexp_replace(normalize_name(name, "name:en"), '(.*)\(.*\)', '\1') AS name,
                 tunnel,
                 bridge,
                 road_rank(class, type) AS rank,
                 geometry
         FROM osm_roads
-		WHERE normalize_name("name:en", name) IS NOT NULL AND normalize_name("name:en", name) != ''
+		WHERE normalize_name(name, "name:en") IS NOT NULL AND normalize_name(name, "name:en") != ''
         UNION ALL
         SELECT  'ferry' AS class, 
                 'ferry' AS type, 
@@ -373,11 +373,11 @@ CREATE TABLE label_roads_gen0 AS
     FROM (
          SELECT	class, 
 		        road_type(class, type) AS type,
-                regexp_replace(normalize_name("name:en", name), '(.*)\(.*\)', '\1') AS name, 
+                regexp_replace(normalize_name(name, "name:en"), '(.*)\(.*\)', '\1') AS name, 
 	            ST_Multi((ST_Dump(ST_Multi(ST_LineMerge(ST_CollectionExtract(ST_Collect(geometry), 2))))).geom) AS geometry
         FROM osm_roads_gen0
-		WHERE normalize_name("name:en", name) IS NOT NULL AND normalize_name("name:en", name) != ''
-		GROUP BY class, type, normalize_name("name:en", name)
+		WHERE normalize_name(name, "name:en") IS NOT NULL AND normalize_name(name, "name:en") != ''
+		GROUP BY class, type, normalize_name(name, "name:en")
     ) AS foo
     ORDER BY rank, name_length, name;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_roads_gen0'::regclass, true);
@@ -397,11 +397,11 @@ CREATE TABLE label_roads_gen1 AS
     FROM (
          SELECT	class, 
 		        road_type(class, type) AS type,
-                regexp_replace(normalize_name("name:en", name), '(.*)\(.*\)', '\1') AS name, 
+                regexp_replace(normalize_name(name, "name:en"), '(.*)\(.*\)', '\1') AS name, 
 	            ST_Multi((ST_Dump(ST_Multi(ST_LineMerge(ST_CollectionExtract(ST_Collect(geometry), 2))))).geom) AS geometry
         FROM osm_roads_gen1
-		WHERE normalize_name("name:en", name) IS NOT NULL AND normalize_name("name:en", name) != ''
-		GROUP BY class, type, normalize_name("name:en", name)
+		WHERE normalize_name(name, "name:en") IS NOT NULL AND normalize_name(name, "name:en") != ''
+		GROUP BY class, type, normalize_name(name, "name:en")
     ) AS foo
     ORDER BY rank, name_length, name;
 SELECT POPULATE_GEOMETRY_COLUMNS('label_roads_gen1'::regclass, true);
